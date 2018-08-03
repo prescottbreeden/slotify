@@ -7,6 +7,11 @@
 	include('includes/handlers/register-handler.php');
 	include('includes/handlers/login-handler.php');
 
+	function getInputValue($name) {
+		if(isset($_POST[$name])) {
+			echo $_POST[$name];
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +31,7 @@
 					id="loginUsername" 
 					name="loginUsername" 
 					placeholder="e.g. bartSimpson"
+					value="<?php echo $_POST['loginUsername']; ?>"
 					required
 					type="text">
 			</p>
@@ -34,8 +40,8 @@
 				<input 
 					id="loginPassword" 
 					name="loginPassword" 
-					required
 					placeholder="Your password"
+					required
 					type="password">
 			</p>
 			<button type="submit" name=loginButton>Log In</button>
@@ -50,6 +56,7 @@
 					id="username" 
 					name="username" 
 					placeholder="e.g. bartSimpson"
+					value="<?php getInputValue('username') ?>"
 					required
 					type="text">
 			</p>
@@ -60,6 +67,7 @@
 					id="firstName" 
 					name="firstName" 
 					placeholder="e.g. bart"
+					value="<?php getInputValue('firstName') ?>"
 					required
 					type="text">
 			</p>
@@ -70,6 +78,7 @@
 					id="lastName" 
 					name="lastName" 
 					placeholder="e.g. Simpson"
+					value="<?php getInputValue('lastName') ?>"
 					required
 					type="text">
 			</p>
@@ -81,6 +90,7 @@
 					id="email" 
 					name="email" 
 					placeholder="bartSimpson@gmail.com"
+					value="<?php getInputValue('email') ?>"
 					required
 					type="email">
 			</p>
@@ -90,6 +100,7 @@
 					id="email2" 
 					name="email2" 
 					placeholder="bartSimpson@gmail.com"
+					value="<?php getInputValue('email2') ?>"
 					required
 					type="email">
 			</p>
