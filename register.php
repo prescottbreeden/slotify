@@ -1,4 +1,5 @@
 <?php
+	include('includes/classes/Constants.php');
 	include('includes/classes/Account.php');
 
 	$account = new Account();
@@ -43,7 +44,7 @@
 		<form id="registerForm" action="register.php" method="POST">
 			<h2>Create your free account</h2>
 			<p>
-				<?php echo $account->getError($account->un_len); ?>
+				<?php echo $account->getError(Constants::$error_un_len); ?>
 				<label for="username">Username</label>
 				<input 
 					id="username" 
@@ -53,7 +54,7 @@
 					type="text">
 			</p>
 			<p>
-				<?php echo $account->getError($account->fn_len); ?>
+				<?php echo $account->getError(Constants::$error_fn_len); ?>
 				<label for="firstName">First Name</label>
 				<input 
 					id="firstName" 
@@ -63,7 +64,7 @@
 					type="text">
 			</p>
 			<p>
-				<?php echo $account->getError($account->ln_len); ?>
+				<?php echo $account->getError(Constants::$error_ln_len); ?>
 				<label for="lastName">Last Name</label>
 				<input 
 					id="lastName" 
@@ -73,7 +74,8 @@
 					type="text">
 			</p>
 			<p>
-				<?php echo $account->getError($account->em_match); ?>
+				<?php echo $account->getError(Constants::$error_em_match); ?>
+				<?php echo $account->getError(Constants::$error_em_valid); ?>
 				<label for="email">Email</label>
 				<input 
 					id="email" 
@@ -92,7 +94,9 @@
 					type="email">
 			</p>
 			<p>
-				<?php echo $account->getError($account->pw_len); ?>
+				<?php echo $account->getError(Constants::$error_pw_len); ?>
+				<?php echo $account->getError(Constants::$error_pw_match); ?>
+				<?php echo $account->getError(Constants::$error_pw_valid); ?>
 				<label for="password">Password</label>
 				<input 
 					id="password" 
