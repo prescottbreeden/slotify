@@ -31,7 +31,6 @@
 					id="loginUsername" 
 					name="loginUsername" 
 					placeholder="e.g. bartSimpson"
-					value="<?php echo $_POST['loginUsername']; ?>"
 					required
 					type="text">
 			</p>
