@@ -53,6 +53,7 @@ function getInputValue($name) {
 			<h2>Create your free account</h2>
 			<p>
 				<?php echo $account->getError(Constants::$error_un_len); ?>
+				<?php echo $account->getError(Constants::$error_un_taken); ?>
 				<label for="username">Username</label>
 				<input 
 					id="username" 
@@ -87,6 +88,7 @@ function getInputValue($name) {
 			<p>
 				<?php echo $account->getError(Constants::$error_em_match); ?>
 				<?php echo $account->getError(Constants::$error_em_valid); ?>
+				<?php echo $account->getError(Constants::$error_em_taken); ?>
 				<label for="email">Email</label>
 				<input 
 					id="email" 

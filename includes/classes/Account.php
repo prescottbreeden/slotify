@@ -37,14 +37,12 @@ class Account {
 	}
 
 	private function insertUserDetails($un, $fn, $ln, $em, $pw) {
-		echo "inside insertUserDetails";
 		$encryptedPw = md5($pw);
 		$profilePic = "assets/images/profile-pics/head_emerald.png";
 		$result = mysqli_query($this->con, "INSERT INTO users 
 			(username, first_name, last_name, email, password, profile_pic) 
 			VALUES ('$un', '$fn', '$ln', '$em', '$encryptedPw', '$profilePic')");
 
-		echo $result;
 		return $result;
 	}
 
@@ -54,7 +52,10 @@ class Account {
 			return;
 		}
 
-		//TODO: check if username exists;
+		$checkUsernameQuery = mysqli_query($this->con, "SELECT username FROM users WHERE username='$un'");
+		if(mysqli_num_rows($checkUsernameQuery) != 0) {
+			array_push($this->errorArray, Constants::$error_un_taken);
+		}
 
 	}
 
@@ -83,7 +84,10 @@ class Account {
 			return;
 		}
 
-		//TODO: check that email hasn't already been used
+		$checkEmailQuery = mysqli_query($this->con, "SELECT email FROM users WHERE email='$em'");
+		if(mysqli_num_rows($checkEmailQuery) != 0) {
+			array_push($this->errorArray, Constants::$error_em_taken);
+		}
 	}
 
 	private function validatePasswords($pw, $pw2) {
