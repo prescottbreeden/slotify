@@ -2,10 +2,11 @@
 
 class Account {
 
+	private $con;
 	private $errorArray;
 
-
-	public function __construct() {
+	public function __construct($con) {
+		$this->con = $con;
 		$this->errorArray = array();
 		
 	}
@@ -19,28 +20,32 @@ class Account {
 
 		if(empty($this->errorArray)) {
 			// Insert into DB
-			return true;
+			echo "shit is probably broke";
+			return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
 		}
 		else {
+			echo "shit broke";
 			return false;
 		}
 	}
-
-	/* public function getError($error) { */
-	/* 	if(!array_key_exists($error, array $this->errorArray)) { */
-	/* 		$error = ''; */
-	/* 	} */
-	/* 	else { */
-	/* 		$err = $this->errorArray[$error]; */
-	/* 		return "<span class='errorMessage'>$error</span>"; */
-	/* 	} */
-	/* } */
 
 	public function getError($error) {
 		if(!in_array($error, $this->errorArray)) {
 			$error = "";
 		}
 		return "<span class='errorMessage'>$error</span>";
+	}
+
+	private function insertUserDetails($un, $fn, $ln, $em, $pw) {
+		echo "inside insertUserDetails";
+		$encryptedPw = md5($pw);
+		$profilePic = "assets/images/profile-pics/head_emerald.png";
+		$result = mysqli_query($this->con, "INSERT INTO users 
+			(username, first_name, last_name, email, password, profile_pic) 
+			VALUES ('$un', '$fn', '$ln', '$em', '$encryptedPw', '$profilePic')");
+
+		echo $result;
+		return $result;
 	}
 
 	private function validateUsername($un) {

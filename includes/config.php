@@ -9,7 +9,7 @@ define("DB_USER", "trashpanda");
 define("DB_PASSWORD", "rubberbabybuggybumpers");
 define("DB_DATABASE", "slotify");
 
-echo var_dump(function_exists('mysqli_connect'));
+/* echo var_dump(function_exists('mysqli_connect')); */
 
 $con = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
 
