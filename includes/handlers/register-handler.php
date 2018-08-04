@@ -38,6 +38,7 @@ if(isset($_POST['registerButton'])) {
 		$password2);
 
 	if($res) {
+		$_SESSION['userLoggedIn'] = $username;
 		header('Location: index.php');
 	}
 }

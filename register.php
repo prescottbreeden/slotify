@@ -29,6 +29,7 @@ function getInputValue($name) {
 		<form id="loginForm" action="register.php" method="POST">
 			<h2>Login to your account</h2>
 			<p>
+				<?php echo $account->getError(Constants::$error_login_failed); ?>
 				<label for="loginUsername">Username</label>
 				<input 
 					id="loginUsername" 

@@ -1,10 +1,21 @@
+<?php
+include('includes/config.php');
+
+if(!isset($_SESSION['userLoggedIn'])) {
+	header("Location: register.php");
+}
+
+// session_destroy();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>balls</title>
+	<title>Welcome to Slotify!</title>
 </head>
 <body>
-	<h1>testing</h1>
+	Hello!
 </body>
 </html>
