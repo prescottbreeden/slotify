@@ -22,6 +22,7 @@ function getInputValue($name) {
 <head>
 	<meta charset="UTF-8">
 	<title>Welcome to Slotify!</title>
+	<link rel="stylesheet" href="assets/css/register.css">
 </head>
 <body>
 	<div id="inputContainer">
