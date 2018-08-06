@@ -101,7 +101,21 @@ if(!isset($_SESSION['userLoggedIn'])) {
 				</div>
 			</div>
 			<div class="player__play-bar--volume">
-				volume
+				<div class="volume">
+					<div class="volume__bar">
+						<svg 
+							aria-label="[title]"
+							class="volume__bar--icon">
+							<title>Mute</title>
+							<use xlink:href="public/images/icomoon/sprite.svg#icon-volume-medium"></use>
+						</svg>
+						<div class="progress-bar">
+							<div class="progress-bar__bg">
+								<div class="progress-bar__progress"></div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
