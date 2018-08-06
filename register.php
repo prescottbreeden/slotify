@@ -31,6 +31,27 @@ function getInputValue($name) {
 	<script src="public/js/app.js"></script>
 </head>
 <body>
+
+<?php
+
+if(isset($_POST['registerButton'])) {
+	echo '<script>
+			$(document).ready(function() {
+				$("#loginForm").hide();
+				$("#registerForm").show();
+			});
+		</script>';
+}
+else {
+	echo '<script>
+			$(document).ready(function() {
+				$("#loginForm").show();
+				$("#registerForm").hide();
+			});
+		</script>';
+}
+
+?>
 	<section class="register" id="background">
 		<div class="register__container" id="register_container">
 			<div class="register__login" id="input_container">
@@ -169,6 +190,30 @@ function getInputValue($name) {
 						<span id="hideRegister">Already have an account? Log in here.</span>
 					</div>
 				</form>
+			</div>
+			<div class="register__promo-text">
+				<h2 class="register__promo-text--heading">Get great music, right now</h2>
+				<h3 class="register__promo-text--sub-heading">Listen to loads of songs for free</h3>
+				<ul class="register__promo-text--list">
+					<li class="register__promo-text--item">
+						<svg class="register__promo-text--icon">
+							<use xlink:href="public/images/icomoon/sprite.svg#icon-checkmark"></use>
+						</svg>
+						Discover music you'll fall in love with
+					</li>
+					<li class="register__promo-text--item">
+						<svg class="register__promo-text--icon">
+							<use xlink:href="public/images/icomoon/sprite.svg#icon-checkmark"></use>
+						</svg>
+						Create your own playtlists
+					</li>
+					<li class="register__promo-text--item">
+						<svg class="register__promo-text--icon">
+							<use xlink:href="public/images/icomoon/sprite.svg#icon-checkmark"></use>
+						</svg>
+						Follow artists to keep up to date
+					</li>
+				</ul>
 			</div>
 		</div>
 	</section>

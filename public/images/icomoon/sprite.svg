@@ -1,0 +1,12 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-check" viewBox="0 0 24 24">
+<title>check</title>
+<path d="M20.7 5.3c-0.4-0.4-1-0.4-1.4 0l-10.3 10.3-4.3-4.3c-0.4-0.4-1-0.4-1.4 0s-0.4 1 0 1.4l5 5c0.2 0.2 0.4 0.3 0.7 0.3s0.5-0.1 0.7-0.3l11-11c0.4-0.4 0.4-1 0-1.4z"></path>
+</symbol>
+<symbol id="icon-checkmark" viewBox="0 0 32 32">
+<title>checkmark</title>
+<path d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>
+</symbol>
+</defs>
+</svg>

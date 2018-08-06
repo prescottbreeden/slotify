@@ -34,11 +34,9 @@ class Account {
 
 		if(empty($this->errorArray)) {
 			// Insert into DB
-			echo "shit is probably broke";
 			return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
 		}
 		else {
-			echo "shit broke";
 			return false;
 		}
 	}

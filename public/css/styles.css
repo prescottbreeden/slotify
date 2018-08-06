@@ -9,9 +9,6 @@ html {
   font-size: 66.25%;
   font-family: 'Roboto', sans-serif; }
 
-#registerForm {
-  display: none; }
-
 .register {
   background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");
   background-position: center;
@@ -25,13 +22,14 @@ html {
     width: 80%;
     margin: 0 auto;
     position: relative;
-    max-width: 120rem;
-    border: 1px dashed red; }
+    max-width: 120rem; }
   .register__login {
     width: 40rem;
     padding: 4.5rem;
     float: left;
-    border-right: 1px solid #f7f7f7; }
+    border-right: 1px solid #a0a0a0; }
+    .register__login--form {
+      display: none; }
     .register__login--heading {
       text-align: center; }
     .register__login--btn {
@@ -84,3 +82,25 @@ html {
       line-height: 2.7rem;
       width: 100%;
       color: #f7f7f7; }
+  .register__promo-text {
+    padding: 4.5rem;
+    display: table-cell; }
+    .register__promo-text--heading {
+      color: #1db954;
+      font-size: 6rem;
+      font-weight: bold; }
+    .register__promo-text--sub-heading {
+      margin: 3.5rem 0; }
+    .register__promo-text--list {
+      padding: 0; }
+    .register__promo-text--item {
+      list-style: none;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      margin: .7rem; }
+    .register__promo-text--icon {
+      height: 2rem;
+      width: 2rem;
+      fill: #1db954;
+      margin-right: 1rem; }

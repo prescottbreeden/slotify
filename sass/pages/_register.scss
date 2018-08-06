@@ -1,7 +1,3 @@
-#registerForm {
-	display: none;
-}
-
 .register {
 	background-image: linear-gradient(to bottom,
 									rgba($color-black, .7),
@@ -17,23 +13,21 @@
 	&__container {
 		color: $color-white;
 		font-size: 2rem;
-		// font-weight: 300;
-		// line-height: 1em;
+		//line-height: 1em;
 		width: 80%;
 		margin: 0 auto;
 		position: relative;
 		max-width: 120rem;
-		border: 1px dashed red;
 	}
 
 	&__login {
 		width: 40rem;
 		padding: 4.5rem;
 		float: left;
-		border-right: 1px solid $color-white;
+		border-right: 1px solid $color-grey;
 
 		&--form {
-
+			display: none;
 		}
 
 		&--heading {
@@ -106,11 +100,40 @@
 			line-height: 2.7rem;
 			width: 100%;
 			color: $color-white;
-
 		}
 	}
 
-	&__container * {
-		
+	&__promo-text {
+		padding: 4.5rem;
+		display: table-cell;
+
+		&--heading {
+			color: $color-green;
+			font-size: 6rem;
+			font-weight: bold;
+		}
+
+		&--sub-heading {
+			margin: 3.5rem 0;
+		}
+
+		&--list {
+			padding: 0;
+		}
+
+		&--item {
+			list-style: none;
+			font-size: 2rem;
+			display: flex;
+			align-items: center;
+			margin: .7rem;
+		}
+
+		&--icon {
+			height: 2rem;
+			width: 2rem;
+			fill: $color-green;
+			margin-right: 1rem;
+		}
 	}
 }
