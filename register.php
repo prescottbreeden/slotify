@@ -192,7 +192,7 @@ else {
 				</form>
 			</div>
 			<div class="register__promo-text">
-				<h2 class="register__promo-text--heading">Get great music, right now</h2>
+				<h2 class="register__promo-text--heading">Get great music,<br> right now</h2>
 				<h3 class="register__promo-text--sub-heading">Listen to loads of songs for free</h3>
 				<ul class="register__promo-text--list">
 					<li class="register__promo-text--item">
