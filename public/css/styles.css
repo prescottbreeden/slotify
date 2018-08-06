@@ -41,21 +41,23 @@ html {
       color: #f7f7f7;
       display: block;
       font-size: 1.4rem;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       margin: 20px auto;
       height: 4rem;
       width: 100%;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      transition: all .3s; }
       .register__login--btn:hover {
         cursor: pointer;
-        background-color: green; }
+        background-color: #1db954; }
     .register__login--has-account-text {
       font-weight: bold;
       font-size: 1.2rem;
-      text-align: center; }
+      text-align: center;
+      transition: all .3s; }
       .register__login--has-account-text:hover {
         cursor: pointer;
-        color: lightgreen; }
+        color: #1db954; }
     .register__login ::placeholder {
       font-weight: 300;
       letter-spacing: 1px;
@@ -80,4 +82,5 @@ html {
       border-bottom: 1px solid #f7f7f7;
       height: 2.7rem;
       line-height: 2.7rem;
-      width: 100%; }
+      width: 100%;
+      color: #f7f7f7; }

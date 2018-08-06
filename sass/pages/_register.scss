@@ -47,15 +47,16 @@
 			color: $color-white;
 			display: block;
 			font-size: 1.4rem;
-			letter-spacing: 1px;
+			letter-spacing: 2px;
 			margin: 20px auto;
 			height: 4rem;
 			width: 100%;
 			text-transform: uppercase;
+			transition: all .3s;
 
 			&:hover {
 				cursor: pointer;
-				background-color: green;
+				background-color: $color-green;
 			}
 		}
 
@@ -63,10 +64,11 @@
 			font-weight: bold;
 			font-size: 1.2rem;
 			text-align: center;
+			transition: all .3s;
 
 			&:hover {
 				cursor: pointer;
-				color: lightgreen;
+				color: $color-green;
 			}
 		}
 
@@ -103,6 +105,7 @@
 			height: 2.7rem;
 			line-height: 2.7rem;
 			width: 100%;
+			color: $color-white;
 
 		}
 	}

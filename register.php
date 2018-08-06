@@ -61,6 +61,7 @@ function getInputValue($name) {
 							type="password">
 					</p>
 					<button 
+						id="login_submit"
 						class="register__login--btn" 
 						type="submit" 
 						name=loginButton>
@@ -157,6 +158,7 @@ function getInputValue($name) {
 							type="password">
 					</p>
 					<button 
+						id="register_submit"
 						class="register__login--btn"
 						type="submit" 
 						name=registerButton>
