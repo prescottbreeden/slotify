@@ -9,24 +9,37 @@ html {
   font-size: 66.25%;
   font-family: 'Roboto', sans-serif; }
 
+.errorMessage {
+  margin: 1rem 0;
+  color: #1db954;
+  font-size: 1.2rem;
+  display: block; }
+
 .register {
   background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");
   background-position: center;
   background-size: cover;
   display: table;
   height: 100vh;
-  width: 100vw; }
+  width: 100vw;
+  display: relative; }
   .register__container {
     color: #f7f7f7;
     font-size: 2rem;
     width: 80%;
     margin: 0 auto;
-    position: relative;
-    max-width: 120rem; }
+    margin-top: 10rem;
+    max-width: 120rem;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-around; }
   .register__login {
+    margin-top: 2.5rem;
     width: 40rem;
     padding: 4.5rem;
-    float: left;
     border-right: 1px solid #a0a0a0; }
     .register__login--form {
       display: none; }

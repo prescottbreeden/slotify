@@ -62,17 +62,17 @@ else {
 					action="register.php" method="POST">
 
 					<h2 class="register__login--heading">Login to your account</h2>
-					<p>
-						<?php echo $account->getError(Constants::$error_login_failed); ?>
+					<p class="register__login--input">
 						<label for="loginUsername">Username</label>
 						<input 
 							id="loginUsername" 
 							name="loginUsername" 
 							placeholder="e.g. bartSimpson"
 							required
+							value="<?php getInputValue('loginUsername') ?>"
 							type="text">
 					</p>
-					<p>
+					<p class="register__login--input">
 						<label for="loginPassword">Password</label>
 						<input 
 							id="loginPassword" 
@@ -80,6 +80,7 @@ else {
 							placeholder="Your password"
 							required
 							type="password">
+						<?php echo $account->getError(Constants::$error_login_failed); ?>
 					</p>
 					<button 
 						id="login_submit"
@@ -100,9 +101,7 @@ else {
 					action="register.php" method="POST">
 
 					<h2 class="register__login--heading">Create your free account</h2>
-					<p>
-						<?php echo $account->getError(Constants::$error_un_len); ?>
-						<?php echo $account->getError(Constants::$error_un_taken); ?>
+					<p class="register__login--input">
 						<label for="username">Username</label>
 						<input 
 							id="username" 
@@ -111,9 +110,10 @@ else {
 							value="<?php getInputValue('username') ?>"
 							required
 							type="text">
+						<?php echo $account->getError(Constants::$error_un_len); ?>
+						<?php echo $account->getError(Constants::$error_un_taken); ?>
 					</p>
-					<p>
-						<?php echo $account->getError(Constants::$error_fn_len); ?>
+					<p class="register__login--input">
 						<label for="firstName">First Name</label>
 						<input 
 							id="firstName" 
@@ -122,9 +122,9 @@ else {
 							value="<?php getInputValue('firstName') ?>"
 							required
 							type="text">
+						<?php echo $account->getError(Constants::$error_fn_len); ?>
 					</p>
-					<p>
-						<?php echo $account->getError(Constants::$error_ln_len); ?>
+					<p class="register__login--input">
 						<label for="lastName">Last Name</label>
 						<input 
 							id="lastName" 
@@ -133,11 +133,9 @@ else {
 							value="<?php getInputValue('lastName') ?>"
 							required
 							type="text">
+						<?php echo $account->getError(Constants::$error_ln_len); ?>
 					</p>
-					<p>
-						<?php echo $account->getError(Constants::$error_em_match); ?>
-						<?php echo $account->getError(Constants::$error_em_valid); ?>
-						<?php echo $account->getError(Constants::$error_em_taken); ?>
+					<p class="register__login--input">
 						<label for="email">Email</label>
 						<input 
 							id="email" 
@@ -147,7 +145,7 @@ else {
 							required
 							type="email">
 					</p>
-					<p>
+					<p class="register__login--input">
 						<label for="email2">Confirm Email</label>
 						<input 
 							id="email2" 
@@ -156,11 +154,11 @@ else {
 							value="<?php getInputValue('email2') ?>"
 							required
 							type="email">
+						<?php echo $account->getError(Constants::$error_em_match); ?>
+						<?php echo $account->getError(Constants::$error_em_valid); ?>
+						<?php echo $account->getError(Constants::$error_em_taken); ?>
 					</p>
-					<p>
-						<?php echo $account->getError(Constants::$error_pw_len); ?>
-						<?php echo $account->getError(Constants::$error_pw_match); ?>
-						<?php echo $account->getError(Constants::$error_pw_valid); ?>
+					<p class="register__login--input">
 						<label for="password">Password</label>
 						<input 
 							id="password" 
@@ -169,7 +167,7 @@ else {
 							placeholder="Your password"
 							type="password">
 					</p>
-					<p>
+					<p class="register__login--input">
 						<label for="password2">Confirm Password</label>
 						<input 
 							id="password2" 
@@ -177,6 +175,9 @@ else {
 							required
 							placeholder="Your password"
 							type="password">
+						<?php echo $account->getError(Constants::$error_pw_len); ?>
+						<?php echo $account->getError(Constants::$error_pw_match); ?>
+						<?php echo $account->getError(Constants::$error_pw_valid); ?>
 					</p>
 					<button 
 						id="register_submit"
