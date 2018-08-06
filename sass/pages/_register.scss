@@ -1,0 +1,113 @@
+#registerForm {
+	display: none;
+}
+
+.register {
+	background-image: linear-gradient(to bottom,
+									rgba($color-black, .7),
+									rgba($color-black, .7)),
+									url('../images/friends.jpg');
+	background-position: center;
+	background-size: cover;
+
+	display: table;
+	height: 100vh;
+	width: 100vw;
+
+	&__container {
+		color: $color-white;
+		font-size: 2rem;
+		// font-weight: 300;
+		// line-height: 1em;
+		width: 80%;
+		margin: 0 auto;
+		position: relative;
+		max-width: 120rem;
+		border: 1px dashed red;
+	}
+
+	&__login {
+		width: 40rem;
+		padding: 4.5rem;
+		float: left;
+		border-right: 1px solid $color-white;
+
+		&--form {
+
+		}
+
+		&--heading {
+			text-align: center;
+		}
+
+		&--btn {
+			background-color: transparent;
+			border: 1px solid $color-white;
+			border-radius: 200px;
+			color: $color-white;
+			display: block;
+			font-size: 1.4rem;
+			letter-spacing: 1px;
+			margin: 20px auto;
+			height: 4rem;
+			width: 100%;
+			text-transform: uppercase;
+
+			&:hover {
+				cursor: pointer;
+				background-color: green;
+			}
+		}
+
+		&--has-account-text {
+			font-weight: bold;
+			font-size: 1.2rem;
+			text-align: center;
+
+			&:hover {
+				cursor: pointer;
+				color: lightgreen;
+			}
+		}
+
+		::placeholder {
+			font-weight: 300;
+			letter-spacing: 1px;
+			color: $color-white;
+			opacity: 1;
+		}
+
+		:-ms-input-placeholder {
+			color: $color-white;
+			opacity: 1;
+		}
+
+		::-ms-input-placeholder {
+			color: $color-white;
+		}
+
+		label {
+			display: block;
+			color: $color-grey;
+			font-size: 1.5rem;
+			margin-top: 1.5rem;
+		}
+
+		input[type='text'],
+		input[type='email'],
+		input[type='password'] {
+			display: block;
+			background-color: transparent;
+			border: 0;
+			border-bottom: 1px solid $color-white;
+			height: 2.7rem;
+			line-height: 2.7rem;
+			width: 100%;
+
+		}
+	}
+
+	&__container * {
+		
+	}
+}

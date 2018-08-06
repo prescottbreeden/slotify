@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+html {
+  box-sizing: border-box; }
+
+html {
+  font-size: 66.25%;
+  font-family: 'Roboto', sans-serif; }
+
+#registerForm {
+  display: none; }
+
+.register {
+  background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");
+  background-position: center;
+  background-size: cover;
+  display: table;
+  height: 100vh;
+  width: 100vw; }
+  .register__container {
+    color: #f7f7f7;
+    font-size: 2rem;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    max-width: 120rem;
+    border: 1px dashed red; }
+  .register__login {
+    width: 40rem;
+    padding: 4.5rem;
+    float: left;
+    border-right: 1px solid #f7f7f7; }
+    .register__login--heading {
+      text-align: center; }
+    .register__login--btn {
+      background-color: transparent;
+      border: 1px solid #f7f7f7;
+      border-radius: 200px;
+      color: #f7f7f7;
+      display: block;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      margin: 20px auto;
+      height: 4rem;
+      width: 100%;
+      text-transform: uppercase; }
+      .register__login--btn:hover {
+        cursor: pointer;
+        background-color: green; }
+    .register__login--has-account-text {
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-align: center; }
+      .register__login--has-account-text:hover {
+        cursor: pointer;
+        color: lightgreen; }
+    .register__login ::placeholder {
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: #f7f7f7;
+      opacity: 1; }
+    .register__login :-ms-input-placeholder {
+      color: #f7f7f7;
+      opacity: 1; }
+    .register__login ::-ms-input-placeholder {
+      color: #f7f7f7; }
+    .register__login label {
+      display: block;
+      color: #a0a0a0;
+      font-size: 1.5rem;
+      margin-top: 1.5rem; }
+    .register__login input[type='text'],
+    .register__login input[type='email'],
+    .register__login input[type='password'] {
+      display: block;
+      background-color: transparent;
+      border: 0;
+      border-bottom: 1px solid #f7f7f7;
+      height: 2.7rem;
+      line-height: 2.7rem;
+      width: 100%; }
