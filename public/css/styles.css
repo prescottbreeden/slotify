@@ -3,17 +3,126 @@
   padding: 0; }
 
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: #222; }
 
 html {
   font-size: 66.25%;
-  font-family: 'Roboto', sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 .errorMessage {
   margin: 1rem 0;
   color: #1db954;
   font-size: 1.2rem;
   display: block; }
+
+.player {
+  width: 100%;
+  background-color: #333;
+  position: fixed;
+  bottom: 0;
+  left: 0; }
+  .player__play-bar {
+    height: 6rem;
+    padding: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .player__play-bar--album {
+      width: 30%; }
+    .player__play-bar--controls {
+      width: 40%;
+      max-width: 70rem;
+      display: flex;
+      flex-direction: column; }
+    .player__play-bar--volume {
+      width: 30%; }
+    .player__play-bar--progress-bar {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center; }
+
+.album {
+  position: relative;
+  height: 100%;
+  display: flex; }
+  .album__link {
+    vertical-align: middle; }
+    .album__link--artwork {
+      height: 5.5rem;
+      width: 5.5rem;
+      margin-right: 1.5rem;
+      background-size: cover; }
+  .album__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #f7f7f7; }
+    .album__info--track-name {
+      font-size: 1.2rem;
+      margin-bottom: .5rem; }
+
+.progress-bar {
+  width: 100%;
+  height: 1rem;
+  display: flex;
+  cursor: pointer; }
+  .progress-bar__time {
+    font-size: 1rem;
+    text-align: center; }
+    .progress-bar__time--current {
+      margin-right: 1rem;
+      color: #f7f7f7; }
+    .progress-bar__time--remaining {
+      margin-left: 1rem;
+      color: #f7f7f7; }
+  .progress-bar__bg {
+    align-self: center;
+    height: .4rem;
+    width: 100%;
+    background-color: #a0a0a0;
+    border-radius: 200px; }
+  .progress-bar__progress {
+    background-color: #f7f7f7;
+    height: .4rem;
+    width: 0;
+    border-radius: 200px; }
+
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; }
+  .controls svg {
+    fill: #f7f7f7; }
+    .controls svg:hover {
+      cursor: pointer; }
+  .controls__shuffle {
+    height: 2rem;
+    width: 2rem;
+    margin: 0 3rem; }
+  .controls__back {
+    height: 2rem;
+    width: 2rem;
+    margin: 0 1.5rem; }
+  .controls__play {
+    height: 3.5rem;
+    width: 3.5rem;
+    margin: 0 1.5rem; }
+  .controls__pause {
+    height: 3.5rem;
+    width: 3.5rem;
+    display: none;
+    margin: 0 1.5rem; }
+  .controls__fwd {
+    height: 2rem;
+    width: 2rem;
+    margin: 0 1.5rem; }
+  .controls__repeat {
+    height: 2rem;
+    width: 2rem;
+    margin: 0 3rem; }
 
 .register {
   background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");
