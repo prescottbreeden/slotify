@@ -8,7 +8,8 @@ html {
 
 html {
   font-size: 66.25%;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #f7f7f7; }
 
 .errorMessage {
   margin: 1rem 0;
@@ -56,11 +57,30 @@ html {
   .album__info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    color: #f7f7f7; }
-    .album__info--track-name {
-      font-size: 1.2rem;
+    justify-content: center; }
+    .album__info--track {
+      display: flex;
+      align-items: center;
       margin-bottom: .5rem; }
+      .album__info--track-name {
+        font-size: 1.2rem; }
+        .album__info--track-name:hover {
+          cursor: pointer;
+          text-decoration: underline; }
+      .album__info--track-icon {
+        margin-left: 1.5rem;
+        height: 2rem;
+        width: 2rem;
+        fill: #f7f7f7; }
+        .album__info--track-icon:hover {
+          fill: #1db954; }
+    .album__info--artist-name {
+      display: inline-block;
+      color: #a0a0a0; }
+      .album__info--artist-name:hover {
+        color: #f7f7f7;
+        cursor: pointer;
+        text-decoration: underline; }
 
 .progress-bar {
   width: 100%;
@@ -71,11 +91,9 @@ html {
     font-size: 1rem;
     text-align: center; }
     .progress-bar__time--current {
-      margin-right: 1rem;
-      color: #f7f7f7; }
+      margin-right: 1rem; }
     .progress-bar__time--remaining {
-      margin-left: 1rem;
-      color: #f7f7f7; }
+      margin-left: 1rem; }
   .progress-bar__bg {
     align-self: center;
     height: .4rem;
@@ -95,8 +113,9 @@ html {
   align-items: center;
   margin: 0 auto; }
   .controls svg {
-    fill: #f7f7f7; }
+    fill: #a0a0a0; }
     .controls svg:hover {
+      fill: white;
       cursor: pointer; }
   .controls__shuffle {
     height: 2rem;
@@ -107,9 +126,11 @@ html {
     width: 2rem;
     margin: 0 1.5rem; }
   .controls__play {
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 3rem;
+    width: 3rem;
     margin: 0 1.5rem; }
+    .controls__play:hover {
+      transform: scale(1.1); }
   .controls__pause {
     height: 3.5rem;
     width: 3.5rem;
@@ -133,7 +154,6 @@ html {
   width: 100vw;
   display: relative; }
   .register__container {
-    color: #f7f7f7;
     font-size: 2rem;
     width: 80%;
     margin: 0 auto;

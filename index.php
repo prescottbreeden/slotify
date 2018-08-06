@@ -34,8 +34,16 @@ if(!isset($_SESSION['userLoggedIn'])) {
 							alt="album artwork">
 					</span>
 					<div class="album__info">
-						<span class="album__info--track-name">
-							<span>Rubber Baby Buggy Bumpers</span>
+						<span class="album__info--track">
+							<span class="album__info--track-name">
+								Rubber Baby Buggy Bumpers
+							</span>
+							<svg 
+								aria-label="[title]"
+								class="album__info--track-icon">
+								<title>Add to playlist</title>
+								<use xlink:href="public/images/icomoon/sprite.svg#icon-plus"></use>
+							</svg>
 						</span>
 						<span class="album__info--artist-name">
 							<span>Chuck Norris</span>
@@ -49,13 +57,13 @@ if(!isset($_SESSION['userLoggedIn'])) {
 						aria-label="[title]"
 						class="controls__shuffle">
 						<title>Shuffle</title>
-						<use xlink:href="public/images/icomoon/sprite.svg#icon-shuffle"></use>
+						<use xlink:href="public/images/icomoon/sprite.svg#icon-random"></use>
 					</svg>
 					<svg 
 						aria-label="[title]"
 						class="controls__back">
 						<title>Previous</title>
-						<use xlink:href="public/images/icomoon/sprite.svg#icon-previous2"></use>
+						<use xlink:href="public/images/icomoon/sprite.svg#icon-step-backward"></use>
 					</svg>
 					<svg 
 						aria-label="[title]"
@@ -67,19 +75,19 @@ if(!isset($_SESSION['userLoggedIn'])) {
 						aria-label="[title]"
 						class="controls__pause">
 						<title>Pause</title>
-						<use xlink:href="public/images/icomoon/sprite.svg#icon-pause"></use>
+						<use xlink:href="public/images/icomoon/sprite.svg#icon-pause2"></use>
 					</svg>
 					<svg 
 						aria-label="[title]"
 						class="controls__fwd">
 						<title>Next</title>
-						<use xlink:href="public/images/icomoon/sprite.svg#icon-next2"></use>
+						<use xlink:href="public/images/icomoon/sprite.svg#icon-step-forward"></use>
 					</svg>
 					<svg 
 						aria-label="[title]"
 						class="controls__repeat">
 						<title>Loop</title>
-						<use xlink:href="public/images/icomoon/sprite.svg#icon-loop"></use>
+						<use xlink:href="public/images/icomoon/sprite.svg#icon-repeat"></use>
 					</svg>
 				</div>
 				<div class="player__play-bar--progress-bar">
