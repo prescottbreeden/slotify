@@ -63,13 +63,30 @@ if(!isset($_SESSION['userLoggedIn'])) {
 					</a>
 					<div class="nav-bar__list">
 						<div class="nav-bar__item">
-							Browse
+							<a class="nav-bar__item--link" href="search.php">
+								Search	
+							</a>
+							<svg 
+								aria-label="[title]"
+								<title>Search</title>
+								<use xlink:href="public/images/icomoon/sprite.svg#icon-search"></use>
+							</svg>
+
 						</div>
 						<div class="nav-bar__item">
-							Your Music
+							<a class="nav-bar__item--link" href="browse.php">
+								Browse
+							</a>
 						</div>
 						<div class="nav-bar__item">
-							Radio
+							<a class="nav-bar__item--link" href="your_music.php">
+								Your Music	
+							</a>
+						</div>
+						<div class="nav-bar__item">
+							<a class="nav-bar__item--link" href="radio.php">
+								Radio	
+							</a>
 						</div>
 					</div>
 				</div>

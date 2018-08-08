@@ -1,10 +1,6 @@
 .nav {
-	//background-color: $color-green;
-	border: 1px dashed $color-green;
 	height: calc(100%-9rem);
-	width: 30%;
-	// display: flex;
-	// flex-direction: column;
+	width: 20%;
 }
 
 .nav-bar {
@@ -14,7 +10,7 @@
 
 	&__logo {
 		height: auto;
-		width: 50%;
+		width: 70%;
 
 		&:after {
 			content: "";
@@ -28,16 +24,39 @@
 	}
 
 	&__list {
-		font-size: 1.5rem; 
-		color: $color-grey;
+		font-size: 1.4rem; 
 	}
 
 	&__item {
 		margin-top: 2rem;
+		letter-spacing: 1px;
 
-		&:hover {
-			color: $color-white;
-			cursor: default;
+		a {
+			text-decoration: none;
+			color: $color-grey;
+
+			&:hover {
+				color: $color-white;
+				cursor: default;
+			}
 		}
+
+		&:nth-child(1) {
+			border-top: 1px solid #a0a0a0;
+			border-bottom: 1px solid #a0a0a0;
+			padding: 2rem 0;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+
+			svg {
+				height: 1.9rem;
+				width: 1.9rem;
+				fill: $color-grey;
+				margin-right: 1rem;
+			}
+		}
+
 	}
 }
