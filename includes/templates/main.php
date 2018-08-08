@@ -1,3 +1,5 @@
 <div class="main">
-	main
+	<div class="main__content">
+		main
+	</div>
 </div>

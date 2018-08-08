@@ -12,11 +12,6 @@
 		height: auto;
 		width: 70%;
 
-		&:after {
-			content: "";
-			display: table;
-		}
-
 		&:hover #svg_logo path{
 			fill: $color-green !important;
 			stroke: $color-green !important;

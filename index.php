@@ -14,7 +14,10 @@ if(!isset($_SESSION['userLoggedIn'])) {
 	<div class="content-wrapper">
 		<div class="content">
 			<?php include('includes/templates/nav.php'); ?>
-			<?php include('includes/templates/main.php'); ?>
+			<div class="dynamic-content">
+				<?php include('includes/templates/top-bar.php'); ?>
+				<?php include('includes/templates/main.php'); ?>
+			</div>
 		</div>
 		<?php include('includes/templates/play-bar.php'); ?>
 	</div>

@@ -1,0 +1,6 @@
+@mixin gradient {
+	background-image: linear-gradient(
+							to bottom, 
+							$color-gradient-top, 
+							$color-gradient-bottom 20%);
+}
