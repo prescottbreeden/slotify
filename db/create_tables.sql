@@ -8,7 +8,7 @@ USE slotify;
 -- CREATE USERS TABLE
 
 CREATE TABLE IF NOT EXISTS users (
-	user_id			INTEGER			NOT NULL		AUTO_INCREMENT PRIMARY KEY,
+	id				INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
 	username		VARCHAR(25)		NOT NULL,
 	first_name		VARCHAR(25)		NOT NULL,
 	last_name		VARCHAR(25)		NOT NULL,
@@ -19,25 +19,74 @@ CREATE TABLE IF NOT EXISTS users (
 	profile_pic		VARCHAR(500)
 );
 
+-- CREATE ALBUMS TABLE
+CREATE TABLE IF NOT EXISTS albums (
+	id				INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	title			VARCHAR(250)	NOT NULL,
+	artist_id		INTEGER			NOT NULL,
+	genre_id		INTEGER			NOT NULL,
+	artwork_path	VARCHAR(500)	NOT NULL
+);
+
+-- CREATE ARTISTS TABLE
+CREATE TABLE IF NOT EXISTS artists (
+	id				INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	name			VARCHAR(50)		NOT NULL
+);
+
+-- CREATE GENRE TABLE
+CREATE TABLE IF NOT EXISTS genres (
+	id				INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	name			VARCHAR(50)		NOT NULL
+);
+
 -- CREATE SONGS TABLE
 CREATE TABLE IF NOT EXISTS songs (
-	song_id		INTEGER				NOT NULL		AUTO_INCREMENT PRIMARY KEY,
-	title		VARCHAR(250)		NOT NULL,
-	artist		INTEGER				NOT NULL,
-	album		INTEGER				NOT NULL,
-	genre		INTEGER				NOT NULL,
-	duration	VARCHAR(8)			NOT NULL,
-	path		VARCHAR(500)		NOT NULL,
-	albumOrder	INTEGER				NOT NULL,
-	plays		INTEGER				NOT NULL
+	id				INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	title_name		VARCHAR(250)	NOT NULL,
+	artist_id		INTEGER			NOT NULL,
+	album_id		INTEGER			NOT NULL,
+	genre_id		INTEGER			NOT NULL,
+	duration		VARCHAR(8)		NOT NULL,
+	song_path		VARCHAR(500)	NOT NULL,
+	album_order		INTEGER			NOT NULL,
+	play_count		INTEGER			NOT NULL
 );
+
+--
+-- Dumping data for table `artists`
+--
+
+ INSERT INTO artists 
+			(id, name) 
+		VALUES
+			(1, 'Mickey Mouse'),
+			(2, 'Goofy'),
+			(3, 'Bart Simpson'),
+			(4, 'Homer'),
+			(5, 'Bruce Lee');
+
+--
+-- Dumping data for table `albums`
+--
+
+ INSERT INTO albums 
+			(id, title_name, artist_id, genre_id, artwork_path) 
+		VALUES
+			(1, 'Bacon and Eggs', 2, 4, 'assets/images/artwork/clearday.jpg'),
+			(2, 'Pizza head', 5, 10, 'assets/images/artwork/energy.jpg'),
+			(3, 'Summer Hits', 3, 1, 'assets/images/artwork/goinghigher.jpg'),
+			(4, 'The movie soundtrack', 2, 9, 'assets/images/artwork/funkyelement.jpg'),
+			(5, 'Best of the Worst', 1, 3, 'assets/images/artwork/popdance.jpg'),
+			(6, 'Hello World', 3, 6, 'assets/images/artwork/ukulele.jpg'),
+			(7, 'Best beats', 4, 7, 'assets/images/artwork/sweet.jpg');
 
 --
 -- Dumping data for table `Songs`
 --
 
- INSERT INTO Songs 
-			(id, title, artist, album, genre, duration, path, albumOrder, plays) 
+ INSERT INTO songs 
+			(id, title_name, artist_id, album_id, genre_id, duration, song_path, album_order, play_count) 
 		VALUES
 			(1, 'Acoustic Breeze', 1, 5, 8, '2:37', 'assets/music/bensound-acousticbreeze.mp3', 1, 0),
 			(2, 'A new beginning', 1, 5, 1, '2:35', 'assets/music/bensound-anewbeginning.mp3', 2, 0),
