@@ -8,7 +8,7 @@ USE slotify;
 -- CREATE USERS TABLE
 
 CREATE TABLE IF NOT EXISTS users (
-	id				INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	user_id			INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
 	username		VARCHAR(25)		NOT NULL,
 	first_name		VARCHAR(25)		NOT NULL,
 	last_name		VARCHAR(25)		NOT NULL,
@@ -19,30 +19,35 @@ CREATE TABLE IF NOT EXISTS users (
 	profile_pic		VARCHAR(500)
 );
 
--- CREATE ALBUMS TABLE
-CREATE TABLE IF NOT EXISTS albums (
-	id				INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
-	title			VARCHAR(250)	NOT NULL,
-	artist_id		INTEGER			NOT NULL,
-	genre_id		INTEGER			NOT NULL,
-	artwork_path	VARCHAR(500)	NOT NULL
-);
-
 -- CREATE ARTISTS TABLE
 CREATE TABLE IF NOT EXISTS artists (
-	id				INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	artist_id		INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
 	name			VARCHAR(50)		NOT NULL
 );
 
 -- CREATE GENRE TABLE
 CREATE TABLE IF NOT EXISTS genres (
-	id				INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	genre_id		INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
 	name			VARCHAR(50)		NOT NULL
+);
+
+-- CREATE ALBUMS TABLE
+CREATE TABLE IF NOT EXISTS albums (
+	album_id		INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	title_name		VARCHAR(250)	NOT NULL,
+	artist_id		INTEGER			NOT NULL,
+	genre_id		INTEGER			NOT NULL,
+	artwork_path	VARCHAR(500)	NOT NULL,
+
+	FOREIGN KEY (artist_id)
+		REFERENCES artists(artist_id),
+	FOREIGN KEY (genre_id)
+		REFERENCES genres(genre_id)
 );
 
 -- CREATE SONGS TABLE
 CREATE TABLE IF NOT EXISTS songs (
-	id				INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	song_id			INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
 	title_name		VARCHAR(250)	NOT NULL,
 	artist_id		INTEGER			NOT NULL,
 	album_id		INTEGER			NOT NULL,
@@ -50,7 +55,14 @@ CREATE TABLE IF NOT EXISTS songs (
 	duration		VARCHAR(8)		NOT NULL,
 	song_path		VARCHAR(500)	NOT NULL,
 	album_order		INTEGER			NOT NULL,
-	play_count		INTEGER			NOT NULL
+	play_count		INTEGER			NOT NULL,
+
+	FOREIGN KEY (artist_id)
+		REFERENCES artists(artist_id),
+	FOREIGN KEY (genre_id)
+		REFERENCES genres(genre_id),
+	FOREIGN KEY (album_id)
+		REFERENCES albums(album_id)
 );
 
 --
@@ -58,65 +70,79 @@ CREATE TABLE IF NOT EXISTS songs (
 --
 
  INSERT INTO artists 
-			(id, name) 
+			(name) 
 		VALUES
-			(1, 'Mickey Mouse'),
-			(2, 'Goofy'),
-			(3, 'Bart Simpson'),
-			(4, 'Homer'),
-			(5, 'Bruce Lee');
+			('Mickey Mouse'),
+			('Goofy'),
+			('Bart Simpson'),
+			('Homer'),
+			('Bruce Lee');
 
 --
 -- Dumping data for table `albums`
 --
 
- INSERT INTO albums 
-			(id, title_name, artist_id, genre_id, artwork_path) 
+ INSERT INTO genres
+			(name)
 		VALUES
-			(1, 'Bacon and Eggs', 2, 4, 'assets/images/artwork/clearday.jpg'),
-			(2, 'Pizza head', 5, 10, 'assets/images/artwork/energy.jpg'),
-			(3, 'Summer Hits', 3, 1, 'assets/images/artwork/goinghigher.jpg'),
-			(4, 'The movie soundtrack', 2, 9, 'assets/images/artwork/funkyelement.jpg'),
-			(5, 'Best of the Worst', 1, 3, 'assets/images/artwork/popdance.jpg'),
-			(6, 'Hello World', 3, 6, 'assets/images/artwork/ukulele.jpg'),
-			(7, 'Best beats', 4, 7, 'assets/images/artwork/sweet.jpg');
+			('Rock'),
+			('Pop'),
+			('Hip-hop'),
+			('Rap'),
+			('R&B'),
+			('Classical'),
+			('Techno'),
+			('Jazz'),
+			('Folk'),
+			('Country');
+
+ INSERT INTO albums 
+			(title_name, artist_id, genre_id, artwork_path) 
+		VALUES
+			('Bacon and Eggs', 2, 4, 'public/images/artwork/clearday.jpg'),
+			('Pizza head', 5, 10, 'public/images/artwork/energy.jpg'),
+			('Summer Hits', 3, 1, 'public/images/artwork/goinghigher.jpg'),
+			('The movie soundtrack', 2, 9, 'public/images/artwork/funkyelement.jpg'),
+			('Best of the Worst', 1, 3, 'public/images/artwork/popdance.jpg'),
+			('Hello World', 3, 6, 'public/images/artwork/ukulele.jpg'),
+			('Best beats', 4, 7, 'public/images/artwork/sweet.jpg');
 
 --
 -- Dumping data for table `Songs`
 --
 
  INSERT INTO songs 
-			(id, title_name, artist_id, album_id, genre_id, duration, song_path, album_order, play_count) 
+			(title_name, artist_id, album_id, genre_id, duration, song_path, album_order, play_count) 
 		VALUES
-			(1, 'Acoustic Breeze', 1, 5, 8, '2:37', 'assets/music/bensound-acousticbreeze.mp3', 1, 0),
-			(2, 'A new beginning', 1, 5, 1, '2:35', 'assets/music/bensound-anewbeginning.mp3', 2, 0),
-			(3, 'Better Days', 1, 5, 2, '2:33', 'assets/music/bensound-betterdays.mp3', 3, 0),
-			(4, 'Buddy', 1, 5, 3, '2:02', 'assets/music/bensound-buddy.mp3', 4, 0),
-			(5, 'Clear Day', 1, 5, 4, '1:29', 'assets/music/bensound-clearday.mp3', 5, 0),
-			(6, 'Going Higher', 2, 1, 1, '4:04', 'assets/music/bensound-goinghigher.mp3', 1, 0),
-			(7, 'Funny Song', 2, 4, 2, '3:07', 'assets/music/bensound-funnysong.mp3', 2, 0),
-			(8, 'Funky Element', 2, 1, 3, '3:08', 'assets/music/bensound-funkyelement.mp3', 2, 0),
-			(9, 'Extreme Action', 2, 1, 4, '8:03', 'assets/music/bensound-extremeaction.mp3', 3, 0),
-			(10, 'Epic', 2, 4, 5, '2:58', 'assets/music/bensound-epic.mp3', 3, 0),
-			(11, 'Energy', 2, 1, 6, '2:59', 'assets/music/bensound-energy.mp3', 4, 0),
-			(12, 'Dubstep', 2, 1, 7, '2:03', 'assets/music/bensound-dubstep.mp3', 5, 0),
-			(13, 'Happiness', 3, 6, 8, '4:21', 'assets/music/bensound-happiness.mp3', 5, 0),
-			(14, 'Happy Rock', 3, 6, 9, '1:45', 'assets/music/bensound-happyrock.mp3', 4, 0),
-			(15, 'Jazzy Frenchy', 3, 6, 10, '1:44', 'assets/music/bensound-jazzyfrenchy.mp3', 3, 0),
-			(16, 'Little Idea', 3, 6, 1, '2:49', 'assets/music/bensound-littleidea.mp3', 2, 0),
-			(17, 'Memories', 3, 6, 2, '3:50', 'assets/music/bensound-memories.mp3', 1, 0),
-			(18, 'Moose', 4, 7, 1, '2:43', 'assets/music/bensound-moose.mp3', 5, 0),
-			(19, 'November', 4, 7, 2, '3:32', 'assets/music/bensound-november.mp3', 4, 0),
-			(20, 'Of Elias Dream', 4, 7, 3, '4:58', 'assets/music/bensound-ofeliasdream.mp3', 3, 0),
-			(21, 'Pop Dance', 4, 7, 2, '2:42', 'assets/music/bensound-popdance.mp3', 2, 0),
-			(22, 'Retro Soul', 4, 7, 5, '3:36', 'assets/music/bensound-retrosoul.mp3', 1, 0),
-			(23, 'Sad Day', 5, 2, 1, '2:28', 'assets/music/bensound-sadday.mp3', 1, 0),
-			(24, 'Sci-fi', 5, 2, 2, '4:44', 'assets/music/bensound-scifi.mp3', 2, 0),
-			(25, 'Slow Motion', 5, 2, 3, '3:26', 'assets/music/bensound-slowmotion.mp3', 3, 0),
-			(26, 'Sunny', 5, 2, 4, '2:20', 'assets/music/bensound-sunny.mp3', 4, 0),
-			(27, 'Sweet', 5, 2, 5, '5:07', 'assets/music/bensound-sweet.mp3', 5, 0),
-			(28, 'Tenderness ', 3, 3, 7, '2:03', 'assets/music/bensound-tenderness.mp3', 4, 0),
-			(29, 'The Lounge', 3, 3, 8, '4:16', 'assets/music/bensound-thelounge.mp3 ', 3, 0),
-			(30, 'Ukulele', 3, 3, 9, '2:26', 'assets/music/bensound-ukulele.mp3 ', 2, 0),
-			(31, 'Tomorrow', 3, 3, 1, '4:54', 'assets/music/bensound-tomorrow.mp3 ', 1, 0);
+			('Acoustic Breeze', 1, 5, 8, '2:37', 'public/music/bensound-acousticbreeze.mp3', 1, 0),
+			('A new beginning', 1, 5, 1, '2:35', 'public/music/bensound-anewbeginning.mp3', 2, 0),
+			('Better Days', 1, 5, 2, '2:33', 'public/music/bensound-betterdays.mp3', 3, 0),
+			('Buddy', 1, 5, 3, '2:02', 'public/music/bensound-buddy.mp3', 4, 0),
+			('Clear Day', 1, 5, 4, '1:29', 'public/music/bensound-clearday.mp3', 5, 0),
+			('Going Higher', 2, 1, 1, '4:04', 'public/music/bensound-goinghigher.mp3', 1, 0),
+			('Funny Song', 2, 4, 2, '3:07', 'public/music/bensound-funnysong.mp3', 2, 0),
+			('Funky Element', 2, 1, 3, '3:08', 'public/music/bensound-funkyelement.mp3', 2, 0),
+			('Extreme Action', 2, 1, 4, '8:03', 'public/music/bensound-extremeaction.mp3', 3, 0),
+			('Epic', 2, 4, 5, '2:58', 'public/music/bensound-epic.mp3', 3, 0),
+			('Energy', 2, 1, 6, '2:59', 'public/music/bensound-energy.mp3', 4, 0),
+			('Dubstep', 2, 1, 7, '2:03', 'public/music/bensound-dubstep.mp3', 5, 0),
+			('Happiness', 3, 6, 8, '4:21', 'public/music/bensound-happiness.mp3', 5, 0),
+			('Happy Rock', 3, 6, 9, '1:45', 'public/music/bensound-happyrock.mp3', 4, 0),
+			('Jazzy Frenchy', 3, 6, 10, '1:44', 'public/music/bensound-jazzyfrenchy.mp3', 3, 0),
+			('Little Idea', 3, 6, 1, '2:49', 'public/music/bensound-littleidea.mp3', 2, 0),
+			('Memories', 3, 6, 2, '3:50', 'public/music/bensound-memories.mp3', 1, 0),
+			('Moose', 4, 7, 1, '2:43', 'public/music/bensound-moose.mp3', 5, 0),
+			('November', 4, 7, 2, '3:32', 'public/music/bensound-november.mp3', 4, 0),
+			('Of Elias Dream', 4, 7, 3, '4:58', 'public/music/bensound-ofeliasdream.mp3', 3, 0),
+			('Pop Dance', 4, 7, 2, '2:42', 'public/music/bensound-popdance.mp3', 2, 0),
+			('Retro Soul', 4, 7, 5, '3:36', 'public/music/bensound-retrosoul.mp3', 1, 0),
+			('Sad Day', 5, 2, 1, '2:28', 'public/music/bensound-sadday.mp3', 1, 0),
+			('Sci-fi', 5, 2, 2, '4:44', 'public/music/bensound-scifi.mp3', 2, 0),
+			('Slow Motion', 5, 2, 3, '3:26', 'public/music/bensound-slowmotion.mp3', 3, 0),
+			('Sunny', 5, 2, 4, '2:20', 'public/music/bensound-sunny.mp3', 4, 0),
+			('Sweet', 5, 2, 5, '5:07', 'public/music/bensound-sweet.mp3', 5, 0),
+			('Tenderness ', 3, 3, 7, '2:03', 'public/music/bensound-tenderness.mp3', 4, 0),
+			('The Lounge', 3, 3, 8, '4:16', 'public/music/bensound-thelounge.mp3 ', 3, 0),
+			('Ukulele', 3, 3, 9, '2:26', 'public/music/bensound-ukulele.mp3 ', 2, 0),
+			('Tomorrow', 3, 3, 1, '4:54', 'public/music/bensound-tomorrow.mp3 ', 1, 0);
 
