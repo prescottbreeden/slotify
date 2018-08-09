@@ -1,42 +1,24 @@
 <?php
-include('includes/config.php');
-include('includes/classes/Artist.php');
-
-if(!isset($_SESSION['userLoggedIn'])) {
-	header("Location: register.php");
-}
-
-// session_destroy();
+include('includes/header.php');
 
 if(isset($_GET['id'])) {
 	$albumId = $_GET['id'];
-} else {
+} 
+else {
 	header("Location: index.php");
 }
 
-$artist = new Artist($con, $album['artist']);
+$albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE album_id='$albumId'");
+$album = mysqli_fetch_array($albumQuery);
+$artist = new Artist($con, $album['artist_id']);
+
+echo $artist->getName();
 
 ?>
 
-<?php include('includes/templates/header.php'); ?>
-<?php include('includes/templates/top-bar.php'); ?>
+<?php include('includes/top-bar.php'); ?>
 
 <?php
-$albumQuery = mysqli_query($con, "
-  SELECT album.album_id,
-		 album.title_name, 
-		 album.artwork_path,
-		 artist.name,
-		 g.name AS genre
-	FROM albums as album 
-		 JOIN artists as artist
-			ON album.artist_id = artist.artist_id		
-		 JOIN genres as g
-			ON album.genre_id = g.genre_id
-		 WHERE
-			album_id='$albumId'");
-
-$album = mysqli_fetch_array($albumQuery);
 
 	echo	"
 			<section class='album'>
@@ -78,13 +60,10 @@ $album = mysqli_fetch_array($albumQuery);
 					</div>
 					<div class='album-select__container--item-artist'>	
 					</div>
-				</div>";
-
-
-
+				</div>
+			</section>
+			";
 
 ?>
 
-</section>
-<?php include('includes/templates/footer.php'); ?>
-
+<?php include('includes/footer.php'); ?>
