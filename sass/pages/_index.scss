@@ -75,7 +75,7 @@
 	}
 }
 
-.album {
+.album-select {
 
 	&__container {
 		padding: 1.5rem 2rem;
@@ -123,5 +123,52 @@
 				margin-bottom: .3rem;
 			}
 		}
+	}
+}
+
+.album {
+	// height: 100%;
+	// @include gradient;
+	// display: block;
+	// padding: 2rem;
+
+	&__header {
+		display: flex;
+
+		&--artwork {
+			width: 18rem;
+			height: 18rem;
+			border: 1px dashed red;
+			margin-right: 2rem;
+		}
+
+		&--details {
+			
+			&-miniheader {
+				margin: .5rem 0;
+				text-transform: uppercase;
+				font-size: 1rem;
+				letter-spacing: 1px;
+				color: $color-grey;
+			}
+
+			&-title {
+				font-size: 4rem;
+				font-weight: 700;
+			}
+
+			&-artist {
+				margin: .5rem 0;
+
+				&:before {
+					content: "By ";
+					color: $color-grey;
+				}
+			}
+		}
+	}
+
+	&__tracks {
+		margin-top: 2rem;
 	}
 }

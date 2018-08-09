@@ -11,3 +11,8 @@
 			  crossorigin="anonymous"></script>	
 	<script src="public/js/app.js"></script>
 </head>
+<body>
+	<div class="content-wrapper">
+		<div class="content">
+			<?php include('includes/templates/nav.php'); ?>
+			<div class="dynamic-content">

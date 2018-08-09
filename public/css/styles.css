@@ -319,12 +319,12 @@ html {
       padding: 1rem 0;
       border-bottom: 1px solid rgba(85, 85, 85, 0.8); }
 
-.album__container {
+.album-select__container {
   padding: 1.5rem 2rem;
   width: 100%;
   padding-bottom: 4rem;
   border-bottom: 1px solid rgba(85, 85, 85, 0.8); }
-  .album__container--item {
+  .album-select__container--item {
     display: inline-block;
     background-image: contain;
     margin-right: 2rem;
@@ -332,22 +332,47 @@ html {
     width: 28%;
     max-width: 20rem;
     min-width: 15rem; }
-    .album__container--item a {
+    .album-select__container--item a {
       text-decoration: none; }
-    .album__container--item img {
+    .album-select__container--item img {
       width: 100%; }
-      .album__container--item img:hover {
+      .album-select__container--item img:hover {
         cursor: pointer; }
-    .album__container--item-details {
+    .album-select__container--item-details {
       max-width: 18rem;
       font-size: 1.4rem; }
-    .album__container--item-title {
+    .album-select__container--item-title {
       color: #f7f7f7;
       margin-bottom: .5rem;
       font-weight: 700; }
-    .album__container--item-artist {
+    .album-select__container--item-artist {
       color: #a0a0a0;
       margin-bottom: .3rem; }
+
+.album__header {
+  display: flex; }
+  .album__header--artwork {
+    width: 18rem;
+    height: 18rem;
+    border: 1px dashed red;
+    margin-right: 2rem; }
+  .album__header--details-miniheader {
+    margin: .5rem 0;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: #a0a0a0; }
+  .album__header--details-title {
+    font-size: 4rem;
+    font-weight: 700; }
+  .album__header--details-artist {
+    margin: .5rem 0; }
+    .album__header--details-artist:before {
+      content: "By ";
+      color: #a0a0a0; }
+
+.album__tracks {
+  margin-top: 2rem; }
 
 .register {
   background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");
