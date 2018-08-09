@@ -80,7 +80,7 @@
 	&__container {
 		padding: 1.5rem 2rem;
 		// display: flex;
-		width: 100%;
+		// width: 100%;
 		// flex-wrap: wrap;
 		padding-bottom: 4rem;
 		border-bottom: 1px solid rgba($color-grey-dark, .8);
@@ -127,10 +127,10 @@
 }
 
 .album {
-	// height: 100%;
-	// @include gradient;
-	// display: block;
-	// padding: 2rem;
+	height: 100%;
+	@include gradient;
+	display: block;
+	padding: 2rem;
 
 	&__header {
 		display: flex;
@@ -138,12 +138,18 @@
 		&--artwork {
 			width: 18rem;
 			height: 18rem;
-			border: 1px dashed red;
 			margin-right: 2rem;
+
+			img {
+				height: 100%;
+				width: 100%;
+			}
 		}
 
 		&--details {
-			
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 			&-miniheader {
 				margin: .5rem 0;
 				text-transform: uppercase;
@@ -164,6 +170,92 @@
 					content: "By ";
 					color: $color-grey;
 				}
+			}
+		}
+	}
+
+	&__btn {
+		display: flex;
+		width: 100%;	
+		text-align: center;
+		align-items: center;
+		// height: 5rem;
+
+		p {
+			line-height: 1.5rem;
+		}
+		
+		&--play {
+			width: 10%;
+			background-color: $color-green-light;
+			border-radius: 200px;
+			padding: .8rem 3rem;
+			outline: none;
+			border: none;
+			color: white;
+			text-transform: uppercase;
+			margin-right: 1rem;
+			// font-size: 1.2rem;
+			font-weight: 600;
+			letter-spacing: 1px;
+			cursor: default;
+
+			&:hover {
+				transform: scale(1.04);
+				background-color: #34e372;
+			}
+		}
+
+		&--save {
+			width: 12%;
+			background-color: transparent;
+			border-radius: 200px;
+			padding: .8rem 4rem;
+			outline: none;
+			border: 1px solid $color-grey;
+			color: $color-white;
+			text-transform: uppercase;
+			margin-right: 1rem;
+			font-weight: 600;
+			letter-spacing: 1px;
+			cursor: default;
+
+			&:hover {
+				transform: scale(1.04);
+				border: 1.5px solid #fff;
+			}
+
+		}
+
+		&--more {
+			background-color: transparent;
+			border-radius: 50%;
+			border: 1px solid $color-white;
+			color: transparent;
+			height: 3rem;
+			width: 3rem;
+			position: relative;
+			transition: all .3s;
+
+				&:hover {
+					background-color: $color-white;
+					cursor: pointer;
+					transform: rotate(90deg);
+
+					&:after {
+						color: $color-black;
+					}
+				}
+
+			&:after {
+				content: '\2807';
+				font-size: 2rem;
+				color: $color-white;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-30%, -40%);
+
 			}
 		}
 	}

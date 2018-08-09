@@ -1,26 +1,26 @@
 <section class="player">
 	<div class="player__play-bar">
 		<div class="player__play-bar--album">
-			<div class="album">
-				<span class="album__link">
+			<div class="player__album">
+				<span class="player__album__link">
 					<img 
-						class="album__link--artwork"
+						class="player__album__link--artwork"
 						src="public/images/friends.jpg" 
-						alt="album artwork">
+						alt="player__album artwork">
 				</span>
-				<div class="album__info">
-					<span class="album__info--track">
-						<span class="album__info--track-name">
+				<div class="player__album__info">
+					<span class="player__album__info--track">
+						<span class="player__album__info--track-name">
 							Rubber Baby Buggy Bumpers
 						</span>
 						<svg 
 							aria-label="[title]"
-							class="album__info--track-icon">
+							class="player__album__info--track-icon">
 							<title>Add to playlist</title>
 							<use xlink:href="public/images/icomoon/sprite.svg#icon-plus"></use>
 						</svg>
 					</span>
-					<span class="album__info--artist-name">
+					<span class="player__album__info--artist-name">
 						<span>Chuck Norris</span>
 					</span>
 				</div>
