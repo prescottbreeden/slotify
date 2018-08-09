@@ -270,3 +270,35 @@
 		margin-top: 2rem;
 	}
 }
+
+.tracks {
+	display: block;
+
+	&__list {
+		list-style: none;
+
+		&--item {
+			display: flex;
+			font-size: 1.4rem;
+			padding: .5rem;
+			border-bottom: 1px solid rgba($color-grey, .2);
+
+			& > * {
+				margin: 0 1rem;
+			}
+
+			&-number {
+
+			}
+
+
+			&-name {
+
+			}
+
+			&-duration {
+				align-self: flex-end;
+			}
+		}
+	}
+}

@@ -448,6 +448,20 @@ html {
   .album__tracks {
     margin-top: 2rem; }
 
+.tracks {
+  display: block; }
+  .tracks__list {
+    list-style: none; }
+    .tracks__list--item {
+      display: flex;
+      font-size: 1.4rem;
+      padding: .5rem;
+      border-bottom: 1px solid rgba(160, 160, 160, 0.2); }
+      .tracks__list--item > * {
+        margin: 0 1rem; }
+      .tracks__list--item-duration {
+        align-self: flex-end; }
+
 .register {
   background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");
   background-position: center;
