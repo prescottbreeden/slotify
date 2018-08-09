@@ -14,7 +14,7 @@
 
 .dynamic-content {
 	height: calc(100%-9rem);
-	width: 80%;
+	width: 100%;
 	min-width: 72rem;
 }
 
@@ -71,6 +71,35 @@
 			font-size: 1.5rem;
 			padding: 1rem 0;
 			border-bottom: 1px solid rgba($color-grey-dark, .8);
+		}
+	}
+}
+
+.album {
+
+	&__container {
+		padding: 1.5rem 2rem;
+		display: flex;
+		width: 100%;
+
+		&--item {
+			background-image: contain;
+			margin-right: 2rem;
+
+			img {
+				height: 18rem;
+				width: 18rem;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+			}
+
+			&-details {
+				max-width: 18rem;
+				font-size: 1.4rem;
+			}
 		}
 	}
 }

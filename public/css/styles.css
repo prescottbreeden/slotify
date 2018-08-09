@@ -226,7 +226,8 @@ html {
 
 .nav {
   height: calc(100%-9rem);
-  width: 20%; }
+  width: 20%;
+  max-width: 25rem; }
 
 .nav-bar {
   padding: 2rem;
@@ -276,7 +277,7 @@ html {
 
 .dynamic-content {
   height: calc(100%-9rem);
-  width: 80%;
+  width: 100%;
   min-width: 72rem; }
 
 .top-bar {
@@ -317,6 +318,22 @@ html {
       font-size: 1.5rem;
       padding: 1rem 0;
       border-bottom: 1px solid rgba(85, 85, 85, 0.8); }
+
+.album__container {
+  padding: 1.5rem 2rem;
+  display: flex;
+  width: 100%; }
+  .album__container--item {
+    background-image: contain;
+    margin-right: 2rem; }
+    .album__container--item img {
+      height: 18rem;
+      width: 18rem; }
+      .album__container--item img:hover {
+        cursor: pointer; }
+    .album__container--item-details {
+      max-width: 18rem;
+      font-size: 1.4rem; }
 
 .register {
   background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");
