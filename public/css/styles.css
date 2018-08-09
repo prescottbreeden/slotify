@@ -226,7 +226,8 @@ html {
 .nav {
   height: calc(100%-9rem);
   width: 20%;
-  max-width: 25rem; }
+  max-width: 25rem;
+  background-color: #111111; }
 
 .nav-bar {
   padding: 2rem;
@@ -351,34 +352,37 @@ html {
   height: 100%;
   background-image: linear-gradient(to bottom, #3c3c3c, #1e1e1e 20%);
   display: block;
-  padding: 2rem; }
+  padding: 2rem;
+  cursor: default; }
   .album__header {
-    display: flex; }
+    display: inline-block; }
     .album__header--artwork {
+      display: inline-block;
       width: 18rem;
       height: 18rem;
-      margin-right: 2rem; }
+      margin-right: 2rem;
+      vertical-align: bottom; }
       .album__header--artwork img {
         height: 100%;
         width: 100%; }
     .album__header--details {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between; }
+      display: inline-block; }
       .album__header--details-miniheader {
         margin: .5rem 0;
         text-transform: uppercase;
-        font-size: 1rem;
+        font-size: .95rem;
         letter-spacing: 1px;
-        color: #a0a0a0; }
+        color: #f7f7f7; }
       .album__header--details-title {
         font-size: 4rem;
         font-weight: 700; }
       .album__header--details-artist {
-        margin: .5rem 0; }
+        margin: 1rem 0; }
         .album__header--details-artist:before {
           content: "By ";
           color: #a0a0a0; }
+    .album__header--misc {
+      margin-bottom: 1.5rem; }
   .album__btn {
     display: flex;
     width: 100%;
