@@ -1,5 +1,6 @@
 <?php
 include('includes/config.php');
+include('includes/classes/Artist.php');
 
 if(!isset($_SESSION['userLoggedIn'])) {
 	header("Location: register.php");
@@ -12,6 +13,8 @@ if(isset($_GET['id'])) {
 } else {
 	header("Location: index.php");
 }
+
+$artist = new Artist($con, $album['artist']);
 
 ?>
 
@@ -76,6 +79,10 @@ $album = mysqli_fetch_array($albumQuery);
 					<div class='album-select__container--item-artist'>	
 					</div>
 				</div>";
+
+
+
+
 ?>
 
 </section>
