@@ -311,7 +311,7 @@ html {
   background-image: linear-gradient(to bottom, #3c3c3c, #1e1e1e 20%); }
   .main__content {
     padding: 0 2rem;
-    padding-top: 10%; }
+    padding-top: 8%; }
     .main__content--heading {
       font-size: 4rem; }
     .main__content--sub-heading {
@@ -321,19 +321,33 @@ html {
 
 .album__container {
   padding: 1.5rem 2rem;
-  display: flex;
-  width: 100%; }
+  width: 100%;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(85, 85, 85, 0.8); }
   .album__container--item {
+    display: inline-block;
     background-image: contain;
-    margin-right: 2rem; }
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    width: 28%;
+    max-width: 20rem;
+    min-width: 15rem; }
+    .album__container--item a {
+      text-decoration: none; }
     .album__container--item img {
-      height: 18rem;
-      width: 18rem; }
+      width: 100%; }
       .album__container--item img:hover {
         cursor: pointer; }
     .album__container--item-details {
       max-width: 18rem;
       font-size: 1.4rem; }
+    .album__container--item-title {
+      color: #f7f7f7;
+      margin-bottom: .5rem;
+      font-weight: 700; }
+    .album__container--item-artist {
+      color: #a0a0a0;
+      margin-bottom: .3rem; }
 
 .register {
   background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");
