@@ -174,10 +174,15 @@
 	}
 
 	&__pause {
+		fill: $color-white !important;
 		height: 3rem;
 		width: 3rem;
 		display: none;
 		margin: 0 1.5rem;
+
+		&:hover {
+			transform: scale(1.1);
+		}
 	}
 
 	&__fwd {

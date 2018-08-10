@@ -21,10 +21,32 @@ $(document).ready(function() {
 });
 
 function setTrack(trackId, newPlaylist, play) {
-	audioElement.setTrack("public/music/bensound-acousticbreeze.mp3");
 
-	$.post("", {songId: trackId}, function(data) {
-		
+	$.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
+
+		var track = JSON.parse(data);
+		console.log(track);
+
+		$('#now_playing_song').text(track.title_name);
+
+		$.post("includes/handlers/ajax/getArtistJson.php", {artistId: track.artist_id}, function(data) {
+			
+			var artist = JSON.parse(data);
+			console.log(artist.name);
+
+			$('#now_playing_artist').text(artist.name)
+		});	
+
+		$.post("includes/handlers/ajax/getAlbumJson.php", {albumId: track.album_id}, function(data) {
+			
+			var album = JSON.parse(data);
+			console.log(album);
+			
+			$('#now_playing_artwork').attr('src', album.artwork_path);
+		});	
+
+		audioElement.setTrack(track);
+		playSong();
 	});
 
 	if(play) {
@@ -33,9 +55,14 @@ function setTrack(trackId, newPlaylist, play) {
 }
 
 function playSong() {
-	audioElement.play();
+
+	if(audioElement.audio.currentTime === 0) {
+		$.post('includes/handlers/ajax/updatePlays.php', {songId: audioElement.currentlyPlaying.song_id });
+	}
+
 	$(".play").hide();
 	$(".pause").show();
+	audioElement.play();
 }
 
 function pauseSong() {
@@ -52,14 +79,16 @@ function pauseSong() {
 					<div class="player__album">
 						<span class="player__album__link">
 							<img 
+								id="now_playing_artwork"
 								class="player__album__link--artwork"
-								src="public/images/friends.jpg" 
-								alt="player__album artwork">
+								src="" 
+								alt="album artwork">
 						</span>
 						<div class="player__album__info">
 							<span class="player__album__info--track">
-								<span class="player__album__info--track-name">
-									Rubber Baby Buggy Bumpers
+								<span 
+									id="now_playing_song"
+									class="player__album__info--track-name">
 								</span>
 								<svg 
 									aria-label="[title]"
@@ -68,8 +97,10 @@ function pauseSong() {
 									<use xlink:href="public/images/icomoon/sprite.svg#icon-plus"></use>
 								</svg>
 							</span>
-							<span class="player__album__info--artist-name">
-								<span>Chuck Norris</span>
+							<span 
+								id="now_playing_artist"
+								class="player__album__info--artist-name">
+								<span></span>
 							</span>
 						</div>
 					</div>

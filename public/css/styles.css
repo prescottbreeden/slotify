@@ -196,10 +196,13 @@ html {
     .controls__play:hover {
       transform: scale(1.1); }
   .controls__pause {
+    fill: #f7f7f7 !important;
     height: 3rem;
     width: 3rem;
     display: none;
     margin: 0 1.5rem; }
+    .controls__pause:hover {
+      transform: scale(1.1); }
   .controls__fwd {
     height: 2rem;
     width: 2rem;
