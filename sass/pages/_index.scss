@@ -272,6 +272,7 @@
 }
 
 .tracks {
+	margin-top: 2rem;
 	display: block;
 
 	&__list {
@@ -279,25 +280,80 @@
 
 		&--item {
 			display: flex;
+			align-items: center;
 			font-size: 1.4rem;
-			padding: .5rem;
+			padding: 1rem .5rem;
 			border-bottom: 1px solid rgba($color-grey, .2);
 
 			& > * {
 				margin: 0 1rem;
 			}
 
-			&-number {
-
+			&:hover svg {
+				visibility: visible;
 			}
 
-
-			&-name {
-
+			&:hover span {
+				visibility: hidden;
 			}
 
-			&-duration {
-				align-self: flex-end;
+		}
+		&--number {
+			color: $color-grey;
+			width: 2rem;
+			position: relative;
+			text-align: center;
+
+			&-header {
+				color: $color-grey;
+				width: 2rem;
+				font-size: 1rem;
+				text-align: center;
+			}
+
+			&-play {
+				visibility: hidden;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				height: 2rem;
+				width: 2rem;
+				fill: $color-white;
+				vertical-align: middle;
+			}
+
+			&:hover span {
+				
+			}
+
+			&:hover svg {
+				fill: #fff;
+				transform: scale(1.1);
+			}
+		}
+
+
+		&--name {
+
+			&-header {
+				color: $color-grey;
+				font-size: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+		}
+
+		&--duration {
+			margin-left: auto;
+			color: $color-grey;
+
+			svg {
+				fill: $color-grey;
+				height: 1.5rem;
+				width: 1.5rem;
 			}
 		}
 	}

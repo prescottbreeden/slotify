@@ -449,18 +449,59 @@ html {
     margin-top: 2rem; }
 
 .tracks {
+  margin-top: 2rem;
   display: block; }
   .tracks__list {
     list-style: none; }
     .tracks__list--item {
       display: flex;
+      align-items: center;
       font-size: 1.4rem;
-      padding: .5rem;
+      padding: 1rem .5rem;
       border-bottom: 1px solid rgba(160, 160, 160, 0.2); }
       .tracks__list--item > * {
         margin: 0 1rem; }
-      .tracks__list--item-duration {
-        align-self: flex-end; }
+      .tracks__list--item:hover svg {
+        visibility: visible; }
+      .tracks__list--item:hover span {
+        visibility: hidden; }
+    .tracks__list--number {
+      color: #a0a0a0;
+      width: 2rem;
+      position: relative;
+      text-align: center; }
+      .tracks__list--number-header {
+        color: #a0a0a0;
+        width: 2rem;
+        font-size: 1rem;
+        text-align: center; }
+      .tracks__list--number-play {
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 2rem;
+        width: 2rem;
+        fill: #f7f7f7;
+        vertical-align: middle; }
+      .tracks__list--number:hover svg {
+        fill: #fff;
+        transform: scale(1.1); }
+    .tracks__list--name-header {
+      color: #a0a0a0;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px; }
+    .tracks__list--duration {
+      margin-left: auto;
+      color: #a0a0a0; }
+      .tracks__list--duration svg {
+        fill: #a0a0a0;
+        height: 1.5rem;
+        width: 1.5rem; }
 
 .register {
   background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");

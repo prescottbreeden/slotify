@@ -52,6 +52,18 @@ $total_songs = $album->getNumberOfSongs();
 	</div>
 	<div class='tracks'>
 		<ul class='tracks__list'>
+			<li class="tracks__list--item">
+				<div class="tracks__list--number-header">#</div>
+				<div class="tracks__list--name-header">Title</div>
+				<div class="tracks__list--duration">
+					<svg 
+						aria-label="[title]"
+						<title>Duration</title>
+						<use xlink:href="public/images/icomoon/sprite.svg#icon-clock"></use>
+					</svg>
+				</div>
+
+			</li>
 			<?php 
 			$song_array = $album->getSongIds();
 			$i = 1;
@@ -61,7 +73,18 @@ $total_songs = $album->getNumberOfSongs();
 
 				echo "
 					<li class='tracks__list--item'>
-						<div class='tracks__list--number'>$i</div>
+						<div class='tracks__list--number'>
+						<span>	
+							$i
+						</span>
+
+						<svg 
+							aria-label='[title]'
+							class='tracks__list--number-play'>
+							<title>Play</title>
+							<use xlink:href='public/images/icomoon/sprite.svg#icon-play2'></use>
+						</svg>
+						</div>
 						<div class='tracks__list--name'>" . $albumSong->getTitle() . "</div>
 						<div class='tracks__list--duration'>" . $albumSong->getDuration() . "</div>
 					</li>
