@@ -15,6 +15,7 @@ $artist_name = $artist->getName();
 $album_name =  $album->getTitle();
 $total_songs = $album->getNumberOfSongs();
 
+
 ?>
 
 <?php include('includes/top-bar.php'); ?>
@@ -39,7 +40,9 @@ $total_songs = $album->getNumberOfSongs();
 				15min 
 			</div>
 			<div class='album__btn'>
-				<div class='album__btn--play'>
+				<div 
+					onclick="playAlbum()"
+					class='album__btn--play'>
 					<p>Play</p>
 				</div>
 				<div class='album__btn--save'>
@@ -66,6 +69,7 @@ $total_songs = $album->getNumberOfSongs();
 				</div>
 
 			</div>
+
 			<?php 
 			$song_array = $album->getSongIds();
 			$i = 1;
@@ -82,6 +86,7 @@ $total_songs = $album->getNumberOfSongs();
 
 						<svg 
 							aria-label='[title]'
+							onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'
 							class='tracks__list--number-play'>
 							<title>Play</title>
 							<use xlink:href='public/images/icomoon/sprite.svg#icon-play2'></use>
@@ -105,6 +110,16 @@ $total_songs = $album->getNumberOfSongs();
 			}
 
 			?>
+
+			<script>
+				var tempSongIds = '<?php echo json_encode($song_array); ?>';
+				tempPlaylist = JSON.parse(tempSongIds);
+
+				function playAlbum() {
+					var firstSong = tempPlaylist[0];
+					setTrack(firstSong, tempPlaylist, true);
+				}
+			</script>
 
 		</ul>
 	</div>
