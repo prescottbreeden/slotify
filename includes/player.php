@@ -104,6 +104,16 @@ function setTrack(trackId, newPlaylist, play) {
 	}
 }
 
+function prevSong() {
+	if(audioElement.audio.currentTime >= 5 || currentIndex === 0) {
+		audioElement.setTime(0);
+	} else {
+		currentIndex = currentIndex - 1;
+		setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
+	}
+
+}
+
 function playSong() {
 	if(audioElement.audio.currentTime === 0) {
 		$.post('includes/handlers/ajax/updatePlays.php', {songId: audioElement.currentlyPlaying.song_id });
@@ -196,6 +206,7 @@ function setRepeat() {
 						</svg>
 						<svg 
 							aria-label="[title]"
+							onclick="prevSong()"
 							class="controls__back">
 							<title>Previous</title>
 							<use xlink:href="public/images/icomoon/sprite.svg#icon-step-backward"></use>
