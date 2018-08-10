@@ -54,4 +54,4 @@ while($row = mysqli_fetch_array($albumQuery)) {
 	</div>
 </div>
 
-<?php include('includes/footer.php'); ?>
+<?php include('includes/player.php'); ?>

@@ -14,11 +14,17 @@ $jsonArray = json_encode($resultArray);
 
 ?>
 <script>
+
 $(document).ready(function() {
 	currentPlaylist = <?php echo $jsonArray; ?>;
 	audioElement = new Audio();
 	setTrack(currentPlaylist[0], currentPlaylist, false);
 	updateVolumeProgressBar(audioElement.audio);
+
+
+	// ============================================= //
+	//					MOUSE EVENTS				 //
+	// ============================================= //
 
 	$('.player').on('mousedown touchstart mousemove touchmove', function(e) {
 		e.preventDefault();
@@ -63,23 +69,27 @@ $(document).ready(function() {
 	});
 });
 
-function timeFromOffset(mouse, progressBar) {
-	var percentage = mouse.offsetX / $('.player__play-bar--progress-bar .progress-bar').width() * 100;
-	var seconds = audioElement.audio.duration * (percentage / 100);
-	audioElement.setTime(seconds);
-}
+// ============================================= //
+//					FUNCTIONS					 //
+// ============================================= //
 
 function setTrack(trackId, newPlaylist, play) {
 
+	currentIndex = currentPlaylist.indexOf(trackId);
+	pauseSong();
+
+	// get song
 	$.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
 		var track = JSON.parse(data);
 		$('#now_playing_song').text(track.title_name);
 
+		// get artist
 		$.post("includes/handlers/ajax/getArtistJson.php", {artistId: track.artist_id}, function(data) {
 			var artist = JSON.parse(data);
 			$('#now_playing_artist').text(artist.name)
 		});	
-
+		
+		// get album
 		$.post("includes/handlers/ajax/getAlbumJson.php", {albumId: track.album_id}, function(data) {
 			var album = JSON.parse(data);
 			$('#now_playing_artwork').attr('src', album.artwork_path);
@@ -109,8 +119,41 @@ function pauseSong() {
 	audioElement.pause();
 }
 
-</script>
+function nextSong() {
+	if(repeat === true) {
+		audioElement.setTime(0);
+		playSong();
+		return;
+	}
 
+	if(currentIndex === currentPlaylist.length - 1) {
+		currentIndex = 0;
+	} else {
+		currentIndex++;
+	}
+
+	var trackToPlay = currentPlaylist[currentIndex];
+	setTrack(trackToPlay, currentPlaylist, true);
+}
+
+function timeFromOffset(mouse, progressBar) {
+	var percentage = mouse.offsetX / $('.player__play-bar--progress-bar .progress-bar').width() * 100;
+	var seconds = audioElement.audio.duration * (percentage / 100);
+	audioElement.setTime(seconds);
+}
+
+function setRepeat() {
+	repeat = !repeat;
+
+	if(repeat) {
+		$('.controls__repeat').addClass('button-active');
+	}
+	else {
+		$('.controls__repeat').removeClass('button-active');
+	}
+}
+
+</script>
 		<section class="player">
 			<div class="player__play-bar">
 				<div class="player__play-bar--album">
@@ -173,12 +216,14 @@ function pauseSong() {
 						</svg>
 						<svg 
 							aria-label="[title]"
+							onclick="nextSong()"
 							class="controls__fwd">
 							<title>Next</title>
 							<use xlink:href="public/images/icomoon/sprite.svg#icon-step-forward"></use>
 						</svg>
 						<svg 
 							aria-label="[title]"
+							onclick="setRepeat()"
 							class="controls__repeat">
 							<title>Loop</title>
 							<use xlink:href="public/images/icomoon/sprite.svg#icon-repeat"></use>
