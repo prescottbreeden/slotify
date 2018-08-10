@@ -18,30 +18,45 @@ $(document).ready(function() {
 	currentPlaylist = <?php echo $jsonArray; ?>;
 	audioElement = new Audio();
 	setTrack(currentPlaylist[0], currentPlaylist, false);
+
+	$('.player__play-bar--progress-bar .progress-bar').mousedown(function() {
+		mouseDown = true;
+	});
+
+	$('.player__play-bar--progress-bar .progress-bar').mousemove(function(e) {
+		if(mouseDown) {
+			timeFromOffset(e, this);
+		}
+	});
+
+	$('.player__play-bar--progress-bar .progress-bar').mouseup(function(e) {
+		timeFromOffset(e, this);
+	});
+
+	$(document).mouseup(function() {
+		mouseDown = false;
+	});
 });
+
+function timeFromOffset(mouse, progressBar) {
+	var percentage = mouse.offsetX / $('.player__play-bar--progress-bar .progress-bar').width() * 100;
+	var seconds = audioElement.audio.duration * (percentage / 100);
+	audioElement.setTime(seconds);
+}
 
 function setTrack(trackId, newPlaylist, play) {
 
 	$.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
-
 		var track = JSON.parse(data);
-		console.log(track);
-
 		$('#now_playing_song').text(track.title_name);
 
 		$.post("includes/handlers/ajax/getArtistJson.php", {artistId: track.artist_id}, function(data) {
-			
 			var artist = JSON.parse(data);
-			console.log(artist.name);
-
 			$('#now_playing_artist').text(artist.name)
 		});	
 
 		$.post("includes/handlers/ajax/getAlbumJson.php", {albumId: track.album_id}, function(data) {
-			
 			var album = JSON.parse(data);
-			console.log(album);
-			
 			$('#now_playing_artwork').attr('src', album.artwork_path);
 		});	
 
@@ -55,20 +70,18 @@ function setTrack(trackId, newPlaylist, play) {
 }
 
 function playSong() {
-
 	if(audioElement.audio.currentTime === 0) {
 		$.post('includes/handlers/ajax/updatePlays.php', {songId: audioElement.currentlyPlaying.song_id });
 	}
-
 	$(".play").hide();
 	$(".pause").show();
 	audioElement.play();
 }
 
 function pauseSong() {
-	audioElement.pause();
 	$(".play").show();
 	$(".pause").hide();
+	audioElement.pause();
 }
 
 </script>
