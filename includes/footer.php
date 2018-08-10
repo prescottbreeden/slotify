@@ -33,6 +33,26 @@ $(document).ready(function() {
 		timeFromOffset(e, this);
 	});
 
+	$('.volume__bar .progress-bar').mousedown(function() {
+		mouseDown = true;
+	});
+
+	$('.volume__bar .progress-bar').mousemove(function(e) {
+		if(mouseDown) {
+			var percentage = e.offsetX / $(this).width();
+			if(percentage >= 0 && percentage <=1) {
+				audioElement.audio.volume = percentage;
+			}
+		}
+	});
+
+	$('.volume__bar .progress-bar').mouseup(function(e) {
+		var percentage = e.offsetX / $(this).width();
+			if(percentage >= 0 && percentage <=1) {
+				audioElement.audio.volume = percentage;
+			}
+	});
+
 	$(document).mouseup(function() {
 		mouseDown = false;
 	});
