@@ -153,7 +153,8 @@ html {
   cursor: pointer; }
   .progress-bar__time {
     font-size: 1rem;
-    text-align: center; }
+    text-align: center;
+    letter-spacing: 1px; }
     .progress-bar__time--current {
       margin-right: 1rem; }
     .progress-bar__time--remaining {

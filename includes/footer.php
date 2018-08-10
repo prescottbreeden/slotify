@@ -150,7 +150,7 @@ function pauseSong() {
 						<span class="progress-bar__time progress-bar__time--current">0.00</span>
 						<div class="progress-bar">
 							<div class="progress-bar__bg">
-								<div class="progress-bar__progress"></div>
+								<div id="song_progress" class="progress-bar__progress"></div>
 							</div>
 						</div>
 						<span class="progress-bar__time progress-bar__time--remaining">0.00</span>
