@@ -18,6 +18,11 @@ $(document).ready(function() {
 	currentPlaylist = <?php echo $jsonArray; ?>;
 	audioElement = new Audio();
 	setTrack(currentPlaylist[0], currentPlaylist, false);
+	updateVolumeProgressBar(audioElement.audio);
+
+	$('.player').on('mousedown touchstart mousemove touchmove', function(e) {
+		e.preventDefault();
+	});
 
 	$('.player__play-bar--progress-bar .progress-bar').mousedown(function() {
 		mouseDown = true;
@@ -200,7 +205,7 @@ function pauseSong() {
 							</svg>
 							<div class="progress-bar">
 								<div class="progress-bar__bg">
-									<div class="progress-bar__progress"></div>
+									<div id="volume_bar" class="progress-bar__progress"></div>
 								</div>
 							</div>
 						</div>
