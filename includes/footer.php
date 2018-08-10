@@ -1,6 +1,51 @@
 
 			</div>
 		</div>
+
+<?php 
+$songQuery = mysqli_query($con, "SELECT song_id FROM songs ORDER BY RAND() LIMIT 10");
+$resultArray = array();
+
+while($row = mysqli_fetch_array($songQuery)) {
+	array_push($resultArray, $row['song_id']);
+}
+
+$jsonArray = json_encode($resultArray);
+
+?>
+<script>
+$(document).ready(function() {
+	currentPlaylist = <?php echo $jsonArray; ?>;
+	audioElement = new Audio();
+	setTrack(currentPlaylist[0], currentPlaylist, false);
+});
+
+function setTrack(trackId, newPlaylist, play) {
+	audioElement.setTrack("public/music/bensound-acousticbreeze.mp3");
+
+	$.post("", {songId: trackId}, function(data) {
+		
+	});
+
+	if(play) {
+		audioElement.play();
+	}
+}
+
+function playSong() {
+	audioElement.play();
+	$(".play").hide();
+	$(".pause").show();
+}
+
+function pauseSong() {
+	audioElement.pause();
+	$(".play").show();
+	$(".pause").hide();
+}
+
+</script>
+
 		<section class="player">
 			<div class="player__play-bar">
 				<div class="player__play-bar--album">
@@ -19,7 +64,7 @@
 								<svg 
 									aria-label="[title]"
 									class="player__album__info--track-icon">
-									<title>Add to playlist</title>
+									<title>Add to Your Music</title>
 									<use xlink:href="public/images/icomoon/sprite.svg#icon-plus"></use>
 								</svg>
 							</span>
@@ -45,13 +90,15 @@
 						</svg>
 						<svg 
 							aria-label="[title]"
-							class="controls__play">
+							onclick="playSong()"
+							class="controls__play play">
 							<title>Play</title>
 							<use xlink:href="public/images/icomoon/sprite.svg#icon-play2"></use>
 						</svg>
 						<svg 
 							aria-label="[title]"
-							class="controls__pause">
+							onclick="pauseSong()"
+							class="controls__pause pause">
 							<title>Pause</title>
 							<use xlink:href="public/images/icomoon/sprite.svg#icon-pause2"></use>
 						</svg>

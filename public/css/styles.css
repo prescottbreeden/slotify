@@ -196,8 +196,8 @@ html {
     .controls__play:hover {
       transform: scale(1.1); }
   .controls__pause {
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 3rem;
+    width: 3rem;
     display: none;
     margin: 0 1.5rem; }
   .controls__fwd {
