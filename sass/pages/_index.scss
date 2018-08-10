@@ -200,15 +200,19 @@
 			border: none;
 			color: white;
 			text-transform: uppercase;
-			margin-right: 1rem;
+			margin-right: 1.5rem;
 			// font-size: 1.2rem;
 			font-weight: 600;
 			letter-spacing: 1px;
 			cursor: default;
 
 			&:hover {
-				transform: scale(1.04);
+				transform: scale(1.1);
 				background-color: #34e372;
+			}
+
+			&:active {
+				transform: scale(1);
 			}
 		}
 
@@ -221,14 +225,20 @@
 			border: 1px solid $color-grey;
 			color: $color-white;
 			text-transform: uppercase;
-			margin-right: 1rem;
+			margin-right: 1.5rem;
 			font-weight: 600;
 			letter-spacing: 1px;
 			cursor: default;
+			backface-visibility: none;
 
 			&:hover {
-				transform: scale(1.04);
+				transform: scale(1.1);
 				border: 1.5px solid #fff;
+			}
+
+			&:active {
+				transform: scale(1);
+				border: 1px solid $color-grey;
 			}
 
 		}
@@ -273,20 +283,30 @@
 
 .tracks {
 	margin-top: 2rem;
-	display: block;
 
 	&__list {
-		list-style: none;
+		display: block;
+		width: 100%;
 
 		&--item {
 			display: flex;
 			align-items: center;
-			font-size: 1.4rem;
-			padding: 1rem .5rem;
+			font-size: 1.3rem;
+			height: 2rem;
 			border-bottom: 1px solid rgba($color-grey, .2);
+			padding: 1rem .5rem;
+			padding-top: 1.1rem;
 
 			& > * {
 				margin: 0 1rem;
+			}
+
+			&:not(:first-child) {
+
+				&:hover {
+					background-color: rgba($color-grey, .2);
+					border-bottom: 1px solid transparent;
+				}
 			}
 
 			&:hover svg {
@@ -298,6 +318,7 @@
 			}
 
 		}
+
 		&--number {
 			color: $color-grey;
 			width: 2rem;
@@ -319,10 +340,9 @@
 				left: 0;
 				right: 0;
 				margin: auto;
-				height: 2rem;
-				width: 2rem;
+				height: 2.5rem;
+				width: 2.5rem;
 				fill: $color-white;
-				vertical-align: middle;
 			}
 
 			&:hover span {
@@ -333,21 +353,65 @@
 				fill: #fff;
 				transform: scale(1.1);
 			}
+
 		}
 
 
 		&--name {
+			width: 40%;
 
 			&-header {
 				color: $color-grey;
 				font-size: 1rem;
 				text-transform: uppercase;
 				letter-spacing: 1px;
+				width: 40%;
+			}
+		}
+
+		&--artist {
+			max-width: 40%;
+
+			&:hover {
+				cursor: pointer;
+				text-decoration: underline;
+			}
+
+			&-header {
+				color: $color-grey;
+				font-size: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				max-width: 40%;
+			}
+		}
+
+		&--more {
+			visibility: hidden;
+			margin-left: auto;
+			height: 100%;
+			width: 3rem;
+			position: relative;
+
+			svg {
+				margin-right: auto;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				height: 2rem;
+				width: 2rem;
+				fill: $color-white;
+
+				&:hover {
+					cursor: pointer;
+				}
 			}
 		}
 
 		&--duration {
-			margin-left: auto;
 			color: $color-grey;
 
 			svg {

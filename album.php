@@ -51,10 +51,12 @@ $total_songs = $album->getNumberOfSongs();
 		</div>
 	</div>
 	<div class='tracks'>
-		<ul class='tracks__list'>
-			<li class="tracks__list--item">
+		<div class='tracks__list'>
+			<div class="tracks__list--item">
 				<div class="tracks__list--number-header">#</div>
 				<div class="tracks__list--name-header">Title</div>
+				<div class="tracks__list--artist-header">artist</div>
+				<div class='tracks__list--more'></div>
 				<div class="tracks__list--duration">
 					<svg 
 						aria-label="[title]"
@@ -63,7 +65,7 @@ $total_songs = $album->getNumberOfSongs();
 					</svg>
 				</div>
 
-			</li>
+			</div>
 			<?php 
 			$song_array = $album->getSongIds();
 			$i = 1;
@@ -72,7 +74,7 @@ $total_songs = $album->getNumberOfSongs();
 				$albumArtist = $albumSong->getArtist();
 
 				echo "
-					<li class='tracks__list--item'>
+					<div class='tracks__list--item'>
 						<div class='tracks__list--number'>
 						<span>	
 							$i
@@ -86,8 +88,16 @@ $total_songs = $album->getNumberOfSongs();
 						</svg>
 						</div>
 						<div class='tracks__list--name'>" . $albumSong->getTitle() . "</div>
+						<div class='tracks__list--artist'>" . $albumArtist->getName() . "</div>
+						<div class='tracks__list--more'>
+							<svg 
+								aria-label='[title]'
+								<title>More</title>
+								<use xlink:href='public/images/icomoon/sprite.svg#icon-more-horizontal'></use>
+							</svg>
+						</div>
 						<div class='tracks__list--duration'>" . $albumSong->getDuration() . "</div>
-					</li>
+					</div>
 
 					";
 
