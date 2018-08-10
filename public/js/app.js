@@ -3,6 +3,54 @@ let audioElement;
 let mouseDown = false;
 let repeat = false;
 
+// ====================================== //
+//				AUDIO CLASS				  //
+// ====================================== //
+function Audio() {
+	
+	this.currentlyPlaying;
+	this.audio = document.createElement('audio');
+
+	// ------ EVENT LISTENERS ------ //
+	this.audio.addEventListener('ended', function() {
+		nextSong();	
+	})
+
+	this.audio.addEventListener("canplay", function() {
+		var duration = formatTime(this.duration);
+		$('.progress-bar__time.progress-bar__time--remaining').text(duration);
+	});
+
+	this.audio.addEventListener('timeupdate', function() {
+		if(this.duration) {
+			updateTimeProgressBar(this);
+		}
+	});
+
+	this.audio.addEventListener('volumechange', function() {
+		updateVolumeProgressBar(this);
+	});
+
+	// ------ FUNCTIONS ------ //
+	this.setTrack = function(track) {
+		this.currentlyPlaying = track;
+		this.audio.src = track.song_path;
+	}
+
+	this.play = function() {
+		this.audio.play();
+	}
+
+	this.pause = function() {
+		this.audio.pause();
+	}
+
+	this.setTime = function(seconds) {
+		this.audio.currentTime = seconds;
+	}
+
+}
+
 function formatTime(seconds) {
 	var time = Math.round(seconds);
 	var minutes = Math.floor(time/60);
@@ -28,45 +76,7 @@ function updateVolumeProgressBar(audio) {
 	$('#volume_bar').css('width', volume + "%");
 }
 
-function Audio() {
-	
-	this.currentlyPlaying;
-	this.audio = document.createElement('audio');
-
-	this.audio.addEventListener("canplay", function() {
-		var duration = formatTime(this.duration);
-		$('.progress-bar__time.progress-bar__time--remaining').text(duration);
-	});
-
-	this.audio.addEventListener('timeupdate', function() {
-		if(this.duration) {
-			updateTimeProgressBar(this);
-		}
-	});
-
-	this.audio.addEventListener('volumechange', function() {
-		updateVolumeProgressBar(this);
-	});
-
-	this.setTrack = function(track) {
-		this.currentlyPlaying = track;
-		this.audio.src = track.song_path;
-	}
-
-	this.play = function() {
-		this.audio.play();
-	}
-
-	this.pause = function() {
-		this.audio.pause();
-	}
-
-	this.setTime = function(seconds) {
-		this.audio.currentTime = seconds;
-	}
-
-}
-
+// register.php behavior
 $(document).ready(function() {
 	console.log('power overwhelming...');
 
