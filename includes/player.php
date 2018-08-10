@@ -16,9 +16,9 @@ $jsonArray = json_encode($resultArray);
 <script>
 
 $(document).ready(function() {
-	currentPlaylist = <?php echo $jsonArray; ?>;
+	newPlaylist = <?php echo $jsonArray; ?>;
 	audioElement = new Audio();
-	setTrack(currentPlaylist[0], currentPlaylist, false);
+	setTrack(newPlaylist[0], newPlaylist, false);
 	updateVolumeProgressBar(audioElement.audio);
 
 
@@ -75,7 +75,18 @@ $(document).ready(function() {
 
 function setTrack(trackId, newPlaylist, play) {
 
-	currentIndex = currentPlaylist.indexOf(trackId);
+	if(newPlaylist != currentPlaylist) {
+		currentPlaylist = newPlaylist;
+		shufflePlaylist = currentPlaylist.slice();
+		shuffle_list(shufflePlaylist);
+	}
+
+	if(shuffle === true) {
+		currentIndex = shufflePlaylist.indexOf(trackId);
+	} else {
+		currentIndex = currentPlaylist.indexOf(trackId);
+		
+	}
 	pauseSong();
 
 	// get song
@@ -101,6 +112,20 @@ function setTrack(trackId, newPlaylist, play) {
 
 	if(play) {
 		audioElement.play();
+	}
+}
+
+function setShuffle() {
+	shuffle = !shuffle;
+
+	if(shuffle) {
+		$('.controls__shuffle').addClass('button-active');
+		shuffle_list(shufflePlaylist);
+		currentIndex = shufflePlaylist.indexOf(audioElement.currentlyPlaying.song_id);
+	}
+	else {
+		$('.controls__shuffle').removeClass('button-active');
+		currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.song_id);
 	}
 }
 
@@ -142,14 +167,8 @@ function nextSong() {
 		currentIndex++;
 	}
 
-	var trackToPlay = currentPlaylist[currentIndex];
+	var trackToPlay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
 	setTrack(trackToPlay, currentPlaylist, true);
-}
-
-function timeFromOffset(mouse, progressBar) {
-	var percentage = mouse.offsetX / $('.player__play-bar--progress-bar .progress-bar').width() * 100;
-	var seconds = audioElement.audio.duration * (percentage / 100);
-	audioElement.setTime(seconds);
 }
 
 function setRepeat() {
@@ -161,6 +180,34 @@ function setRepeat() {
 	else {
 		$('.controls__repeat').removeClass('button-active');
 	}
+}
+
+function setMute() {
+	audioElement.audio.muted = !audioElement.audio.muted;
+
+	if(audioElement.audio.muted) {
+		$('#volume_icon').attr('href', 'public/images/icomoon/sprite.svg#icon-volume-mute')
+	}
+	else {
+		$('#volume_icon').attr('href', 'public/images/icomoon/sprite.svg#icon-volume-medium')
+	}
+}
+
+function timeFromOffset(mouse, progressBar) {
+	var percentage = mouse.offsetX / $('.player__play-bar--progress-bar .progress-bar').width() * 100;
+	var seconds = audioElement.audio.duration * (percentage / 100);
+	audioElement.setTime(seconds);
+}
+
+// Fisher-Yates Shuffle
+function shuffle_list(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
 }
 
 </script>
@@ -200,44 +247,45 @@ function setRepeat() {
 					<div class="controls">
 						<svg 
 							aria-label="[title]"
+							onclick="setShuffle()"
 							class="controls__shuffle">
 							<title>Shuffle</title>
-							<use xlink:href="public/images/icomoon/sprite.svg#icon-random"></use>
+							<use href="public/images/icomoon/sprite.svg#icon-random"></use>
 						</svg>
 						<svg 
 							aria-label="[title]"
 							onclick="prevSong()"
 							class="controls__back">
 							<title>Previous</title>
-							<use xlink:href="public/images/icomoon/sprite.svg#icon-step-backward"></use>
+							<use href="public/images/icomoon/sprite.svg#icon-step-backward"></use>
 						</svg>
 						<svg 
 							aria-label="[title]"
 							onclick="playSong()"
 							class="controls__play play">
 							<title>Play</title>
-							<use xlink:href="public/images/icomoon/sprite.svg#icon-play2"></use>
+							<use href="public/images/icomoon/sprite.svg#icon-play2"></use>
 						</svg>
 						<svg 
 							aria-label="[title]"
 							onclick="pauseSong()"
 							class="controls__pause pause">
 							<title>Pause</title>
-							<use xlink:href="public/images/icomoon/sprite.svg#icon-pause2"></use>
+							<use href="public/images/icomoon/sprite.svg#icon-pause2"></use>
 						</svg>
 						<svg 
 							aria-label="[title]"
 							onclick="nextSong()"
 							class="controls__fwd">
 							<title>Next</title>
-							<use xlink:href="public/images/icomoon/sprite.svg#icon-step-forward"></use>
+							<use href="public/images/icomoon/sprite.svg#icon-step-forward"></use>
 						</svg>
 						<svg 
 							aria-label="[title]"
 							onclick="setRepeat()"
 							class="controls__repeat">
 							<title>Loop</title>
-							<use xlink:href="public/images/icomoon/sprite.svg#icon-repeat"></use>
+							<use href="public/images/icomoon/sprite.svg#icon-repeat"></use>
 						</svg>
 					</div>
 					<div class="player__play-bar--progress-bar">
@@ -254,10 +302,13 @@ function setRepeat() {
 					<div class="volume">
 						<div class="volume__bar">
 							<svg 
+								onclick="setMute()"
 								aria-label="[title]"
 								class="volume__bar--icon">
-								<title>Mute</title>
-								<use xlink:href="public/images/icomoon/sprite.svg#icon-volume-medium"></use>
+								<title>Toggle Mute</title>
+								<use 
+									id="volume_icon"
+									href="public/images/icomoon/sprite.svg#icon-volume-medium"></use>
 							</svg>
 							<div class="progress-bar">
 								<div class="progress-bar__bg">

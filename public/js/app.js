@@ -1,7 +1,9 @@
 let currentPlaylist = [];
+let shufflePlaylist = [];
 let audioElement;
 let mouseDown = false;
 let repeat = false;
+let shuffle = false;
 
 // ====================================== //
 //				AUDIO CLASS				  //
