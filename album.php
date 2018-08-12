@@ -14,7 +14,7 @@ $artwork_path = $album->getArtworkPath();
 $artist_name = $artist->getName();
 $album_name =  $album->getTitle();
 $total_songs = $album->getNumberOfSongs();
-
+$total_length = $album->getTotalLength();
 
 ?>
 
@@ -37,7 +37,7 @@ $total_songs = $album->getNumberOfSongs();
 			</div>
 			<div class='album__header--misc'>
 				<?php echo $total_songs; ?> songs, 
-				15min 
+				<?php echo $total_length; ?>  
 			</div>
 			<div class='album__btn'>
 				<div 

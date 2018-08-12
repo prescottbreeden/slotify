@@ -17,7 +17,21 @@ class Song {
 		$this->con = $con;
 		$this->id = $id;
 
-		$query = mysqli_query($this->con, "SELECT * FROM songs WHERE song_id='$this->id'");
+		$query = mysqli_query($this->con, "
+			 SELECT song_id,
+					title_name,
+					artist_id,
+					album_id,
+					genre_id,
+					CASE
+						WHEN duration > 59 THEN TRIM(leading 0 from TIME_FORMAT(duration, '%i:%s')) 
+						ELSE TIME_FORMAT(duration, '0:%s')
+					END AS duration,
+					song_path,
+					album_order,
+					play_count	
+			   FROM songs 
+					WHERE song_id='$this->id'");
 		$this->mysqliData = mysqli_fetch_array($query);
 		$this->title = $this->mysqliData['title_name'];
 		$this->artist_id = $this->mysqliData['artist_id'];

@@ -39,20 +39,37 @@ class Album {
 	}
 	
 	public function getNumberOfSongs() {
-		$query = mysqli_query($this->con, "SELECT * FROM songs as s WHERE s.album_id='$this->id'");
+		$query = mysqli_query($this->con, "
+			 SELECT * 
+			   FROM songs as s 
+					WHERE s.album_id='$this->id'");
+
 		return mysqli_num_rows($query);
 	}
 	
 	public function getSongIds() {
-		$query = mysqli_query($this->con, "SELECT song_id FROM songs WHERE album_id='$this->id' ORDER BY album_order ASC");
+		$query = mysqli_query($this->con, "
+			 SELECT song_id 
+			   FROM songs 
+					WHERE album_id='$this->id' 
+					ORDER BY album_order ASC");
 
 		$array = array();
-
 		while($row = mysqli_fetch_array($query)) {
 			array_push($array, $row['song_id']);
 		}
-
 		return $array;
+	}
+
+	public function getTotalLength() {
+		$query = mysqli_query($this->con, "
+			 SELECT TIME_FORMAT(SUM(duration), '%i min') 
+			   FROM songs 
+					WHERE album_id='$this->id' 
+					GROUP BY album_id");
+
+		$row = mysqli_fetch_array($query);
+		return $row[0];
 	}
 }
 ?>
