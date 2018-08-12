@@ -23,7 +23,7 @@ $artist = new Artist($con, $artistId);
 		<div class="artist__info">
 			<h1 class="artist__info--name"><?php echo $artist->getName(); ?></h1>
 			<div class="artist__header-btn">
-				<div class="artist__header-btn--btn">Play</div>
+				<div onclick="playFirstSong()" class="artist__header-btn--btn">Play</div>
 			</div>
 		</div>
 	</div>

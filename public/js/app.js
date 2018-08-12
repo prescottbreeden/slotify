@@ -18,6 +18,10 @@ function openPage(url) {
 	history.pushState(null, null, url);
 }
 
+function playFirstSong() {
+	setTrack(tempPlaylist[0], tempPlaylist, true);
+}
+
 
 // ====================================== //
 //				AUDIO CLASS				  //
@@ -66,6 +70,11 @@ function Audio() {
 	}
 
 }
+
+
+// ====================================== //
+//				PLAYER BAR				  //
+// ====================================== //
 
 function formatTime(seconds) {
 	var time = Math.round(seconds);
