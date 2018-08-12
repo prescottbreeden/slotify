@@ -44,7 +44,7 @@ $total_length = $album->getTotalLength();
 			</div>
 			<div class='album__header--misc'>
 				<?php echo $total_songs; ?> songs, 
-				<?php echo $total_length; ?>  
+				<?php echo $total_length; ?> min 
 			</div>
 			<div class='album__btn'>
 				<div 

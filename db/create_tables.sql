@@ -75,6 +75,7 @@ CREATE TABLE IF NOT EXISTS songs (
 			('Koji Kondo'),
 			('Takashi Tateishi'),
 			('Hirokazu Tanaka'),
+			('Konami Kukeiha Club'),
 			('Nobuo Uematsu'),
 			('Mahito Yokota')
 			;
@@ -97,7 +98,9 @@ CREATE TABLE IF NOT EXISTS songs (
 			('The Legend of Zelda', 1, 1, 'public/images/artwork/zelda.jpg'),
 			('Mega Man 2', 2, 1, 'public/images/artwork/megaman2.jpg'),
 			('Punch Out', 1, 1, 'public/images/artwork/punchout.jpg'),
-			('Metroid', 3, 1, 'public/images/artwork/metroid.jpg')
+			('Metroid', 3, 1, 'public/images/artwork/metroid.jpg'),
+			('Contra', 4, 1, 'public/images/artwork/contra.jpg')
+
 			
 			
 			;
@@ -159,10 +162,21 @@ CREATE TABLE IF NOT EXISTS songs (
 			('Tourian (Base Stage)', 3, 4, 1, '34', 'public/music/nes_metroid/metroid_9_tourian_base_stage.mp3', 9, 0),
 			('The Lord of Zebes', 3, 4, 1, '34', 'public/music/nes_metroid/metroid_10_the_lord_of_zebes.mp3', 10, 0),
 			('Escape', 3, 4, 1, '127', 'public/music/nes_metroid/metroid_11_escape.mp3', 11, 0),
-			('Ending', 3, 4, 1, '216', 'public/music/nes_metroid/metroid_12_ending.mp3', 12, 0)
+			('Ending', 3, 4, 1, '216', 'public/music/nes_metroid/metroid_12_ending.mp3', 12, 0),
 
+			('Title', 4, 5, 1, '7', 'public/music/nes_contra/contra_1_title.mp3', 1, 0),
+			('Introduction', 4, 5, 1, '105', 'public/music/nes_contra/contra_2_introduction.mp3', 2, 0),
+			('Area 1: Jungle / Area 7: Hanger', 4, 5, 1, '151', 'public/music/nes_contra/contra_3_jungle_hanger.mp3', 3, 0),
+			('Area Clear', 4, 5, 1, '6', 'public/music/nes_contra/contra_4_area_clear.mp3', 4, 0),
+			('Areas 2 & 4: Bases 1 & 2', 4, 5, 1, '139', 'public/music/nes_contra/contra_5_areas_2_4_bases_1_2.mp3', 5, 0),
+			('Boss', 4, 5, 1, '120', 'public/music/nes_contra/contra_6_boss.mp3', 6, 0),
+			('Area 3: Waterfall', 4, 5, 1, '123', 'public/music/nes_contra/contra_7_area_3_waterfall.mp3', 7, 0),
+			('Area 5: Snow Field', 4, 5, 1, '117', 'public/music/nes_contra/contra_8_area_5_snow_field.mp3', 8, 0),
+			('Area 6: Energy Zone', 4, 5, 1, '54', 'public/music/nes_contra/contra_9_area_6_energy_zone.mp3', 9, 0),
+			('Area 8: Alien\'s Lair', 4, 5, 1, '107', 'public/music/nes_contra/contra_10_area_8_aliens_lair.mp3', 10, 0),
+			('Area 8: Alen Dead', 4, 5, 1, '10', 'public/music/nes_contra/contra_11_area_8_alien_dead.mp3', 11, 0),
+			('Credit', 4, 5, 1, '125', 'public/music/nes_contra/contra_12_credit.mp3', 12, 0),
+			('Game Over', 4, 5, 1, '7', 'public/music/nes_contra/contra_13_game_over.mp3', 13, 0)
 
-			
-			
 			
 			;

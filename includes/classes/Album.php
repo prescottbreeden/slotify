@@ -63,7 +63,12 @@ class Album {
 
 	public function getTotalLength() {
 		$query = mysqli_query($this->con, "
-			 SELECT TIME_FORMAT(SUM(duration), '%i min') 
+			 SELECT 
+					CASE
+						WHEN TIME_FORMAT(SUM(duration), '%i') > 0 
+							THEN TIME_FORMAT(SUM(duration), '%i')
+						ELSE TIME_FORMAT(SUM(duration)-60, '%i')+1
+					END AS duration
 			   FROM songs 
 					WHERE album_id='$this->id' 
 					GROUP BY album_id");
