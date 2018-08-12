@@ -255,10 +255,9 @@ html {
   .nav-bar__item {
     margin-top: 2rem;
     letter-spacing: 1px; }
-    .nav-bar__item a {
-      text-decoration: none;
+    .nav-bar__item--link {
       color: #a0a0a0; }
-      .nav-bar__item a:hover {
+      .nav-bar__item--link:hover {
         color: #f7f7f7;
         cursor: default; }
     .nav-bar__item:nth-child(1) {
