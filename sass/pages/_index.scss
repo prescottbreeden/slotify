@@ -13,9 +13,13 @@
 }
 
 .dynamic-content {
-	height: calc(100%-9rem);
+	min-height: calc(100%-9rem);
 	width: 100%;
+	min-height: 100%;
 	min-width: 72rem;
+	margin-left: 25rem;
+	padding-bottom: 20rem;
+	@include gradient;
 }
 
 .top-bar {
@@ -49,6 +53,7 @@
 			margin-top: 2px;
 			font-size: 1.2rem;	
 			border-bottom: 1px solid transparent;
+			letter-spacing: 1px;
 		}
 	}
 }
@@ -127,11 +132,12 @@
 }
 
 .album {
-	height: 100%;
+	min-height: 100%;
 	@include gradient;
 	display: block;
 	padding: 2rem;
 	cursor: default;
+	padding-bottom: 20rem;
 
 	&__header {
 		display: inline-block;

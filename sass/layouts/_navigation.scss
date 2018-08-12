@@ -1,8 +1,12 @@
 .nav {
-	height: calc(100%-9rem);
-	width: 20%;
+	min-height: calc(100%-9rem);
+	width: 25rem;
 	max-width: 25rem;
 	background-color: #111111;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
 }
 
 .nav-bar {

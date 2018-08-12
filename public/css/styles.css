@@ -231,10 +231,14 @@ html {
       fill: #a0a0a0; }
 
 .nav {
-  height: calc(100%-9rem);
-  width: 20%;
+  min-height: calc(100%-9rem);
+  width: 25rem;
   max-width: 25rem;
-  background-color: #111111; }
+  background-color: #111111;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0; }
 
 .nav-bar {
   padding: 2rem;
@@ -283,9 +287,13 @@ html {
   height: 100%; }
 
 .dynamic-content {
-  height: calc(100%-9rem);
+  min-height: calc(100%-9rem);
   width: 100%;
-  min-width: 72rem; }
+  min-height: 100%;
+  min-width: 72rem;
+  margin-left: 25rem;
+  padding-bottom: 20rem;
+  background-image: linear-gradient(to bottom, #3c3c3c, #1e1e1e 20%); }
 
 .top-bar {
   display: flex;
@@ -309,7 +317,8 @@ html {
       margin-left: .3rem;
       margin-top: 2px;
       font-size: 1.2rem;
-      border-bottom: 1px solid transparent; }
+      border-bottom: 1px solid transparent;
+      letter-spacing: 1px; }
 
 .main {
   width: 100%;
@@ -356,11 +365,12 @@ html {
       margin-bottom: .3rem; }
 
 .album {
-  height: 100%;
+  min-height: 100%;
   background-image: linear-gradient(to bottom, #3c3c3c, #1e1e1e 20%);
   display: block;
   padding: 2rem;
-  cursor: default; }
+  cursor: default;
+  padding-bottom: 20rem; }
   .album__header {
     display: inline-block; }
     .album__header--artwork {
