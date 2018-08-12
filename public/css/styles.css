@@ -274,6 +274,53 @@ html {
         fill: #a0a0a0;
         margin-right: 1rem; }
 
+.artist {
+  min-height: 100%;
+  background-image: linear-gradient(to bottom, #3c3c3c, #1e1e1e 20%);
+  display: block;
+  padding: 2rem;
+  cursor: default;
+  padding-bottom: 20rem; }
+  .artist__center-section {
+    text-align: center; }
+  .artist__info {
+    padding-top: 2rem; }
+    .artist__info--name {
+      font-size: 4rem; }
+  .artist__header-btn--btn {
+    margin: 1rem auto;
+    border: 1px solid #a0a0a0;
+    padding: .8rem 3rem;
+    min-width: 8rem;
+    color: white;
+    text-align: center;
+    line-height: 1.5rem;
+    border-radius: 200px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: default;
+    text-transform: uppercase;
+    outline: none;
+    backface-visibility: none;
+    background-color: #1ed760;
+    border: none;
+    min-width: 5rem;
+    width: 10rem;
+    padding: 1.5rem;
+    font-size: 1.3rem; }
+    .artist__header-btn--btn:hover {
+      transform: scale(1.1);
+      border: 1.5px solid #fff; }
+    .artist__header-btn--btn:active {
+      transform: scale(1);
+      border: 1px solid #a0a0a0; }
+    .artist__header-btn--btn:hover {
+      transform: scale(1.1);
+      background-color: #34e372;
+      border: none; }
+    .artist__header-btn--btn:active {
+      transform: scale(1); }
+
 .content-wrapper {
   display: flex;
   flex-direction: column;
@@ -408,37 +455,53 @@ html {
     .album__btn p {
       line-height: 1.5rem; }
     .album__btn--play {
-      width: 10%;
-      background-color: #1ed760;
-      border-radius: 200px;
+      margin: 1rem auto;
+      border: 1px solid #a0a0a0;
       padding: .8rem 3rem;
-      outline: none;
-      border: none;
+      min-width: 8rem;
       color: white;
-      text-transform: uppercase;
-      margin-right: 1.5rem;
+      text-align: center;
+      line-height: 1.5rem;
+      border-radius: 200px;
       font-weight: 600;
-      letter-spacing: 1px;
-      cursor: default; }
+      letter-spacing: 2px;
+      cursor: default;
+      text-transform: uppercase;
+      outline: none;
+      backface-visibility: none;
+      background-color: #1ed760;
+      border: none;
+      min-width: 5rem;
+      margin-right: 1.5rem; }
       .album__btn--play:hover {
         transform: scale(1.1);
-        background-color: #34e372; }
+        border: 1.5px solid #fff; }
+      .album__btn--play:active {
+        transform: scale(1);
+        border: 1px solid #a0a0a0; }
+      .album__btn--play:hover {
+        transform: scale(1.1);
+        background-color: #34e372;
+        border: none; }
       .album__btn--play:active {
         transform: scale(1); }
     .album__btn--save {
-      width: 12%;
-      background-color: transparent;
-      border-radius: 200px;
-      padding: .8rem 4rem;
-      outline: none;
+      margin: 1rem auto;
       border: 1px solid #a0a0a0;
-      color: #f7f7f7;
-      text-transform: uppercase;
-      margin-right: 1.5rem;
+      padding: .8rem 3rem;
+      min-width: 8rem;
+      color: white;
+      text-align: center;
+      line-height: 1.5rem;
+      border-radius: 200px;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       cursor: default;
-      backface-visibility: none; }
+      text-transform: uppercase;
+      outline: none;
+      backface-visibility: none;
+      width: 12%;
+      margin-right: 1.5rem; }
       .album__btn--save:hover {
         transform: scale(1.1);
         border: 1.5px solid #fff; }
@@ -556,6 +619,9 @@ html {
         .tracks__list--more svg:hover {
           cursor: pointer; }
     .tracks__list--duration {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       color: #a0a0a0; }
       .tracks__list--duration svg {
         fill: #a0a0a0;

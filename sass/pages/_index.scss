@@ -199,55 +199,16 @@
 		}
 		
 		&--play {
-			width: 10%;
-			background-color: $color-green-light;
-			border-radius: 200px;
-			padding: .8rem 3rem;
-			outline: none;
-			border: none;
-			color: white;
-			text-transform: uppercase;
+			@include btn;
+			@include green-play;
 			margin-right: 1.5rem;
-			// font-size: 1.2rem;
-			font-weight: 600;
-			letter-spacing: 1px;
-			cursor: default;
-
-			&:hover {
-				transform: scale(1.1);
-				background-color: #34e372;
-			}
-
-			&:active {
-				transform: scale(1);
-			}
 		}
 
 		&--save {
+			@include btn;
 			width: 12%;
-			background-color: transparent;
-			border-radius: 200px;
-			padding: .8rem 4rem;
-			outline: none;
-			border: 1px solid $color-grey;
-			color: $color-white;
-			text-transform: uppercase;
 			margin-right: 1.5rem;
-			font-weight: 600;
-			letter-spacing: 1px;
-			cursor: default;
-			backface-visibility: none;
-
-			&:hover {
-				transform: scale(1.1);
-				border: 1.5px solid #fff;
-			}
-
-			&:active {
-				transform: scale(1);
-				border: 1px solid $color-grey;
-			}
-
+			
 		}
 
 		&--more {
@@ -419,6 +380,9 @@
 		}
 
 		&--duration {
+			font-size: 1rem;
+			text-transform: uppercase;
+			letter-spacing: 1px;
 			color: $color-grey;
 
 			svg {

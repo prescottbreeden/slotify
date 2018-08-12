@@ -11,6 +11,7 @@ class Song {
 	private $album_id;
 	private $genre_id;
 	private $duration;
+	private $playcount;
 	private $path;
 
 	public function __construct($con, $id) {
@@ -39,6 +40,7 @@ class Song {
 		$this->album_id = $this->mysqliData['album_id'];
 		$this->genre_id = $this->mysqliData['genre_id'];
 		$this->duration = $this->mysqliData['duration'];
+		$this->playcount = $this->mysqliData['play_count'];
 		$this->path = $this->mysqliData['path'];
 	}
 
@@ -58,6 +60,17 @@ class Song {
 		return new Album($this->con, $this->album_id);
 	}
 
+	public function getAlbumName() {
+		$query = mysqli_query($this->con, "
+			 SELECT a.title_name
+			   FROM albums as a 
+					JOIN songs as s
+					ON a.album_id='$this->album_id'");
+
+		$result =  mysqli_fetch_array($query);
+		return $result[0];
+	}
+
 	public function getGenre() {
 		return $this->genre_id;
 	}
@@ -68,6 +81,10 @@ class Song {
 	
 	public function getDuration() {
 		return $this->duration;
+	}
+
+	public function getPlayCount() {
+		return $this->playcount;
 	}
 
 	public function getMySqliData() {

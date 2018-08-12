@@ -15,6 +15,20 @@ class Artist {
 		$artist = mysqli_fetch_array($artistQuery);
 		return $artist['name'];
 	}
+
+	public function getSongIds() {
+		$query = mysqli_query($this->con, "
+			 SELECT song_id 
+			   FROM songs 
+					WHERE artist_id='$this->id' 
+					ORDER BY play_count DESC");
+
+		$array = array();
+		while($row = mysqli_fetch_array($query)) {
+			array_push($array, $row['song_id']);
+		}
+		return $array;
+	}
 }
 ?>
 
