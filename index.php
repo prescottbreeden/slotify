@@ -9,7 +9,7 @@ if(!isset($_SESSION['userLoggedIn'])) {
 
 ?>
 
-<?php include('includes/header.php'); ?>
+<?php include('includes/includedFiles.php'); ?>
 
 <section class="top-bar">
 	<div class="top-bar__empty-space"></div>
@@ -42,7 +42,10 @@ $albumQuery = mysqli_query($con, "
 while($row = mysqli_fetch_array($albumQuery)) {
 
 	echo	"<div class='album-select__container--item'>
-				<a href='album.php?id=" . $row['album_id'] . "'>
+				<span 
+					role='link'
+					tabindex='0'
+					onclick='openPage(\"album.php?id=" . $row['album_id'] . "\")'>
 					<img src='" . $row['artwork_path'] . "'>	
 					<div class='album-select__container--item-details'>
 						<div class='album-select__container--item-title'>	
@@ -52,7 +55,7 @@ while($row = mysqli_fetch_array($albumQuery)) {
 							" . $row['name'] . "
 						</div>
 					</div>
-				</a>
+				</span>
 			</div>";
 }
 
@@ -60,4 +63,3 @@ while($row = mysqli_fetch_array($albumQuery)) {
 	</div>
 </div>
 
-<?php include('includes/player.php'); ?>

@@ -8,6 +8,7 @@ include('includes/classes/Song.php');
 
 if(isset($_SESSION['userLoggedIn'])) {
 	$userLoggedIn = $_SESSION['userLoggedIn'];
+	echo "<script> userLoggedIn = '$userLoggedIn' </script>";
 }
 else {
 	header("Location: register.php");
@@ -33,14 +34,22 @@ else {
 		<div class="content">
 			<nav class="nav">
 				<div class="nav-bar">
-					<a class="nav-bar__logo" href="index.php">
+					<span 
+						role="link"
+						tabindex="0"
+						onclick="openPage('index.php')"
+						class="nav-bar__logo"> 
 						<?php include 'includes/icons/logo.html'; ?>
-					</a>
+					</span>
 					<div class="nav-bar__list">
 						<div class="nav-bar__item">
-							<a class="nav-bar__item--link" href="search.php">
+							<span 
+								role="link"
+								tabindex="0"
+								onclick="openPage('search.php')"
+								class="nav-bar__item--link">
 								Search	
-							</a>
+							</span>
 							<svg 
 								aria-label="[title]"
 								<title>Search</title>
@@ -49,19 +58,31 @@ else {
 
 						</div>
 						<div class="nav-bar__item">
-							<a class="nav-bar__item--link" href="browse.php">
+							<span 
+								role="link"
+								tabindex="0"
+								onclick="openPage('browse.php')"
+								class="nav-bar__item--link">
 								Browse
-							</a>
+							</span>
 						</div>
 						<div class="nav-bar__item">
-							<a class="nav-bar__item--link" href="your_music.php">
+							<span 
+								role="link"
+								tabindex="0"
+								onclick="openPage('your_music.php')"
+								class="nav-bar__item--link">
 								Your Music	
-							</a>
+							</span>
 						</div>
 						<div class="nav-bar__item">
-							<a class="nav-bar__item--link" href="radio.php">
+							<span 
+								role="link"
+								tabindex="0"
+								onclick="openPage('radio.php')"
+								class="nav-bar__item--link">
 								Radio	
-							</a>
+							</span>
 						</div>
 					</div>
 				</div>

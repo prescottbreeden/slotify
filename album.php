@@ -1,5 +1,5 @@
 <?php
-include('includes/header.php');
+include('includes/includedFiles.php');
 
 // this code doesn't really work the way it's intended
 if(isset($_GET['id'])) {
@@ -131,5 +131,3 @@ $total_length = $album->getTotalLength();
 		</ul>
 	</div>
 </section>
-
-<?php include('includes/player.php'); ?>

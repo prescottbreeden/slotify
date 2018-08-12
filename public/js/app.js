@@ -5,6 +5,17 @@ let audioElement;
 let mouseDown = false;
 let repeat = false;
 let shuffle = false;
+let userLoggedIn;
+
+function openPage(url) {
+
+	if(url.indexOf("?") === -1) {
+		url = url + "?";
+	}
+	var encodedURL = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
+	$('.dynamic-content').load(encodedURL);
+}
+
 
 // ====================================== //
 //				AUDIO CLASS				  //
