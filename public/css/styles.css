@@ -372,7 +372,8 @@ html {
   cursor: default;
   padding-bottom: 20rem; }
   .album__header {
-    display: inline-block; }
+    display: inline-block;
+    width: 100%; }
     .album__header--artwork {
       display: inline-block;
       width: 18rem;

@@ -14,7 +14,7 @@ function Audio() {
 	this.currentlyPlaying;
 	this.audio = document.createElement('audio');
 
-	// ------ EVENT LISTENERS ------ //
+	// ------ AUDIO EVENT LISTENERS ------ //
 	this.audio.addEventListener('ended', function() {
 		nextSong();	
 	})
@@ -34,7 +34,7 @@ function Audio() {
 		updateVolumeProgressBar(this);
 	});
 
-	// ------ FUNCTIONS ------ //
+	// ------ AUDIO FUNCTIONS ------ //
 	this.setTrack = function(track) {
 		this.currentlyPlaying = track;
 		this.audio.src = track.song_path;
@@ -58,7 +58,6 @@ function formatTime(seconds) {
 	var time = Math.round(seconds);
 	var minutes = Math.floor(time/60);
 	var seconds = time - minutes * 60;
-
 	var extraZero = (seconds < 10) ? "0" : "";
 
 	return minutes + ':' + extraZero + seconds;

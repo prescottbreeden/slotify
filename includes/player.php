@@ -1,7 +1,3 @@
-
-			</div>
-		</div>
-
 <?php 
 $songQuery = mysqli_query($con, "SELECT song_id FROM songs ORDER BY RAND() LIMIT 10");
 $resultArray = array();
@@ -13,7 +9,11 @@ while($row = mysqli_fetch_array($songQuery)) {
 $jsonArray = json_encode($resultArray);
 
 ?>
+
 <script>
+// ============================================= //
+//			JAVASCRIPT FOR PLAYER BAR			 //
+// ============================================= //
 
 $(document).ready(function() {
 	newPlaylist = <?php echo $jsonArray; ?>;
@@ -211,6 +211,13 @@ function shuffle_list(a) {
 }
 
 </script>
+
+<!-- =============================  -->
+<!--	PLAYER HTML STARTS HERE		-->
+<!-- =============================  -->
+
+			</div>
+		</div>
 		<section class="player">
 			<div class="player__play-bar">
 				<div class="player__play-bar--album">
@@ -232,7 +239,7 @@ function shuffle_list(a) {
 									aria-label="[title]"
 									class="player__album__info--track-icon">
 									<title>Add to Your Music</title>
-									<use xlink:href="public/images/icomoon/sprite.svg#icon-plus"></use>
+									<use href="public/images/icomoon/sprite.svg#icon-plus"></use>
 								</svg>
 							</span>
 							<span 

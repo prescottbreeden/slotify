@@ -1,6 +1,7 @@
 <?php
 include('includes/header.php');
 
+// this code doesn't really work the way it's intended
 if(isset($_GET['id'])) {
 	$albumId = $_GET['id'];
 } 
@@ -18,7 +19,13 @@ $total_length = $album->getTotalLength();
 
 ?>
 
-<?php include('includes/top-bar.php'); ?>
+<section class="top-bar">
+	<div class="top-bar__empty-space"></div>
+	<div title="Profile" class="top-bar__user-info">
+		<img class="top-bar__user-info--avatar" src="public/images/profile-pics/head_emerald.png" alt="user avatar">
+		<p class="top-bar__user-info--username"><?php echo $_SESSION['userLoggedIn']?></p>
+	</div>
+</section>
 
 <section class='album'>
 	<div class='album__header'>
@@ -64,7 +71,7 @@ $total_length = $album->getTotalLength();
 					<svg 
 						aria-label="[title]"
 						<title>Duration</title>
-						<use xlink:href="public/images/icomoon/sprite.svg#icon-clock"></use>
+						<use href="public/images/icomoon/sprite.svg#icon-clock"></use>
 					</svg>
 				</div>
 
@@ -89,7 +96,7 @@ $total_length = $album->getTotalLength();
 							onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'
 							class='tracks__list--number-play'>
 							<title>Play</title>
-							<use xlink:href='public/images/icomoon/sprite.svg#icon-play2'></use>
+							<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
 						</svg>
 						</div>
 						<div class='tracks__list--name'>" . $albumSong->getTitle() . "</div>
@@ -98,7 +105,7 @@ $total_length = $album->getTotalLength();
 							<svg 
 								aria-label='[title]'
 								<title>More</title>
-								<use xlink:href='public/images/icomoon/sprite.svg#icon-more-horizontal'></use>
+								<use href='public/images/icomoon/sprite.svg#icon-more-horizontal'></use>
 							</svg>
 						</div>
 						<div class='tracks__list--duration'>" . $albumSong->getDuration() . "</div>

@@ -10,8 +10,14 @@ if(!isset($_SESSION['userLoggedIn'])) {
 ?>
 
 <?php include('includes/header.php'); ?>
-<?php include('includes/top-bar.php'); ?>
 
+<section class="top-bar">
+	<div class="top-bar__empty-space"></div>
+	<div title="Profile" class="top-bar__user-info">
+		<img class="top-bar__user-info--avatar" src="public/images/profile-pics/head_emerald.png" alt="user avatar">
+		<p class="top-bar__user-info--username"><?php echo $_SESSION['userLoggedIn']?></p>
+	</div>
+</section>
 <div class="main">
 	<div class="main__content">
 		<h2 class="main__content--heading">Browse</h2>

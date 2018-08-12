@@ -44,7 +44,7 @@ else {
 							<svg 
 								aria-label="[title]"
 								<title>Search</title>
-								<use xlink:href="public/images/icomoon/sprite.svg#icon-search"></use>
+								<use href="public/images/icomoon/sprite.svg#icon-search"></use>
 							</svg>
 
 						</div>
