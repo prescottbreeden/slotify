@@ -1,0 +1,27 @@
+.search-page {
+	padding: 0 2rem;
+	backface-visibility: none;
+}
+.searchInput {
+	background-color: transparent;
+	width: 100%;
+	border: none;
+	font-size: 5rem;
+	color: $color-white;
+	text-transform: uppercase;
+
+}
+.searchResultRow {
+	padding: 1.5rem 1rem;
+
+	&:hover {
+		@include list-hover;	
+		cursor: default;
+	}
+
+	.artistName span {
+		color: $color-white;
+	}
+}
+
+

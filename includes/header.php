@@ -30,6 +30,30 @@ else {
 	<script src="public/js/app.js"></script>
 </head>
 <body>
+<script>
+
+	$('.search__input').focus();
+
+	$(function() { 
+		
+		var val = $('.search__input').val();
+		$('.searchInput').text(val);
+
+		
+		$(document).keypress(function(e) {
+			if(e.which == 13) {
+				openPage('search.php?term=' + val);
+			}
+		});
+
+		$('.search__input').keyup(function() {
+			val = $('.search__input').val();
+			$('.searchInput').text(val);
+		});
+
+	});
+
+</script>
 	<div class="content-wrapper">
 		<div class="content">
 			<nav class="nav">

@@ -21,8 +21,7 @@
 			&:not(:first-child) {
 
 				&:hover {
-					background-color: rgba($color-grey, .2);
-					border-bottom: 1px solid transparent;
+					@include list-hover
 				}
 			}
 
@@ -76,6 +75,7 @@
 
 		&--name {
 			width: 40%;
+			cursor: default;
 
 			&-header {
 				color: $color-grey;

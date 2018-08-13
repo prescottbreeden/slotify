@@ -48,6 +48,11 @@
 	}
 }
 
+@mixin list-hover {
+	background-color: rgba($color-grey, .2);
+	border-bottom: 1px solid transparent;
+}
+
 @mixin clipboard {
 
 			border: 1px solid $color-grey;

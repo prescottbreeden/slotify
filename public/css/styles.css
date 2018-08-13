@@ -431,7 +431,8 @@ html {
         fill: #fff;
         transform: scale(1.1); }
     .tracks__list--name {
-      width: 40%; }
+      width: 40%;
+      cursor: default; }
       .tracks__list--name-header {
         color: #a0a0a0;
         font-size: 1rem;
@@ -807,3 +808,24 @@ html {
       width: 2rem;
       fill: #1db954;
       margin-right: 1rem; }
+
+.search-page {
+  padding: 0 2rem;
+  backface-visibility: none; }
+
+.searchInput {
+  background-color: transparent;
+  width: 100%;
+  border: none;
+  font-size: 5rem;
+  color: #f7f7f7;
+  text-transform: uppercase; }
+
+.searchResultRow {
+  padding: 1.5rem 1rem; }
+  .searchResultRow:hover {
+    background-color: rgba(160, 160, 160, 0.2);
+    border-bottom: 1px solid transparent;
+    cursor: default; }
+  .searchResultRow .artistName span {
+    color: #f7f7f7; }
