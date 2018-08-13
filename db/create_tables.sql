@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS albums (
 	genre_id		INTEGER			NOT NULL,
 	artwork_path	VARCHAR(500)	NOT NULL,
 	year_released	INTEGER			NOT NULL,
+	game_platform	VARCHAR(20)		NOT NULL,
 
 	FOREIGN KEY (artist_id)
 		REFERENCES artists(artist_id),
@@ -94,13 +95,13 @@ CREATE TABLE IF NOT EXISTS songs (
 			('Play Station');
 
  INSERT INTO albums 
-			(year_released, title_name, artist_id, genre_id, artwork_path) 
+			(year_released, game_platform, title_name, artist_id, genre_id, artwork_path) 
 		VALUES
-			(1986, 'The Legend of Zelda', 1, 1, 'public/images/artwork/zelda.jpg'),
-			(1988, 'Mega Man 2', 2, 1, 'public/images/artwork/megaman2.jpg'),
-			(1987, 'Punch Out', 1, 1, 'public/images/artwork/punchout.jpg'),
-			(1986, 'Metroid', 3, 1, 'public/images/artwork/metroid.jpg'),
-			(1987, 'Contra', 4, 1, 'public/images/artwork/contra.jpg')
+			(1986, 'NES', 'The Legend of Zelda', 1, 1, 'public/images/artwork/zelda.jpg'),
+			(1988, 'NES', 'Mega Man 2', 2, 1, 'public/images/artwork/megaman2.jpg'),
+			(1987, 'NES', 'Punch Out', 1, 1, 'public/images/artwork/punchout.jpg'),
+			(1986, 'NES', 'Metroid', 3, 1, 'public/images/artwork/metroid.jpg'),
+			(1987, 'NES', 'Contra', 4, 1, 'public/images/artwork/contra.jpg')
 
 			
 			

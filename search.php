@@ -21,14 +21,6 @@ else {
 		<div class='tracks'>
 			<h2 class="u-secondary-heading">Popular Songs</h2>
 			<div class='tracks__list'>
-				<div class="tracks__list--item">
-					<div class="tracks__list--number-header">#</div>
-					<div class="tracks__list--name-header">Title</div>
-					<div class="tracks__list--artist-header">album</div>
-					<div class='tracks__list--more'></div>
-					<div class="tracks__list--duration-header">play count</div>
-
-				</div>
 
 				<?php 
 				$songsQuery = mysqli_query($con, "
@@ -42,6 +34,18 @@ else {
 
 				if(mysqli_num_rows($songsQuery) === 0) {
 					echo "<span class='noResults'>No songs found matching " . $term . "</span>";
+				}
+				else {
+					echo "
+						<div class='tracks__list--item'>
+							<div class='tracks__list--number-header'>#</div>
+							<div class='tracks__list--name-header'>Title</div>
+							<div class='tracks__list--artist-header'>album</div>
+							<div class='tracks__list--more'></div>
+							<div class='tracks__list--duration-header'>play count</div>
+
+						</div>
+					";
 				}
 
 				$song_array = array();
@@ -135,6 +139,43 @@ else {
 
 		?>
 
+		</div>
+		<h2>Albums</h2>
+		<div class="albumsContainer u-border-bottom">
+
+		<?php
+		$albumQuery = mysqli_query($con, "
+			 SELECT *
+			   FROM albums  
+					Where title_name
+					LIKE '%$term%'"
+		);
+
+		if(mysqli_num_rows($albumQuery) === 0) {
+			echo "<span class='noResults'>No albums found matching " . $term . "</span>";
+		}
+
+		while($row = mysqli_fetch_array($albumQuery)) {
+
+			echo	"<div class='album-select__container--item'>
+						<span 
+							role='link'
+							tabindex='0'
+							onclick='openPage(\"album.php?id=" . $row['album_id'] . "\")'>
+							<img src='" . $row['artwork_path'] . "'>	
+							<div class='album-select__container--item-details'>
+								<div class='album-select__container--item-title'>	
+									" . $row['title_name'] . "
+								</div>
+								<div class='album-select__container--item-artist'>	
+									" . $row['name'] . "
+								</div>
+							</div>
+						</span>
+					</div>";
+		}
+
+		?>
 		</div>
 	</div>
 </section>
