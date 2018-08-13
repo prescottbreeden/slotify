@@ -55,6 +55,9 @@ class Song {
 	public function getArtist() {
 		return new Artist($this->con, $this->artist_id);
 	}
+	public function getArtistId() {
+		return $this->artist_id;
+	}
 	
 	public function getAlbum() {
 		return new Album($this->con, $this->album_id);

@@ -8,6 +8,7 @@ class Album {
 	private $artist_id;
 	private $genre_id;
 	private $artwork_path;
+	private $year_released;
 
 	public function __construct($con, $id) {
 		$this->con = $con;
@@ -20,10 +21,15 @@ class Album {
 		$this->artist_id = $album['artist_id'];
 		$this->genre_id = $album['genre_id'];
 		$this->artwork_path = $album['artwork_path'];
+		$this->year_released = $album['year_released'];
 	}
 
 	public function getTitle() {
 		return $this->title;
+	}
+
+	public function getYearReleased() {
+		return $this->year_released;
 	}
 
 	public function getArtist() {

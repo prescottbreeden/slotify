@@ -557,11 +557,17 @@ html {
         font-weight: 700; }
       .album__header--details-artist {
         margin: 1rem 0; }
-        .album__header--details-artist:before {
-          content: "By ";
-          color: #a0a0a0; }
+        .album__header--details-artist-by {
+          color: #a0a0a0;
+          margin-right: .2rem; }
+        .album__header--details-artist-name {
+          font-size: 1.2rem; }
+          .album__header--details-artist-name:hover {
+            text-decoration: underline; }
     .album__header--misc {
-      margin-bottom: 1.5rem; }
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      color: #a0a0a0; }
   .album__btn {
     display: flex;
     align-items: center; }

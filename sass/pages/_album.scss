@@ -42,16 +42,27 @@
 			&-artist {
 				margin: 1rem 0;
 
-				&:before {
-					content: "By ";
+				&-by {
 					color: $color-grey;
+					margin-right: .2rem;
 				}
+
+				&-name {
+					font-size: 1.2rem;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+
 			}
 
 		}
 
 		&--misc {
 			margin-bottom: 1.5rem;
+			font-size: 1.2rem;
+			color: $color-grey;
 		}
 	}
 

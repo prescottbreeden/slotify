@@ -16,6 +16,7 @@ $artist_name = $artist->getName();
 $album_name =  $album->getTitle();
 $total_songs = $album->getNumberOfSongs();
 $total_length = $album->getTotalLength();
+$year_released = $album->getYearReleased();
 
 ?>
 <section class='album'>
@@ -31,9 +32,15 @@ $total_length = $album->getTotalLength();
 				<?php echo $album_name; ?> 
 			</div>
 			<div class='album__header--details-artist'>
-				<?php echo $artist_name; ?> 
+				<span class="album__header--details-artist-by">By</span>
+				<span 
+					onclick="openPage('artist.php?id=<?php echo $artist->getId(); ?>')"
+					class="album__header--details-artist-name">
+					<?php echo $artist_name; ?> 
+				</span>
 			</div>
 			<div class='album__header--misc'>
+				<?php echo $year_released; ?> &bull;
 				<?php echo $total_songs; ?> songs, 
 				<?php echo $total_length; ?> min 
 			</div>
@@ -74,7 +81,7 @@ $total_length = $album->getTotalLength();
 			$i = 1;
 			foreach($song_array as $song) {
 				$albumSong = new Song($con, $song);
-				$albumArtist = $albumSong->getArtist();
+				$songArtist = $albumSong->getArtist();
 
 				echo "
 					<div class='tracks__list--item'>
@@ -92,7 +99,9 @@ $total_length = $album->getTotalLength();
 						</svg>
 						</div>
 						<div class='tracks__list--name'>" . $albumSong->getTitle() . "</div>
-						<div class='tracks__list--artist'>" . $albumArtist->getName() . "</div>
+						<div 
+							onclick='openPage(\"artist.php?id=" . $albumSong->getArtistId() . "\")'
+							class='tracks__list--artist'>" . $songArtist->getName() . "</div>
 						<div class='tracks__list--more'>
 							<svg 
 								aria-label='[title]'
