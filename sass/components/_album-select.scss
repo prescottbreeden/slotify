@@ -1,0 +1,50 @@
+.album-select {
+
+	&__container {
+		padding: 1.5rem 2rem;
+		// display: flex;
+		// width: 100%;
+		// flex-wrap: wrap;
+		padding-bottom: 4rem;
+		border-bottom: 1px solid rgba($color-grey-dark, .8);
+
+		&--item {
+			display: inline-block;
+			background-image: contain;
+			margin-right: 2rem;
+			margin-bottom: 2rem;
+			width: 28%;
+			max-width: 20rem;
+			min-width: 15rem;
+
+			a {
+				text-decoration: none;
+			}
+
+			img {
+				width: 100%;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+			}
+
+			&-details {
+				max-width: 18rem;
+				font-size: 1.4rem;
+			}
+
+			&-title {
+				color: $color-white;
+				margin-bottom: .5rem;
+				font-weight: 700;
+			}
+
+			&-artist {
+				color: $color-grey;
+				margin-bottom: .3rem;
+			}
+		}
+	}
+}

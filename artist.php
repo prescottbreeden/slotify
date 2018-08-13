@@ -8,10 +8,28 @@ else {
 	header("Location: index.php");
 }
 
-$artist = new Artist($con, $artistId);
-?>
+if(isset($_GET['term'])) {
+	$term = urldecode($_GET['term']);
+}
+else {
+	$term = '';
+}
 
+$artist = new Artist($con, $artistId);
+
+?>
 <section class="top-bar">
+	<div class="top-bar__search">
+		<div class="top-bar__nav-btn">
+			<div class="top-bar__nav-btn--btn">&lsaquo;</div>
+			<div class="top-bar__nav-btn--btn">&rsaquo;</div>
+		</div>
+		<input 
+			placeholder="Search"
+			class="top-bar__search--input" 
+			type="text" 
+			value="<?php echo $term; ?>">
+	</div>
 	<div class="top-bar__empty-space"></div>
 	<div title="Profile" class="top-bar__user-info">
 		<img class="top-bar__user-info--avatar" src="public/images/profile-pics/head_emerald.png" alt="user avatar">
@@ -94,8 +112,9 @@ $artist = new Artist($con, $artistId);
 
 		</ul>
 	</div>
+	<h2 class="u-secondary-heading">Albums</h2>
+	<div class="u-divider"></div>
 	<div class="album-select__container">
-		<h2 class="u-secondary-heading">Albums</h2>
 <?php
 $albumQuery = mysqli_query($con, "
   SELECT album.album_id,

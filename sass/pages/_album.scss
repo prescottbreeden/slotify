@@ -1,0 +1,117 @@
+.album {
+	min-height: 100%;
+	@include gradient;
+	display: block;
+	padding: 2rem;
+	cursor: default;
+	padding-bottom: 20rem;
+
+	&__header {
+		display: inline-block;
+		width: 100%;
+
+		&--artwork {
+			display: inline-block;
+			width: 18rem;
+			height: 18rem;
+			margin-right: 2rem;
+			vertical-align: bottom;
+
+			img {
+				height: 100%;
+				width: 100%;
+			}
+		}
+
+		&--details {
+			display: inline-block;
+
+			&-miniheader {
+				margin: .5rem 0;
+				text-transform: uppercase;
+				font-size: .95rem;
+				letter-spacing: 1px;
+				color: $color-white;
+			}
+
+			&-title {
+				font-size: 4rem;
+				font-weight: 700;
+			}
+
+			&-artist {
+				margin: 1rem 0;
+
+				&:before {
+					content: "By ";
+					color: $color-grey;
+				}
+			}
+
+		}
+
+		&--misc {
+			margin-bottom: 1.5rem;
+		}
+	}
+
+	&__btn {
+		display: flex;
+		width: 100%;	
+		text-align: center;
+		align-items: center;
+
+		p {
+			line-height: 1.5rem;
+		}
+		
+		&--play {
+			@include btn;
+			@include green-play;
+			margin-right: 1.5rem;
+		}
+
+		&--save {
+			@include btn;
+			width: 12%;
+			margin-right: 1.5rem;
+			
+		}
+
+		&--more {
+			background-color: transparent;
+			border-radius: 50%;
+			border: 1px solid $color-white;
+			color: transparent;
+			height: 3rem;
+			width: 3rem;
+			position: relative;
+			transition: all .3s;
+
+				&:hover {
+					background-color: $color-white;
+					cursor: pointer;
+					transform: rotate(90deg);
+
+					&:after {
+						color: $color-black;
+					}
+				}
+
+			&:after {
+				content: '\2807';
+				font-size: 2rem;
+				color: $color-white;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-30%, -40%);
+
+			}
+		}
+	}
+
+	&__tracks {
+		margin-top: 2rem;
+	}
+}

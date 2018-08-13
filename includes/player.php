@@ -93,17 +93,20 @@ function setTrack(trackId, newPlaylist, play) {
 	$.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
 		var track = JSON.parse(data);
 		$('#now_playing_song').text(track.title_name);
+		$('#now_playing_song').attr('onclick', "openPage('album.php?id=" + track.album_id + "')");
 
 		// get artist
 		$.post("includes/handlers/ajax/getArtistJson.php", {artistId: track.artist_id}, function(data) {
 			var artist = JSON.parse(data);
-			$('#now_playing_artist').text(artist.name)
+			$('#now_playing_artist').text(artist.name);
+			$('#now_playing_artist').attr('onclick', "openPage('artist.php?id=" + track.artist_id + "')");
 		});	
 		
 		// get album
 		$.post("includes/handlers/ajax/getAlbumJson.php", {albumId: track.album_id}, function(data) {
 			var album = JSON.parse(data);
 			$('#now_playing_artwork').attr('src', album.artwork_path);
+			$('#now_playing_artwork').attr('onclick', "openPage('album.php?id=" + track.album_id + "')");
 		});	
 
 		audioElement.setTrack(track);
@@ -222,7 +225,10 @@ function shuffle_list(a) {
 			<div class="player__play-bar">
 				<div class="player__play-bar--album">
 					<div class="player__album">
-						<span class="player__album__link">
+						<span 
+							role="link"
+							tabindex="0"
+							class="player__album__link">
 							<img 
 								id="now_playing_artwork"
 								class="player__album__link--artwork"
@@ -232,6 +238,8 @@ function shuffle_list(a) {
 						<div class="player__album__info">
 							<span class="player__album__info--track">
 								<span 
+									role="link"
+									tabindex="0"
 									id="now_playing_song"
 									class="player__album__info--track-name">
 								</span>
@@ -245,7 +253,7 @@ function shuffle_list(a) {
 							<span 
 								id="now_playing_artist"
 								class="player__album__info--artist-name">
-								<span></span>
+								<span role="link" tabindex="0"></span>
 							</span>
 						</div>
 					</div>

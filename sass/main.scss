@@ -7,14 +7,18 @@
 @import 'base/_typography';
 @import 'base/_utilities';
 
+@import 'components/_album-select';
 @import 'components/_error-message';
 @import 'components/_logo';
 @import 'components/_player';
+@import 'components/_topbar';
+@import 'components/_tracks';
 
 @import 'layouts/_footer';
 @import 'layouts/_header';
 @import 'layouts/_navigation';
 
+@import 'pages/_album';
 @import 'pages/_artist';
 @import 'pages/_home';
 @import 'pages/_index';
