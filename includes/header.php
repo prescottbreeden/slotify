@@ -46,21 +46,6 @@ else {
 							<span 
 								role="link"
 								tabindex="0"
-								onclick="openPage('search.php')"
-								class="nav-bar__item--link">
-								Search	
-							</span>
-							<svg 
-								aria-label="[title]"
-								<title>Search</title>
-								<use href="public/images/icomoon/sprite.svg#icon-search"></use>
-							</svg>
-
-						</div>
-						<div class="nav-bar__item">
-							<span 
-								role="link"
-								tabindex="0"
 								onclick="openPage('browse.php')"
 								class="nav-bar__item--link">
 								Browse
@@ -70,18 +55,18 @@ else {
 							<span 
 								role="link"
 								tabindex="0"
-								onclick="openPage('your_music.php')"
+								onclick="openPage('radio.php')"
 								class="nav-bar__item--link">
-								Your Music	
+								Radio	
 							</span>
 						</div>
 						<div class="nav-bar__item">
 							<span 
 								role="link"
 								tabindex="0"
-								onclick="openPage('radio.php')"
+								onclick="openPage('your_music.php')"
 								class="nav-bar__item--link">
-								Radio	
+								Your Music	
 							</span>
 						</div>
 					</div>

@@ -469,10 +469,13 @@ html {
         .tracks__list--more svg:hover {
           cursor: pointer; }
     .tracks__list--duration {
-      font-size: 1rem;
-      text-transform: uppercase;
       letter-spacing: 1px;
       color: #a0a0a0; }
+      .tracks__list--duration-header {
+        text-transform: uppercase;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        color: #a0a0a0; }
       .tracks__list--duration svg {
         fill: #a0a0a0;
         height: 1.5rem;
@@ -510,8 +513,7 @@ html {
         cursor: default; }
     .nav-bar__item:nth-child(1) {
       border-top: 1px solid #a0a0a0;
-      border-bottom: 1px solid #a0a0a0;
-      padding: 2rem 0;
+      padding-top: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;

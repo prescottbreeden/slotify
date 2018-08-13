@@ -129,10 +129,15 @@
 		}
 
 		&--duration {
-			font-size: 1rem;
-			text-transform: uppercase;
 			letter-spacing: 1px;
 			color: $color-grey;
+
+			&-header {
+				text-transform: uppercase;
+				font-size: 1rem;
+				letter-spacing: 1px;
+				color: $color-grey;
+			}
 
 			svg {
 				fill: $color-grey;

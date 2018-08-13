@@ -60,6 +60,7 @@ $total_length = $album->getTotalLength();
 				<div class='tracks__list--more'></div>
 				<div class="tracks__list--duration">
 					<svg 
+						class="tracks__list--duration-header"
 						aria-label="[title]"
 						<title>Duration</title>
 						<use href="public/images/icomoon/sprite.svg#icon-clock"></use>
