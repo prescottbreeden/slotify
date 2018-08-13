@@ -297,6 +297,8 @@ html {
     display: flex; }
     .top-bar__nav-btn--btn {
       display: none; }
+  .top-bar__nav-box {
+    display: flex; }
   .top-bar__search {
     display: flex; }
     .top-bar__search--input {
@@ -322,6 +324,43 @@ html {
       font-size: 1.2rem;
       border-bottom: 1px solid transparent;
       letter-spacing: 1px; }
+
+.search {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35rem; }
+  .search__input {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: #f7f7f7;
+    border: none;
+    border-radius: 200px;
+    padding: .7rem 2rem;
+    width: 90%;
+    transition: all .2s;
+    margin-right: -3.25rem; }
+    .search__input:focus {
+      outline: none;
+      width: 100%;
+      background-color: #f7f7f7; }
+    .search__input::-webkit-input-placeholder {
+      font-weight: 100;
+      color: #a0a0a0; }
+  .search__input:focus + .search__button {
+    background-color: #f7f7f7; }
+  .search__button {
+    border: none;
+    background-color: #f7f7f7; }
+    .search__button:focus {
+      outline: none; }
+    .search__button:active {
+      transform: translateY(2px); }
+  .search__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: #555; }
 
 .tracks {
   margin-top: 2rem; }

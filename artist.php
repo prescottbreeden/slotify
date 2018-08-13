@@ -19,16 +19,27 @@ $artist = new Artist($con, $artistId);
 
 ?>
 <section class="top-bar">
-	<div class="top-bar__search">
+	<div class="top-bar__nav-box">
 		<div class="top-bar__nav-btn">
-			<div class="top-bar__nav-btn--btn">&lsaquo;</div>
-			<div class="top-bar__nav-btn--btn">&rsaquo;</div>
+			<div class="top-bar__nav-btn--btn">
+				<	
+			</div>
+			<div class="top-bar__nav-btn--btn">
+				>
+			</div>
 		</div>
-		<input 
-			placeholder="Search"
-			class="top-bar__search--input" 
-			type="text" 
-			value="<?php echo $term; ?>">
+		<div class="search">
+			<input 
+				placeholder="Search"
+				class="search__input" 
+				type="text" 
+				value="<?php echo $term; ?>">
+			<button class="search__button">
+				<svg class="search__icon">
+					<use href="public/images/icomoon/sprite.svg#icon-search"></use>
+				</svg>	
+			</button>
+		</div>
 	</div>
 	<div class="top-bar__empty-space"></div>
 	<div title="Profile" class="top-bar__user-info">
