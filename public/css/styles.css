@@ -18,12 +18,14 @@ html {
   height: 100%; }
 
 .dynamic-content {
+  margin-top: 5rem;
   min-height: calc(100%-9rem);
   width: 100%;
   min-height: 100%;
   min-width: 72rem;
   margin-left: 25rem;
   padding-bottom: 20rem;
+  position: relative;
   background-image: linear-gradient(to bottom, #3c3c3c, #1e1e1e 20%); }
 
 html {
@@ -288,42 +290,62 @@ html {
       fill: #a0a0a0; }
 
 .top-bar {
-  margin-top: .3rem;
+  position: absolute;
+  top: 0;
+  left: 25rem;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 2rem;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: .5rem;
-  background-color: #3c3c3c; }
+  background-color: #3c3c3c;
+  height: 3rem; }
   .top-bar__nav-btn {
-    display: flex; }
-    .top-bar__nav-btn--btn {
-      display: none; }
+    display: flex;
+    height: 100%; }
+  .top-bar__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: #a0a0a0;
+    cursor: pointer;
+    margin-right: 1rem; }
   .top-bar__nav-box {
-    display: flex; }
+    display: flex;
+    align-items: center; }
   .top-bar__search {
     display: flex; }
     .top-bar__search--input {
       width: 15rem;
       border-radius: 200px;
       padding: 0 1rem; }
+  .top-bar__user-menu {
+    display: flex;
+    align-item: center; }
   .top-bar__user-info {
     display: flex;
     align-items: center;
-    margin-right: 3rem;
     height: 2.5rem; }
     .top-bar__user-info:hover {
       cursor: default; }
     .top-bar__user-info:hover .top-bar__user-info--username {
       border-bottom: 1px solid white; }
     .top-bar__user-info--avatar {
+      margin-right: 1rem;
       border-radius: 50%;
       height: 2.3rem;
       width: 2.3rem; }
     .top-bar__user-info--username {
-      margin-left: .3rem;
-      margin-top: 2px;
+      margin-right: 1rem;
       font-size: 1.2rem;
       border-bottom: 1px solid transparent;
-      letter-spacing: 1px; }
+      letter-spacing: 1px;
+      color: #f7f7f7; }
+  .top-bar__menu {
+    height: 2.5rem;
+    width: 2rem;
+    fill: #f7f7f7;
+    cursor: pointer; }
 
 .search {
   flex: 0 0 40%;
@@ -539,13 +561,11 @@ html {
       margin-bottom: 1.5rem; }
   .album__btn {
     display: flex;
-    width: 100%;
-    text-align: center;
     align-items: center; }
     .album__btn p {
       line-height: 1.5rem; }
     .album__btn--play {
-      margin: 1rem auto;
+      margin: 1rem 0;
       border: 1px solid #a0a0a0;
       padding: .8rem 3rem;
       min-width: 8rem;
@@ -561,7 +581,6 @@ html {
       backface-visibility: none;
       background-color: #1ed760;
       border: none;
-      min-width: 5rem;
       margin-right: 1.5rem; }
       .album__btn--play:hover {
         transform: scale(1.1);
@@ -576,7 +595,7 @@ html {
       .album__btn--play:active {
         transform: scale(1); }
     .album__btn--save {
-      margin: 1rem auto;
+      margin: 1rem 0;
       border: 1px solid #a0a0a0;
       padding: .8rem 3rem;
       min-width: 8rem;
@@ -638,7 +657,7 @@ html {
     .artist__info--name {
       font-size: 4rem; }
   .artist__header-btn--btn {
-    margin: 1rem auto;
+    margin: 1rem 0;
     border: 1px solid #a0a0a0;
     padding: .8rem 3rem;
     min-width: 8rem;
@@ -654,7 +673,6 @@ html {
     backface-visibility: none;
     background-color: #1ed760;
     border: none;
-    min-width: 5rem;
     width: 10rem;
     padding: 1.5rem;
     font-size: 1.3rem; }

@@ -8,6 +8,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
 }
 else {
 	include('includes/header.php');
+	include('includes/usernav.php');
 	include('includes/player.php');
 
 	$url = $_SERVER['REQUEST_URI'];

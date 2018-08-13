@@ -22,10 +22,14 @@ $artist = new Artist($con, $artistId);
 	<div class="top-bar__nav-box">
 		<div class="top-bar__nav-btn">
 			<div class="top-bar__nav-btn--btn">
-				<	
+				<svg class="top-bar__icon">
+					<use href="public/images/icomoon/sprite.svg#icon-chevron-left"></use>
+				</svg>	
 			</div>
 			<div class="top-bar__nav-btn--btn">
-				>
+				<svg class="top-bar__icon">
+					<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
+				</svg>	
 			</div>
 		</div>
 		<div class="search">
@@ -42,9 +46,14 @@ $artist = new Artist($con, $artistId);
 		</div>
 	</div>
 	<div class="top-bar__empty-space"></div>
-	<div title="Profile" class="top-bar__user-info">
-		<img class="top-bar__user-info--avatar" src="public/images/profile-pics/head_emerald.png" alt="user avatar">
-		<p class="top-bar__user-info--username"><?php echo $_SESSION['userLoggedIn']?></p>
+	<div class="top-bar__user-menu">
+		<div title="Profile" class="top-bar__user-info">
+			<img class="top-bar__user-info--avatar" src="public/images/profile-pics/head_emerald.png" alt="user avatar">
+			<p class="top-bar__user-info--username"><?php echo $_SESSION['userLoggedIn']?></p>
+		</div>
+		<svg class="top-bar__menu">
+			<use href="public/images/icomoon/sprite.svg#icon-chevron-down"></use>
+		</svg>
 	</div>
 </section>
 <section class="artist">

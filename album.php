@@ -18,15 +18,6 @@ $total_songs = $album->getNumberOfSongs();
 $total_length = $album->getTotalLength();
 
 ?>
-
-<section class="top-bar">
-	<div class="top-bar__empty-space"></div>
-	<div title="Profile" class="top-bar__user-info">
-		<img class="top-bar__user-info--avatar" src="public/images/profile-pics/head_emerald.png" alt="user avatar">
-		<p class="top-bar__user-info--username"><?php echo $_SESSION['userLoggedIn']?></p>
-	</div>
-</section>
-
 <section class='album'>
 	<div class='album__header'>
 		<div class='album__header--artwork'>

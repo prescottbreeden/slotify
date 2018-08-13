@@ -1,21 +1,36 @@
 .top-bar {
-	margin-top: .3rem;
+	position: absolute;
+	top: 0;
+	left: 25rem;
+	right: 0;
+	z-index: 1000;
+	padding: 1rem 2rem;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
-	padding: .5rem;
 	background-color: $color-gradient-top;
+	height: 3rem;
 
 	&__nav-btn {
 		display: flex;
-
+		height: 100%;
 
 		&--btn {
-			display: none;	
+			  
 		}
+	}
+
+	&__icon {
+		height: 2rem;
+		width: 2rem;
+		fill: $color-grey;
+		cursor: pointer;
+		margin-right: 1rem;
 	}
 
 	&__nav-box {
 		display: flex;
+		align-items: center;
 	}
 
 	&__search {
@@ -28,10 +43,14 @@
 		}
 	}
 
+	&__user-menu {
+		display: flex;
+		align-item: center;
+	}
+
 	&__user-info {
 		display: flex;
 		align-items: center;
-		margin-right: 3rem;
 		height: 2.5rem;
 
 		&:hover {
@@ -43,18 +62,26 @@
 		}
 
 		&--avatar {
+			margin-right: 1rem;
 			border-radius: 50%;
 			height: 2.3rem;
 			width: 2.3rem;
 		}
 
 		&--username {
-			margin-left: .3rem;
-			margin-top: 2px;
+			margin-right: 1rem;
 			font-size: 1.2rem;	
 			border-bottom: 1px solid transparent;
 			letter-spacing: 1px;
+			color: $color-white;
 		}
+	}
+
+	&__menu {
+		height: 2.5rem;
+		width: 2rem;
+		fill: $color-white;
+		cursor: pointer;
 	}
 }
 
