@@ -18,9 +18,45 @@ $jsonArray = json_encode($resultArray);
 $(document).ready(function() {
 	newPlaylist = <?php echo $jsonArray; ?>;
 	audioElement = new Audio();
+	var spacebar = false;
 	setTrack(newPlaylist[0], newPlaylist, false);
 	updateVolumeProgressBar(audioElement.audio);
 
+	// ============================================= //
+	//				KEYBOARD EVENTS					 //
+	// ============================================= //
+
+	// space-bar pause/play
+	$(document).keydown(function(e) {
+		if(e.which === 32 && e.target == document.body) {
+			spacebar = !spacebar;
+			if(spacebar) {
+				audioElement.audio.pause();
+			}
+			else {
+				audioElement.audio.play();
+			}
+			return false;
+		}
+	});
+
+	// right arrow to go to next track
+	$(document).keydown(function(e) {
+		if(e.which === 39) {
+			nextSong();
+
+			return false;
+		}
+	});
+
+	// right arrow to go to next track
+	$(document).keydown(function(e) {
+		if(e.which === 37) {
+			prevSong();
+
+			return false;
+		}
+	});
 
 	// ============================================= //
 	//					MOUSE EVENTS				 //
