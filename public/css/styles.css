@@ -20,7 +20,7 @@ html {
 .dynamic-content {
   margin-top: 5rem;
   width: 100%;
-  min-height: 100%;
+  min-height: calc(100vh - 11rem);
   min-width: 72rem;
   margin-left: 25rem;
   padding-bottom: 5rem;
@@ -709,6 +709,46 @@ html {
       font-size: 1.5rem;
       padding: 1rem 0;
       border-bottom: 1px solid rgba(85, 85, 85, 0.8); }
+
+.playlists__container {
+  padding: 1rem 0; }
+
+.playlists__heading {
+  font-size: 2rem;
+  text-align: center; }
+
+.playlists__btn {
+  margin: 1rem 0;
+  border: 1px solid #a0a0a0;
+  padding: .8rem 3rem;
+  min-width: 8rem;
+  color: white;
+  text-align: center;
+  line-height: 1.5rem;
+  border-radius: 200px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: default;
+  text-transform: uppercase;
+  outline: none;
+  backface-visibility: none;
+  background-color: #1ed760;
+  border: none;
+  padding: 1rem;
+  width: 15rem;
+  margin: 2rem auto; }
+  .playlists__btn:hover {
+    transform: scale(1.1);
+    border: 1.5px solid #fff; }
+  .playlists__btn:active {
+    transform: scale(1);
+    border: 1px solid #a0a0a0; }
+  .playlists__btn:hover {
+    transform: scale(1.1);
+    background-color: #34e372;
+    border: none; }
+  .playlists__btn:active {
+    transform: scale(1); }
 
 .register {
   background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");

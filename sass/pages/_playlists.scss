@@ -1,0 +1,20 @@
+.playlists {
+
+
+	&__container {
+		padding: 1rem 0;
+	}
+
+	&__heading {
+		font-size: 2rem;
+		text-align: center;
+	}
+
+	&__btn {
+		@include btn;
+		@include green-play;
+		padding: 1rem;
+		width: 15rem;
+		margin: 2rem auto;
+	}
+}

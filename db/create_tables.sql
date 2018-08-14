@@ -22,8 +22,7 @@ CREATE TABLE IF NOT EXISTS users (
 -- CREATE ARTISTS TABLE
 CREATE TABLE IF NOT EXISTS artists (
 	artist_id		INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
-	name			VARCHAR(50)		NOT NULL,
-	profile_path	VARCHAR(500)	NOT NULL
+	name			VARCHAR(50)		NOT NULL
 );
 
 -- CREATE GENRE TABLE
@@ -68,18 +67,41 @@ CREATE TABLE IF NOT EXISTS songs (
 		REFERENCES albums(album_id)
 );
 
+CREATE TABLE IF NOT EXISTS playlists (
+	playlist_id		INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	name			VARCHAR(50)		NOT NULL,
+	user_id			INTEGER			NOT NULL,
+	created_at		DATETIME		NOT NULL	DEFAULT NOW(),
+	updated_at		DATETIME		NOT NULL	ON UPDATE NOW(),
+
+	FOREIGN KEY (user_id)
+		REFERENCES users(user_id)
+);
+
+CREATE TABLE IF NOT EXISTS pl_songs (
+	pl_song_id		INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	song_id			INTEGER			NOT NULL,
+	playlist_id		INTEGER			NOT NULL,
+	playlist_order	INTEGER			NOT NULL,
+
+	FOREIGN KEY (song_id)
+		REFERENCES songs(song_id),
+	FOREIGN KEY (playlist_id)
+		REFERENCES playlists(playlist_id)
+);
+
 --
 -- Dumping data for table `artists`
 --
 
  INSERT INTO artists 
-			(name, profile_path) 
+			(name) 
 		VALUES
-			('Koji Kondo', 'public/images/artist/koji_kondo.jpg'),
-			('Takashi Tateishi', 'public/images/artist/takashi_tateishi.jpg'),
-			('Hirokazu Tanaka', 'public/images/artist/hirokazu_tanaka.png'),
-			('Konami Kukeiha Club', 'public/images/artist/konami_kukeiha_club.jpg'),
-			('Nobuo Uematsu', 'public/images/artist/nobuo_uematsu.jpg')
+			('Koji Kondo'),
+			('Takashi Tateishi'),
+			('Hirokazu Tanaka'),
+			('Konami Kukeiha Club'),
+			('Nobuo Uematsu')
 
 			;
 
