@@ -4,10 +4,18 @@ class Artist {
 
 	private $con;
 	private $id;
+	private $name;
+	private $profileImage;
 
 	public function __construct($con, $id) {
 		$this->con = $con;
 		$this->id = $id;
+
+		$artistQuery = mysqli_query($this->con, "SELECT * FROM artists WHERE artist_id='$this->id'");
+		$artist = mysqli_fetch_array($artistQuery);
+
+		$this->name = $artist['name'];
+		$this->profileImage = $artist['profile_path'];
 	}
 
 	public function getId() {
@@ -15,9 +23,11 @@ class Artist {
 	}
 
 	public function getName() {
-		$artistQuery = mysqli_query($this->con, "SELECT name FROM artists WHERE artist_id='$this->id'");
-		$artist = mysqli_fetch_array($artistQuery);
-		return $artist['name'];
+		return $this->name;
+	}
+
+	public function getProfileImage() {
+		return $this->profileImage;
 	}
 
 	public function getSongIds() {
@@ -33,6 +43,7 @@ class Artist {
 		}
 		return $array;
 	}
+
 }
 ?>
 

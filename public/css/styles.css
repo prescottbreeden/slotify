@@ -9,22 +9,21 @@ html {
 .content-wrapper {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 9rem);
+  min-height: calc(100vh - 9rem);
   width: 100%;
   box-sizing: border-box; }
 
 .content {
   display: flex;
-  height: 100%; }
+  min-height: 100%; }
 
 .dynamic-content {
   margin-top: 5rem;
-  min-height: calc(100%-9rem);
   width: 100%;
   min-height: 100%;
   min-width: 72rem;
   margin-left: 25rem;
-  padding-bottom: 20rem;
+  padding-bottom: 5rem;
   position: relative;
   background-image: linear-gradient(to bottom, #3c3c3c, #1e1e1e 20%); }
 
@@ -43,13 +42,11 @@ html {
 
 .album-select__container {
   padding: 1.5rem 2rem;
-  padding-bottom: 4rem;
-  border-bottom: 1px solid rgba(85, 85, 85, 0.8); }
+  border-bottom: 1px solid rgba(85, 85, 85, 0.8);
+  background-color: transparent; }
   .album-select__container--item {
     display: inline-block;
-    background-image: contain;
-    margin-right: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem;
     width: 28%;
     max-width: 20rem;
     min-width: 15rem; }
@@ -64,7 +61,7 @@ html {
       font-size: 1.4rem; }
     .album-select__container--item-title {
       color: #f7f7f7;
-      margin-bottom: .5rem;
+      margin: 1rem 0;
       font-weight: 700; }
     .album-select__container--item-artist {
       color: #a0a0a0;
@@ -828,10 +825,32 @@ html {
   text-transform: uppercase; }
 
 .searchResultRow {
-  padding: 1.5rem 1rem; }
+  padding: 1.5rem 1rem;
+  display: flex;
+  align-items: center; }
   .searchResultRow:hover {
     background-color: rgba(160, 160, 160, 0.2);
     border-bottom: 1px solid transparent;
     cursor: default; }
-  .searchResultRow .artistName span {
-    color: #f7f7f7; }
+  .searchResultRow .artistImage {
+    border-radius: 50%;
+    height: 5rem;
+    width: auto;
+    margin-right: 2rem; }
+
+.artistsContainer {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  border-bottom: 1px solid rgba(85, 85, 85, 0.8);
+  margin-bottom: 3rem; }
+
+.artistName {
+  color: #f7f7f7;
+  font-size: 1.6rem;
+  display: inline-block;
+  height: 100%; }
+  .artistName__icon {
+    fill: #a0a0a0;
+    height: 5rem;
+    width: 5rem;
+    margin-right: 2rem; }

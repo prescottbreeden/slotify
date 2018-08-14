@@ -106,7 +106,7 @@ else {
 			</ul>
 		</div>
 
-		<div class="artistsContainer u-border-bottom">
+		<div class="artistsContainer">
 			<h2>Artists</h2>
 			
 		<?php
@@ -126,8 +126,10 @@ else {
 			$artistFound = new Artist($con, $row['artist_id']);
 
 			echo "<div class='searchResultRow'>
+					<svg class='artistName__icon'>
+						<use href='public/images/icomoon/sprite.svg#icon-videogame_asset'</use>
+					</svg>	
 					<div class='artistName'>
-
 						<span role='link' tabindex='0' onclick='openPage(\"artist.php?id=" . $artistFound->getId() . "\")'>
 							" . $artistFound->getName()  . "	
 						</span>
@@ -141,13 +143,21 @@ else {
 
 		</div>
 		<h2>Albums</h2>
-		<div class="albumsContainer u-border-bottom">
+		<div class='album-select__container'>
 
 		<?php
 		$albumQuery = mysqli_query($con, "
-			 SELECT *
-			   FROM albums  
-					Where title_name
+			SELECT album.album_id,
+					album.title_name, 
+					album.artwork_path,
+					artist.name,
+					g.name AS genre
+			   FROM albums as album 
+					JOIN artists as artist
+						ON album.artist_id = artist.artist_id		
+					JOIN genres as g
+						ON album.genre_id = g.genre_id
+					WHERE album.title_name
 					LIKE '%$term%'"
 		);
 
@@ -157,7 +167,8 @@ else {
 
 		while($row = mysqli_fetch_array($albumQuery)) {
 
-			echo	"<div class='album-select__container--item'>
+			echo	"
+					<div class='album-select__container--item'>
 						<span 
 							role='link'
 							tabindex='0'

@@ -22,7 +22,8 @@ CREATE TABLE IF NOT EXISTS users (
 -- CREATE ARTISTS TABLE
 CREATE TABLE IF NOT EXISTS artists (
 	artist_id		INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
-	name			VARCHAR(50)		NOT NULL
+	name			VARCHAR(50)		NOT NULL,
+	profile_path	VARCHAR(500)	NOT NULL
 );
 
 -- CREATE GENRE TABLE
@@ -72,14 +73,14 @@ CREATE TABLE IF NOT EXISTS songs (
 --
 
  INSERT INTO artists 
-			(name) 
+			(name, profile_path) 
 		VALUES
-			('Koji Kondo'),
-			('Takashi Tateishi'),
-			('Hirokazu Tanaka'),
-			('Konami Kukeiha Club'),
-			('Nobuo Uematsu'),
-			('Mahito Yokota')
+			('Koji Kondo', 'public/images/artist/koji_kondo.jpg'),
+			('Takashi Tateishi', 'public/images/artist/takashi_tateishi.jpg'),
+			('Hirokazu Tanaka', 'public/images/artist/hirokazu_tanaka.png'),
+			('Konami Kukeiha Club', 'public/images/artist/konami_kukeiha_club.jpg'),
+			('Nobuo Uematsu', 'public/images/artist/nobuo_uematsu.jpg')
+
 			;
 
 --
@@ -89,10 +90,9 @@ CREATE TABLE IF NOT EXISTS songs (
  INSERT INTO genres
 			(name)
 		VALUES
-			('NES'),
-			('SNES'),
 			('OST'),
-			('Play Station');
+			('Remix'),
+			('Orchestration');
 
  INSERT INTO albums 
 			(year_released, game_platform, title_name, artist_id, genre_id, artwork_path) 
@@ -102,8 +102,6 @@ CREATE TABLE IF NOT EXISTS songs (
 			(1987, 'NES', 'Punch Out', 1, 1, 'public/images/artwork/punchout.jpg'),
 			(1986, 'NES', 'Metroid', 3, 1, 'public/images/artwork/metroid.jpg'),
 			(1987, 'NES', 'Contra', 4, 1, 'public/images/artwork/contra.jpg')
-
-			
 			
 			;
 

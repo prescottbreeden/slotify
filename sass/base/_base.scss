@@ -11,24 +11,23 @@ html {
 .content-wrapper {
 	display: flex;
 	flex-direction: column;
-	height: calc(100vh - 9rem);
+	min-height: calc(100vh - 9rem);
 	width: 100%;
 	box-sizing: border-box;
 }
 
 .content {
 	display: flex;
-	height: 100%;
+	min-height: 100%;
 }
 
 .dynamic-content {
 	margin-top: 5rem;
-	min-height: calc(100%-9rem);
 	width: 100%;
 	min-height: 100%;
 	min-width: 72rem;
 	margin-left: 25rem;
-	padding-bottom: 20rem;
+	padding-bottom: 5rem;;
 	position: relative;
 	@include gradient;
 }

@@ -2,17 +2,14 @@
 
 	&__container {
 		padding: 1.5rem 2rem;
-		// display: flex;
-		// width: 100%;
-		// flex-wrap: wrap;
-		padding-bottom: 4rem;
+		// padding-bottom: 14rem;
 		border-bottom: 1px solid rgba($color-grey-dark, .8);
+		background-color: transparent;
 
 		&--item {
 			display: inline-block;
-			background-image: contain;
-			margin-right: 2rem;
-			margin-bottom: 2rem;
+			// background-image: contain;
+			margin: 2rem;
 			width: 28%;
 			max-width: 20rem;
 			min-width: 15rem;
@@ -37,7 +34,7 @@
 
 			&-title {
 				color: $color-white;
-				margin-bottom: .5rem;
+				margin: 1rem 0;
 				font-weight: 700;
 			}
 

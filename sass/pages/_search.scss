@@ -13,15 +13,40 @@
 }
 .searchResultRow {
 	padding: 1.5rem 1rem;
+	display: flex;
+	align-items: center;
 
 	&:hover {
 		@include list-hover;	
 		cursor: default;
 	}
 
-	.artistName span {
-		color: $color-white;
+	.artistImage {
+		border-radius: 50%;
+		height: 5rem;
+		width: auto;
+		margin-right: 2rem;
 	}
+
+}
+.artistsContainer {
+	padding-top: 3rem;
+	padding-bottom: 5rem;
+	border-bottom: 1px solid rgba($color-grey-dark, .8);
+	margin-bottom: 3rem;
 }
 
+.artistName {
+	color: $color-white;
+	font-size: 1.6rem;
+	display: inline-block;
+	height: 100%;
+
+	&__icon {
+		fill: $color-grey;
+		height: 5rem;
+		width: 5rem;
+		margin-right: 2rem;
+	}
+}
 
