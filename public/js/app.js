@@ -22,6 +22,25 @@ function playFirstSong() {
 	setTrack(tempPlaylist[0], tempPlaylist, true);
 }
 
+function createPlaylist() {
+	var popup = prompt("Please enter the name of your playlist");
+	
+	if(popup != null) {
+		
+		$.post("includes/handlers/ajax/createPlaylist.php", { name: popup })
+			.done(function(error) {
+				if(error != '') {
+					console.log(error);
+					return;
+				}
+				else {
+					// do something when ajax returns
+					openPage("yourMusic.php");
+				}
+		});
+	}
+}
+
 
 // ====================================== //
 //				AUDIO CLASS				  //

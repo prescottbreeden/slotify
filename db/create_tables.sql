@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS playlists (
 	name			VARCHAR(50)		NOT NULL,
 	user_id			INTEGER			NOT NULL,
 	created_at		DATETIME		NOT NULL	DEFAULT NOW(),
-	updated_at		DATETIME		NOT NULL	ON UPDATE NOW(),
+	updated_at		DATETIME		NOT NULL	DEFAULT NOW() ON UPDATE NOW(),
 
 	FOREIGN KEY (user_id)
 		REFERENCES users(user_id)

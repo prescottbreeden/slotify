@@ -127,6 +127,7 @@ $year_released = $album->getYearReleased();
 					var firstSong = tempPlaylist[0];
 					setTrack(firstSong, tempPlaylist, true);
 				}
+				console.log('balls');
 			</script>
 
 		</ul>
