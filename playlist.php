@@ -3,6 +3,7 @@ include('includes/includedFiles.php');
 
 if(isset($_GET['id'])) {
 	$playlist_id = $_GET['id'];
+
 }
 else {
 	$playlist_name = 'Current Playlist';
@@ -27,7 +28,7 @@ else {
 				<span class="playlist__header--details-artist-by">By</span>
 				<span 
 					class="playlist__header--details-artist-name">
-					created by username
+						
 				</span>
 			</div>
 			<div class='playlist__header--misc'>

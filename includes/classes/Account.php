@@ -3,6 +3,8 @@
 class Account {
 
 	private $con;
+	private $user_id;
+	private $username;
 	private $errorArray;
 
 	public function __construct($con) {
@@ -13,7 +15,6 @@ class Account {
 
 	public function login($un, $pw) {
 		$pw = md5($pw);
-
 		$query = mysqli_query($this->con, "SELECT * FROM users WHERE username = '$un' AND password='$pw'");
 
 		if(mysqli_num_rows($query) == 1) {
@@ -24,6 +25,7 @@ class Account {
 			return false;
 		}
 	}
+
 
 	public function register($un, $fn, $ln, $em, $em2, $pw, $pw2) {
 		$this->validateUsername($un);
