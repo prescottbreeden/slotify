@@ -11,13 +11,13 @@ class User {
 		$this->username = $username;
 
 		$query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$this->username'");
-		$album = mysqli_fetch_array($query);
+		$user = mysqli_fetch_array($query);
 
-		$this->id = $album['id'];
+		$this->id = $user['user_id'];
 	}
 
 	public function getId() {
-		return $this->user_id;
+		return $this->id;
 	}
 
 	public function getUsername() {

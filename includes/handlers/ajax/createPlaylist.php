@@ -1,16 +1,15 @@
 <?php
 include("../../config.php");
+include("../../classes/User.php");
 
-if(isset($_POST['name'])) {
+if(isset($_POST['user']) && isset($_POST['name'])) {
+	$user = new User($con, $_POST['user']);
+	$user_id = $user->getId();
 	$name = $_POST['name'];
-	$user_id = $_SESSION['user_id'];
 	$query = mysqli_query($con, "INSERT INTO playlists (name, user_id) VALUES('$name', '$user_id')");
-	$resultArray = mysqli_fetch_array($query);
-
-	echo json_encode($resultArray);
 }
 else {
-	echo $_POST['name'];
+	echo "um.... sure?";
 }
 
 

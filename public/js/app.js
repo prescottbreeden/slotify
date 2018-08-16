@@ -27,7 +27,7 @@ function createPlaylist() {
 	
 	if(popup != null) {
 		
-		$.post("includes/handlers/ajax/createPlaylist.php", { name: popup })
+		$.post("includes/handlers/ajax/createPlaylist.php", { name: popup, user: userLoggedIn })
 			.done(function(error) {
 				if(error != '') {
 					console.log(error);

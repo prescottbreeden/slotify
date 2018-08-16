@@ -747,6 +747,13 @@ html {
   .playlists__btn:active {
     transform: scale(1); }
 
+.playlists__icon {
+  width: 20rem;
+  height: 20rem;
+  fill: #1db954;
+  padding: 1rem;
+  border: 2px solid #a0a0a0; }
+
 .register {
   background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");
   background-position: center;
