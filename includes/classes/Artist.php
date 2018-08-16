@@ -5,7 +5,6 @@ class Artist {
 	private $con;
 	private $id;
 	private $name;
-	private $profileImage;
 
 	public function __construct($con, $id) {
 		$this->con = $con;
@@ -15,7 +14,6 @@ class Artist {
 		$artist = mysqli_fetch_array($artistQuery);
 
 		$this->name = $artist['name'];
-		$this->profileImage = $artist['profile_path'];
 	}
 
 	public function getId() {
@@ -24,10 +22,6 @@ class Artist {
 
 	public function getName() {
 		return $this->name;
-	}
-
-	public function getProfileImage() {
-		return $this->profileImage;
 	}
 
 	public function getSongIds() {

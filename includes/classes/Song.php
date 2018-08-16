@@ -41,7 +41,7 @@ class Song {
 		$this->genre_id = $this->mysqliData['genre_id'];
 		$this->duration = $this->mysqliData['duration'];
 		$this->playcount = $this->mysqliData['play_count'];
-		$this->path = $this->mysqliData['path'];
+		$this->path = $this->mysqliData['song_path'];
 	}
 
 	public function getId() {

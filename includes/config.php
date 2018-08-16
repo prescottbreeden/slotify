@@ -1,14 +1,22 @@
 <?php
 
-ob_start();
-session_start();
+if (ob_get_level()) {
+}
+else {
+	ob_start();
 
-$timezone = date_default_timezone_set('America/Los_Angeles');
+}
 
-define("DB_HOST", "localhost");
-define("DB_USER", "trashpanda");
-define("DB_PASSWORD", "rubberbabybuggybumpers");
-define("DB_DATABASE", "slotify");
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+	$timezone = date_default_timezone_set('America/Los_Angeles');
+
+	define("DB_HOST", "localhost");
+	define("DB_USER", "trashpanda");
+	define("DB_PASSWORD", "rubberbabybuggybumpers");
+	define("DB_DATABASE", "slotify");
+}
+
 
 /* echo var_dump(function_exists('mysqli_connect')); */
 
