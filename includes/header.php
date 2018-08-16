@@ -70,7 +70,7 @@ else {
 					<span 
 						role="link"
 						tabindex="0"
-						onclick="openPage('index.php')"
+						onclick="openPage('browse.php')"
 						class="nav-bar__logo"> 
 						<?php include 'includes/icons/logo.html'; ?>
 					</span>

@@ -39,7 +39,7 @@ if(isset($_POST['registerButton'])) {
 
 	if($res) {
 		$_SESSION['userLoggedIn'] = $username;
-		header('Location: index.php');
+		header('Location: browse.php');
 	}
 }
 

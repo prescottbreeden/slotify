@@ -4,13 +4,16 @@ include('includes/config.php');
 
 if(!isset($_SESSION['userLoggedIn'])) {
 	header("Location: register.php");
+	exit();
+}
+else {
+	include('includes/includedFiles.php');
 }
 
 // session_destroy();
 
 ?>
 
-<?php include('includes/includedFiles.php'); ?>
 
 <div class="main">
 	<div class="main__content">
