@@ -1,6 +1,22 @@
 <?php
 include('includes/includedFiles.php');
 
+if(isset($_SESSION['userLoggedIn'])) {
+	$userLoggedIn = $_SESSION['userLoggedIn'];
+	echo "<script>userLoggedIn = '$userLoggedIn';</script>";
+}
+else {
+	header("Location: register.php");
+}
+
+if(isset($_GET['term'])) {
+	$term = urldecode($_GET['term']);
+}
+else {
+	$term = '';
+}
+
+
 ?>
 <section class="search-page">
 	<div class="searchContainer">
@@ -30,6 +46,7 @@ include('includes/includedFiles.php');
 				}
 				else {
 					echo "
+						term is " . $term . " <br>
 						<div class='tracks__list--item'>
 							<div class='tracks__list--number-header'>#</div>
 							<div class='tracks__list--name-header'>Title</div>
