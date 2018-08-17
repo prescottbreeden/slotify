@@ -1,46 +1,41 @@
 <?php
 include('includes/includedFiles.php');
 
-if(isset($_SESSION['userLoggedIn'])) {
-	$userLoggedIn = $_SESSION['userLoggedIn'];
-	echo "<script>userLoggedIn = '$userLoggedIn';</script>";
-}
-else {
-	header("Location: register.php");
-}
-
 if(isset($_GET['id'])) {
 	$playlist_id = $_GET['id'];
-
 }
 else {
-	$playlist_name = 'Current Playlist';
+	header("Location: browse.php");
 }
 
+$playlist = new Playlist($con, $playlist_id);
+$owner = new User($con, $playlist->getOwnerName());
 ?>
 
-<script>
-	console.log(currentPlaylist);
-</script>
 
 <section class='playlist'>
 	<div class='playlist__header'>
+		<div class='playlist__header--artwork'>
+			<svg class='playlists__icon'>
+				<use href='public/images/icomoon/sprite.svg#icon-videogame_asset'</use>
+			</svg>	
+		</div>
 		<div class='playlist__header--details'>
 			<div class='playlist__header--details-miniheader'>
-				playlist
+				Playlist
 			</div>
 			<div class='playlist__header--details-title'>
-				<?php echo $playlist_name; ?>
+				<?php echo $playlist->getName(); ?>
 			</div>
 			<div class='playlist__header--details-artist'>
 				<span class="playlist__header--details-artist-by">By</span>
 				<span 
 					class="playlist__header--details-artist-name">
-						
+					<?php echo $playlist->getOwnerName(); ?>
 				</span>
 			</div>
 			<div class='playlist__header--misc'>
-				updated: 2/3/18 &bull;
+				<?php echo $playlist->getUpdatedAt(); ?> &bull;
 				10 songs,
 				32 min
 			</div>
@@ -51,7 +46,7 @@ else {
 					<p>Play</p>
 				</div>
 				<div class='playlist__btn--save'>
-					<p>Save</p>
+					<p>Share</p>
 				</div>
 				<div class='playlist__btn--more'>
 				</div>

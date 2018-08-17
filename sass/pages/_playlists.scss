@@ -24,5 +24,134 @@
 		fill: $color-green;
 		padding: 1rem;
 		border: 2px solid $color-grey;
+		border-radius: 4px;
+	}
+}
+
+.playlist {
+	min-height: 100%;
+	@include gradient;
+	display: block;
+	padding: 2rem;
+	cursor: default;
+	padding-bottom: 20rem;
+
+	&__header {
+		display: inline-block;
+		width: 100%;
+
+		&--artwork {
+			display: inline-block;
+			width: 18rem;
+			height: 18rem;
+			margin-right: 2rem;
+			vertical-align: bottom;
+
+			svg {
+				height: 100%;
+				width: 100%;
+			}
+		}
+
+		&--details {
+			display: inline-block;
+			margin-left: 2rem;
+
+			&-miniheader {
+				margin: .5rem 0;
+				text-transform: uppercase;
+				font-size: .95rem;
+				letter-spacing: 1px;
+				color: $color-white;
+			}
+
+			&-title {
+				font-size: 4rem;
+				font-weight: 700;
+			}
+
+			&-artist {
+				margin: 1rem 0;
+
+				&-by {
+					color: $color-grey;
+					margin-right: .2rem;
+				}
+
+				&-name {
+					font-size: 1.2rem;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+
+			}
+
+		}
+
+		&--misc {
+			margin-bottom: 1.5rem;
+			font-size: 1.2rem;
+			color: $color-grey;
+		}
+	}
+
+	&__btn {
+		display: flex;
+		align-items: center;
+
+		p {
+			line-height: 1.5rem;
+		}
+		
+		&--play {
+			@include btn;
+			@include green-play;
+			margin-right: 1.5rem;
+		}
+
+		&--save {
+			@include btn;
+			width: 12%;
+			margin-right: 1.5rem;
+			
+		}
+
+		&--more {
+			background-color: transparent;
+			border-radius: 50%;
+			border: 1px solid $color-white;
+			color: transparent;
+			height: 3rem;
+			width: 3rem;
+			position: relative;
+			transition: all .3s;
+
+				&:hover {
+					background-color: $color-white;
+					cursor: pointer;
+					transform: rotate(90deg);
+
+					&:after {
+						color: $color-black;
+					}
+				}
+
+			&:after {
+				content: '\2807';
+				font-size: 2rem;
+				color: $color-white;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-30%, -40%);
+
+			}
+		}
+	}
+
+	&__tracks {
+		margin-top: 2rem;
 	}
 }

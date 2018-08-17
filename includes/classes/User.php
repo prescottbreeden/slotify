@@ -5,6 +5,8 @@ class User {
 	private $con;
 	private $id;
 	private $username;
+	private $created_at;
+	private $updated_at;
 
 	public function __construct($con, $username) {
 		$this->con = $con;
@@ -14,6 +16,8 @@ class User {
 		$user = mysqli_fetch_array($query);
 
 		$this->id = $user['user_id'];
+		$this->created_at = $user['created_date'];
+		$this->updated_at = $user['updated_date'];
 	}
 
 	public function getId() {

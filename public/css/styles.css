@@ -752,7 +752,136 @@ html {
   height: 20rem;
   fill: #1db954;
   padding: 1rem;
-  border: 2px solid #a0a0a0; }
+  border: 2px solid #a0a0a0;
+  border-radius: 4px; }
+
+.playlist {
+  min-height: 100%;
+  background-image: linear-gradient(to bottom, #3c3c3c, #1e1e1e 20%);
+  display: block;
+  padding: 2rem;
+  cursor: default;
+  padding-bottom: 20rem; }
+  .playlist__header {
+    display: inline-block;
+    width: 100%; }
+    .playlist__header--artwork {
+      display: inline-block;
+      width: 18rem;
+      height: 18rem;
+      margin-right: 2rem;
+      vertical-align: bottom; }
+      .playlist__header--artwork svg {
+        height: 100%;
+        width: 100%; }
+    .playlist__header--details {
+      display: inline-block;
+      margin-left: 2rem; }
+      .playlist__header--details-miniheader {
+        margin: .5rem 0;
+        text-transform: uppercase;
+        font-size: .95rem;
+        letter-spacing: 1px;
+        color: #f7f7f7; }
+      .playlist__header--details-title {
+        font-size: 4rem;
+        font-weight: 700; }
+      .playlist__header--details-artist {
+        margin: 1rem 0; }
+        .playlist__header--details-artist-by {
+          color: #a0a0a0;
+          margin-right: .2rem; }
+        .playlist__header--details-artist-name {
+          font-size: 1.2rem; }
+          .playlist__header--details-artist-name:hover {
+            text-decoration: underline; }
+    .playlist__header--misc {
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      color: #a0a0a0; }
+  .playlist__btn {
+    display: flex;
+    align-items: center; }
+    .playlist__btn p {
+      line-height: 1.5rem; }
+    .playlist__btn--play {
+      margin: 1rem 0;
+      border: 1px solid #a0a0a0;
+      padding: .8rem 3rem;
+      min-width: 8rem;
+      color: white;
+      text-align: center;
+      line-height: 1.5rem;
+      border-radius: 200px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      cursor: default;
+      text-transform: uppercase;
+      outline: none;
+      backface-visibility: none;
+      background-color: #1ed760;
+      border: none;
+      margin-right: 1.5rem; }
+      .playlist__btn--play:hover {
+        transform: scale(1.1);
+        border: 1.5px solid #fff; }
+      .playlist__btn--play:active {
+        transform: scale(1);
+        border: 1px solid #a0a0a0; }
+      .playlist__btn--play:hover {
+        transform: scale(1.1);
+        background-color: #34e372;
+        border: none; }
+      .playlist__btn--play:active {
+        transform: scale(1); }
+    .playlist__btn--save {
+      margin: 1rem 0;
+      border: 1px solid #a0a0a0;
+      padding: .8rem 3rem;
+      min-width: 8rem;
+      color: white;
+      text-align: center;
+      line-height: 1.5rem;
+      border-radius: 200px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      cursor: default;
+      text-transform: uppercase;
+      outline: none;
+      backface-visibility: none;
+      width: 12%;
+      margin-right: 1.5rem; }
+      .playlist__btn--save:hover {
+        transform: scale(1.1);
+        border: 1.5px solid #fff; }
+      .playlist__btn--save:active {
+        transform: scale(1);
+        border: 1px solid #a0a0a0; }
+    .playlist__btn--more {
+      background-color: transparent;
+      border-radius: 50%;
+      border: 1px solid #f7f7f7;
+      color: transparent;
+      height: 3rem;
+      width: 3rem;
+      position: relative;
+      transition: all .3s; }
+      .playlist__btn--more:hover {
+        background-color: #f7f7f7;
+        cursor: pointer;
+        transform: rotate(90deg); }
+        .playlist__btn--more:hover:after {
+          color: #222; }
+      .playlist__btn--more:after {
+        content: '\2807';
+        font-size: 2rem;
+        color: #f7f7f7;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-30%, -40%); }
+  .playlist__tracks {
+    margin-top: 2rem; }
 
 .register {
   background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");

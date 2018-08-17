@@ -29,7 +29,7 @@ $year_released = $album->getYearReleased();
 <section class='album'>
 	<div class='album__header'>
 		<div class='album__header--artwork'>
-		<img src="<?php echo $artwork_path; ?>" alt='album art'>
+			<img src="<?php echo $artwork_path; ?>" alt='album art'>
 		</div>
 		<div class='album__header--details'>
 			<div class='album__header--details-miniheader'>
