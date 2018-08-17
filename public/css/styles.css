@@ -1,3 +1,27 @@
+@keyframes bars {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+    opacity: 0; }
+  50% {
+    transform: translateY(10px); }
+  100% {
+    transform: translateY(0px);
+    opacity: 1; } }
+
+@keyframes controller-fill {
+  from {
+    stroke-dashoffset: 80;
+    opacity: 0; }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1; } }
+
 * {
   margin: 0;
   padding: 0; }
@@ -116,22 +140,6 @@ html {
 
 #text path:nth-child(8) {
   animation: bounce .5s 1.05s 1 forwards linear; }
-
-@keyframes bars {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
-
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-    opacity: 0; }
-  50% {
-    transform: translateY(10px); }
-  100% {
-    transform: translateY(0px);
-    opacity: 1; } }
 
 .button-active {
   fill: #1db954 !important; }
@@ -748,12 +756,21 @@ html {
     transform: scale(1); }
 
 .playlists__icon {
-  width: 20rem;
   height: 20rem;
-  fill: #1db954;
-  padding: 1rem;
-  border: 2px solid #a0a0a0;
-  border-radius: 4px; }
+  width: 20rem;
+  border: 1px solid #a0a0a0;
+  border-radius: 2px;
+  stroke: rgba(247, 247, 247, 0.8);
+  stroke-width: .3px;
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  fill: #222;
+  transition: all .2s;
+  animation: controller-fill 2.5s 1 forwards; }
+  .playlists__icon:hover {
+    fill: #1db954;
+    stroke: #1db954;
+    border: 1px solid #f7f7f7; }
 
 .playlist {
   min-height: 100%;
@@ -762,6 +779,16 @@ html {
   padding: 2rem;
   cursor: default;
   padding-bottom: 20rem; }
+  .playlist__icon {
+    height: 100%;
+    width: 100%;
+    stroke: rgba(247, 247, 247, 0.8);
+    stroke-width: .3px;
+    stroke-dasharray: 80;
+    stroke-dashoffset: 80;
+    fill: #222;
+    transition: all 5s;
+    animation: controller-fill 2.5s 1 forwards; }
   .playlist__header {
     display: inline-block;
     width: 100%; }
@@ -769,11 +796,10 @@ html {
       display: inline-block;
       width: 18rem;
       height: 18rem;
-      margin-right: 2rem;
-      vertical-align: bottom; }
-      .playlist__header--artwork svg {
-        height: 100%;
-        width: 100%; }
+      vertical-align: bottom;
+      padding: 0 1rem;
+      border: 2px solid #a0a0a0;
+      border-radius: 4px; }
     .playlist__header--details {
       display: inline-block;
       margin-left: 2rem; }
@@ -792,10 +818,12 @@ html {
           color: #a0a0a0;
           margin-right: .2rem; }
         .playlist__header--details-artist-name {
+          color: #f7f7f7;
           font-size: 1.2rem; }
           .playlist__header--details-artist-name:hover {
             text-decoration: underline; }
     .playlist__header--misc {
+      margin-top: 1rem;
       margin-bottom: 1.5rem;
       font-size: 1.2rem;
       color: #a0a0a0; }

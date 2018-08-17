@@ -19,12 +19,24 @@
 	}
 
 	&__icon {
-		width: 20rem;
 		height: 20rem;
-		fill: $color-green;
-		padding: 1rem;
-		border: 2px solid $color-grey;
-		border-radius: 4px;
+		width: 20rem;
+		border: 1px solid $color-grey;
+		border-radius: 2px;
+		stroke: rgba($color-white, .8);
+		stroke-width: .3px;
+		stroke-dasharray: 80;
+		stroke-dashoffset: 80;
+		fill: $color-black;
+		transition: all .2s;
+
+		animation: controller-fill 2.5s 1 forwards;
+
+		&:hover {
+			fill: $color-green;
+			stroke: $color-green;
+			border: 1px solid $color-white;
+		}
 	}
 }
 
@@ -36,6 +48,19 @@
 	cursor: default;
 	padding-bottom: 20rem;
 
+	&__icon {
+		height: 100%;
+		width: 100%;
+		stroke: rgba($color-white, .8);
+		stroke-width: .3px;
+		stroke-dasharray: 80;
+		stroke-dashoffset: 80;
+		fill: $color-black;
+		transition: all 5s;
+
+		animation: controller-fill 2.5s 1 forwards;
+	}
+
 	&__header {
 		display: inline-block;
 		width: 100%;
@@ -44,18 +69,15 @@
 			display: inline-block;
 			width: 18rem;
 			height: 18rem;
-			margin-right: 2rem;
 			vertical-align: bottom;
-
-			svg {
-				height: 100%;
-				width: 100%;
-			}
+			padding: 0 1rem;
+			border: 2px solid $color-grey;
+			border-radius: 4px;
 		}
 
 		&--details {
 			display: inline-block;
-			margin-left: 2rem;
+		 	margin-left: 2rem;
 
 			&-miniheader {
 				margin: .5rem 0;
@@ -79,6 +101,7 @@
 				}
 
 				&-name {
+					color: $color-white;
 					font-size: 1.2rem;
 
 					&:hover {
@@ -91,6 +114,7 @@
 		}
 
 		&--misc {
+			margin-top: 1rem;
 			margin-bottom: 1.5rem;
 			font-size: 1.2rem;
 			color: $color-grey;

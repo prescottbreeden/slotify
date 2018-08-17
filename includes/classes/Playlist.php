@@ -58,6 +58,45 @@ class Playlist {
 	public function getUpdatedAt() {
 		return $this->updated_at;
 	}
+
+	public function getNumberOfSongs() {
+		$query = mysqli_query($this->con, "
+			 SELECT song_id 
+			   FROM pl_songs 
+					WHERE playlist_id='$this->id'");
+
+		return mysqli_num_rows($query);
+	}
+	
+	public function getSongIds() {
+		$query = mysqli_query($this->con, "
+			 SELECT song_id 
+			   FROM pl_songs 
+					WHERE playlist_id='$this->id' 
+					ORDER BY playlist_order ASC");
+
+		$array = array();
+		while($row = mysqli_fetch_array($query)) {
+			array_push($array, $row['song_id']);
+		}
+		return $array;
+	}
+
+	public function getTotalLength() {
+		$query = mysqli_query($this->con, "
+			 SELECT 
+					CASE
+						WHEN TIME_FORMAT(SUM(duration), '%i') > 0 
+							THEN TIME_FORMAT(SUM(duration), '%i')
+						ELSE TIME_FORMAT(SUM(duration)-60, '%i')+1
+					END AS duration
+			   FROM songs 
+					WHERE song_id='$this->id' 
+					GROUP BY album_id");
+
+		$row = mysqli_fetch_array($query);
+		return $row[0];
+	}
 }
 
 ?>

@@ -10,6 +10,10 @@
 <body>
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
+<symbol id="icon-music-notes" viewBox="0 0 20 20">
+<title>music-notes</title>
+<path d="M20 2.5v-2.5l-14 2v12.17c-0.297-0.108-0.639-0.17-0.996-0.17-0.002 0-0.003 0-0.005 0h-2c-1.657 0-3 1.343-3 3s1.343 3 3 3v0h2c1.657 0 3-1.343 3-3v0-11.29l10-1.41v7.88c-0.297-0.108-0.639-0.17-0.996-0.17-0.002 0-0.003 0-0.005 0h-2c-1.657 0-3 1.343-3 3s1.343 3 3 3h2c1.657 0 3-1.343 3-3v0-12.51z"></path>
+</symbol>
 <symbol id="icon-add" viewBox="0 0 24 24">
 <title>add</title>
 <path d="M18.984 12.984h-6v6h-1.969v-6h-6v-1.969h6v-6h1.969v6h6v1.969z"></path>
@@ -170,6 +174,14 @@
 <title>toggle-on</title>
 <path d="M0 14c0-5.516 4.484-10 10-10h12c5.516 0 10 4.484 10 10s-4.484 10-10 10h-12c-5.516 0-10-4.484-10-10zM22 22c4.406 0 8-3.594 8-8s-3.594-8-8-8-8 3.594-8 8 3.594 8 8 8z"></path>
 </symbol>
+<symbol id="icon-loop" viewBox="0 0 28 28">
+<title>loop</title>
+<path d="M3.5 8.75h17.5v5.25l7-7-7-7v5.25h-21v10.5h3.5zM24.5 19.25h-17.5v-5.25l-7 7 7 7v-5.25h21v-10.5h-3.5z"></path>
+</symbol>
+<symbol id="icon-shuffle" viewBox="0 0 28 28">
+<title>shuffle</title>
+<path d="M21 19.25h-2.775l-4.375-4.375 4.375-4.375h2.775v4.375l6.125-6.125-6.125-6.125v4.375h-3.5c-0.464 0-0.909 0.184-1.237 0.513l-4.888 4.888-4.888-4.888c-0.328-0.328-0.773-0.513-1.237-0.513h-5.25v3.5h4.525l4.375 4.375-4.375 4.375h-4.525v3.5h5.25c0.464 0 0.909-0.184 1.237-0.513l4.888-4.888 4.888 4.888c0.328 0.328 0.773 0.513 1.237 0.513h3.5v4.375l6.125-6.125-6.125-6.125v4.375z"></path>
+</symbol>
 <symbol id="icon-plus2" viewBox="0 0 32 32">
 <title>plus2</title>
 <path d="M31 12h-11v-11c0-0.552-0.448-1-1-1h-6c-0.552 0-1 0.448-1 1v11h-11c-0.552 0-1 0.448-1 1v6c0 0.552 0.448 1 1 1h11v11c0 0.552 0.448 1 1 1h6c0.552 0 1-0.448 1-1v-11h11c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1z"></path>
@@ -235,138 +247,146 @@
 </div>
 </header>
     <div class="clearfix mhl ptl">
-        <h1 class="mvm mtn fgc1">Grid Size: 24</h1>
+        <h1 class="mvm mtn fgc1">Grid Size: 20</h1>
         <div class="glyph fs1">
+            <div class="clearfix pbs">
+                <svg class="icon icon-music-notes"><use xlink:href="#icon-music-notes"></use></svg><span class="name"> icon-music-notes</span>
+            </div>
+        </div>
+  </div>
+    <div class="clearfix mhl ptl">
+        <h1 class="mvm mtn fgc1">Grid Size: 24</h1>
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-add"><use xlink:href="#icon-add"></use></svg><span class="name"> icon-add</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-games"><use xlink:href="#icon-games"></use></svg><span class="name"> icon-games</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-more_vert"><use xlink:href="#icon-more_vert"></use></svg><span class="name"> icon-more_vert</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-playlist_add"><use xlink:href="#icon-playlist_add"></use></svg><span class="name"> icon-playlist_add</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-playlist_play"><use xlink:href="#icon-playlist_play"></use></svg><span class="name"> icon-playlist_play</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-skip_next"><use xlink:href="#icon-skip_next"></use></svg><span class="name"> icon-skip_next</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-skip_previous"><use xlink:href="#icon-skip_previous"></use></svg><span class="name"> icon-skip_previous</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-videogame_asset"><use xlink:href="#icon-videogame_asset"></use></svg><span class="name"> icon-videogame_asset</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-view_list"><use xlink:href="#icon-view_list"></use></svg><span class="name"> icon-view_list</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-view_module"><use xlink:href="#icon-view_module"></use></svg><span class="name"> icon-view_module</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-zoom_in"><use xlink:href="#icon-zoom_in"></use></svg><span class="name"> icon-zoom_in</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-zoom_out"><use xlink:href="#icon-zoom_out"></use></svg><span class="name"> icon-zoom_out</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-calendar"><use xlink:href="#icon-calendar"></use></svg><span class="name"> icon-calendar</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-check-circle"><use xlink:href="#icon-check-circle"></use></svg><span class="name"> icon-check-circle</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-chevron-down"><use xlink:href="#icon-chevron-down"></use></svg><span class="name"> icon-chevron-down</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-chevron-left"><use xlink:href="#icon-chevron-left"></use></svg><span class="name"> icon-chevron-left</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-chevron-right"><use xlink:href="#icon-chevron-right"></use></svg><span class="name"> icon-chevron-right</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-chevron-up"><use xlink:href="#icon-chevron-up"></use></svg><span class="name"> icon-chevron-up</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-clock"><use xlink:href="#icon-clock"></use></svg><span class="name"> icon-clock</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-maximize-2"><use xlink:href="#icon-maximize-2"></use></svg><span class="name"> icon-maximize-2</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-minimize-2"><use xlink:href="#icon-minimize-2"></use></svg><span class="name"> icon-minimize-2</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-more-horizontal"><use xlink:href="#icon-more-horizontal"></use></svg><span class="name"> icon-more-horizontal</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-plus"><use xlink:href="#icon-plus"></use></svg><span class="name"> icon-plus</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-plus-circle"><use xlink:href="#icon-plus-circle"></use></svg><span class="name"> icon-plus-circle</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-repeat"><use xlink:href="#icon-repeat"></use></svg><span class="name"> icon-repeat</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg><span class="name"> icon-search</span>
             </div>
         </div>
-        <div class="glyph fs1">
+        <div class="glyph fs2">
             <div class="clearfix pbs">
                 <svg class="icon icon-thumbs-up"><use xlink:href="#icon-thumbs-up"></use></svg><span class="name"> icon-thumbs-up</span>
             </div>
@@ -374,117 +394,59 @@
   </div>
     <div class="clearfix mhl ptl">
         <h1 class="mvm mtn fgc1">Grid Size: 14</h1>
-        <div class="glyph fs2">
+        <div class="glyph fs3">
             <div class="clearfix pbs">
                 <svg class="icon icon-step-backward"><use xlink:href="#icon-step-backward"></use></svg><span class="name"> icon-step-backward</span>
             </div>
         </div>
-        <div class="glyph fs2">
+        <div class="glyph fs3">
             <div class="clearfix pbs">
                 <svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg><span class="name"> icon-play</span>
             </div>
         </div>
-        <div class="glyph fs2">
+        <div class="glyph fs3">
             <div class="clearfix pbs">
                 <svg class="icon icon-pause"><use xlink:href="#icon-pause"></use></svg><span class="name"> icon-pause</span>
             </div>
         </div>
-        <div class="glyph fs2">
+        <div class="glyph fs3">
             <div class="clearfix pbs">
                 <svg class="icon icon-step-forward"><use xlink:href="#icon-step-forward"></use></svg><span class="name"> icon-step-forward</span>
             </div>
         </div>
-        <div class="glyph fs2">
+        <div class="glyph fs3">
             <div class="clearfix pbs">
                 <svg class="icon icon-random"><use xlink:href="#icon-random"></use></svg><span class="name"> icon-random</span>
             </div>
         </div>
-        <div class="glyph fs2">
+        <div class="glyph fs3">
             <div class="clearfix pbs">
                 <svg class="icon icon-chain"><use xlink:href="#icon-chain"></use></svg><span class="name"> icon-chain</span>
             </div>
         </div>
-        <div class="glyph fs2">
+        <div class="glyph fs3">
             <div class="clearfix pbs">
                 <svg class="icon icon-gamepad"><use xlink:href="#icon-gamepad"></use></svg><span class="name"> icon-gamepad</span>
             </div>
         </div>
-        <div class="glyph fs2">
+        <div class="glyph fs3">
             <div class="clearfix pbs">
                 <svg class="icon icon-sliders"><use xlink:href="#icon-sliders"></use></svg><span class="name"> icon-sliders</span>
             </div>
         </div>
-        <div class="glyph fs2">
+        <div class="glyph fs3">
             <div class="clearfix pbs">
                 <svg class="icon icon-trash"><use xlink:href="#icon-trash"></use></svg><span class="name"> icon-trash</span>
             </div>
         </div>
-        <div class="glyph fs2">
+        <div class="glyph fs3">
             <div class="clearfix pbs">
                 <svg class="icon icon-toggle-off"><use xlink:href="#icon-toggle-off"></use></svg><span class="name"> icon-toggle-off</span>
             </div>
         </div>
-        <div class="glyph fs2">
+        <div class="glyph fs3">
             <div class="clearfix pbs">
                 <svg class="icon icon-toggle-on"><use xlink:href="#icon-toggle-on"></use></svg><span class="name"> icon-toggle-on</span>
-            </div>
-        </div>
-  </div>
-    <div class="clearfix mhl ptl">
-        <h1 class="mvm mtn fgc1">Grid Size: 16</h1>
-        <div class="glyph fs3">
-            <div class="clearfix pbs">
-                <svg class="icon icon-plus2"><use xlink:href="#icon-plus2"></use></svg><span class="name"> icon-plus2</span>
-            </div>
-        </div>
-        <div class="glyph fs3">
-            <div class="clearfix pbs">
-                <svg class="icon icon-checkmark"><use xlink:href="#icon-checkmark"></use></svg><span class="name"> icon-checkmark</span>
-            </div>
-        </div>
-        <div class="glyph fs3">
-            <div class="clearfix pbs">
-                <svg class="icon icon-play2"><use xlink:href="#icon-play2"></use></svg><span class="name"> icon-play2</span>
-            </div>
-        </div>
-        <div class="glyph fs3">
-            <div class="clearfix pbs">
-                <svg class="icon icon-pause2"><use xlink:href="#icon-pause2"></use></svg><span class="name"> icon-pause2</span>
-            </div>
-        </div>
-        <div class="glyph fs3">
-            <div class="clearfix pbs">
-                <svg class="icon icon-play3"><use xlink:href="#icon-play3"></use></svg><span class="name"> icon-play3</span>
-            </div>
-        </div>
-        <div class="glyph fs3">
-            <div class="clearfix pbs">
-                <svg class="icon icon-pause22"><use xlink:href="#icon-pause22"></use></svg><span class="name"> icon-pause22</span>
-            </div>
-        </div>
-        <div class="glyph fs3">
-            <div class="clearfix pbs">
-                <svg class="icon icon-volume-high"><use xlink:href="#icon-volume-high"></use></svg><span class="name"> icon-volume-high</span>
-            </div>
-        </div>
-        <div class="glyph fs3">
-            <div class="clearfix pbs">
-                <svg class="icon icon-volume-medium"><use xlink:href="#icon-volume-medium"></use></svg><span class="name"> icon-volume-medium</span>
-            </div>
-        </div>
-        <div class="glyph fs3">
-            <div class="clearfix pbs">
-                <svg class="icon icon-volume-low"><use xlink:href="#icon-volume-low"></use></svg><span class="name"> icon-volume-low</span>
-            </div>
-        </div>
-        <div class="glyph fs3">
-            <div class="clearfix pbs">
-                <svg class="icon icon-volume-mute"><use xlink:href="#icon-volume-mute"></use></svg><span class="name"> icon-volume-mute</span>
-            </div>
-        </div>
-        <div class="glyph fs3">
-            <div class="clearfix pbs">
-                <svg class="icon icon-volume-mute2"><use xlink:href="#icon-volume-mute2"></use></svg><span class="name"> icon-volume-mute2</span>
             </div>
         </div>
         <div class="glyph fs3">
@@ -493,6 +455,74 @@
             </div>
         </div>
         <div class="glyph fs3">
+            <div class="clearfix pbs">
+                <svg class="icon icon-shuffle"><use xlink:href="#icon-shuffle"></use></svg><span class="name"> icon-shuffle</span>
+            </div>
+        </div>
+  </div>
+    <div class="clearfix mhl ptl">
+        <h1 class="mvm mtn fgc1">Grid Size: 16</h1>
+        <div class="glyph fs4">
+            <div class="clearfix pbs">
+                <svg class="icon icon-plus2"><use xlink:href="#icon-plus2"></use></svg><span class="name"> icon-plus2</span>
+            </div>
+        </div>
+        <div class="glyph fs4">
+            <div class="clearfix pbs">
+                <svg class="icon icon-checkmark"><use xlink:href="#icon-checkmark"></use></svg><span class="name"> icon-checkmark</span>
+            </div>
+        </div>
+        <div class="glyph fs4">
+            <div class="clearfix pbs">
+                <svg class="icon icon-play2"><use xlink:href="#icon-play2"></use></svg><span class="name"> icon-play2</span>
+            </div>
+        </div>
+        <div class="glyph fs4">
+            <div class="clearfix pbs">
+                <svg class="icon icon-pause2"><use xlink:href="#icon-pause2"></use></svg><span class="name"> icon-pause2</span>
+            </div>
+        </div>
+        <div class="glyph fs4">
+            <div class="clearfix pbs">
+                <svg class="icon icon-play3"><use xlink:href="#icon-play3"></use></svg><span class="name"> icon-play3</span>
+            </div>
+        </div>
+        <div class="glyph fs4">
+            <div class="clearfix pbs">
+                <svg class="icon icon-pause22"><use xlink:href="#icon-pause22"></use></svg><span class="name"> icon-pause22</span>
+            </div>
+        </div>
+        <div class="glyph fs4">
+            <div class="clearfix pbs">
+                <svg class="icon icon-volume-high"><use xlink:href="#icon-volume-high"></use></svg><span class="name"> icon-volume-high</span>
+            </div>
+        </div>
+        <div class="glyph fs4">
+            <div class="clearfix pbs">
+                <svg class="icon icon-volume-medium"><use xlink:href="#icon-volume-medium"></use></svg><span class="name"> icon-volume-medium</span>
+            </div>
+        </div>
+        <div class="glyph fs4">
+            <div class="clearfix pbs">
+                <svg class="icon icon-volume-low"><use xlink:href="#icon-volume-low"></use></svg><span class="name"> icon-volume-low</span>
+            </div>
+        </div>
+        <div class="glyph fs4">
+            <div class="clearfix pbs">
+                <svg class="icon icon-volume-mute"><use xlink:href="#icon-volume-mute"></use></svg><span class="name"> icon-volume-mute</span>
+            </div>
+        </div>
+        <div class="glyph fs4">
+            <div class="clearfix pbs">
+                <svg class="icon icon-volume-mute2"><use xlink:href="#icon-volume-mute2"></use></svg><span class="name"> icon-volume-mute2</span>
+            </div>
+        </div>
+        <div class="glyph fs4">
+            <div class="clearfix pbs">
+                <svg class="icon icon-loop"><use xlink:href="#icon-loop"></use></svg><span class="name"> icon-loop</span>
+            </div>
+        </div>
+        <div class="glyph fs4">
             <div class="clearfix pbs">
                 <svg class="icon icon-shuffle"><use xlink:href="#icon-shuffle"></use></svg><span class="name"> icon-shuffle</span>
             </div>

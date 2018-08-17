@@ -52,16 +52,3 @@
 	background-color: rgba($color-grey, .2);
 	border-bottom: 1px solid transparent;
 }
-
-@mixin clipboard {
-
-			border: 1px solid $color-grey;
-			color: $color-white;
-			text-transform: uppercase;
-			margin-right: 1.5rem;
-			font-weight: 600;
-			letter-spacing: 1px;
-			cursor: default;
-			backface-visibility: none;
-
-}

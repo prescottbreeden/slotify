@@ -1,5 +1,9 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
+<symbol id="icon-music-notes" viewBox="0 0 20 20">
+<title>music-notes</title>
+<path d="M20 2.5v-2.5l-14 2v12.17c-0.297-0.108-0.639-0.17-0.996-0.17-0.002 0-0.003 0-0.005 0h-2c-1.657 0-3 1.343-3 3s1.343 3 3 3v0h2c1.657 0 3-1.343 3-3v0-11.29l10-1.41v7.88c-0.297-0.108-0.639-0.17-0.996-0.17-0.002 0-0.003 0-0.005 0h-2c-1.657 0-3 1.343-3 3s1.343 3 3 3h2c1.657 0 3-1.343 3-3v0-12.51z"></path>
+</symbol>
 <symbol id="icon-add" viewBox="0 0 24 24">
 <title>add</title>
 <path d="M18.984 12.984h-6v6h-1.969v-6h-6v-1.969h6v-6h1.969v6h6v1.969z"></path>
@@ -159,6 +163,14 @@
 <symbol id="icon-toggle-on" viewBox="0 0 32 28">
 <title>toggle-on</title>
 <path d="M0 14c0-5.516 4.484-10 10-10h12c5.516 0 10 4.484 10 10s-4.484 10-10 10h-12c-5.516 0-10-4.484-10-10zM22 22c4.406 0 8-3.594 8-8s-3.594-8-8-8-8 3.594-8 8 3.594 8 8 8z"></path>
+</symbol>
+<symbol id="icon-loop" viewBox="0 0 28 28">
+<title>loop</title>
+<path d="M3.5 8.75h17.5v5.25l7-7-7-7v5.25h-21v10.5h3.5zM24.5 19.25h-17.5v-5.25l-7 7 7 7v-5.25h21v-10.5h-3.5z"></path>
+</symbol>
+<symbol id="icon-shuffle" viewBox="0 0 28 28">
+<title>shuffle</title>
+<path d="M21 19.25h-2.775l-4.375-4.375 4.375-4.375h2.775v4.375l6.125-6.125-6.125-6.125v4.375h-3.5c-0.464 0-0.909 0.184-1.237 0.513l-4.888 4.888-4.888-4.888c-0.328-0.328-0.773-0.513-1.237-0.513h-5.25v3.5h4.525l4.375 4.375-4.375 4.375h-4.525v3.5h5.25c0.464 0 0.909-0.184 1.237-0.513l4.888-4.888 4.888 4.888c0.328 0.328 0.773 0.513 1.237 0.513h3.5v4.375l6.125-6.125-6.125-6.125v4.375z"></path>
 </symbol>
 <symbol id="icon-plus2" viewBox="0 0 32 32">
 <title>plus2</title>

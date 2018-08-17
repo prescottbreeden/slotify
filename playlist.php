@@ -16,7 +16,7 @@ $owner = new User($con, $playlist->getOwnerName());
 <section class='playlist'>
 	<div class='playlist__header'>
 		<div class='playlist__header--artwork'>
-			<svg class='playlists__icon'>
+			<svg class='playlist__icon'>
 				<use href='public/images/icomoon/sprite.svg#icon-videogame_asset'</use>
 			</svg>	
 		</div>
@@ -27,17 +27,14 @@ $owner = new User($con, $playlist->getOwnerName());
 			<div class='playlist__header--details-title'>
 				<?php echo $playlist->getName(); ?>
 			</div>
-			<div class='playlist__header--details-artist'>
-				<span class="playlist__header--details-artist-by">By</span>
+			<div class='playlist__header--misc'>
+				<span class="playlist__header--details-artist-by">Created by</span>
 				<span 
 					class="playlist__header--details-artist-name">
-					<?php echo $playlist->getOwnerName(); ?>
+					<?php echo $playlist->getOwnerName(); ?> 
 				</span>
-			</div>
-			<div class='playlist__header--misc'>
-				<?php echo $playlist->getUpdatedAt(); ?> &bull;
-				10 songs,
-				32 min
+				&bull; <?php echo $playlist->getNumberOfSongs(); ?> songs,
+				<?php echo $playlist->getTotalLength(); ?> min
 			</div>
 			<div class='playlist__btn'>
 				<div 
@@ -45,7 +42,9 @@ $owner = new User($con, $playlist->getOwnerName());
 					class='playlist__btn--play'>
 					<p>Play</p>
 				</div>
-				<div class='playlist__btn--save'>
+				<div 
+					onclick="sharePlaylist(4)"
+					class='playlist__btn--save'>
 					<p>Share</p>
 				</div>
 				<div class='playlist__btn--more'>
@@ -72,8 +71,58 @@ $owner = new User($con, $playlist->getOwnerName());
 			</div>
 
 			<?php 
+			$song_array = $playlist->getSongIds();
+			$i = 1;
+			foreach($song_array as $song) {
+				$playlistSong = new Song($con, $song);
+				$songArtist = $playlistSong->getArtist();
+
+				echo "
+					<div class='tracks__list--item'>
+						<div class='tracks__list--number'>
+						<span>	
+							$i
+						</span>
+
+						<svg 
+							aria-label='[title]'
+							onclick='setTrack(\"" . $playlistSong->getId() . "\", tempPlaylist, true)'
+							class='tracks__list--number-play'>
+							<title>Play</title>
+							<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
+						</svg>
+						</div>
+						<div class='tracks__list--name'>" . $playlistSong->getTitle() . "</div>
+						<div 
+							onclick='openPage(\"artist.php?id=" . $playlistSong->getArtistId() . "\")'
+							class='tracks__list--artist'>" . $songArtist->getName() . "</div>
+						<div class='tracks__list--more'>
+							<svg 
+								aria-label='[title]'
+								<title>More</title>
+								<use href='public/images/icomoon/sprite.svg#icon-more-horizontal'></use>
+							</svg>
+						</div>
+						<div class='tracks__list--duration'>" . $playlistSong->getDuration() . "</div>
+					</div>
+
+					";
+
+				$i = $i+1;
+			}
 
 			?>
+
+			<script>
+				var tempSongIds = '<?php echo json_encode($song_array); ?>';
+				tempPlaylist = JSON.parse(tempSongIds);
+
+				function playAlbum() {
+					var firstSong = tempPlaylist[0];
+					setTrack(firstSong, tempPlaylist, true);
+				}
+				console.log('balls');
+			</script>
 
 
 		</ul>

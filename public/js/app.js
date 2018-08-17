@@ -22,6 +22,10 @@ function playFirstSong() {
 	setTrack(tempPlaylist[0], tempPlaylist, true);
 }
 
+// ====================================== //
+//				Playlists				  //
+// ====================================== //
+
 function createPlaylist() {
 	var popup = prompt("Please enter the name of your playlist");
 	
@@ -41,10 +45,34 @@ function createPlaylist() {
 	}
 }
 
+function deletePlaylist(playlistId) {
+	var popup = confirm("Are you sure you want to delete this playlist?");
+	if(popup) {
+		console.log('deleting playlist now... what did you do?!');
+
+		$.post("includes/handlers/ajax/deletePlaylist.php", { playlistId: playlistId })
+			.done(function(error) {
+				if(error != '') {
+					console.log(error);
+					return;
+				}
+				else {
+					// do something when ajax returns
+					openPage("yourMusic.php");
+				}
+		});
+	}
+}
+
+function sharePlaylist(playlistId) {
+	console.log('generating playlist link');
+}
+
 
 // ====================================== //
 //				AUDIO CLASS				  //
 // ====================================== //
+
 function Audio() {
 	
 	this.currentlyPlaying;
