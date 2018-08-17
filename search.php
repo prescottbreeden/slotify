@@ -68,6 +68,8 @@ else {
 
 					$artistSong = new Song($con, $row['song_id']);
 					$albumArtist = $artistSong->getArtist();
+					$playcount = $artistSong->getPlayCount();
+					$formattedPlayCount = number_format($playcount);
 
 					echo "
 						<div class='tracks__list--item'>
@@ -93,7 +95,7 @@ else {
 									<use href='public/images/icomoon/sprite.svg#icon-more-horizontal'></use>
 								</svg>
 							</div>
-							<div class='tracks__list--duration'>" . $artistSong->getPlayCount() . "</div>
+							<div class='tracks__list--duration'>" . $formattedPlayCount . "</div>
 						</div>
 
 						";
