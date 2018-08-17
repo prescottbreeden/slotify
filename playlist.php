@@ -19,6 +19,11 @@ $owner = new User($con, $playlist->getOwnerName());
 			<svg class='playlist__icon'>
 				<use href='public/images/icomoon/sprite.svg#icon-videogame_asset'</use>
 			</svg>	
+			<div class="playlist__header--artwork-hover">
+				<svg class='playlist__icon-hover'>
+					<use href='public/images/icomoon/sprite.svg#icon-play2'</use>
+				</svg>	
+			</div>
 		</div>
 		<div class='playlist__header--details'>
 			<div class='playlist__header--details-miniheader'>

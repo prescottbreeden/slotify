@@ -12,14 +12,13 @@ else {
 ?>
 
 <section class="playlists">
-	<div class="playlists__container">
 		<h2 class="playlists__heading">Playlists</h2>
 		<div 
 			onclick="createPlaylist()"
 			class="playlists__btn">
 			New Playlist	
 		</div>
-		<div class="album-select__container">
+		<div class="playlists__container">
 
 		<?php
 		$user = new User($con, $userLoggedIn);
@@ -44,14 +43,21 @@ else {
 
 		while($row = mysqli_fetch_array($playlistQuery)) {
 
-			echo	"<div class='album-select__container--item'>
+			echo	"<div class='playlists__item'>
 						<span 
 							role='link'
 							tabindex='0'
 							onclick='openPage(\"playlist.php?id=" . $row['playlist_id'] . "\")'>
-							<svg class='playlists__icon'>
-								<use href='public/images/icomoon/sprite.svg#icon-videogame_asset'</use>
-							</svg>	
+							<div class='playlist__header--artwork'>
+								<svg class='playlist__icon'>
+									<use href='public/images/icomoon/sprite.svg#icon-videogame_asset'</use>
+								</svg>	
+								<div class='playlist__header--artwork-hover'>
+									<svg class='playlist__icon-hover'>
+										<use href='public/images/icomoon/sprite.svg#icon-play2'</use>
+									</svg>	
+								</div>
+							</div>
 							<div class='album-select__container--item-details'>
 								<div class='album-select__container--item-title'>	
 									" . $row['name'] . "
