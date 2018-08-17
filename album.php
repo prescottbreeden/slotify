@@ -148,6 +148,8 @@ $year_released = $album->getYearReleased();
 		New Playlist
 	</div>
 	<div class="options-menu__divider"></div>
+	<!-- placeholder for playlists -->
+	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn); ?>
 </div>
 
 <div class="share-menu">

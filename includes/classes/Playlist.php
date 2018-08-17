@@ -97,6 +97,33 @@ class Playlist {
 		$row = mysqli_fetch_array($query);
 		return $row[0];
 	}
+
+	public static function getPlaylistsDropdown($con, $username) {
+		$dropdown = '';
+		$user = new User($con, $username);
+		$userId = $user->getId();
+
+		$query = mysqli_query($con, "
+			 SELECT playlist_id, 
+					name 
+			   FROM playlists 
+					WHERE user_id='$userId'");
+		
+		while($row = mysqli_fetch_array($query)) {
+			$name = $row['name'];
+			$id = $row['playlist_id'];
+
+			$dropdown = $dropdown . "
+				<div 
+					onclick=''
+					class='menu-item'>
+					" . $name . "
+				</div>
+			";
+		}
+
+		return $dropdown;
+	}
 }
 
 ?>
