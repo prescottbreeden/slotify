@@ -111,6 +111,8 @@ $year_released = $album->getYearReleased();
 							class='tracks__list--artist'>" . $songArtist->getName() . "</div>
 						<div class='tracks__list--more'>
 							<svg 
+								class='options__button'
+								onclick='showOptionsMenu(this)' 
 								aria-label='[title]'
 								<title>More</title>
 								<use href='public/images/icomoon/sprite.svg#icon-more-horizontal'></use>
@@ -138,5 +140,43 @@ $year_released = $album->getYearReleased();
 			</script>
 
 		</ul>
+	</div>
+</section>
+
+<section class="options-menu">
+	<input class="options-menu__input" type="hidden">
+	<div class="options-menu__item">
+		Add to Queue
+	</div>
+	<div class="options-menu__divider"></div>
+	<div class="options-menu__item">
+		Go to Artist
+	</div>
+	<div class="options-menu__item">
+		Go to Album
+	</div>
+	<div class="options-menu__divider"></div>
+	<div class="options-menu__item">
+		Save to Your Music
+	</div>
+	<div class="options-menu__item">
+		Add to playlist
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
+		</svg>
+	</div>
+	<div class="options-menu__item">
+		Remove from this Playlist
+	</div>
+	<div class="options-menu__divider"></div>
+	<div class="options-menu__item">
+		Share
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
+		</svg>
 	</div>
 </section>

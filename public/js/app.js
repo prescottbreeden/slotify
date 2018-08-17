@@ -7,6 +7,18 @@ let repeat = false;
 let shuffle = false;
 let userLoggedIn;
 
+$(document).click(function(click) {
+	let target = $(click.target);
+	if(!target.hasClass("options-menu__item") && !target.hasClass("options__button")) {
+		hideOptionsMenu();
+		console.log('hide');
+	}
+})
+
+$(window).scroll(function() {
+	hideOptionsMenu();
+});
+
 function openPage(url) {
 
 	if(url.indexOf("?") === -1) {
@@ -20,6 +32,25 @@ function openPage(url) {
 
 function playFirstSong() {
 	setTrack(tempPlaylist[0], tempPlaylist, true);
+}
+
+function hideOptionsMenu() {
+	let menu = $('.options-menu');
+	if(menu.css('display') != "none") {
+		menu.css("display", "none");
+	}
+}
+
+function showOptionsMenu(button) {
+	let menu = $('.options-menu');
+	let menuWidth = menu.width();
+	let scrollTop = $(window).scrollTop(); //distance from top of window to document
+	let elementOffset = $(button).offset().top; //distance from top of document
+
+	let top = elementOffset - scrollTop;
+	let left = $(button).position().left;
+
+	menu.css({ "top": top + "px", "left": left-menuWidth + "px", "display": "inline" });
 }
 
 // ====================================== //
