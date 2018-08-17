@@ -34,24 +34,62 @@ function playFirstSong() {
 	setTrack(tempPlaylist[0], tempPlaylist, true);
 }
 
+// ====================================== //
+//			DropDown Menus				  //
+// ====================================== //
+
 function hideOptionsMenu() {
-	let menu = $('.options-menu');
-	if(menu.css('display') != "none") {
-		menu.css("display", "none");
+	let dropDownMenu = $('.dropdown-menu');
+	let optionsMenu = $('.options-menu');
+	let playlistMenu = $('.playlists-menu');
+	let shareMenu = $('.share-menu');
+	if(dropDownMenu.css('display') != "none") {
+		dropDownMenu.css("display", "none");
+		optionsMenu.css("display", "none");
+		playlistMenu.css("display", "none");
+		shareMenu.css("display", "none");
 	}
 }
 
 function showOptionsMenu(button) {
-	let menu = $('.options-menu');
-	let menuWidth = menu.width();
+	let dropDownMenu = $('.dropdown-menu');
+	let optionsMenu = $('.options-menu');
+	let playlistsMenu = $('.playlists-menu');
+	let menuWidth = optionsMenu.width();
 	let scrollTop = $(window).scrollTop(); //distance from top of window to document
 	let elementOffset = $(button).offset().top; //distance from top of document
 
 	let top = elementOffset - scrollTop;
 	let left = $(button).position().left;
 
-	menu.css({ "top": top + "px", "left": left-menuWidth + "px", "display": "inline" });
+	dropDownMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
+	optionsMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
 }
+
+function showPlaylistsMenu(ele) {
+	let playlistsMenu = $('.playlists-menu');
+	let menuWidth = playlistsMenu.width();
+	let scrollTop = $(window).scrollTop(); //distance from top of window to document
+	let elementOffset = $('#open_playlists_menu').offset().top; //distance from top of document
+
+	let top = elementOffset - scrollTop;
+	let left = $(ele).offset().left;
+
+	playlistsMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
+}
+
+function showShareMenu(ele) {
+	let shareMenu = $('.share-menu');
+	let menuWidth = shareMenu.width();
+	let scrollTop = $(window).scrollTop(); //distance from top of window to document
+	let elementOffset = $('#open_share_menu').offset().top; //distance from top of document
+
+	let top = elementOffset - scrollTop;
+	let left = $(ele).offset().left;
+
+	shareMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
+}
+
 
 // ====================================== //
 //				Playlists				  //
@@ -178,10 +216,10 @@ function updateVolumeProgressBar(audio) {
 	$('#volume_bar').css('width', volume + "%");
 }
 
-// register.php behavior
 $(document).ready(function() {
 	console.log('power overwhelming...');
 
+	// register.php behavior
 	$('#hideLogin').click(function() {
 		$('#loginForm').hide();
 		$('#registerForm').show();
@@ -191,5 +229,20 @@ $(document).ready(function() {
 		$('#registerForm').hide();
 		$('#loginForm').show();
 	});
+
+	// show additional option menus
+	$(document).on('mouseenter', '#open_playlists_menu', function() {
+		showPlaylistsMenu($(this));
+		$('.share-menu').hide();
+	}); 
+
+	$(document).on('mouseenter', '#open_share_menu', function() {
+		showShareMenu($(this));
+		$('.playlists-menu').hide();
+	}); 
+
+	// $(document).on('click', '#open_playlists_menu', function() {
+	// 	$('.playlists-menu').hide();
+	// }); 
 
 });

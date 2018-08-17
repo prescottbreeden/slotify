@@ -143,35 +143,80 @@ $year_released = $album->getYearReleased();
 	</div>
 </section>
 
-<section class="options-menu">
-	<input class="options-menu__input" type="hidden">
-	<div class="options-menu__item">
-		Add to Queue
+<div class="playlists-menu">
+	<div class="menu-item">
+		New Playlist
 	</div>
 	<div class="options-menu__divider"></div>
-	<div class="options-menu__item">
-		Go to Artist
-	</div>
-	<div class="options-menu__item">
-		Go to Album
-	</div>
-	<div class="options-menu__divider"></div>
-	<div class="options-menu__item">
-		Save to Your Music
-	</div>
-	<div class="options-menu__item">
-		Add to playlist
+</div>
+
+<div class="share-menu">
+	<div class="share-menu__item">
 		<svg 
 			aria-label="[title]"
 			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+		</svg>
+		Facebook
+	</div>
+	<div class="share-menu__item">
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+		</svg>
+		Twitter
+	</div>
+	<div class="share-menu__item">
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+		</svg>
+		Copy Song Link
+	</div>
+	<div class="share-menu__item">
+		<div class="share-menu__item--empty"></div>
+		Copy Embed Code
+	</div>
+	<div class="share-menu__item">
+		<div class="share-menu__item--empty"></div>
+		Copy Slotify URI
+	</div>
+</div>
+
+<div class="options-menu">
+	<div class="menu-item">
+		Add to Queue
+	</div>
+	<div class="options-menu__divider"></div>
+	<div class="menu-item">
+		Go to Artist
+	</div>
+	<div class="menu-item">
+		Go to Album
+	</div>
+	<div class="options-menu__divider"></div>
+	<div class="menu-item">
+		Save to Your Music
+	</div>
+	<div 
+		id="open_playlists_menu" 
+		class="menu-item">
+		Add to playlist
+		<svg 
+			aria-label="[title]"
+			<title>Add to playlist</title>
 			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
 		</svg>
 	</div>
-	<div class="options-menu__item">
+	<div class="menu-item">
 		Remove from this Playlist
 	</div>
 	<div class="options-menu__divider"></div>
-	<div class="options-menu__item">
+	<div 
+		id="open_share_menu"
+		class="menu-item">
 		Share
 		<svg 
 			aria-label="[title]"
@@ -179,4 +224,4 @@ $year_released = $album->getYearReleased();
 			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
 		</svg>
 	</div>
-</section>
+</div>

@@ -141,39 +141,89 @@ html {
 #text path:nth-child(8) {
   animation: bounce .5s 1.05s 1 forwards linear; }
 
-.options-menu {
+.playlists-menu {
+  display: none;
+  box-sizing: border-box;
   position: fixed;
   top: 0;
-  display: none;
+  z-index: 2000;
   background-color: #2c2c2c;
   width: 20rem;
   border: 1px solid rgba(34, 34, 34, 0.15);
   border-radius: 4px;
-  z-index: 2000;
-  box-shadow: 0rem 0rem 1rem #000; }
-  .options-menu__input {
-    display: none; }
-  .options-menu__item {
+  box-shadow: 0rem 0rem 1rem #000;
+  margin-right: -1rem; }
+
+.share-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 40rem;
+  background-color: #2c2c2c;
+  width: 20rem;
+  border: 1px solid rgba(34, 34, 34, 0.15);
+  border-radius: 4px;
+  box-shadow: 0rem 0rem 1rem #000;
+  margin-right: -1rem;
+  z-index: 2000; }
+  .share-menu__item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     box-sizing: border-box;
     width: 100%;
     font-size: 1.2rem;
     color: #a0a0a0;
     padding: 1.5rem 2rem; }
-    .options-menu__item svg {
+    .share-menu__item--empty {
+      width: 2rem;
+      margin-right: 1rem; }
+    .share-menu__item svg {
+      margin-right: 1rem;
       height: 2rem;
       width: 2rem;
       fill: #a0a0a0; }
-    .options-menu__item:hover {
+    .share-menu__item:hover {
       color: #f7f7f7;
       cursor: pointer;
       background-color: rgba(160, 160, 160, 0.4); }
-    .options-menu__item:hover svg {
+    .share-menu__item:hover svg {
       fill: #f7f7f7; }
+
+.options-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 20rem;
+  background-color: #2c2c2c;
+  width: 20rem;
+  border: 1px solid rgba(34, 34, 34, 0.15);
+  border-radius: 4px;
+  box-shadow: 0rem 0rem 1rem #000;
+  z-index: 1000; }
+  .options-menu__input {
+    display: none; }
   .options-menu__divider {
     border-top: 1px solid rgba(160, 160, 160, 0.2); }
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 1.2rem;
+  color: #a0a0a0;
+  padding: 1.5rem 2rem; }
+  .menu-item svg {
+    height: 2rem;
+    width: 2rem;
+    fill: #a0a0a0; }
+  .menu-item:hover {
+    color: #f7f7f7;
+    cursor: pointer;
+    background-color: rgba(160, 160, 160, 0.4); }
+  .menu-item:hover svg {
+    fill: #f7f7f7; }
 
 .button-active {
   fill: #1db954 !important; }
