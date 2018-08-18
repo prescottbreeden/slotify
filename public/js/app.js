@@ -36,6 +36,23 @@ function playFirstSong() {
 	setTrack(tempPlaylist[0], tempPlaylist, true);
 }
 
+function notification(msg) {
+	$('.msg-box').show();
+	$('.msg-box').text(msg);
+	$('.msg-box').css({"opacity": "1"});
+	setTimeout(function() {
+		msgBoxHide($('.msg-box'));
+	}, 3000);
+}
+
+function msgBoxHide(box) {
+	box.css('opacity', '0');
+	setTimeout(() => {
+		box.hide();
+	}, 1000);
+
+}
+
 // ====================================== //
 //			DropDown Menus				  //
 // ====================================== //
@@ -147,7 +164,7 @@ function addSongToPlaylist(playlistId, songId) {
 		.done(function() {
 			// do something when ajax returns
 			hideOptionsMenu();
-			openPage("playlist.php?id=" + playlistId);
+			notification('Song successfully added to playlist');
 	});
 }
 
@@ -268,5 +285,9 @@ $(document).ready(function() {
 		let playlistId = $(this).prevAll(".playlistId").val();
 		addSongToPlaylist(playlistId, temp_songId);
 	});
+
+	$(document).on('click', '.msg-box', function() {
+		msgBoxHide($(this));
+	})
 
 });

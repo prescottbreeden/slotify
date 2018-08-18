@@ -62,6 +62,9 @@ else {
 	});
 
 </script>
+<div class="msg-box">
+	<span class="msg-box__icon">&times;</span>
+</div>
 	<div class="content-wrapper">
 		<div class="content">
 			<nav class="nav">

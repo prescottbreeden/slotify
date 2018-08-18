@@ -46,7 +46,6 @@ else {
 				}
 				else {
 					echo "
-						term is " . $term . " <br>
 						<div class='tracks__list--item'>
 							<div class='tracks__list--number-header'>#</div>
 							<div class='tracks__list--name-header'>Title</div>

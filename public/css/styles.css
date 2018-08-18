@@ -141,6 +141,34 @@ html {
 #text path:nth-child(8) {
   animation: bounce .5s 1.05s 1 forwards linear; }
 
+.msg-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #1db954;
+  background-color: rgba(34, 34, 34, 0.9);
+  border: 1px solid rgba(160, 160, 160, 0.5);
+  border-radius: 4px;
+  transition: all .5s;
+  opacity: 0;
+  z-index: 3000;
+  margin-top: 1rem;
+  padding: 1rem 4rem;
+  min-width: 10rem;
+  text-align: center;
+  box-shadow: 0 1rem 3rem #222;
+  cursor: pointer; }
+  .msg-box__icon {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    color: #a0a0a0;
+    cursor: pointer; }
+    .msg-box__icon:hover {
+      color: #f7f7f7; }
+
 .playlists-menu {
   display: none;
   box-sizing: border-box;
