@@ -6,18 +6,24 @@ let mouseDown = false;
 let repeat = false;
 let shuffle = false;
 let userLoggedIn;
+let temp_songId;
+let menu_open = false;
 
 $(document).click(function(click) {
 	let target = $(click.target);
-	if(!target.hasClass("options-menu__item") && !target.hasClass("options__button")) {
-		hideOptionsMenu();
-		console.log('hide');
+	if(menu_open) {
+		if(!target.hasClass("menu-item") && !target.hasClass("options__button")) {
+			hideOptionsMenu();
+		}
 	}
 })
 
 $(window).scroll(function() {
 	hideOptionsMenu();
 });
+
+
+
 
 function openPage(url) {
 
@@ -49,6 +55,7 @@ function hideOptionsMenu() {
 		playlistMenu.css("display", "none");
 		shareMenu.css("display", "none");
 	}
+	menu_open = false;
 }
 
 function showOptionsMenu(button) {
@@ -64,11 +71,17 @@ function showOptionsMenu(button) {
 
 	dropDownMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
 	optionsMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
+
+	let songId = $(button).prevAll(".songId").val();
+	temp_songId = songId;	
+
+	menu_open = true;
 }
 
 function showPlaylistsMenu(ele) {
 	let playlistsMenu = $('.playlists-menu');
 	let menuWidth = playlistsMenu.width();
+
 	let scrollTop = $(window).scrollTop(); //distance from top of window to document
 	let elementOffset = $('#open_playlists_menu').offset().top; //distance from top of document
 
@@ -131,6 +144,15 @@ function deletePlaylist(playlistId) {
 				}
 		});
 	}
+}
+
+function addSongToPlaylist(playlistId, songId) {
+	$.post("includes/handlers/ajax/addToPlaylist.php", { playlist_id: playlistId, song_id: songId })
+		.done(function() {
+			// do something when ajax returns
+			hideOptionsMenu();
+			openPage("playlist.php?id=" + playlistId);
+	});
 }
 
 function sharePlaylist(playlistId) {
@@ -240,6 +262,11 @@ $(document).ready(function() {
 		showShareMenu($(this));
 		$('.playlists-menu').hide();
 	}); 
+
+	$(document).on('click', '.playlist-item', function() {
+		let playlistId = $(this).prevAll(".playlistId").val();
+		addSongToPlaylist(playlistId, temp_songId);
+	});
 
 	// $(document).on('click', '#open_playlists_menu', function() {
 	// 	$('.playlists-menu').hide();

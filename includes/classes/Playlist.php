@@ -114,9 +114,10 @@ class Playlist {
 			$id = $row['playlist_id'];
 
 			$dropdown = $dropdown . "
+				<input type='hidden' class='playlistId' value='" . $id . "'>
 				<div 
 					onclick=''
-					class='menu-item'>
+					class='menu-item playlist-item'>
 					" . $name . "
 				</div>
 			";

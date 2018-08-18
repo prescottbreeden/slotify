@@ -109,7 +109,8 @@ $year_released = $album->getYearReleased();
 						<div 
 							onclick='openPage(\"artist.php?id=" . $albumSong->getArtistId() . "\")'
 							class='tracks__list--artist'>" . $songArtist->getName() . "</div>
-						<div class='tracks__list--more'>
+	 					<div class='tracks__list--more'>
+							<input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
 							<svg 
 								class='options__button'
 								onclick='showOptionsMenu(this)' 
@@ -136,7 +137,6 @@ $year_released = $album->getYearReleased();
 					var firstSong = tempPlaylist[0];
 					setTrack(firstSong, tempPlaylist, true);
 				}
-				console.log('balls');
 			</script>
 
 		</ul>
