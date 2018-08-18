@@ -88,7 +88,10 @@ else {
 							<div class='tracks__list--name'>" . $artistSong->getTitle() . "</div>
 							<div class='tracks__list--artist'>" . $artistSong->getAlbumName() . "</div>
 							<div class='tracks__list--more'>
+								<input type='hidden' class='songId' value='" . $artistSong->getId() . "'>
 								<svg 
+									class='options__button'
+									onclick='showOptionsMenu(this)' 
 									aria-label='[title]'
 									<title>More</title>
 									<use href='public/images/icomoon/sprite.svg#icon-more-horizontal'></use>
@@ -201,3 +204,86 @@ else {
 		</div>
 	</div>
 </section>
+
+<div class="playlists-menu">
+	<div class="menu-item">
+		New Playlist
+	</div>
+	<div class="options-menu__divider"></div>
+	<!-- placeholder for playlists -->
+	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn); ?>
+</div>
+<div class="share-menu">
+	<div class="share-menu__item">
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+		</svg>
+		Facebook
+	</div>
+	<div class="share-menu__item">
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+		</svg>
+		Twitter
+	</div>
+	<div class="share-menu__item">
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+		</svg>
+		Copy Song Link
+	</div>
+	<div class="share-menu__item">
+		<div class="share-menu__item--empty"></div>
+		Copy Embed Code
+	</div>
+	<div class="share-menu__item">
+		<div class="share-menu__item--empty"></div>
+		Copy Slotify URI
+	</div>
+</div>
+<div class="options-menu">
+	<div class="menu-item">
+		Add to Queue
+	</div>
+	<div class="options-menu__divider"></div>
+	<div class="menu-item">
+		Go to Artist
+	</div>
+	<div class="menu-item">
+		Go to Album
+	</div>
+	<div class="options-menu__divider"></div>
+	<div class="menu-item">
+		Save to Your Music
+	</div>
+	<div 
+		id="open_playlists_menu" 
+		class="menu-item">
+		Add to playlist
+		<svg 
+			aria-label="[title]"
+			<title>Add to playlist</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
+		</svg>
+	</div>
+	<div class="menu-item">
+		Remove from this Playlist
+	</div>
+	<div class="options-menu__divider"></div>
+	<div 
+		id="open_share_menu"
+		class="menu-item">
+		Share
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
+		</svg>
+	</div>
+</div>

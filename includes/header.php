@@ -68,20 +68,6 @@ function getID() {
 </script>
 <div class="msg-box">
 	<div class="msg-box__text"></div>
-	<div class="msg-box__btns">
-		<div 
-			<?php echo "onclick='deletePlaylist(" . getID() . ")'"; ?>
-			id="warning_confirm" 
-			class="msg-box__btns--confirm">
-				Confirm
-		</div>
-		<div 
-			onclick="deleteCancel()"
-			id="warning_cancel" 
-			class="msg-box__btns--cancel">
-				Cancel
-		</div>
-	</div>
 	<span class="msg-box__icon">&times;</span>
 </div>
 	<div class="content-wrapper">

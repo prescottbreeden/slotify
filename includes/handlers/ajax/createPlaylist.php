@@ -2,17 +2,17 @@
 include("../../config.php");
 include("../../classes/User.php");
 
-if(isset($_POST['user']) && isset($_POST['name'])) {
-	$user = new User($con, $_POST['user']);
+if(isset($_POST['pl_name']) && isset($_POST['username'])) {
+	$user = new User($con, $_POST['username']);
 	$user_id = $user->getId();
-	$name = $_POST['name'];
+	$pl_name = $_POST['pl_name'];
 	$query = mysqli_query($con, 
 		"INSERT INTO playlists 
 					(name, user_id) 
-			VALUES	('$name', '$user_id')");
+			VALUES	('$pl_name', '$user_id')");
 }
 else {
-	echo "um.... sure?";
+	echo "something broke in ajax handler";
 }
 
 

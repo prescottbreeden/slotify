@@ -90,9 +90,12 @@ class Playlist {
 							THEN TIME_FORMAT(SUM(duration), '%i')
 						ELSE TIME_FORMAT(SUM(duration)-60, '%i')+1
 					END AS duration
-			   FROM songs 
-					WHERE song_id='$this->id' 
-					GROUP BY album_id");
+			   FROM songs AS s
+					JOIN pl_songs AS p
+						ON s.song_id = p.song_id
+					WHERE playlist_id='$this->id' 
+					GROUP BY playlist_id
+		");
 
 		$row = mysqli_fetch_array($query);
 		return $row[0];

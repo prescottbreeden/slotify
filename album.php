@@ -151,7 +151,6 @@ $year_released = $album->getYearReleased();
 	<!-- placeholder for playlists -->
 	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn); ?>
 </div>
-
 <div class="share-menu">
 	<div class="share-menu__item">
 		<svg 
@@ -186,7 +185,6 @@ $year_released = $album->getYearReleased();
 		Copy Slotify URI
 	</div>
 </div>
-
 <div class="options-menu">
 	<div class="menu-item">
 		Add to Queue

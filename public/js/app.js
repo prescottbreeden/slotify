@@ -37,29 +37,29 @@ function openPage(url) {
 	$('.dynamic-content').load(encodedURL);
 	$('body').scrollTop(0);
 	history.pushState(null, null, url);
+	console.log(encodedURL);
 }
 
 function playFirstSong() {
 	setTrack(tempPlaylist[0], tempPlaylist, true);
 }
 
-function notification(msg, warning) {
+function notification(msg) {
 	$('.msg-box').show();
-	if(warning) {
-		$('.msg-box__text').text(msg);
-		$('.msg-box').css({'color': 'red'});
-		$('.msg-box').css({"opacity": "1"});
-		$('.msg-box__btns').show();
-	}
-	else {
-		$('.msg-box__btns').hide();
-		$('.msg-box__text').text(msg);
-		$('.msg-box').css({'color': 'green'});
-		$('.msg-box').css({"opacity": "1"});
-		setTimeout(function() {
-			msgBoxHide($('.msg-box'));
-		}, 3000);
-	}
+	$('.msg-box__btns').hide();
+	$('.msg-box__text').text(msg);
+	$('.msg-box').css({'color': 'green'});
+	$('.msg-box').css({"opacity": "1"});
+	setTimeout(function() {
+		msgBoxHide($('.msg-box'));
+	}, 3000);
+}
+
+function warning(msg) {
+	$('.warning__text').text(msg);
+	$('.warning').css({'color': 'red'});
+	$('.warning').css({"opacity": "1"});
+	$('.warning__btns').show();
 }
 
 function msgBoxHide(box) {
@@ -148,25 +148,20 @@ function showShareMenu(ele) {
 function createPlaylist() {
 	var popup = prompt("Please enter the name of your playlist");
 	
-	if(popup != null) {
+	if(popup != '') {
 		
-		$.post("includes/handlers/ajax/createPlaylist.php", { name: popup, user: userLoggedIn })
+		$.post("includes/handlers/ajax/createPlaylist.php", { pl_name: popup, username: userLoggedIn })
 			.done(function(error) {
-				if(error != '') {
-					console.log(error);
-					return;
-				}
-				else {
-					// do something when ajax returns
-					openPage("yourMusic.php");
-				}
+				console.log(error);
+				openPage("your_music.php");
+				// do something when ajax returns
 		});
 	}
 }
 
 function deleteWarning() {
 	warning_msg = true;
-	notification("Are you sure you want to delete this playlist?", true);
+	warning("Are you sure you want to delete this playlist?", true);
 }
 
 function deleteCancel() {
@@ -177,14 +172,8 @@ function deletePlaylist(pl_id) {
 	warning_msg = false;
 	$.post("includes/handlers/ajax/deletePlaylist.php", { playlistId: pl_id })
 		.done(function(error) {
-			if(error != '') {
-				console.log(error);
-				return;
-			}
-			else {
-				// do something when ajax returns
-				openPage("yourMusic.php");
-			}
+			console.log(error);
+			openPage("your_music.php");
 	});
 }
 
@@ -193,7 +182,7 @@ function addSongToPlaylist(playlistId, songId) {
 		.done(function() {
 			// do something when ajax returns
 			hideOptionsMenu();
-			notification('Song successfully added to playlist', false);
+			notification('Song successfully added to playlist');
 	});
 }
 

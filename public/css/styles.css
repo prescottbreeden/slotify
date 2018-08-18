@@ -154,6 +154,72 @@ html {
 .shake {
   animation: shaker 1s forwards; }
 
+.warning {
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #1db954;
+  background-color: rgba(34, 34, 34, 0.9);
+  border: 1px solid rgba(160, 160, 160, 0.5);
+  border-radius: 4px;
+  transition: all .5s;
+  opacity: 0;
+  z-index: 3000;
+  margin-top: 1rem;
+  padding: 1rem 4rem;
+  min-width: 10rem;
+  text-align: center;
+  box-shadow: 0 1rem 3rem #222;
+  cursor: pointer; }
+  .warning__btns {
+    display: flex;
+    justify-content: space-around; }
+    .warning__btns--confirm {
+      margin: 1rem 0;
+      border: 1px solid #a0a0a0;
+      padding: .8rem 3rem;
+      min-width: 8rem;
+      color: white;
+      text-align: center;
+      line-height: 1.5rem;
+      border-radius: 200px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      cursor: default;
+      text-transform: uppercase;
+      outline: none;
+      backface-visibility: none;
+      margin-right: 3rem; }
+      .warning__btns--confirm:hover {
+        transform: scale(1.1);
+        border: 1.5px solid #fff; }
+      .warning__btns--confirm:active {
+        transform: scale(1);
+        border: 1px solid #a0a0a0; }
+    .warning__btns--cancel {
+      margin: 1rem 0;
+      border: 1px solid #a0a0a0;
+      padding: .8rem 3rem;
+      min-width: 8rem;
+      color: white;
+      text-align: center;
+      line-height: 1.5rem;
+      border-radius: 200px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      cursor: default;
+      text-transform: uppercase;
+      outline: none;
+      backface-visibility: none; }
+      .warning__btns--cancel:hover {
+        transform: scale(1.1);
+        border: 1.5px solid #fff; }
+      .warning__btns--cancel:active {
+        transform: scale(1);
+        border: 1px solid #a0a0a0; }
+
 .msg-box {
   position: fixed;
   top: 0;
@@ -181,52 +247,6 @@ html {
     cursor: pointer; }
     .msg-box__icon:hover {
       color: #f7f7f7; }
-  .msg-box__btns {
-    display: flex;
-    justify-content: space-around; }
-    .msg-box__btns--confirm {
-      margin: 1rem 0;
-      border: 1px solid #a0a0a0;
-      padding: .8rem 3rem;
-      min-width: 8rem;
-      color: white;
-      text-align: center;
-      line-height: 1.5rem;
-      border-radius: 200px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      cursor: default;
-      text-transform: uppercase;
-      outline: none;
-      backface-visibility: none;
-      margin-right: 3rem; }
-      .msg-box__btns--confirm:hover {
-        transform: scale(1.1);
-        border: 1.5px solid #fff; }
-      .msg-box__btns--confirm:active {
-        transform: scale(1);
-        border: 1px solid #a0a0a0; }
-    .msg-box__btns--cancel {
-      margin: 1rem 0;
-      border: 1px solid #a0a0a0;
-      padding: .8rem 3rem;
-      min-width: 8rem;
-      color: white;
-      text-align: center;
-      line-height: 1.5rem;
-      border-radius: 200px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      cursor: default;
-      text-transform: uppercase;
-      outline: none;
-      backface-visibility: none; }
-      .msg-box__btns--cancel:hover {
-        transform: scale(1.1);
-        border: 1.5px solid #fff; }
-      .msg-box__btns--cancel:active {
-        transform: scale(1);
-        border: 1px solid #a0a0a0; }
 
 .playlists-menu {
   display: none;

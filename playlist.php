@@ -12,6 +12,24 @@ $playlist = new Playlist($con, $playlist_id);
 $owner = new User($con, $playlist->getOwnerName());
 ?>
 
+<div class="warning">
+	<div class="warning__text"></div>
+	<div class="warning__btns">
+		<div 
+			onclick="deletePlaylist(<?php echo $playlist_id; ?>)" 
+			id="warning_confirm" 
+			class="warning__btns--confirm">
+				Confirm
+		</div>
+		<div 
+			onclick="deleteCancel()"
+			id="warning_cancel" 
+			class="warning__btns--cancel">
+				Cancel
+		</div>
+	</div>
+</div>
+
 
 <section class='playlist'>
 	<div class='playlist__header'>
@@ -76,9 +94,9 @@ $owner = new User($con, $playlist->getOwnerName());
 			</div>
 
 			<?php 
-			$song_array = $playlist->getSongIds();
+			$pl_songs = $playlist->getSongIds();
 			$i = 1;
-			foreach($song_array as $song) {
+			foreach($pl_songs as $song) {
 				$playlistSong = new Song($con, $song);
 				$songArtist = $playlistSong->getArtist();
 
@@ -100,9 +118,13 @@ $owner = new User($con, $playlist->getOwnerName());
 						<div class='tracks__list--name'>" . $playlistSong->getTitle() . "</div>
 						<div 
 							onclick='openPage(\"artist.php?id=" . $playlistSong->getArtistId() . "\")'
-							class='tracks__list--artist'>" . $songArtist->getName() . "</div>
-						<div class='tracks__list--more'>
+							class='tracks__list--artist'>" . $songArtist->getName() . "
+						</div>
+	 					<div class='tracks__list--more'>
+							<input type='hidden' class='songId' value='" . $playlistSong->getId() . "'>
 							<svg 
+								class='options__button'
+								onclick='showOptionsMenu(this)' 
 								aria-label='[title]'
 								<title>More</title>
 								<use href='public/images/icomoon/sprite.svg#icon-more-horizontal'></use>
@@ -119,18 +141,99 @@ $owner = new User($con, $playlist->getOwnerName());
 			?>
 
 			<script>
-				var tempSongIds = '<?php echo json_encode($song_array); ?>';
+				var tempSongIds = '<?php echo json_encode($pl_songs); ?>';
 				tempPlaylist = JSON.parse(tempSongIds);
 
 				function playAlbum() {
 					var firstSong = tempPlaylist[0];
 					setTrack(firstSong, tempPlaylist, true);
 				}
-
-				let pl_id = <?php echo $_GET['id']; ?>;
 			</script>
 
 
 		</ul>
 	</div>
 </section>
+
+<div class="playlists-menu">
+	<div class="menu-item">
+		New Playlist
+	</div>
+	<div class="options-menu__divider"></div>
+	<!-- placeholder for playlists -->
+	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn); ?>
+</div>
+<div class="share-menu">
+	<div class="share-menu__item">
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+		</svg>
+		Facebook
+	</div>
+	<div class="share-menu__item">
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+		</svg>
+		Twitter
+	</div>
+	<div class="share-menu__item">
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+		</svg>
+		Copy Song Link
+	</div>
+	<div class="share-menu__item">
+		<div class="share-menu__item--empty"></div>
+		Copy Embed Code
+	</div>
+	<div class="share-menu__item">
+		<div class="share-menu__item--empty"></div>
+		Copy Slotify URI
+	</div>
+</div>
+<div class="options-menu">
+	<div class="menu-item">
+		Add to Queue
+	</div>
+	<div class="options-menu__divider"></div>
+	<div class="menu-item">
+		Go to Artist
+	</div>
+	<div class="menu-item">
+		Go to Album
+	</div>
+	<div class="options-menu__divider"></div>
+	<div class="menu-item">
+		Save to Your Music
+	</div>
+	<div 
+		id="open_playlists_menu" 
+		class="menu-item">
+		Add to playlist
+		<svg 
+			aria-label="[title]"
+			<title>Add to playlist</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
+		</svg>
+	</div>
+	<div class="menu-item">
+		Remove from this Playlist
+	</div>
+	<div class="options-menu__divider"></div>
+	<div 
+		id="open_share_menu"
+		class="menu-item">
+		Share
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
+		</svg>
+	</div>
+</div>
