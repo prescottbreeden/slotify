@@ -162,9 +162,9 @@
 			margin-right: 1.5rem;
 		}
 
-		&--save {
+		&--delete {
 			@include btn;
-			width: 12%;
+			min-width: 12%;
 			margin-right: 1.5rem;
 			
 		}

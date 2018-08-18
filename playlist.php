@@ -48,9 +48,9 @@ $owner = new User($con, $playlist->getOwnerName());
 					<p>Play</p>
 				</div>
 				<div 
-					onclick="sharePlaylist(4)"
-					class='playlist__btn--save'>
-					<p>Share</p>
+					onclick="deleteWarning()"
+					class='playlist__btn--delete'>
+					<p id="pl_delete">delete playlist</p>
 				</div>
 				<div class='playlist__btn--more'>
 				</div>
@@ -126,6 +126,8 @@ $owner = new User($con, $playlist->getOwnerName());
 					var firstSong = tempPlaylist[0];
 					setTrack(firstSong, tempPlaylist, true);
 				}
+
+				let pl_id = <?php echo $_GET['id']; ?>;
 			</script>
 
 

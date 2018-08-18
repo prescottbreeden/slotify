@@ -8,6 +8,7 @@ let shuffle = false;
 let userLoggedIn;
 let temp_songId;
 let menu_open = false;
+let warning_msg = false;
 
 $(document).click(function(click) {
 	let target = $(click.target);
@@ -15,8 +16,14 @@ $(document).click(function(click) {
 		if(!target.hasClass("menu-item") && !target.hasClass("options__button")) {
 			hideOptionsMenu();
 		}
+	} 
+	else if(warning_msg) {
+		if(!target.is("#warning_cancel") && !target.is("#warning_confirm")) {
+			shake();
+		}
 	}
 })
+
 
 $(window).scroll(function() {
 	hideOptionsMenu();
@@ -36,13 +43,23 @@ function playFirstSong() {
 	setTrack(tempPlaylist[0], tempPlaylist, true);
 }
 
-function notification(msg) {
+function notification(msg, warning) {
 	$('.msg-box').show();
-	$('.msg-box').text(msg);
-	$('.msg-box').css({"opacity": "1"});
-	setTimeout(function() {
-		msgBoxHide($('.msg-box'));
-	}, 3000);
+	if(warning) {
+		$('.msg-box__text').text(msg);
+		$('.msg-box').css({'color': 'red'});
+		$('.msg-box').css({"opacity": "1"});
+		$('.msg-box__btns').show();
+	}
+	else {
+		$('.msg-box__btns').hide();
+		$('.msg-box__text').text(msg);
+		$('.msg-box').css({'color': 'green'});
+		$('.msg-box').css({"opacity": "1"});
+		setTimeout(function() {
+			msgBoxHide($('.msg-box'));
+		}, 3000);
+	}
 }
 
 function msgBoxHide(box) {
@@ -51,6 +68,13 @@ function msgBoxHide(box) {
 		box.hide();
 	}, 1000);
 
+}
+
+function shake() {
+	$('.msg-box').addClass('shake');
+	setTimeout(function() {
+		$('.msg-box').removeClass('shake');
+	}, 1000);
 }
 
 // ====================================== //
@@ -140,23 +164,28 @@ function createPlaylist() {
 	}
 }
 
-function deletePlaylist(playlistId) {
-	var popup = confirm("Are you sure you want to delete this playlist?");
-	if(popup) {
-		console.log('deleting playlist now... what did you do?!');
+function deleteWarning() {
+	warning_msg = true;
+	notification("Are you sure you want to delete this playlist?", true);
+}
 
-		$.post("includes/handlers/ajax/deletePlaylist.php", { playlistId: playlistId })
-			.done(function(error) {
-				if(error != '') {
-					console.log(error);
-					return;
-				}
-				else {
-					// do something when ajax returns
-					openPage("yourMusic.php");
-				}
-		});
-	}
+function deleteCancel() {
+	warning_msg = false;
+}
+
+function deletePlaylist(pl_id) {
+	warning_msg = false;
+	$.post("includes/handlers/ajax/deletePlaylist.php", { playlistId: pl_id })
+		.done(function(error) {
+			if(error != '') {
+				console.log(error);
+				return;
+			}
+			else {
+				// do something when ajax returns
+				openPage("yourMusic.php");
+			}
+	});
 }
 
 function addSongToPlaylist(playlistId, songId) {
@@ -164,7 +193,7 @@ function addSongToPlaylist(playlistId, songId) {
 		.done(function() {
 			// do something when ajax returns
 			hideOptionsMenu();
-			notification('Song successfully added to playlist');
+			notification('Song successfully added to playlist', false);
 	});
 }
 
@@ -287,7 +316,10 @@ $(document).ready(function() {
 	});
 
 	$(document).on('click', '.msg-box', function() {
-		msgBoxHide($(this));
-	})
+		if(!warning_msg) {
+			msgBoxHide($(this));
+		}
+	});
+
 
 });

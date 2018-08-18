@@ -1,3 +1,7 @@
+.shake {
+	animation: shaker 1s forwards;
+}
+
 .msg-box {
 	position: fixed;
 	top: 0;
@@ -29,6 +33,19 @@
 
 		&:hover {
 			color: $color-white;
+		}
+	}
+	&__btns {
+		display: flex;
+		justify-content: space-around;
+
+		&--confirm {
+			@include btn;
+			margin-right: 3rem;
+		}
+
+		&--cancel {
+			@include btn;
 		}
 	}
 }

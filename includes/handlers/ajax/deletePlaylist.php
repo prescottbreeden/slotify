@@ -9,6 +9,7 @@ if(isset($_POST['playlistId'])) {
 		 DELETE 
 				FROM playlists 
 				WHERE playlist_id ='$playlistId'");
+
 	$songsQuery = mysqli_query($con, "
 		 DELETE 
 				FROM pl_songs 
