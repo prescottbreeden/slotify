@@ -19,7 +19,8 @@ $(document).ready(function() {
 	newPlaylist = <?php echo $jsonArray; ?>;
 	audioElement = new Audio();
 	var spacebar = false;
-	setTrack(newPlaylist[0], newPlaylist, false);
+	currentIndex = 0;
+	setTrack(newPlaylist[currentIndex], newPlaylist, false);
 	updateVolumeProgressBar(audioElement.audio);
 
 	// ============================================= //
@@ -109,20 +110,15 @@ $(document).ready(function() {
 //					FUNCTIONS					 //
 // ============================================= //
 
-function setTrack(trackId, newPlaylist, play) {
+function setTrack(trackId, playlist, play) {
 
-	if(newPlaylist != currentPlaylist) {
-		currentPlaylist = newPlaylist;
+	if(playlist != currentPlaylist) {
+		currentPlaylist = playlist;
+
 		shufflePlaylist = currentPlaylist.slice();
 		shuffle_list(shufflePlaylist);
 	}
 
-	if(shuffle === true) {
-		currentIndex = shufflePlaylist.indexOf(trackId);
-	} else {
-		currentIndex = currentPlaylist.indexOf(trackId);
-		
-	}
 	pauseSong();
 
 	// get song
@@ -169,12 +165,18 @@ function setShuffle() {
 }
 
 function prevSong() {
-	if(audioElement.audio.currentTime >= 5 || currentIndex === 0) {
+
+	if(audioElement.audio.currentTime >= 5) {
 		audioElement.setTime(0);
-	} else {
-		currentIndex = currentIndex - 1;
-		setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
+	} 
+	else if (currentIndex === 0) {
+		currentIndex = currentPlaylist.length - 1;
+	} 
+	else {
+		currentIndex--;
 	}
+
+	setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
 
 }
 
@@ -205,8 +207,15 @@ function nextSong() {
 	} else {
 		currentIndex++;
 	}
+	let trackToPlay;
 
-	var trackToPlay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
+	if(shuffle) {
+		trackToPlay = shufflePlaylist[currentIndex];
+	}
+	else {
+		trackToPlay = currentPlaylist[currentIndex];
+	}
+
 	setTrack(trackToPlay, currentPlaylist, true);
 }
 

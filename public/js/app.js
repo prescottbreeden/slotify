@@ -22,11 +22,7 @@ $(window).scroll(function() {
 	hideOptionsMenu();
 });
 
-
-
-
 function openPage(url) {
-
 	if(url.indexOf("?") === -1) {
 		url = url + "?";
 	}
@@ -238,6 +234,11 @@ function updateVolumeProgressBar(audio) {
 	$('#volume_bar').css('width', volume + "%");
 }
 
+// ====================================== //
+//			DOCUMENT READY				  //
+// ====================================== //
+
+
 $(document).ready(function() {
 	console.log('power overwhelming...');
 
@@ -267,9 +268,5 @@ $(document).ready(function() {
 		let playlistId = $(this).prevAll(".playlistId").val();
 		addSongToPlaylist(playlistId, temp_songId);
 	});
-
-	// $(document).on('click', '#open_playlists_menu', function() {
-	// 	$('.playlists-menu').hide();
-	// }); 
 
 });

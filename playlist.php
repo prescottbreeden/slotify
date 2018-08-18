@@ -43,7 +43,7 @@ $owner = new User($con, $playlist->getOwnerName());
 			</div>
 			<div class='playlist__btn'>
 				<div 
-					
+					onclick="playAlbum()";
 					class='playlist__btn--play'>
 					<p>Play</p>
 				</div>
@@ -126,7 +126,6 @@ $owner = new User($con, $playlist->getOwnerName());
 					var firstSong = tempPlaylist[0];
 					setTrack(firstSong, tempPlaylist, true);
 				}
-				console.log('balls');
 			</script>
 
 
