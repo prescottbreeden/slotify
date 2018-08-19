@@ -123,7 +123,8 @@ CREATE TABLE IF NOT EXISTS pl_songs (
 			(1988, 'NES', 'Mega Man 2', 2, 1, 'public/images/artwork/megaman2.jpg'),
 			(1987, 'NES', 'Punch Out', 1, 1, 'public/images/artwork/punchout.jpg'),
 			(1986, 'NES', 'Metroid', 3, 1, 'public/images/artwork/metroid.jpg'),
-			(1987, 'NES', 'Contra', 4, 1, 'public/images/artwork/contra.jpg')
+			(1987, 'NES', 'Contra', 4, 1, 'public/images/artwork/contra.jpg'),
+			(1985, 'NES', 'Super Mario Bros.', 1, 1, 'public/images/artwork/supermariobros.jpg')
 			
 			;
 
@@ -198,7 +199,23 @@ CREATE TABLE IF NOT EXISTS pl_songs (
 			('Area 8: Alien\'s Lair', 4, 5, 1, '107', 'public/music/nes_contra/contra_10_area_8_aliens_lair.mp3', 10, 0),
 			('Area 8: Alen Dead', 4, 5, 1, '10', 'public/music/nes_contra/contra_11_area_8_alien_dead.mp3', 11, 0),
 			('Credit', 4, 5, 1, '125', 'public/music/nes_contra/contra_12_credit.mp3', 12, 0),
-			('Game Over', 4, 5, 1, '7', 'public/music/nes_contra/contra_13_game_over.mp3', 13, 0)
+			('Game Over', 4, 5, 1, '7', 'public/music/nes_contra/contra_13_game_over.mp3', 13, 0),
 
+			('Overworld Theme', 1, 6, 1, '304', 'public/music/nes_supermariobros/supermariobros_1_overworld_theme.mp3', 1, 0),
+			('Underworld Theme', 1, 6, 1, '113', 'public/music/nes_supermariobros/supermariobros_2_underworld_theme.mp3', 2, 0),
+			('Underwater Theme', 1, 6, 1, '200', 'public/music/nes_supermariobros/supermariobros_3_underwater_theme.mp3', 3, 0),
+			('Castle Theme', 1, 6, 1, '109', 'public/music/nes_supermariobros/supermariobros_4_castle_theme.mp3', 4, 0),
+			('Starman Theme', 1, 6, 1, '114', 'public/music/nes_supermariobros/supermariobros_5_starman_theme.mp3', 5, 0),
+			('Level Clear Fanfare', 1, 6, 1, '8', 'public/music/nes_supermariobros/supermariobros_6_level_clear_fanfare.mp3', 6, 0),
+			('Castle Clear Fanfare', 1, 6, 1, '9', 'public/music/nes_supermariobros/supermariobros_7_castle_clear_theme.mp3', 7, 0),
+			('You\'re Dead Theme', 1, 6, 1, '6', 'public/music/nes_supermariobros/supermariobros_8_youre_dead.mp3', 8, 0),
+			('Game Over Theme', 1, 6, 1, '7', 'public/music/nes_supermariobros/supermariobros_9_game_over.mp3', 9, 0),
+			('Game Over2 Theme', 1, 6, 1, '6', 'public/music/nes_supermariobros/supermariobros_10_game_over2.mp3', 10, 0),
+			('Into the Tunnel Theme', 1, 6, 1, '5', 'public/music/nes_supermariobros/supermariobros_11_into_tunnel.mp3', 11, 0),
+			('Hurry Fanfare', 1, 6, 1, '3', 'public/music/nes_supermariobros/supermariobros_12_hurry_fanfare.mp3', 12, 0),
+			('Hurry Overworld Theme', 1, 6, 1, '210', 'public/music/nes_supermariobros/supermariobros_13_hurry_overworld.mp3', 13, 0),
+			('Hurry Underworld Theme', 1, 6, 1, '114', 'public/music/nes_supermariobros/supermariobros_14_hurry_underworld.mp3', 14, 0),
+			('Hurry Castle Theme', 1, 6, 1, '112', 'public/music/nes_supermariobros/supermariobros_15_hurry_castle.mp3', 15, 0),
+			('Ending Fanfare', 1, 6, 1, '117', 'public/music/nes_supermariobros/supermariobros_16_ending_fanfare.mp3', 16, 0)
 			
 			;
