@@ -1181,8 +1181,22 @@ html {
       transform: scale(1);
       border: 1px solid #a0a0a0; }
 
+.easter-egg {
+  cursor: pointer;
+  transition: all .5s;
+  backface-visibility: none; }
+  .easter-egg:hover {
+    text-decoration: underline; }
+
 .register {
-  background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");
+  cursor: default;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1001;
+  background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/megaman1.jpg");
   background-position: center;
   background-size: cover;
   display: table;
@@ -1191,7 +1205,7 @@ html {
   display: relative; }
   .register__container {
     font-size: 2rem;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     margin-top: 10rem;
     max-width: 120rem;

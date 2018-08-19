@@ -1,8 +1,26 @@
+.easter-egg {
+	cursor: pointer;
+	transition: all .5s;
+	backface-visibility: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+}
+
 .register {
+	cursor: default;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 1001;
 	background-image: linear-gradient(to bottom,
 									rgba($color-black, .7),
 									rgba($color-black, .7)),
-									url('../images/friends.jpg');
+									url('../images/megaman1.jpg');
 	background-position: center;
 	background-size: cover;
 
@@ -14,7 +32,7 @@
 	&__container {
 		font-size: 2rem;
 		//line-height: 1em;
-		width: 80%;
+		width: 90%;
 		margin: 0 auto;
 		margin-top: 10rem;
 		max-width: 120rem;

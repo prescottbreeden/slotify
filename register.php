@@ -193,14 +193,14 @@ else {
 				</form>
 			</div>
 			<div class="register__promo-text">
-				<h2 class="register__promo-text--heading">Get great music,<br> right now</h2>
-				<h3 class="register__promo-text--sub-heading">Listen to loads of songs for free</h3>
+				<h2 class="register__promo-text--heading">Video Game Music<br> On Demand</h2>
+				<h3 class="register__promo-text--sub-heading">Your favorite video game music free</h3>
 				<ul class="register__promo-text--list">
 					<li class="register__promo-text--item">
 						<svg class="register__promo-text--icon">
 							<use xlink:href="public/images/icomoon/sprite.svg#icon-checkmark"></use>
 						</svg>
-						Discover music you'll fall in love with
+						Remember the classics you fell in love with
 					</li>
 					<li class="register__promo-text--item">
 						<svg class="register__promo-text--icon">
@@ -208,11 +208,11 @@ else {
 						</svg>
 						Create your own playtlists
 					</li>
-					<li class="register__promo-text--item">
+					<li class="register__promo-text--item easter-egg">
 						<svg class="register__promo-text--icon">
 							<use xlink:href="public/images/icomoon/sprite.svg#icon-checkmark"></use>
 						</svg>
-						Follow artists to keep up to date
+						Always jump through doorways
 					</li>
 				</ul>
 			</div>
