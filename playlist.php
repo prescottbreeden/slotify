@@ -1,6 +1,14 @@
 <?php
 include('includes/includedFiles.php');
 
+if(isset($_SESSION['userLoggedIn'])) {
+	$userLoggedIn = $_SESSION['userLoggedIn'];
+	echo "<script>userLoggedIn = '$userLoggedIn';</script>";
+}
+else {
+	header("Location: register.php");
+}
+
 if(isset($_GET['id'])) {
 	$playlist_id = $_GET['id'];
 }
@@ -154,7 +162,6 @@ $owner = new User($con, $playlist->getOwnerName());
 		</ul>
 	</div>
 </section>
-
 <div class="playlists-menu">
 	<div class="menu-item">
 		New Playlist
@@ -222,7 +229,10 @@ $owner = new User($con, $playlist->getOwnerName());
 			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
 		</svg>
 	</div>
-	<div class="menu-item">
+	<div 
+		onclick="removeFromPlaylist(<?php echo $playlist_id; ?>)"
+		id="remove_pl_item" 
+		class="menu-item">
 		Remove from this Playlist
 	</div>
 	<div class="options-menu__divider"></div>

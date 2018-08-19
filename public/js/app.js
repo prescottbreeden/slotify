@@ -10,24 +10,10 @@ let temp_songId;
 let menu_open = false;
 let warning_msg = false;
 
-$(document).click(function(click) {
-	let target = $(click.target);
-	if(menu_open) {
-		if(!target.hasClass("menu-item") && !target.hasClass("options__button")) {
-			hideOptionsMenu();
-		}
-	} 
-	else if(warning_msg) {
-		if(!target.is("#warning_cancel") && !target.is("#warning_confirm")) {
-			shake();
-		}
-	}
-})
 
-
-$(window).scroll(function() {
-	hideOptionsMenu();
-});
+// ====================================== //
+//			General Functions			  //
+// ====================================== //
 
 function openPage(url) {
 	if(url.indexOf("?") === -1) {
@@ -102,29 +88,22 @@ function showOptionsMenu(button) {
 	let menuWidth = optionsMenu.width();
 	let scrollTop = $(window).scrollTop(); //distance from top of window to document
 	let elementOffset = $(button).offset().top; //distance from top of document
-
 	let top = elementOffset - scrollTop;
 	let left = $(button).position().left;
-
 	dropDownMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
 	optionsMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
-
 	let songId = $(button).prevAll(".songId").val();
 	temp_songId = songId;	
-
 	menu_open = true;
 }
 
 function showPlaylistsMenu(ele) {
 	let playlistsMenu = $('.playlists-menu');
 	let menuWidth = playlistsMenu.width();
-
 	let scrollTop = $(window).scrollTop(); //distance from top of window to document
 	let elementOffset = $('#open_playlists_menu').offset().top; //distance from top of document
-
 	let top = elementOffset - scrollTop;
 	let left = $(ele).offset().left;
-
 	playlistsMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
 }
 
@@ -133,10 +112,8 @@ function showShareMenu(ele) {
 	let menuWidth = shareMenu.width();
 	let scrollTop = $(window).scrollTop(); //distance from top of window to document
 	let elementOffset = $('#open_share_menu').offset().top; //distance from top of document
-
 	let top = elementOffset - scrollTop;
 	let left = $(ele).offset().left;
-
 	shareMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
 }
 
@@ -159,15 +136,6 @@ function createPlaylist() {
 	}
 }
 
-function deleteWarning() {
-	warning_msg = true;
-	warning("Are you sure you want to delete this playlist?", true);
-}
-
-function deleteCancel() {
-	warning_msg = false;
-}
-
 function deletePlaylist(pl_id) {
 	warning_msg = false;
 	$.post("includes/handlers/ajax/deletePlaylist.php", { playlistId: pl_id })
@@ -177,12 +145,31 @@ function deletePlaylist(pl_id) {
 	});
 }
 
+function deleteWarning() {
+	warning_msg = true;
+	warning("Are you sure you want to delete this playlist?", true);
+}
+
+function deleteCancel() {
+	warning_msg = false;
+}
+
 function addSongToPlaylist(playlistId, songId) {
 	$.post("includes/handlers/ajax/addToPlaylist.php", { playlist_id: playlistId, song_id: songId })
 		.done(function() {
 			// do something when ajax returns
 			hideOptionsMenu();
 			notification('Song successfully added to playlist');
+	});
+}
+
+function removeFromPlaylist(playlistId) {
+	$.post("includes/handlers/ajax/removeFromPlaylist.php", { playlist_id: playlistId, song_id: temp_songId })
+		.done(function() {
+			// do something when ajax returns
+			hideOptionsMenu();
+			openPage('playlist.php?id=' + playlistId);
+			notification('Song successfully removed from playlist');
 	});
 }
 
@@ -240,7 +227,6 @@ function Audio() {
 
 }
 
-
 // ====================================== //
 //				PLAYER BAR				  //
 // ====================================== //
@@ -270,9 +256,8 @@ function updateVolumeProgressBar(audio) {
 }
 
 // ====================================== //
-//			DOCUMENT READY				  //
+//			EVENT LISTENERS				  //
 // ====================================== //
-
 
 $(document).ready(function() {
 	console.log('power overwhelming...');
@@ -286,6 +271,24 @@ $(document).ready(function() {
 	$('#hideRegister').click(function() {
 		$('#registerForm').hide();
 		$('#loginForm').show();
+	});
+
+	$(document).click(function(click) {
+		let target = $(click.target);
+		if(menu_open) {
+			if(!target.hasClass("menu-item") && !target.hasClass("options__button")) {
+				hideOptionsMenu();
+			}
+		} 
+		else if(warning_msg) {
+			if(!target.is("#warning_cancel") && !target.is("#warning_confirm")) {
+				shake();
+			}
+		}
+	})
+
+	$(window).scroll(function() {
+		hideOptionsMenu();
 	});
 
 	// show additional option menus
