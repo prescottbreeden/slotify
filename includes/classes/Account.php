@@ -52,7 +52,7 @@ class Account {
 
 	private function insertUserDetails($un, $fn, $ln, $em, $pw) {
 		$encryptedPw = md5($pw);
-		$profilePic = "assets/images/profile-pics/head_emerald.png";
+		$profilePic = "public/images/profile-pics/head_emerald.png";
 		$result = mysqli_query($this->con, "INSERT INTO users 
 			(username, first_name, last_name, email, password, profile_pic) 
 			VALUES ('$un', '$fn', '$ln', '$em', '$encryptedPw', '$profilePic')");

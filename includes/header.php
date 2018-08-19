@@ -53,7 +53,7 @@ function getID() {
 
 		
 		$(document).keypress(function(e) {
-			if(e.which == 13) {
+			if(e.which == 13 && e.target == document.body) {
 				openPage('search.php?term=' + val);
 			}
 		});
@@ -142,8 +142,13 @@ function getID() {
 				<div class="top-bar__empty-space"></div>
 				<div class="top-bar__user-menu">
 					<div title="Profile" class="top-bar__user-info">
-						<img class="top-bar__user-info--avatar" src="public/images/profile-pics/head_emerald.png" alt="user avatar">
-						<p class="top-bar__user-info--username"><?php echo $_SESSION['userLoggedIn']?></p>
+						<img 
+							class="top-bar__user-info--avatar" 
+							src="public/images/profile-pics/head_emerald.png" 
+							alt="user avatar">
+						<p 
+							onclick="openPage('profile.php')"
+							class="top-bar__user-info--username"><?php echo $_SESSION['userLoggedIn']?></p>
 					</div>
 					<svg class="top-bar__menu">
 						<use href="public/images/icomoon/sprite.svg#icon-chevron-down"></use>

@@ -43,7 +43,7 @@ $(document).ready(function() {
 
 	// right arrow to go to next track
 	$(document).keydown(function(e) {
-		if(e.which === 39) {
+		if(e.which === 39 && e.target == document.body) {
 			nextSong();
 
 			return false;
@@ -52,7 +52,7 @@ $(document).ready(function() {
 
 	// right arrow to go to next track
 	$(document).keydown(function(e) {
-		if(e.which === 37) {
+		if(e.which === 37 && e.target == document.body) {
 			prevSong();
 
 			return false;

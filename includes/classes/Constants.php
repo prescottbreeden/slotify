@@ -13,6 +13,5 @@ class Constants {
 	public static $error_pw_match = "Your passwords don't match";
 	public static $error_pw_valid = "Passwords can only contain letters and numebrs";
 	public static $error_pw_len = "Password must be between 5 and 30 characters";
-
 	public static $error_login_failed = "Your Username and/or Password was incorrect";
 }

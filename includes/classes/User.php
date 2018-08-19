@@ -5,6 +5,11 @@ class User {
 	private $con;
 	private $id;
 	private $username;
+	private $first_name;
+	private $laste_name;
+	private $email;
+	private $profile_pic;
+	private $password;
 	private $created_at;
 	private $updated_at;
 
@@ -16,6 +21,10 @@ class User {
 		$user = mysqli_fetch_array($query);
 
 		$this->id = $user['user_id'];
+		$this->first_name = $user['first_name'];
+		$this->last_name = $user['last_name'];
+		$this->email = $user['email'];
+		$this->profile_pic = $user['profile_pic'];
 		$this->created_at = $user['created_date'];
 		$this->updated_at = $user['updated_date'];
 	}
@@ -26,6 +35,18 @@ class User {
 
 	public function getUsername() {
 		return $this->username;
+	}
+
+	public function getFullName() {
+		return $this->first_name . ' ' . $this->last_name; 
+	}
+
+	public function getEmail() {
+		return $this->email;
+	}
+
+	public function getProfilePic() {
+		return $this->profile_pic;
 	}
 }
 

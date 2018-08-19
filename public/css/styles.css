@@ -221,6 +221,7 @@ html {
         border: 1px solid #a0a0a0; }
 
 .msg-box {
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
@@ -520,7 +521,7 @@ html {
     align-items: center;
     height: 2.5rem; }
     .top-bar__user-info:hover {
-      cursor: default; }
+      cursor: pointer; }
     .top-bar__user-info:hover .top-bar__user-info--username {
       border-bottom: 1px solid white; }
     .top-bar__user-info--avatar {
@@ -1122,6 +1123,64 @@ html {
   .playlist__tracks {
     margin-top: 2rem; }
 
+.profile {
+  box-sizing: border-box;
+  padding: 3rem;
+  width: 100%;
+  text-align: center; }
+  .profile__image {
+    margin-bottom: 3rem; }
+    .profile__image img {
+      border-radius: 50%; }
+  .profile__fullname {
+    font-size: 3rem; }
+  .profile__edit-btn {
+    margin: 1rem 0;
+    border: 1px solid #a0a0a0;
+    padding: .8rem 3rem;
+    min-width: 8rem;
+    color: white;
+    text-align: center;
+    line-height: 1.5rem;
+    border-radius: 200px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: default;
+    text-transform: uppercase;
+    outline: none;
+    backface-visibility: none;
+    width: 20%;
+    margin: 3rem auto; }
+    .profile__edit-btn:hover {
+      transform: scale(1.1);
+      border: 1.5px solid #fff; }
+    .profile__edit-btn:active {
+      transform: scale(1);
+      border: 1px solid #a0a0a0; }
+  .profile__logout-btn {
+    margin: 1rem 0;
+    border: 1px solid #a0a0a0;
+    padding: .8rem 3rem;
+    min-width: 8rem;
+    color: white;
+    text-align: center;
+    line-height: 1.5rem;
+    border-radius: 200px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: default;
+    text-transform: uppercase;
+    outline: none;
+    backface-visibility: none;
+    width: 20%;
+    margin: 3rem auto; }
+    .profile__logout-btn:hover {
+      transform: scale(1.1);
+      border: 1.5px solid #fff; }
+    .profile__logout-btn:active {
+      transform: scale(1);
+      border: 1px solid #a0a0a0; }
+
 .register {
   background-image: linear-gradient(to bottom, rgba(34, 34, 34, 0.7), rgba(34, 34, 34, 0.7)), url("../images/friends.jpg");
   background-position: center;
@@ -1266,3 +1325,57 @@ html {
     height: 5rem;
     width: 5rem;
     margin-right: 2rem; }
+
+.userdetails {
+  padding: 3rem; }
+  .userdetails__container {
+    padding: 3rem;
+    border-bottom: 1px solid rgba(160, 160, 160, 0.2); }
+    .userdetails__container--pwd {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column; }
+      .userdetails__container--pwd-block:first-child {
+        margin-bottom: 3rem; }
+  .userdetails__primary-heading {
+    font-size: 4rem;
+    font-weight: 700; }
+  .userdetails__secondary-heading {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 200;
+    color: #a0a0a0;
+    margin-bottom: 1rem;
+    letter-spacing: 1px; }
+  .userdetails__input {
+    border: none;
+    border-radius: 4px;
+    display: block;
+    padding: 1rem;
+    background-color: #2c2c2c;
+    color: #f7f7f7;
+    letter-spacing: 1px; }
+  .userdetails__submit-btn {
+    margin: 1rem 0;
+    border: 1px solid #a0a0a0;
+    padding: .8rem 3rem;
+    min-width: 8rem;
+    color: white;
+    text-align: center;
+    line-height: 1.5rem;
+    border-radius: 200px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: default;
+    text-transform: uppercase;
+    outline: none;
+    backface-visibility: none;
+    background-color: transparent;
+    font-size: 1.2rem;
+    font-weight: 400; }
+    .userdetails__submit-btn:hover {
+      transform: scale(1.1);
+      border: 1.5px solid #fff; }
+    .userdetails__submit-btn:active {
+      transform: scale(1);
+      border: 1px solid #a0a0a0; }

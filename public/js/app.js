@@ -26,6 +26,12 @@ function openPage(url) {
 	console.log(encodedURL);
 }
 
+function logout() {
+	$.post("includes/handlers/ajax/logout.php", function() {
+		location.reload();
+	});
+}
+
 function playFirstSong() {
 	setTrack(tempPlaylist[0], tempPlaylist, true);
 }
@@ -62,6 +68,21 @@ function shake() {
 		$('.msg-box').removeClass('shake');
 	}, 1000);
 }
+
+// ====================================== //
+//			Edit Profile				  //
+// ====================================== //
+
+function updateEmail() {
+	let emailValue = $('.userdetails__input[name="email"]').val();
+	console.log(emailValue);
+	$.post("includes/handlers/ajax/updateEmail.php", { email: emailValue, username: userLoggedIn }) 
+		.done(function(response) {
+			notification(response);
+		});
+
+}
+
 
 // ====================================== //
 //			DropDown Menus				  //
