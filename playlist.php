@@ -46,7 +46,9 @@ $owner = new User($con, $playlist->getOwnerName());
 				<use href='public/images/icomoon/sprite.svg#icon-videogame_asset'</use>
 			</svg>	
 			<div class="playlist__header--artwork-hover">
-				<svg class='playlist__icon-hover'>
+				<svg 
+					onclick="playAlbum()";
+					class='playlist__icon-hover'>
 					<use href='public/images/icomoon/sprite.svg#icon-play2'</use>
 				</svg>	
 			</div>

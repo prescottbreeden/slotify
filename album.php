@@ -30,6 +30,13 @@ $year_released = $album->getYearReleased();
 	<div class='album__header'>
 		<div class='album__header--artwork'>
 			<img src="<?php echo $artwork_path; ?>" alt='album art'>
+			<div class="album__header--artwork-hover">
+				<svg 
+					onclick="playAlbum()";
+					class='playlist__icon-hover'>
+					<use href='public/images/icomoon/sprite.svg#icon-play2'</use>
+				</svg>	
+			</div>
 		</div>
 		<div class='album__header--details'>
 			<div class='album__header--details-miniheader'>

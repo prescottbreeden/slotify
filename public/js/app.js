@@ -37,6 +37,11 @@ function playFirstSong() {
 	setTrack(tempPlaylist[0], tempPlaylist, true);
 }
 
+function jumpToPlaylist(playlistId) {
+	openPage('playlist.php?id=' + playlistId);
+	playFirstSong();
+}
+
 function notification(msg) {
 	$('.msg-box').show();
 	$('.msg-box__btns').hide();
