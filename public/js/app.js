@@ -9,6 +9,7 @@ let userLoggedIn;
 let temp_songId;
 let menu_open = false;
 let warning_msg = false;
+let edit_pw = false;
 
 
 // ====================================== //
@@ -76,13 +77,60 @@ function shake() {
 function updateEmail() {
 	let emailValue = $('.userdetails__input[name="email"]').val();
 	console.log(emailValue);
-	$.post("includes/handlers/ajax/updateEmail.php", { email: emailValue, username: userLoggedIn }) 
+	$.post("includes/handlers/ajax/updateEmail.php", 
+		{ email: emailValue, username: userLoggedIn }) 
 		.done(function(response) {
 			notification(response);
 		});
-
 }
 
+function checkOldPassword() {
+	let oldPassword = $('.userdetails__input[name="oldPassword"]').val();
+	
+	$.post("includes/handlers/ajax/checkOldPassword.php", 
+		{ oldPassword: oldPassword, username: userLoggedIn }) 
+		.done(function(response) {
+			notification(response);
+			if(response == 'Success: enter a new password') {
+				edit_pw = true;
+				$('#new_pw').show();
+			}
+		});
+}
+
+function updatePassword() {
+	let p1 = $('.userdetails__input[name="newPassword1"]').val();
+	let p2 = $('.userdetails__input[name="newPassword2"]').val();
+	let re = /[^A-Za-z0-9]/;
+
+	if(p1 != p2) {
+		notification("ERROR: passwords do not match");
+		return;
+	};
+
+	if(p1.match(re)) {
+		notification("ERROR: password must be alphanumeric");
+		return;
+	};
+
+	if(p1.length > 30 || p1.length < 5) {
+		notification("ERROR: password must be between 5 and 30 characters");
+		return;
+	};	
+
+	if(edit_pw) {
+		$.post("includes/handlers/ajax/updatePassword.php", 
+			{ pw: p1, username: userLoggedIn }) 
+			.done(function(response) {
+				location.reload();
+				edit_pw = false;
+				$('#new_pw').hide();
+				notification(response);
+			});
+	} else {
+		notification("ERROR: please confirm your old password again");
+	}
+}
 
 // ====================================== //
 //			DropDown Menus				  //

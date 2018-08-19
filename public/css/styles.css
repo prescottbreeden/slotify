@@ -1340,6 +1340,9 @@ html {
     width: 5rem;
     margin-right: 2rem; }
 
+#new_pw {
+  display: none; }
+
 .userdetails {
   padding: 3rem; }
   .userdetails__container {

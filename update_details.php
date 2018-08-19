@@ -39,11 +39,13 @@ else {
 					placeholder="Enter current password"
 					class="userdetails__input" 
 					type="password">
-				<button class="userdetails__submit-btn">
+				<button 
+					onclick="checkOldPassword()"
+					class="userdetails__submit-btn">
 					Submit
 				</button>
 			</div>
-			<div class="userdetails__container--pwd-block">
+			<div id="new_pw" class="userdetails__container--pwd-block">
 				<h2 class="userdetails__secondary-heading">new password</h2>
 				<input 
 					name="newPassword1"
@@ -57,7 +59,9 @@ else {
 					class="userdetails__input" 
 					type="password">
 				<?php // echo $account->getError(Constants::$error_login_failed); ?>
-				<button class="userdetails__submit-btn">
+				<button 
+					onclick="updatePassword()"
+					class="userdetails__submit-btn">
 					Update Password
 				</button>
 			</div>
