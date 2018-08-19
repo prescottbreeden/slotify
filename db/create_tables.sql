@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS pl_songs (
 			('Quick Man', 2, 2, 1, '125', 'public/music/nes_megaman2/megaman2_6_quick_man.mp3', 6, 0),
 			('Metal Man', 2, 2, 1, '127', 'public/music/nes_megaman2/megaman2_7_metal_man.mp3', 7, 0),
 			('Bubble Man', 2, 2, 1, '123', 'public/music/nes_megaman2/megaman2_8_bubble_man.mp3', 8, 0),
-			('Heat Man', 2, 2, 1, '11', 'public/music/nes_megaman2/megaman2_9_heat_man.mp3', 9, 0),
+			('Heat Man', 2, 2, 1, '101', 'public/music/nes_megaman2/megaman2_9_heat_man.mp3', 9, 0),
 			('Wood Man', 2, 2, 1, '121', 'public/music/nes_megaman2/megaman2_10_wood_man.mp3', 10, 0),
 			('Air Man', 2, 2, 1, '140', 'public/music/nes_megaman2/megaman2_11_air_man.mp3', 11, 0),
 			('Crash Man', 2, 2, 1, '230', 'public/music/nes_megaman2/megaman2_12_crash_man.mp3', 12, 0),
