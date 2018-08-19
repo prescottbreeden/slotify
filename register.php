@@ -67,7 +67,7 @@ else {
 						<input 
 							id="loginUsername" 
 							name="loginUsername" 
-							placeholder="e.g. bartSimpson"
+							placeholder="Your username"
 							required
 							value="<?php getInputValue('loginUsername') ?>"
 							type="text">
@@ -106,7 +106,7 @@ else {
 						<input 
 							id="username" 
 							name="username" 
-							placeholder="e.g. bartSimpson"
+							placeholder="Your username"
 							value="<?php getInputValue('username') ?>"
 							required
 							type="text">
@@ -118,7 +118,7 @@ else {
 						<input 
 							id="firstName" 
 							name="firstName" 
-							placeholder="e.g. bart"
+							placeholder="Your first name"
 							value="<?php getInputValue('firstName') ?>"
 							required
 							type="text">
@@ -129,7 +129,7 @@ else {
 						<input 
 							id="lastName" 
 							name="lastName" 
-							placeholder="e.g. Simpson"
+							placeholder="Your last name"
 							value="<?php getInputValue('lastName') ?>"
 							required
 							type="text">
@@ -140,7 +140,7 @@ else {
 						<input 
 							id="email" 
 							name="email" 
-							placeholder="bartSimpson@gmail.com"
+							placeholder="Your Email"
 							value="<?php getInputValue('email') ?>"
 							required
 							type="email">
@@ -150,7 +150,7 @@ else {
 						<input 
 							id="email2" 
 							name="email2" 
-							placeholder="bartSimpson@gmail.com"
+							placeholder="Your Email"
 							value="<?php getInputValue('email2') ?>"
 							required
 							type="email">

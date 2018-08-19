@@ -53,7 +53,7 @@ function getID() {
 
 		
 		$(document).keypress(function(e) {
-			if(e.which == 13 && e.target == document.body) {
+			if(e.which == 13 && e.target != document.body) {
 				openPage('search.php?term=' + val);
 			}
 		});
