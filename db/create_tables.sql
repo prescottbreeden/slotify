@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS pl_songs (
 			('Credits', 2, 2, 1, '107', 'public/music/nes_megaman2/megaman2_22_credits.mp3', 22, 0),
 			('Game Over', 2, 2, 1, '6', 'public/music/nes_megaman2/megaman2_23_game_over.mp3', 23, 0),
 
-			('Fight Theme', 1, 3, 1, '300', 'public/music/nes_punchout/punch_out_fight_theme.m4a', 1, 0),
+			('Fight Theme', 1, 3, 1, '300', 'public/music/nes_punchout/punch_out_fight_theme.mp3', 1, 0),
 
 			('Title', 3, 4, 1, '150', 'public/music/nes_metroid/metroid_1_title.mp3', 1, 0),
 			('Samus Entry', 3, 4, 1, '7', 'public/music/nes_metroid/metroid_2_samus_entry.mp3', 2, 0),
