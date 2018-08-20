@@ -333,6 +333,18 @@ html {
   .menu-item:hover svg {
     fill: #f7f7f7; }
 
+.fullscreen {
+  position: absolute;
+  right: 1.5rem;
+  top: 40%;
+  cursor: pointer; }
+  .fullscreen__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: #a0a0a0; }
+    .fullscreen__icon:hover {
+      fill: #f7f7f7; }
+
 .button-active {
   fill: #1db954 !important; }
 
@@ -420,12 +432,32 @@ html {
     height: .4rem;
     width: 100%;
     background-color: #a0a0a0;
-    border-radius: 200px; }
+    border-radius: 200px;
+    display: flex;
+    align-items: center;
+    backface-visibility: none; }
   .progress-bar__progress {
     background-color: #f7f7f7;
     height: .4rem;
     width: 0;
-    border-radius: 200px; }
+    border-radius: 200px;
+    position: relative;
+    backface-visibility: none; }
+    .progress-bar__progress--dot {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto 0;
+      transition: all .2s;
+      opacity: 0;
+      height: .9rem;
+      width: .9rem;
+      border-radius: 50%;
+      background-color: #f7f7f7; }
+  .progress-bar__progress:hover, .progress-bar__progress--dot:hover,
+  .progress-bar__bg:hover .progress-bar__progress--dot {
+    opacity: 1; }
 
 .controls {
   width: 100%;
@@ -472,7 +504,7 @@ html {
 .volume {
   width: 20rem;
   position: absolute;
-  right: 0; }
+  right: 3rem; }
   .volume__bar {
     display: flex;
     align-items: center;

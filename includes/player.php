@@ -352,7 +352,9 @@ function shuffle_list(a) {
 						<span class="progress-bar__time progress-bar__time--current">0.00</span>
 						<div class="progress-bar">
 							<div class="progress-bar__bg">
-								<div id="song_progress" class="progress-bar__progress"></div>
+								<div id="song_progress" class="progress-bar__progress">
+									<div class="progress-bar__progress--dot"></div>
+								</div>
 							</div>
 						</div>
 						<span class="progress-bar__time progress-bar__time--remaining">0.00</span>
@@ -372,10 +374,23 @@ function shuffle_list(a) {
 							</svg>
 							<div class="progress-bar">
 								<div class="progress-bar__bg">
-									<div id="volume_bar" class="progress-bar__progress"></div>
+									<div id="volume_bar" class="progress-bar__progress">
+										<div class="progress-bar__progress--dot"></div>
+									</div>
 								</div>
 							</div>
 						</div>
+					</div>
+					<div class="fullscreen">
+						<svg 
+							onclick="setMute()"
+							aria-label="[title]"
+							class="fullscreen__icon">
+							<title>Full screen</title>
+							<use 
+								id="fullscreen_icon"
+								href="public/images/icomoon/sprite.svg#icon-maximize-2"></use>
+						</svg>
 					</div>
 				</div>
 			</div>

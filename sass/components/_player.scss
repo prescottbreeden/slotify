@@ -1,3 +1,19 @@
+.fullscreen {
+	position: absolute;
+	right: 1.5rem;
+	top: 40%;
+	cursor: pointer;
+
+	&__icon {
+		height: 1.5rem;
+		width: 1.5rem;
+		fill: $color-grey;
+
+		&:hover {
+			fill: $color-white;
+		}
+	}
+}
 .button-active {
 	fill: $color-green !important;
 }
@@ -130,6 +146,10 @@
 		width: 100%;
 		background-color: $color-grey;
 		border-radius: 200px;
+		// position: relative;
+		display: flex;
+		align-items: center;
+		backface-visibility: none;
 	}
 
 	&__progress {
@@ -137,6 +157,30 @@
 		height: .4rem;
 		width: 0;
 		border-radius: 200px;
+		position: relative;
+		backface-visibility: none;
+		// put dot inside this on hover
+
+		&--dot {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto 0;
+			transition: all .2s;
+			opacity: 0;
+			height: .9rem;
+			width: .9rem;
+			border-radius: 50%;
+			background-color: $color-white;
+			// transform: translateX(-50%);
+		}
+	}
+
+	&__progress:hover,
+	&__progress--dot:hover,
+	&__bg:hover &__progress--dot {
+		opacity: 1;
 	}
 }
 
@@ -206,7 +250,7 @@
 .volume {
 	width: 20rem;
 	position: absolute;
-	right: 0;
+	right: 3rem;
 
 	&__bar {
 		display: flex;
