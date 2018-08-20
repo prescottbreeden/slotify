@@ -23,6 +23,7 @@ $(document).ready(function() {
 	setTrack(newPlaylist[currentIndex], newPlaylist, false);
 	updateVolumeProgressBar(audioElement.audio);
 
+
 	// ============================================= //
 	//				KEYBOARD EVENTS					 //
 	// ============================================= //
@@ -43,19 +44,23 @@ $(document).ready(function() {
 
 	// right arrow to go to next track
 	$(document).keydown(function(e) {
-		if(e.which === 39 && e.target == document.body) {
-			nextSong();
+		if(!slideshow_mode) {
+			if(e.which === 39 && e.target == document.body) {
+				nextSong();
 
-			return false;
+				return false;
+			}
 		}
 	});
 
 	// right arrow to go to next track
 	$(document).keydown(function(e) {
-		if(e.which === 37 && e.target == document.body) {
-			prevSong();
+		if(!slideshow_mode) {
+			if(e.which === 37 && e.target == document.body) {
+				prevSong();
 
-			return false;
+				return false;
+			}
 		}
 	});
 
@@ -381,7 +386,9 @@ function shuffle_list(a) {
 							</div>
 						</div>
 					</div>
-					<div class="fullscreen">
+					<div 
+						onclick="openPage('slideshow.php')";
+						class="fullscreen">
 						<svg 
 							onclick="setMute()"
 							aria-label="[title]"
