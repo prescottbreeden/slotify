@@ -151,7 +151,9 @@ $year_released = $album->getYearReleased();
 </section>
 
 <div class="playlists-menu">
-	<div class="menu-item">
+	<div 
+	onclick="createPlaylist()"
+		class="menu-item">
 		New Playlist
 	</div>
 	<div class="options-menu__divider"></div>
@@ -159,7 +161,9 @@ $year_released = $album->getYearReleased();
 	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn); ?>
 </div>
 <div class="share-menu">
-	<div class="share-menu__item">
+	<div 
+		onclick="returnFacebookLink()"
+		class="share-menu__item">
 		<svg 
 			aria-label="[title]"
 			<title>Share this song</title>
@@ -167,7 +171,9 @@ $year_released = $album->getYearReleased();
 		</svg>
 		Facebook
 	</div>
-	<div class="share-menu__item">
+	<div 
+		onclick="returnTwitterLink()"
+		class="share-menu__item">
 		<svg 
 			aria-label="[title]"
 			<title>Share this song</title>
@@ -175,7 +181,10 @@ $year_released = $album->getYearReleased();
 		</svg>
 		Twitter
 	</div>
-	<div class="share-menu__item">
+	<div class="options-menu__divider"></div>
+	<div 
+		onclick="returnWebsiteLink()"
+		class="share-menu__item">
 		<svg 
 			aria-label="[title]"
 			<title>Share this song</title>
@@ -183,28 +192,28 @@ $year_released = $album->getYearReleased();
 		</svg>
 		Copy Song Link
 	</div>
-	<div class="share-menu__item">
-		<div class="share-menu__item--empty"></div>
-		Copy Embed Code
-	</div>
-	<div class="share-menu__item">
-		<div class="share-menu__item--empty"></div>
-		Copy Slotify URI
-	</div>
 </div>
 <div class="options-menu">
-	<div class="menu-item">
+	<div 
+		onclick="addToQueue()"
+		class="menu-item">
 		Add to Queue
 	</div>
 	<div class="options-menu__divider"></div>
-	<div class="menu-item">
+	<div 
+		onclick="goToArtist()"	
+		class="menu-item">
 		Go to Artist
 	</div>
-	<div class="menu-item">
+	<div 
+		onclick="goToAlbum()"	
+		class="menu-item">
 		Go to Album
 	</div>
 	<div class="options-menu__divider"></div>
-	<div class="menu-item">
+	<div 
+		onClick="saveToLibrary()"
+		class="menu-item">
 		Save to Your Music
 	</div>
 	<div 
@@ -216,9 +225,6 @@ $year_released = $album->getYearReleased();
 			<title>Add to playlist</title>
 			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
 		</svg>
-	</div>
-	<div class="menu-item">
-		Remove from this Playlist
 	</div>
 	<div class="options-menu__divider"></div>
 	<div 

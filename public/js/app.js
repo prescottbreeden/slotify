@@ -24,7 +24,6 @@ function openPage(url) {
 	$('.dynamic-content').load(encodedURL);
 	$('body').scrollTop(0);
 	history.pushState(null, null, url);
-	console.log(encodedURL);
 }
 
 function logout() {
@@ -81,7 +80,6 @@ function shake() {
 
 function updateEmail() {
 	let emailValue = $('.userdetails__input[name="email"]').val();
-	console.log(emailValue);
 	$.post("includes/handlers/ajax/updateEmail.php", 
 		{ email: emailValue, username: userLoggedIn }) 
 		.done(function(response) {
@@ -199,14 +197,13 @@ function showShareMenu(ele) {
 function createPlaylist() {
 	var popup = prompt("Please enter the name of your playlist");
 	
-	if(popup != '') {
-		
+	if(popup != null) {
 		$.post("includes/handlers/ajax/createPlaylist.php", { pl_name: popup, username: userLoggedIn })
 			.done(function(error) {
-				console.log(error);
 				openPage("your_music.php");
 				// do something when ajax returns
 		});
+
 	}
 }
 
@@ -214,7 +211,6 @@ function deletePlaylist(pl_id) {
 	warning_msg = false;
 	$.post("includes/handlers/ajax/deletePlaylist.php", { playlistId: pl_id })
 		.done(function(error) {
-			console.log(error);
 			openPage("your_music.php");
 	});
 }
