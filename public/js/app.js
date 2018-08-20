@@ -220,11 +220,13 @@ function deletePlaylist(pl_id) {
 
 function deleteWarning() {
 	warning_msg = true;
+	$('.warning').show();
 	warning("Are you sure you want to delete this playlist?", true);
 }
 
 function deleteCancel() {
 	warning_msg = false;
+	$('.warning').hide();
 }
 
 function addSongToPlaylist(playlistId, songId) {

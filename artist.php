@@ -32,7 +32,7 @@ $artist = new Artist($con, $artistId);
 			<h1 class="artist__info--name"><?php echo $artist->getName(); ?></h1>
 			<div class="artist__header-btn">
 				<div 
-					onclick="playFirstSong()" 
+					onclick="playAlbum()" 
 					style="margin: 1rem auto;"
 					class="artist__header-btn--btn">
 						Play
@@ -48,7 +48,7 @@ $artist = new Artist($con, $artistId);
 				<div class="tracks__list--name-header">Title</div>
 				<div class="tracks__list--artist-header">album</div>
 				<div class='tracks__list--more'></div>
-				<div class="tracks__list--duration-header">play count</div>
+				<div class="tracks__list--duration"></div>
 
 			</div>
 
