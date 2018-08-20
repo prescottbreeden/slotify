@@ -40,7 +40,7 @@ $year_released = $album->getYearReleased();
 		</div>
 		<div class='album__header--details'>
 			<div class='album__header--details-miniheader'>
-				Album from your library
+				Album 
 			</div>
 			<div class='album__header--details-title'>
 				<?php echo $album_name; ?> 

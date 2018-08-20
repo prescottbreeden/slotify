@@ -459,7 +459,7 @@ html {
     opacity: 1; }
 
 .u-nudge-right {
-  margin-right: -1rem; }
+  margin-right: -.5rem; }
 
 .controls {
   width: 100%;
@@ -518,7 +518,7 @@ html {
       fill: #a0a0a0; }
 
 .top-bar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 25rem;
   right: 0;
