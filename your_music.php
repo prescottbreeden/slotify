@@ -76,5 +76,37 @@ else {
 		</div>
 
 	</div>
+	<h2 class="u-secondary-heading">Saved Albums</h2>
+	<div class="u-divider"></div>
+	<div class="album-select__container">
+<?php
+$albumQuery = mysqli_query($con, "
+  SELECT album.album_id,
+		 album.title_name, 
+		 album.artwork_path
+	FROM albums as album 
+		 WHERE album.artist_id = '$artistId'");
+			// 
+
+while($row = mysqli_fetch_array($albumQuery)) {
+
+	echo	"<div class='album-select__container--item'>
+				<span 
+					role='link'
+					tabindex='0'
+					onclick='openPage(\"album.php?id=" . $row['album_id'] . "\")'>
+					<img src='" . $row['artwork_path'] . "'>	
+					<div class='album-select__container--item-details'>
+						<div class='album-select__container--item-title'>	
+							" . $row['title_name'] . "
+						</div>
+					</div>
+				</span>
+			</div>";
+}
+
+?>
+	</div>
+</section>
 
 </section>

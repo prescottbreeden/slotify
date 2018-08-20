@@ -192,6 +192,29 @@ function showShareMenu(ele) {
 	shareMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
 }
 
+// ====================================== //
+//				Save Music				  //
+// ====================================== //
+
+function saveAlbum(albumId) {
+	console.log('saving album ' + albumId);
+	// $.post("includes/handlers/ajax/saveAlbum.php", { album: albumId, username: userLoggedIn })
+	// 	.done(function(error) {
+	// 		openPage("your_music.php");
+	// 		// do something when ajax returns
+	// });
+}
+
+
+function saveSong(songId=temp_songId) {
+	console.log('saving song ' + songId);
+	// $.post("includes/handlers/ajax/saveSong.php", { song: songId, username: userLoggedIn })
+	// 	.done(function(error) {
+	// 		openPage("your_music.php");
+	// 		// do something when ajax returns
+	// });
+}
+
 
 // ====================================== //
 //				Playlists				  //

@@ -82,6 +82,7 @@ class Album {
 		$row = mysqli_fetch_array($query);
 		return $row[0];
 	}
+
 }
 ?>
 

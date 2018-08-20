@@ -17,6 +17,8 @@ else {
 }
 
 $album = new Album($con, $albumId);
+$user = new User($con, $userLoggedIn);
+$userId = $user->getId();
 $artist = $album->getArtist();
 $artwork_path = $album->getArtworkPath();
 $artist_name = $artist->getName();
@@ -24,6 +26,20 @@ $album_name =  $album->getTitle();
 $total_songs = $album->getNumberOfSongs();
 $total_length = $album->getTotalLength();
 $year_released = $album->getYearReleased();
+
+
+$query = mysqli_query($con, "
+		 SELECT *
+		   FROM saved_albums
+				WHERE album_id='$albumId'
+				AND user_id='$userId'
+");
+
+if(mysqli_num_rows($query) > 0) {
+	$album_save = true;
+} else {
+	$album_saved = false;
+}
 
 ?>
 <section class='album'>
@@ -40,7 +56,7 @@ $year_released = $album->getYearReleased();
 		</div>
 		<div class='album__header--details'>
 			<div class='album__header--details-miniheader'>
-				Album 
+				<?php echo ($album_saved ? 'Album from library' : 'Album'); ?> 
 			</div>
 			<div class='album__header--details-title'>
 				<?php echo $album_name; ?> 
@@ -64,8 +80,10 @@ $year_released = $album->getYearReleased();
 					class='album__btn--play'>
 					<p>Play</p>
 				</div>
-				<div class='album__btn--save'>
-					<p>Save</p>
+				<div 
+					onclick="saveAlbum(<?php echo $albumId; ?>)"
+					class='album__btn--save'>
+					<p><?php echo ($album_saved ? 'Saved' : 'Save'); ?> </p>
 				</div>
 				<div class='album__btn--more'>
 				</div>

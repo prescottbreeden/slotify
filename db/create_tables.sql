@@ -90,6 +90,26 @@ CREATE TABLE IF NOT EXISTS pl_songs (
 		REFERENCES playlists(playlist_id)
 );
 
+CREATE TABLE IF NOT EXISTS saved_albums (
+	user_id			INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	album_id		INTEGER			NOT NULL,
+
+	FOREIGN KEY (user_id)
+		REFERENCES users(user_id),
+	FOREIGN KEY (album_id)
+		REFERENCES albums(album_id)
+);
+
+
+CREATE TABLE IF NOT EXISTS saved_songs (
+	user_id			INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	song_id			INTEGER			NOT NULL,
+
+	FOREIGN KEY (user_id)
+		REFERENCES users(user_id),
+	FOREIGN KEY (song_id)
+		REFERENCES songs(song_id)
+);
 --
 -- Dumping data for table `artists`
 --
@@ -100,9 +120,7 @@ CREATE TABLE IF NOT EXISTS pl_songs (
 			('Koji Kondo'),
 			('Takashi Tateishi'),
 			('Hirokazu Tanaka'),
-			('Konami Kukeiha Club'),
-			('Nobuo Uematsu')
-
+			('Konami Kukeiha Club')
 			;
 
 --
