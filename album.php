@@ -27,7 +27,6 @@ $total_songs = $album->getNumberOfSongs();
 $total_length = $album->getTotalLength();
 $year_released = $album->getYearReleased();
 
-
 $query = mysqli_query($con, "
 		 SELECT *
 		   FROM saved_albums
@@ -36,7 +35,7 @@ $query = mysqli_query($con, "
 ");
 
 if(mysqli_num_rows($query) > 0) {
-	$album_save = true;
+	$album_saved = true;
 } else {
 	$album_saved = false;
 }
@@ -81,7 +80,7 @@ if(mysqli_num_rows($query) > 0) {
 					<p>Play</p>
 				</div>
 				<div 
-					onclick="saveAlbum(<?php echo $albumId; ?>)"
+					onclick="addAlbumToSaved(<?php echo $albumId; ?>)"
 					class='album__btn--save'>
 					<p><?php echo ($album_saved ? 'Saved' : 'Save'); ?> </p>
 				</div>

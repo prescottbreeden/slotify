@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS pl_songs (
 );
 
 CREATE TABLE IF NOT EXISTS saved_albums (
-	user_id			INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	user_id			INTEGER			NOT NULL,
 	album_id		INTEGER			NOT NULL,
 
 	FOREIGN KEY (user_id)
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS saved_albums (
 
 
 CREATE TABLE IF NOT EXISTS saved_songs (
-	user_id			INTEGER			NOT NULL	AUTO_INCREMENT PRIMARY KEY,
+	user_id			INTEGER			NOT NULL,
 	song_id			INTEGER			NOT NULL,
 
 	FOREIGN KEY (user_id)
