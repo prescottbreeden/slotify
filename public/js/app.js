@@ -330,6 +330,18 @@ function updateVolumeProgressBar(audio) {
 }
 
 // ====================================== //
+//				EASTER EGGS				  //
+// ====================================== //
+let eggs = {
+	"zelda": ["Beware of hand in walls", "Always go for the Eye", "It's not a candle, it's a flamethrower"],
+	"streetfighter": "Hadoooouken!",
+	"megaman": "Always jump through doorways",
+	"contra": "&uarr; &uarr; &darr; &darr; &larr; &rarr; &larr; &rarr; B A [start]",
+	"mario": "Headbutting bricks since 1985",
+	"tetris": "Oh no, not another square..."
+}
+
+// ====================================== //
 //			EVENT LISTENERS				  //
 // ====================================== //
 
