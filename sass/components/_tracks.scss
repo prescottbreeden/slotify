@@ -74,20 +74,22 @@
 
 
 		&--name {
-			width: 40%;
+			min-width: 30%;
 			cursor: default;
+			flex-grow: 1;
 
 			&-header {
+				flex-grow: 1;
 				color: $color-grey;
 				font-size: 1rem;
 				text-transform: uppercase;
 				letter-spacing: 1px;
-				width: 40%;
+				min-width: 30%;
 			}
 		}
 
 		&--artist {
-			max-width: 40%;
+			width: 30%;
 
 			&:hover {
 				cursor: pointer;
@@ -99,7 +101,20 @@
 				font-size: 1rem;
 				text-transform: uppercase;
 				letter-spacing: 1px;
-				max-width: 40%;
+				width: 30%;
+			}
+		}
+
+		&--album {
+			width: 30%;
+
+			&-header {
+
+				color: $color-grey;
+				font-size: 1rem;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				width: 30%;
 			}
 		}
 
@@ -126,11 +141,23 @@
 					cursor: pointer;
 				}
 			}
+
+			&-header {
+				width: 3rem;
+				height: 1rem;
+				margin-left: auto;
+
+				svg {
+
+				}
+			}
 		}
 
 		&--duration {
+			text-align: right;
 			letter-spacing: 1px;
 			color: $color-grey;
+			width: 5rem;
 
 			&-header {
 				text-transform: uppercase;

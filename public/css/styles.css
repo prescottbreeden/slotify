@@ -657,16 +657,18 @@ html {
         fill: #fff;
         transform: scale(1.1); }
     .tracks__list--name {
-      width: 40%;
-      cursor: default; }
+      min-width: 30%;
+      cursor: default;
+      flex-grow: 1; }
       .tracks__list--name-header {
+        flex-grow: 1;
         color: #a0a0a0;
         font-size: 1rem;
         text-transform: uppercase;
         letter-spacing: 1px;
-        width: 40%; }
+        min-width: 30%; }
     .tracks__list--artist {
-      max-width: 40%; }
+      width: 30%; }
       .tracks__list--artist:hover {
         cursor: pointer;
         text-decoration: underline; }
@@ -675,7 +677,15 @@ html {
         font-size: 1rem;
         text-transform: uppercase;
         letter-spacing: 1px;
-        max-width: 40%; }
+        width: 30%; }
+    .tracks__list--album {
+      width: 30%; }
+      .tracks__list--album-header {
+        color: #a0a0a0;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        width: 30%; }
     .tracks__list--more {
       visibility: hidden;
       margin-left: auto;
@@ -695,9 +705,15 @@ html {
         fill: #f7f7f7; }
         .tracks__list--more svg:hover {
           cursor: pointer; }
+      .tracks__list--more-header {
+        width: 3rem;
+        height: 1rem;
+        margin-left: auto; }
     .tracks__list--duration {
+      text-align: right;
       letter-spacing: 1px;
-      color: #a0a0a0; }
+      color: #a0a0a0;
+      width: 5rem; }
       .tracks__list--duration-header {
         text-transform: uppercase;
         font-size: 1rem;

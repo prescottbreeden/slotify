@@ -91,7 +91,10 @@ $owner = new User($con, $playlist->getOwnerName());
 				<div class="tracks__list--number-header">#</div>
 				<div class="tracks__list--name-header">Title</div>
 				<div class="tracks__list--artist-header">artist</div>
-				<div class='tracks__list--more'></div>
+				<div class="tracks__list--album-header">album</div>
+				<div class='tracks__list--more-header'>
+						
+				</div>
 				<div class="tracks__list--duration">
 					<svg 
 						class="tracks__list--duration-header"
@@ -129,6 +132,10 @@ $owner = new User($con, $playlist->getOwnerName());
 						<div 
 							onclick='openPage(\"artist.php?id=" . $playlistSong->getArtistId() . "\")'
 							class='tracks__list--artist'>" . $songArtist->getName() . "
+						</div>
+						<div 
+							onclick='openPage(\"album.php?id=" . $playlistSong->getAlbumId() . "\")'
+							class='tracks__list--album'>" . $playlistSong->getAlbumName() . "
 						</div>
 	 					<div class='tracks__list--more'>
 							<input type='hidden' class='songId' value='" . $playlistSong->getId() . "'>

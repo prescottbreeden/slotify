@@ -327,7 +327,13 @@ function updateTimeProgressBar(audio) {
 function updateVolumeProgressBar(audio) {
 	var volume = audio.volume * 100;
 	$('#volume_bar').css('width', volume + "%");
+	// initial attempt at having a change in volume automatically remove mute
+	if(audioElement.audio.muted) {
+		// audioElement.audio.muted = !audioElement.audio.muted;
+		console.log('click');
+	}
 }
+
 
 // ====================================== //
 //				EASTER EGGS				  //

@@ -63,6 +63,10 @@ class Song {
 		return new Album($this->con, $this->album_id);
 	}
 
+	public function getAlbumId() {
+		return $this->album_id;
+	}
+
 	public function getAlbumName() {
 		$query = mysqli_query($this->con, "
 			 SELECT a.title_name
