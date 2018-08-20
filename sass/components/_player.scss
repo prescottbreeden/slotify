@@ -146,7 +146,6 @@
 		width: 100%;
 		background-color: $color-grey;
 		border-radius: 200px;
-		// position: relative;
 		display: flex;
 		align-items: center;
 		backface-visibility: none;
@@ -159,7 +158,6 @@
 		border-radius: 200px;
 		position: relative;
 		backface-visibility: none;
-		// put dot inside this on hover
 
 		&--dot {
 			position: absolute;
@@ -167,14 +165,13 @@
 			bottom: 0;
 			right: 0;
 			margin: auto 0;
-			transition: all .2s;
 			opacity: 0;
 			height: .9rem;
 			width: .9rem;
 			border-radius: 50%;
 			background-color: $color-white;
-			// transform: translateX(-50%);
 		}
+
 	}
 
 	&__progress:hover,
@@ -182,6 +179,10 @@
 	&__bg:hover &__progress--dot {
 		opacity: 1;
 	}
+}
+
+.u-nudge-right {
+	margin-right: -1rem;
 }
 
 .controls {

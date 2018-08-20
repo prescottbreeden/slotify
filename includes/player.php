@@ -353,7 +353,7 @@ function shuffle_list(a) {
 						<div class="progress-bar">
 							<div class="progress-bar__bg">
 								<div id="song_progress" class="progress-bar__progress">
-									<div class="progress-bar__progress--dot"></div>
+									<div class="progress-bar__progress--dot u-nudge-right"></div>
 								</div>
 							</div>
 						</div>

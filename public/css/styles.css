@@ -449,7 +449,6 @@ html {
       bottom: 0;
       right: 0;
       margin: auto 0;
-      transition: all .2s;
       opacity: 0;
       height: .9rem;
       width: .9rem;
@@ -458,6 +457,9 @@ html {
   .progress-bar__progress:hover, .progress-bar__progress--dot:hover,
   .progress-bar__bg:hover .progress-bar__progress--dot {
     opacity: 1; }
+
+.u-nudge-right {
+  margin-right: -1rem; }
 
 .controls {
   width: 100%;

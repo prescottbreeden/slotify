@@ -1,15 +1,18 @@
+// global audio variables
 let currentPlaylist = [];
 let shufflePlaylist = [];
 let tempPlaylist = [];
 let audioElement;
-let mouseDown = false;
 let repeat = false;
 let shuffle = false;
-let userLoggedIn;
-let temp_songId;
+// global UI variables
+let mouseDown = false;
 let menu_open = false;
 let warning_msg = false;
 let edit_pw = false;
+let temp_songId;
+// global user variables
+let userLoggedIn;
 
 
 // ====================================== //
