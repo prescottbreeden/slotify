@@ -67,7 +67,7 @@ else {
 						<input 
 							id="loginUsername" 
 							name="loginUsername" 
-							placeholder="Your username"
+							placeholder="Enter your username"
 							required
 							value="<?php getInputValue('loginUsername') ?>"
 							type="text">
@@ -77,7 +77,7 @@ else {
 						<input 
 							id="loginPassword" 
 							name="loginPassword" 
-							placeholder="Your password"
+							placeholder="Enter your password"
 							required
 							type="password">
 						<?php echo $account->getError(Constants::$error_login_failed); ?>
@@ -150,7 +150,7 @@ else {
 						<input 
 							id="email2" 
 							name="email2" 
-							placeholder="Your Email"
+							placeholder="Re-enter your email"
 							value="<?php getInputValue('email2') ?>"
 							required
 							type="email">
@@ -173,7 +173,7 @@ else {
 							id="password2" 
 							name="password2" 
 							required
-							placeholder="Your password"
+							placeholder="Re-enter your password"
 							type="password">
 						<?php echo $account->getError(Constants::$error_pw_len); ?>
 						<?php echo $account->getError(Constants::$error_pw_match); ?>
