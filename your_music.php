@@ -117,9 +117,18 @@ $albumQuery = mysqli_query($con, "
 					<div class='tracks__list--item'>
 						<div class='tracks__list--number-header'>#</div>
 						<div class='tracks__list--name-header'>Title</div>
+						<div class='tracks__list--artist-header'>artist</div>
 						<div class='tracks__list--artist-header'>album</div>
 						<div class='tracks__list--more'></div>
-						<div class='tracks__list--duration-header'>play count</div>
+						<div class='tracks__list--duration'>
+							<svg 
+								class='tracks__list--duration-header'
+								aria-label='[title]'
+								<title>Duration</title>
+								<use href='public/images/icomoon/sprite.svg#icon-clock'></use>
+							</svg>
+
+						</div>
 
 					</div>
 				";
@@ -131,10 +140,8 @@ $albumQuery = mysqli_query($con, "
 					break;
 				}
 				array_push($song_array, $row['song_id']);
-				$artistSong = new Song($con, $row['song_id']);
-				$albumArtist = $artistSong->getArtist();
-				$playcount = $artistSong->getPlayCount();
-				$formattedPlayCount = number_format($playcount);
+				$song = new Song($con, $row['song_id']);
+				$songArtist = $song->getArtist();
 
 				echo "
 					<div class='tracks__list--item'>
@@ -145,16 +152,24 @@ $albumQuery = mysqli_query($con, "
 
 						<svg 
 							aria-label='[title]'
-							onclick='setTrack(\"" . $artistSong->getId() . "\", tempPlaylist, true)'
+							onclick='setTrack(\"" . $song->getId() . "\", tempPlaylist, true)'
 							class='tracks__list--number-play'>
 							<title>Play</title>
 							<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
 						</svg>
 						</div>
-						<div class='tracks__list--name'>" . $artistSong->getTitle() . "</div>
-						<div class='tracks__list--artist'>" . $artistSong->getAlbumName() . "</div>
+						<div class='tracks__list--name'>" . $song->getTitle() . "</div>
+						<div 
+							onclick='openPage(\"artist.php?id=" . $song->getArtistId() . "\")'
+							class='tracks__list--artist'>" . $songArtist->getName() . "
+						</div>
+						<div 
+							onclick='openPage(\"album.php?id=" . $song->getAlbumId() . "\")'
+							class='tracks__list--artist'>" . $song->getAlbumName() . "</div>
 						<div class='tracks__list--more'>
-							<input type='hidden' class='songId' value='" . $artistSong->getId() . "'>
+							<input type='hidden' class='songId' value='" . $song->getId() . "'>
+							<input type='hidden' class='albumId' value='" . $song->getAlbumId() . "'>
+							<input type='hidden' class='artistId' value='" . $song->getArtistId() . "'>
 							<svg 
 								class='options__button'
 								onclick='showOptionsMenu(this)' 
@@ -163,7 +178,7 @@ $albumQuery = mysqli_query($con, "
 								<use href='public/images/icomoon/sprite.svg#icon-more-horizontal'></use>
 							</svg>
 						</div>
-						<div class='tracks__list--duration'>" . $formattedPlayCount . "</div>
+						<div class='tracks__list--duration'>" . $song->getDuration() . "</div>
 					</div>
 
 					";
@@ -209,4 +224,92 @@ $albumQuery = mysqli_query($con, "
 	</div>
 </section>
 
-</section>
+<!-- dropdown menus --> 
+<div class="playlists-menu">
+	<div 
+	onclick="createPlaylist()"
+		class="menu-item">
+		New Playlist
+	</div>
+	<div class="options-menu__divider"></div>
+	<!-- placeholder for playlists -->
+	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn); ?>
+</div>
+<div class="share-menu">
+	<div 
+		onclick="returnFacebookLink()"
+		class="share-menu__item">
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+		</svg>
+		Facebook
+	</div>
+	<div 
+		onclick="returnTwitterLink()"
+		class="share-menu__item">
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+		</svg>
+		Twitter
+	</div>
+	<div class="options-menu__divider"></div>
+	<div 
+		onclick="returnWebsiteLink()"
+		class="share-menu__item">
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+		</svg>
+		Copy Song Link
+	</div>
+</div>
+<div class="options-menu">
+	<div 
+		onclick="addToQueue()"
+		class="menu-item">
+		Add to Queue
+	</div>
+	<div class="options-menu__divider"></div>
+	<div 
+		onclick="goToArtist()"	
+		class="menu-item">
+		Go to Artist
+	</div>
+	<div 
+		onclick="goToAlbum()"	
+		class="menu-item">
+		Go to Album
+	</div>
+	<div class="options-menu__divider"></div>
+	<div 
+		onClick="saveToLibrary()"
+		class="menu-item">
+		Remove from Your Music
+	</div>
+	<div 
+		id="open_playlists_menu" 
+		class="menu-item">
+		Add to playlist
+		<svg 
+			aria-label="[title]"
+			<title>Add to playlist</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
+		</svg>
+	</div>
+	<div class="options-menu__divider"></div>
+	<div 
+		id="open_share_menu"
+		class="menu-item">
+		Share
+		<svg 
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
+		</svg>
+	</div>
+</div>

@@ -111,30 +111,32 @@ if(mysqli_num_rows($query) > 0) {
 			$song_array = $album->getSongIds();
 			$i = 1;
 			foreach($song_array as $song) {
-				$albumSong = new Song($con, $song);
-				$songArtist = $albumSong->getArtist();
+				$song = new Song($con, $song);
+				$songArtist = $song->getArtist();
 
 				echo "
 					<div class='tracks__list--item'>
 						<div class='tracks__list--number'>
-						<span>	
-							$i
-						</span>
-
-						<svg 
-							aria-label='[title]'
-							onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'
-							class='tracks__list--number-play'>
-							<title>Play</title>
-							<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
-						</svg>
+							<span>	
+								$i
+							</span>
+							<svg 
+								aria-label='[title]'
+								onclick='setTrack(\"" . $song->getId() . "\", tempPlaylist, true)'
+								class='tracks__list--number-play'>
+								<title>Play</title>
+								<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
+							</svg>
 						</div>
-						<div class='tracks__list--name'>" . $albumSong->getTitle() . "</div>
+						<div class='tracks__list--name'>" . $song->getTitle() . "</div>
 						<div 
-							onclick='openPage(\"artist.php?id=" . $albumSong->getArtistId() . "\")'
-							class='tracks__list--artist'>" . $songArtist->getName() . "</div>
-	 					<div class='tracks__list--more'>
-							<input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
+							onclick='openPage(\"artist.php?id=" . $song->getArtistId() . "\")'
+							class='tracks__list--artist'>" . $songArtist->getName() . "
+						</div>
+						<div class='tracks__list--more'>
+							<input type='hidden' class='songId' value='" . $song->getId() . "'>
+							<input type='hidden' class='albumId' value='" . $song->getAlbumId() . "'>
+							<input type='hidden' class='artistId' value='" . $song->getArtistId() . "'>
 							<svg 
 								class='options__button'
 								onclick='showOptionsMenu(this)' 
@@ -143,7 +145,7 @@ if(mysqli_num_rows($query) > 0) {
 								<use href='public/images/icomoon/sprite.svg#icon-more-horizontal'></use>
 							</svg>
 						</div>
-						<div class='tracks__list--duration'>" . $albumSong->getDuration() . "</div>
+						<div class='tracks__list--duration'>" . $song->getDuration() . "</div>
 					</div>
 
 					";

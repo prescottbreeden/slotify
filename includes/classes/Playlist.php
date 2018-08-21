@@ -70,7 +70,7 @@ class Playlist {
 	
 	public function getSongIds() {
 		$query = mysqli_query($this->con, "
-			 SELECT song_id 
+			 SELECT song_id
 			   FROM pl_songs 
 					WHERE playlist_id='$this->id' 
 					ORDER BY playlist_order ASC");
@@ -78,6 +78,20 @@ class Playlist {
 		$array = array();
 		while($row = mysqli_fetch_array($query)) {
 			array_push($array, $row['song_id']);
+		}
+		return $array;
+	}
+
+	public function getPlaylistOrder() {
+		$query = mysqli_query($this->con, "
+			 SELECT playlist_order
+			   FROM pl_songs 
+					WHERE playlist_id='$this->id' 
+					ORDER BY playlist_order ASC");
+
+		$array = array();
+		while($row = mysqli_fetch_array($query)) {
+			array_push($array, $row['playlist_order']);
 		}
 		return $array;
 	}

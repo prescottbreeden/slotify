@@ -108,10 +108,11 @@ $owner = new User($con, $playlist->getOwnerName());
 
 			<?php 
 			$pl_songs = $playlist->getSongIds();
+			$playlist_order = $playlist->getPlaylistOrder();
 			$i = 1;
 			foreach($pl_songs as $song) {
-				$playlistSong = new Song($con, $song);
-				$songArtist = $playlistSong->getArtist();
+				$song = new Song($con, $song);
+				$songArtist = $song->getArtist();
 
 				echo "
 					<div class='tracks__list--item'>
@@ -119,26 +120,27 @@ $owner = new User($con, $playlist->getOwnerName());
 						<span>	
 							$i
 						</span>
-
 						<svg 
 							aria-label='[title]'
-							onclick='setTrack(\"" . $playlistSong->getId() . "\", tempPlaylist, true)'
+							onclick='setTrack(\"" . $song->getId() . "\", tempPlaylist, true)'
 							class='tracks__list--number-play'>
 							<title>Play</title>
 							<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
 						</svg>
 						</div>
-						<div class='tracks__list--name'>" . $playlistSong->getTitle() . "</div>
+						<div class='tracks__list--name'>" . $song->getTitle() . "</div>
 						<div 
-							onclick='openPage(\"artist.php?id=" . $playlistSong->getArtistId() . "\")'
+							onclick='openPage(\"artist.php?id=" . $song->getArtistId() . "\")'
 							class='tracks__list--artist'>" . $songArtist->getName() . "
 						</div>
 						<div 
-							onclick='openPage(\"album.php?id=" . $playlistSong->getAlbumId() . "\")'
-							class='tracks__list--album'>" . $playlistSong->getAlbumName() . "
-						</div>
-	 					<div class='tracks__list--more'>
-							<input type='hidden' class='songId' value='" . $playlistSong->getId() . "'>
+							onclick='openPage(\"album.php?id=" . $song->getAlbumId() . "\")'
+							class='tracks__list--artist'>" . $song->getAlbumName() . "</div>
+						<div class='tracks__list--more'>
+							<input type='hidden' class='songId' value='" . $song->getId() . "'>
+							<input type='hidden' class='albumId' value='" . $song->getAlbumId() . "'>
+							<input type='hidden' class='artistId' value='" . $song->getArtistId() . "'>
+							<input type='hidden' class='playlistOrder' value='" . $playlist_order[$i-1] . "'>
 							<svg 
 								class='options__button'
 								onclick='showOptionsMenu(this)' 
@@ -147,7 +149,7 @@ $owner = new User($con, $playlist->getOwnerName());
 								<use href='public/images/icomoon/sprite.svg#icon-more-horizontal'></use>
 							</svg>
 						</div>
-						<div class='tracks__list--duration'>" . $playlistSong->getDuration() . "</div>
+						<div class='tracks__list--duration'>" . $song->getDuration() . "</div>
 					</div>
 
 					";

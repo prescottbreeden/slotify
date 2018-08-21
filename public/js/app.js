@@ -11,6 +11,9 @@ let menu_open = false;
 let warning_msg = false;
 let edit_pw = false;
 let temp_songId;
+let temp_albumId;
+let temp_artistId;
+let temp_playlistOrder;
 // global user variables
 let userLoggedIn;
 
@@ -168,7 +171,13 @@ function showOptionsMenu(button) {
 	dropDownMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
 	optionsMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
 	let songId = $(button).prevAll(".songId").val();
+	let albumId = $(button).prevAll(".albumId").val();
+	let artistId = $(button).prevAll(".albumId").val();
+	let playlistOrder = $(button).prevAll(".playlistOrder").val();
 	temp_songId = songId;	
+	temp_albumId = albumId;
+	temp_artistId = artistId;
+	temp_playlistOrder = playlistOrder;
 	menu_open = true;
 }
 
@@ -190,6 +199,14 @@ function showShareMenu(ele) {
 	let top = elementOffset - scrollTop;
 	let left = $(ele).offset().left;
 	shareMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
+}
+
+function goToArtist() {
+	openPage('artist.php?id=' + temp_artistId);
+}
+
+function goToAlbum() {
+	openPage('album.php?id=' + temp_albumId);
 }
 
 // ====================================== //
@@ -270,7 +287,7 @@ function addSongToPlaylist(playlistId, songId) {
 }
 
 function removeFromPlaylist(playlistId) {
-	$.post("includes/handlers/ajax/removeFromPlaylist.php", { playlist_id: playlistId, song_id: temp_songId })
+	$.post("includes/handlers/ajax/removeFromPlaylist.php", { playlist_id: playlistId, song_id: temp_songId, pl_order: temp_playlistOrder })
 		.done(function() {
 			// do something when ajax returns
 			hideOptionsMenu();

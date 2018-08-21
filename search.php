@@ -16,6 +16,34 @@ else {
 	$term = '';
 }
 
+$songsQuery = mysqli_query($con, "
+ 	 SELECT song_id 
+	   FROM songs 
+			WHERE title_name LIKE '%$term%' 
+			ORDER BY play_count DESC
+			LIMIT 10 
+");
+
+$artistsQuery = mysqli_query($con, "
+	 SELECT artist_id 
+	   FROM artists
+			WHERE name LIKE '%$term%'
+			LIMIT 10
+");
+
+$albumQuery = mysqli_query($con, "
+	 SELECT album.album_id,
+			album.title_name, 
+			album.artwork_path,
+			artist.name,
+			g.name AS genre
+	   FROM albums as album 
+			JOIN artists as artist
+				ON album.artist_id = artist.artist_id		
+			JOIN genres as g
+				ON album.genre_id = g.genre_id
+			WHERE album.title_name LIKE '%$term%'"
+);
 
 ?>
 <section class="search-page">
@@ -24,23 +52,12 @@ else {
 			readonly
 			class="searchInput">
 	</div>
-
 	<div class="search-page__searching"></div>
 	<div class="search-page__results">
 		<div class='tracks'>
 			<h2 class="u-secondary-heading">Popular Songs</h2>
 			<div class='tracks__list'>
-
 				<?php 
-				$songsQuery = mysqli_query($con, "
-					SELECT song_id 
-					FROM songs 
-							WHERE title_name 
-							LIKE '%$term%' 
-							ORDER BY play_count DESC
-							LIMIT 10 
-				");
-
 				if(mysqli_num_rows($songsQuery) === 0) {
 					echo "<span class='noResults'>No songs found matching " . $term . "</span>";
 				}
@@ -49,14 +66,14 @@ else {
 						<div class='tracks__list--item'>
 							<div class='tracks__list--number-header'>#</div>
 							<div class='tracks__list--name-header'>Title</div>
+							<div class='tracks__list--artist-header'>artist</div>
 							<div class='tracks__list--artist-header'>album</div>
 							<div class='tracks__list--more'></div>
-							<div class='tracks__list--duration-header'>play count</div>
+							<div class='tracks__list--duration'></div>
 
 						</div>
 					";
 				}
-
 				$song_array = array();
 				$i = 1;
 				while($row = mysqli_fetch_array($songsQuery)) {
@@ -65,30 +82,38 @@ else {
 					}
 					array_push($song_array, $row['song_id']);
 
-					$artistSong = new Song($con, $row['song_id']);
-					$albumArtist = $artistSong->getArtist();
-					$playcount = $artistSong->getPlayCount();
+					$song = new Song($con, $row['song_id']);
+					$songArtist = $song->getArtist();
+					$playcount = $song->getPlayCount();
 					$formattedPlayCount = number_format($playcount);
 
 					echo "
 						<div class='tracks__list--item'>
 							<div class='tracks__list--number'>
-							<span>	
-								$i
-							</span>
-
-							<svg 
-								aria-label='[title]'
-								onclick='setTrack(\"" . $artistSong->getId() . "\", tempPlaylist, true)'
-								class='tracks__list--number-play'>
-								<title>Play</title>
-								<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
-							</svg>
+								<span>	
+									$i
+								</span>
+								<svg 
+									aria-label='[title]'
+									onclick='setTrack(\"" . $song->getId() . "\", tempPlaylist, true)'
+									class='tracks__list--number-play'>
+									<title>Play</title>
+									<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
+								</svg>
 							</div>
-							<div class='tracks__list--name'>" . $artistSong->getTitle() . "</div>
-							<div class='tracks__list--artist'>" . $artistSong->getAlbumName() . "</div>
+							<div class='tracks__list--name'>" . $song->getTitle() . "</div>
+							<div 
+								onclick='openPage(\"artist.php?id=" . $song->getArtistId() . "\")'
+								class='tracks__list--artist'>" . $songArtist->getName() . "
+							</div>
+							<div 
+								onclick='openPage(\"album.php?id=" . $song->getAlbumId() . "\")'
+								class='tracks__list--artist'>" . $song->getAlbumName() . "
+							</div>
 							<div class='tracks__list--more'>
-								<input type='hidden' class='songId' value='" . $artistSong->getId() . "'>
+								<input type='hidden' class='songId' value='" . $song->getId() . "'>
+								<input type='hidden' class='albumId' value='" . $song->getAlbumId() . "'>
+								<input type='hidden' class='artistId' value='" . $song->getArtistId() . "'>
 								<svg 
 									class='options__button'
 									onclick='showOptionsMenu(this)' 
@@ -104,9 +129,7 @@ else {
 
 					$i = $i+1;
 				}
-
 				?>
-
 				<script>
 					var tempSongIds = '<?php echo json_encode($song_array); ?>';
 					tempPlaylist = JSON.parse(tempSongIds);
@@ -116,95 +139,66 @@ else {
 						setTrack(firstSong, tempPlaylist, true);
 					}
 				</script>
-
 			</ul>
 		</div>
 
 		<div class="artistsContainer">
 			<h2>Artists</h2>
-			
-		<?php
-		$artistsQuery = mysqli_query($con, "
-			SELECT artist_id 
-			FROM artists
-					WHERE name
-					LIKE '%$term%'
-					LIMIT 10
-		");
+			<?php
+			if(mysqli_num_rows($artistsQuery) === 0) {
+				echo "<span class='noResults'>No artists found matching " . $term . "</span>";
+			}
+			while($row = mysqli_fetch_array($artistsQuery)) {
+				$artistFound = new Artist($con, $row['artist_id']);
 
-		if(mysqli_num_rows($artistsQuery) === 0) {
-			echo "<span class='noResults'>No artists found matching " . $term . "</span>";
-		}
-
-		while($row = mysqli_fetch_array($artistsQuery)) {
-			$artistFound = new Artist($con, $row['artist_id']);
-
-			echo "<div class='searchResultRow'>
-					<svg class='artistName__icon'>
-						<use href='public/images/icomoon/sprite.svg#icon-videogame_asset'</use>
-					</svg>	
-					<div class='artistName'>
-						<span role='link' tabindex='0' onclick='openPage(\"artist.php?id=" . $artistFound->getId() . "\")'>
-							" . $artistFound->getName()  . "	
-						</span>
-					</div>
-				
-				
-				</div>";
-		}
-
-		?>
-
+				echo "<div class='searchResultRow'>
+						<svg class='artistName__icon'>
+							<use href='public/images/icomoon/sprite.svg#icon-videogame_asset'</use>
+						</svg>	
+						<div class='artistName'>
+							<span role='link' tabindex='0' onclick='openPage(\"artist.php?id=" . $artistFound->getId() . "\")'>
+								" . $artistFound->getName()  . "	
+							</span>
+						</div>
+					
+					
+					</div>";
+			}
+			?>
 		</div>
 		<h2>Albums</h2>
 		<div class='album-select__container'>
+			<?php
+			if(mysqli_num_rows($albumQuery) === 0) {
+				echo "<span class='noResults'>No albums found matching " . $term . "</span>";
+			}
 
-		<?php
-		$albumQuery = mysqli_query($con, "
-			SELECT album.album_id,
-					album.title_name, 
-					album.artwork_path,
-					artist.name,
-					g.name AS genre
-			   FROM albums as album 
-					JOIN artists as artist
-						ON album.artist_id = artist.artist_id		
-					JOIN genres as g
-						ON album.genre_id = g.genre_id
-					WHERE album.title_name
-					LIKE '%$term%'"
-		);
+			while($row = mysqli_fetch_array($albumQuery)) {
 
-		if(mysqli_num_rows($albumQuery) === 0) {
-			echo "<span class='noResults'>No albums found matching " . $term . "</span>";
-		}
-
-		while($row = mysqli_fetch_array($albumQuery)) {
-
-			echo	"
-					<div class='album-select__container--item'>
-						<span 
-							role='link'
-							tabindex='0'
-							onclick='openPage(\"album.php?id=" . $row['album_id'] . "\")'>
-							<img src='" . $row['artwork_path'] . "'>	
-							<div class='album-select__container--item-details'>
-								<div class='album-select__container--item-title'>	
-									" . $row['title_name'] . "
+				echo	"
+						<div class='album-select__container--item'>
+							<span 
+								role='link'
+								tabindex='0'
+								onclick='openPage(\"album.php?id=" . $row['album_id'] . "\")'>
+								<img src='" . $row['artwork_path'] . "'>	
+								<div class='album-select__container--item-details'>
+									<div class='album-select__container--item-title'>	
+										" . $row['title_name'] . "
+									</div>
+									<div class='album-select__container--item-artist'>	
+										" . $row['name'] . "
+									</div>
 								</div>
-								<div class='album-select__container--item-artist'>	
-									" . $row['name'] . "
-								</div>
-							</div>
-						</span>
-					</div>";
-		}
-
-		?>
+							</span>
+						</div>";
+			}
+			?>
 		</div>
 	</div>
 </section>
 
+<!-- dropdown menus --> 
 <div class="playlists-menu">
 	<div class="menu-item">
 		New Playlist
@@ -238,24 +232,20 @@ else {
 		</svg>
 		Copy Song Link
 	</div>
-	<div class="share-menu__item">
-		<div class="share-menu__item--empty"></div>
-		Copy Embed Code
-	</div>
-	<div class="share-menu__item">
-		<div class="share-menu__item--empty"></div>
-		Copy Slotify URI
-	</div>
 </div>
 <div class="options-menu">
 	<div class="menu-item">
 		Add to Queue
 	</div>
 	<div class="options-menu__divider"></div>
-	<div class="menu-item">
+	<div 
+		onclick="goToArtist()"
+		class="menu-item">
 		Go to Artist
 	</div>
-	<div class="menu-item">
+	<div 
+		onclick="goToAlbum()"
+		class="menu-item">
 		Go to Album
 	</div>
 	<div class="options-menu__divider"></div>
@@ -271,9 +261,6 @@ else {
 			<title>Add to playlist</title>
 			<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
 		</svg>
-	</div>
-	<div class="menu-item">
-		Remove from this Playlist
 	</div>
 	<div class="options-menu__divider"></div>
 	<div 
