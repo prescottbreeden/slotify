@@ -18,7 +18,7 @@ $jsonArray = json_encode($resultArray);
 $(document).ready(function() {
 	newPlaylist = <?php echo $jsonArray; ?>;
 	audioElement = new Audio();
-	var spacebar = false;
+	var playing = false;
 	currentIndex = 0;
 	setTrack(newPlaylist[currentIndex], newPlaylist, false);
 	updateVolumeProgressBar(audioElement.audio);
@@ -30,12 +30,16 @@ $(document).ready(function() {
 	// space-bar pause/play
 	$(document).keydown(function(e) {
 		if(e.which === 32 && e.target == document.body) {
-			spacebar = !spacebar;
-			if(spacebar) {
+			playing = !playing;
+			if(playing) {
 				audioElement.audio.pause();
+				$(".play").show();
+				$(".pause").hide();
 			}
 			else {
 				audioElement.audio.play();
+				$(".play").hide();
+				$(".pause").show();
 			}
 			return false;
 		}
@@ -186,15 +190,15 @@ function playSong() {
 	if(audioElement.audio.currentTime === 0) {
 		$.post('includes/handlers/ajax/updatePlays.php', {songId: audioElement.currentlyPlaying.song_id });
 	}
+	audioElement.play();
 	$(".play").hide();
 	$(".pause").show();
-	audioElement.play();
 }
 
 function pauseSong() {
+	audioElement.pause();
 	$(".play").show();
 	$(".pause").hide();
-	audioElement.pause();
 }
 
 function nextSong() {
