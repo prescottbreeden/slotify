@@ -11,7 +11,7 @@ if(isset($_POST['song']) && isset($_POST['username'])) {
 					(song_id, user_id) 
 			VALUES	('$song_id', '$user_id')");
 
-	echo "Song successfully saved to your music";
+	echo "Song saved to your music";
 }
 else {
 	echo "something broke in ajax handler";

@@ -12,7 +12,17 @@ if(isset($_POST['playlist_id']) && isset($_POST['song_id']) && isset($_POST['pl_
 				WHERE playlist_id='$playlist_id'
 				AND song_id='$song_id'	
 				AND playlist_order='$pl_order'
-		");
+	");
+
+	$name_query = mysqli_query($con, "
+		 SELECT name
+		   FROM playlists
+				WHERE playlist_id='$playlist_id'
+	");
+	$row = mysqli_fetch_array($name_query);
+	$playlist_name = $row['name'];
+
+	echo "Song removed from playlist: '$playlist_name'";
 }
 else {
 	echo "playlistId or SongID was not passed into ajax";

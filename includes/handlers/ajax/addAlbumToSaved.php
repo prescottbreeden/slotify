@@ -10,6 +10,8 @@ if(isset($_POST['albumId']) && isset($_POST['username'])) {
 		"INSERT INTO saved_albums 
 					(album_id, user_id) 
 			VALUES	('$album_id', '$user_id')");
+
+	echo "Album saved to your music";
 }
 else {
 	echo "something broke in ajax handler";

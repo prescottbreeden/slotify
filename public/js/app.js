@@ -249,7 +249,6 @@ function addAlbumToSaved(albumId) {
 		});
 }
 
-
 // function addSongToSaved(songId=temp_songId) {
 // 	console.log('saving song ' + songId);
 // 	$.post("includes/handlers/ajax/saveSong.php", { song: songId, username: userLoggedIn })
@@ -318,7 +317,6 @@ function createPlaylist() {
 				openPage("your_music.php");
 				// do something when ajax returns
 			});
-
 	}
 }
 
@@ -343,20 +341,18 @@ function deleteCancel() {
 
 function addSongToPlaylist(playlistId, songId) {
 	$.post("includes/handlers/ajax/addToPlaylist.php", { playlist_id: playlistId, song_id: songId })
-		.done(function() {
-			// do something when ajax returns
+		.done(function(response) {
 			hideOptionsMenu();
-			notification('Song successfully added to playlist');
+			notification(response);
 		});
 }
 
 function removeFromPlaylist(playlistId) {
 	$.post("includes/handlers/ajax/removeFromPlaylist.php", { playlist_id: playlistId, song_id: temp_songId, pl_order: temp_playlistOrder })
-		.done(function() {
-			// do something when ajax returns
+		.done(function(response) {
 			hideOptionsMenu();
 			openPage('playlist.php?id=' + playlistId);
-			notification('Song successfully removed from playlist');
+			notification(response);
 		});
 }
 
