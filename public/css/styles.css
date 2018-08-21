@@ -38,7 +38,7 @@
 
 html {
   box-sizing: border-box;
-  background-color: #181818;
+  background-color: #1e1e1e;
   padding-bottom: 9rem; }
 
 .content-wrapper {
@@ -79,8 +79,8 @@ html {
 
 .album-select__container {
   padding: 1.5rem 2rem;
+  padding-bottom: 14rem;
   border-bottom: 1px solid rgba(85, 85, 85, 0.8);
-  background-color: transparent;
   cursor: default; }
   .album-select__container--item {
     display: inline-block;
