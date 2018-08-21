@@ -212,7 +212,11 @@ else {
 						<svg class="register__promo-text--icon">
 							<use xlink:href="public/images/icomoon/sprite.svg#icon-checkmark"></use>
 						</svg>
-						Always jump through doorways
+						<span 
+							onclick="changeBackground()"
+							class="easter-egg--text">
+							Always jump through doorways
+						</span>
 					</li>
 				</ul>
 			</div>
