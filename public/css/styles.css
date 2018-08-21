@@ -339,6 +339,11 @@ html {
   .menu-item:hover svg {
     fill: #f7f7f7; }
 
+.saved {
+  fill: #1db954 !important;
+  height: 1.5rem !important;
+  width: 1.5rem !important; }
+
 .fullscreen {
   position: absolute;
   right: 1.5rem;
@@ -399,7 +404,8 @@ html {
       .player__album__info--track {
         display: flex;
         align-items: center;
-        margin-bottom: .5rem; }
+        margin-bottom: .5rem;
+        height: 2rem; }
         .player__album__info--track-name {
           font-size: 1.2rem; }
           .player__album__info--track-name:hover {
@@ -411,7 +417,7 @@ html {
           width: 2rem;
           fill: #f7f7f7; }
           .player__album__info--track-icon:hover {
-            fill: #1db954; }
+            cursor: pointer; }
       .player__album__info--artist-name {
         display: inline-block;
         color: #a0a0a0; }

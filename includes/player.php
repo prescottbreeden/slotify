@@ -142,6 +142,7 @@ function setTrack(trackId, playlist, play) {
 		});	
 
 		audioElement.setTrack(track);
+		track_saved();
 
 		if(play) {
 			playSong();
@@ -289,10 +290,18 @@ function shuffle_list(a) {
 									class="player__album__info--track-name">
 								</span>
 								<svg 
+									onclick="saveCurrentlyPlaying()"
 									aria-label="[title]"
-									class="player__album__info--track-icon">
+									class="player__album__info--track-icon not-saved">
 									<title>Add to Your Music</title>
 									<use href="public/images/icomoon/sprite.svg#icon-plus"></use>
+								</svg>
+								<svg 
+									onclick="deleteCurrentlyPlaying()"
+									aria-label="[title]"
+									class="player__album__info--track-icon saved">
+									<title>Remove from Your Music</title>
+									<use href="public/images/icomoon/sprite.svg#icon-checkmark"></use>
 								</svg>
 							</span>
 							<span 

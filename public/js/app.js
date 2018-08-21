@@ -5,15 +5,15 @@ let tempPlaylist = [];
 let audioElement;
 let repeat = false;
 let shuffle = false;
+let temp_songId;
+let temp_albumId;
+let temp_artistId;
+let temp_playlistOrder;
 // global UI variables
 let mouseDown = false;
 let menu_open = false;
 let warning_msg = false;
 let edit_pw = false;
-let temp_songId;
-let temp_albumId;
-let temp_artistId;
-let temp_playlistOrder;
 // global user variables
 let userLoggedIn;
 
@@ -170,6 +170,8 @@ function showOptionsMenu(button) {
 	let left = $(button).position().left;
 	dropDownMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
 	optionsMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
+
+	// define song details for menu action
 	let songId = $(button).prevAll(".songId").val();
 	let albumId = $(button).prevAll(".albumId").val();
 	let artistId = $(button).prevAll(".albumId").val();
@@ -218,28 +220,64 @@ function addAlbumToSaved(albumId) {
 	$.post("includes/handlers/ajax/addAlbumToSaved.php", { albumId: albumId, username: userLoggedIn })
 		.done(function(response) {
 			notification(response)
-			// do something when ajax returns
 	});
 }
 
 
-function addSongToSaved(songId=temp_songId) {
-	console.log('saving song ' + songId);
-	// $.post("includes/handlers/ajax/saveSong.php", { song: songId, username: userLoggedIn })
-	// 	.done(function(error) {
-	// 		openPage("your_music.php");
-	// 		// do something when ajax returns
-	// });
+// function addSongToSaved(songId=temp_songId) {
+// 	console.log('saving song ' + songId);
+// 	$.post("includes/handlers/ajax/saveSong.php", { song: songId, username: userLoggedIn })
+// 		.done(function(error) {
+// 	});
+// }
+
+function saveCurrentlyPlaying() {
+	console.log(audioElement.currentlyPlaying.song_id);
+	let current_song_id = audioElement.currentlyPlaying.song_id;
+
+	$.post("includes/handlers/ajax/addSongToSaved.php", { song: current_song_id, username: userLoggedIn })
+		.done(function(response) {
+			notification(response);
+	});
+	track_saved();
+}
+
+function deleteCurrentlyPlaying() {
+	console.log(audioElement.currentlyPlaying.song_id);
+	let current_song_id = audioElement.currentlyPlaying.song_id;
+
+	$.post("includes/handlers/ajax/deleteSongFromSaved.php", { song: current_song_id, username: userLoggedIn })
+		.done(function(response) {
+			notification(response);
+	});
+	track_saved();
 }
 
 function removeAlbumFromSaved(albumId) {
-	console.log('removing song ' + albumId);
+	console.log('removing song ' + temp_albumId);
 }
 
 function removeSongFromSaved(songId=temp_songId) {
-	console.log('removing song ' + songId);
+	console.log('removing song ' + temp_songId);
+	track_saved();
 }
 
+function track_saved() {
+	let current_song_id = audioElement.currentlyPlaying.song_id;
+	console.log(current_song_id);
+	$.post("includes/handlers/ajax/checkSongSaved.php", { song: current_song_id, username: userLoggedIn })
+		.done(function(response) {
+			console.log(response);
+			if(response > 0) {
+				$('.saved').show();
+				$('.not-saved').hide();
+			} else {
+				$('.saved').hide();
+				$('.not-saved').show();
+			}
+	});
+
+}
 
 // ====================================== //
 //				Playlists				  //
