@@ -8,3 +8,11 @@
 	margin: .5rem 0;
 	border-bottom: 1px solid rgba($color-grey, .2);
 }
+
+.u-flex-me {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 2rem;
+	align-items: baseline;
+}
+

@@ -55,7 +55,7 @@ if(mysqli_num_rows($query) > 0) {
 		</div>
 		<div class='album__header--details'>
 			<div class='album__header--details-miniheader'>
-				<?php echo ($album_saved ? 'Album from library' : 'Album'); ?> 
+				<?php echo ($album_saved ? 'Album from your music' : 'Album'); ?> 
 			</div>
 			<div class='album__header--details-title'>
 				<?php echo $album_name; ?> 

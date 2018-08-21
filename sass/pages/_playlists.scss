@@ -1,4 +1,5 @@
 .playlists {
+	padding: 2rem;
 
 	&__container {
 		padding: 1rem 0;
@@ -15,10 +16,13 @@
 
 	&__btn {
 		@include btn;
-		@include green-play;
-		padding: 1rem;
+		// @include green-play;
+		// padding: 1rem;
+		// margin-left: auto;
 		width: 15rem;
-		margin: 2rem auto;
+		// margin-top: 2rem;
+		// margin-left: 6rem;
+		// margin: 2rem auto;
 	}
 
 	&__item {

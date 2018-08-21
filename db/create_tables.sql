@@ -93,6 +93,7 @@ CREATE TABLE IF NOT EXISTS pl_songs (
 CREATE TABLE IF NOT EXISTS saved_albums (
 	user_id			INTEGER			NOT NULL,
 	album_id		INTEGER			NOT NULL,
+	created_at		DATETIME		NOT NULL	DEFAULT NOW(),
 
 	FOREIGN KEY (user_id)
 		REFERENCES users(user_id),
@@ -104,6 +105,7 @@ CREATE TABLE IF NOT EXISTS saved_albums (
 CREATE TABLE IF NOT EXISTS saved_songs (
 	user_id			INTEGER			NOT NULL,
 	song_id			INTEGER			NOT NULL,
+	created_at		DATETIME		NOT NULL	DEFAULT NOW(),
 
 	FOREIGN KEY (user_id)
 		REFERENCES users(user_id),
