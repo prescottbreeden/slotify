@@ -154,9 +154,23 @@ function getID() {
 							onclick="openPage('profile.php')"
 							class="top-bar__user-info--username"><?php echo $_SESSION['userLoggedIn']?></p>
 					</div>
-					<svg class="top-bar__menu">
+					<svg 
+						onclick="showUserMenu()"
+						id="user-menu" class="top-bar__menu">
 						<use href="public/images/icomoon/sprite.svg#icon-chevron-down"></use>
 					</svg>
+					<div 
+						onclick="openPage('profile.php')"
+						class="usermenu">
+						<div class="usermenu-item">
+							View Profile
+						</div>
+						<div 
+							onclick="logout()"
+							class="usermenu-item">
+							Logout
+						</div>
+					</div>
 				</div>
 			</section>
 			<div class="dynamic-content">

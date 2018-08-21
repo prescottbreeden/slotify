@@ -37,6 +37,7 @@ function openPagePushState(url) {
 }
 
 function openPage(url) {
+	hideOptionsMenu();
 	openPagePushState(url);
 	history.pushState(null, null, url);
 }
@@ -167,6 +168,10 @@ function hideOptionsMenu() {
 	let optionsMenu = $('.options-menu');
 	let playlistMenu = $('.playlists-menu');
 	let shareMenu = $('.share-menu');
+	let userMenu = $('.usermenu');
+	if(userMenu.css('display') != "none") {
+		userMenu.css("display", "none");
+	}
 	if(dropDownMenu.css('display') != "none") {
 		dropDownMenu.css("display", "none");
 		optionsMenu.css("display", "none");
@@ -218,6 +223,10 @@ function showShareMenu(ele) {
 	let top = elementOffset - scrollTop;
 	let left = $(ele).offset().left;
 	shareMenu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline-block" });
+}
+
+function showUserMenu() {
+	$('.usermenu').show();
 }
 
 function goToArtist() {
@@ -489,7 +498,7 @@ $(document).ready(function() {
 				shake();
 			}
 		}
-	})
+	});
 
 	$(window).scroll(function() {
 		hideOptionsMenu();
