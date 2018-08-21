@@ -390,17 +390,6 @@ function shuffle_list(a) {
 							</div>
 						</div>
 					</div>
-					<div class="fullscreen">
-						<svg 
-							onclick="setMute()"
-							aria-label="[title]"
-							class="fullscreen__icon">
-							<title>Full screen</title>
-							<use 
-								id="fullscreen_icon"
-								href="public/images/icomoon/sprite.svg#icon-maximize-2"></use>
-						</svg>
-					</div>
 				</div>
 			</div>
 		</section>

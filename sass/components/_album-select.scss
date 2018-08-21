@@ -5,6 +5,7 @@
 		// padding-bottom: 14rem;
 		border-bottom: 1px solid rgba($color-grey-dark, .8);
 		background-color: transparent;
+		cursor: default;
 
 		&--item {
 			display: inline-block;
@@ -13,6 +14,7 @@
 			width: 28%;
 			max-width: 20rem;
 			min-width: 15rem;
+			backface-visibility: none;
 
 			a {
 				text-decoration: none;
@@ -20,11 +22,14 @@
 
 			img {
 				width: 100%;
+				transition: all .2s;
+				backface-visibility: none;
 
 				&:hover {
 					cursor: pointer;
+					transform: translateY(-.5rem);
+					box-shadow: 0 1rem 3rem black;
 				}
-
 			}
 
 			&-details {

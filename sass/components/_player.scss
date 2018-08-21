@@ -4,22 +4,6 @@
 	width: 1.5rem !important;
 }
 
-.fullscreen {
-	position: absolute;
-	right: 1.5rem;
-	top: 40%;
-	cursor: pointer;
-
-	&__icon {
-		height: 1.5rem;
-		width: 1.5rem;
-		fill: $color-grey;
-
-		&:hover {
-			fill: $color-white;
-		}
-	}
-}
 .button-active {
 	fill: $color-green !important;
 }
@@ -257,7 +241,6 @@
 .volume {
 	width: 20rem;
 	position: absolute;
-	right: 3rem;
 
 	&__bar {
 		display: flex;

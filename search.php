@@ -151,12 +151,14 @@ $albumQuery = mysqli_query($con, "
 			while($row = mysqli_fetch_array($artistsQuery)) {
 				$artistFound = new Artist($con, $row['artist_id']);
 
-				echo "<div class='searchResultRow'>
+				echo "<div 
+						onclick='openPage(\"artist.php?id=" . $artistFound->getId() . "\")'
+						class='searchResultRow'>
 						<svg class='artistName__icon'>
 							<use href='public/images/icomoon/sprite.svg#icon-videogame_asset'</use>
 						</svg>	
 						<div class='artistName'>
-							<span role='link' tabindex='0' onclick='openPage(\"artist.php?id=" . $artistFound->getId() . "\")'>
+							<span> 
 								" . $artistFound->getName()  . "	
 							</span>
 						</div>
@@ -178,8 +180,6 @@ $albumQuery = mysqli_query($con, "
 				echo	"
 						<div class='album-select__container--item'>
 							<span 
-								role='link'
-								tabindex='0'
 								onclick='openPage(\"album.php?id=" . $row['album_id'] . "\")'>
 								<img src='" . $row['artwork_path'] . "'>	
 								<div class='album-select__container--item-details'>

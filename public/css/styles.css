@@ -80,19 +80,25 @@ html {
 .album-select__container {
   padding: 1.5rem 2rem;
   border-bottom: 1px solid rgba(85, 85, 85, 0.8);
-  background-color: transparent; }
+  background-color: transparent;
+  cursor: default; }
   .album-select__container--item {
     display: inline-block;
     margin: 2rem;
     width: 28%;
     max-width: 20rem;
-    min-width: 15rem; }
+    min-width: 15rem;
+    backface-visibility: none; }
     .album-select__container--item a {
       text-decoration: none; }
     .album-select__container--item img {
-      width: 100%; }
+      width: 100%;
+      transition: all .2s;
+      backface-visibility: none; }
       .album-select__container--item img:hover {
-        cursor: pointer; }
+        cursor: pointer;
+        transform: translateY(-0.5rem);
+        box-shadow: 0 1rem 3rem black; }
     .album-select__container--item-details {
       max-width: 18rem;
       font-size: 1.4rem; }
@@ -344,18 +350,6 @@ html {
   height: 1.5rem !important;
   width: 1.5rem !important; }
 
-.fullscreen {
-  position: absolute;
-  right: 1.5rem;
-  top: 40%;
-  cursor: pointer; }
-  .fullscreen__icon {
-    height: 1.5rem;
-    width: 1.5rem;
-    fill: #a0a0a0; }
-    .fullscreen__icon:hover {
-      fill: #f7f7f7; }
-
 .button-active {
   fill: #1db954 !important; }
 
@@ -517,8 +511,7 @@ html {
 
 .volume {
   width: 20rem;
-  position: absolute;
-  right: 3rem; }
+  position: absolute; }
   .volume__bar {
     display: flex;
     align-items: center;
@@ -1382,7 +1375,7 @@ html {
   .searchResultRow:hover {
     background-color: rgba(160, 160, 160, 0.2);
     border-bottom: 1px solid transparent;
-    cursor: default; }
+    cursor: pointer; }
   .searchResultRow .artistImage {
     border-radius: 50%;
     height: 5rem;
