@@ -115,12 +115,16 @@ function getID() {
 			<section class="top-bar">
 				<div class="top-bar__nav-box">
 					<div class="top-bar__nav-btn">
-						<div class="top-bar__nav-btn--btn">
+						<div 
+							onclick="goBack()"
+							class="top-bar__nav-btn--btn">
 							<svg class="top-bar__icon">
 								<use href="public/images/icomoon/sprite.svg#icon-chevron-left"></use>
 							</svg>	
 						</div>
-						<div class="top-bar__nav-btn--btn">
+						<div 
+							onclick="goForward()"
+							class="top-bar__nav-btn--btn">
 							<svg class="top-bar__icon">
 								<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
 							</svg>	

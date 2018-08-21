@@ -22,14 +22,31 @@ let userLoggedIn;
 //			General Functions			  //
 // ====================================== //
 
-function openPage(url) {
+window.addEventListener("popstate", function() {
+	var url = location.href;
+	openPagePushState(url);
+});
+
+function openPagePushState(url) {
 	if(url.indexOf("?") === -1) {
 		url = url + "?";
 	}
 	var encodedURL = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
 	$('.dynamic-content').load(encodedURL);
 	$('body').scrollTop(0);
+}
+
+function openPage(url) {
+	openPagePushState(url);
 	history.pushState(null, null, url);
+}
+
+function goBack() {
+	window.history.back();
+}
+
+function goForward() {
+	window.history.forward();
 }
 
 function logout() {
@@ -95,7 +112,7 @@ function updateEmail() {
 
 function checkOldPassword() {
 	let oldPassword = $('.userdetails__input[name="oldPassword"]').val();
-	
+
 	$.post("includes/handlers/ajax/checkOldPassword.php", 
 		{ oldPassword: oldPassword, username: userLoggedIn }) 
 		.done(function(response) {
@@ -220,7 +237,7 @@ function addAlbumToSaved(albumId) {
 	$.post("includes/handlers/ajax/addAlbumToSaved.php", { albumId: albumId, username: userLoggedIn })
 		.done(function(response) {
 			notification(response)
-	});
+		});
 }
 
 
@@ -238,7 +255,7 @@ function saveCurrentlyPlaying() {
 	$.post("includes/handlers/ajax/addSongToSaved.php", { song: current_song_id, username: userLoggedIn })
 		.done(function(response) {
 			notification(response);
-	});
+		});
 	track_saved();
 }
 
@@ -249,7 +266,7 @@ function deleteCurrentlyPlaying() {
 	$.post("includes/handlers/ajax/deleteSongFromSaved.php", { song: current_song_id, username: userLoggedIn })
 		.done(function(response) {
 			notification(response);
-	});
+		});
 	track_saved();
 }
 
@@ -275,7 +292,7 @@ function track_saved() {
 				$('.saved').hide();
 				$('.not-saved').show();
 			}
-	});
+		});
 
 }
 
@@ -285,13 +302,13 @@ function track_saved() {
 
 function createPlaylist() {
 	var popup = prompt("Please enter the name of your playlist");
-	
+
 	if(popup != null) {
 		$.post("includes/handlers/ajax/createPlaylist.php", { pl_name: popup, username: userLoggedIn })
 			.done(function(error) {
 				openPage("your_music.php");
 				// do something when ajax returns
-		});
+			});
 
 	}
 }
@@ -301,7 +318,7 @@ function deletePlaylist(pl_id) {
 	$.post("includes/handlers/ajax/deletePlaylist.php", { playlistId: pl_id })
 		.done(function(error) {
 			openPage("your_music.php");
-	});
+		});
 }
 
 function deleteWarning() {
@@ -321,7 +338,7 @@ function addSongToPlaylist(playlistId, songId) {
 			// do something when ajax returns
 			hideOptionsMenu();
 			notification('Song successfully added to playlist');
-	});
+		});
 }
 
 function removeFromPlaylist(playlistId) {
@@ -331,7 +348,7 @@ function removeFromPlaylist(playlistId) {
 			hideOptionsMenu();
 			openPage('playlist.php?id=' + playlistId);
 			notification('Song successfully removed from playlist');
-	});
+		});
 }
 
 function sharePlaylist(playlistId) {
@@ -344,7 +361,7 @@ function sharePlaylist(playlistId) {
 // ====================================== //
 
 function Audio() {
-	
+
 	this.currentlyPlaying;
 	this.audio = document.createElement('audio');
 
@@ -420,6 +437,14 @@ function updateVolumeProgressBar(audio) {
 		console.log('click');
 	}
 }
+
+//function toggleCurrentlyPlayingStyle() {
+//	let currSong = audioElement.currentlyPlaying.song_id;
+//	let balls = $('.tracks__list--more[value=' + currSong + ']');
+//	console.log(balls);
+//	$('.tracks__list--more[value=' + currSong + ']').parent().addClass('currently-playing');
+//	//$('.tracks__list--more[value=' + currSong + ']').hide();
+//}
 
 
 // ====================================== //

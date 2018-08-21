@@ -143,6 +143,7 @@ function setTrack(trackId, playlist, play) {
 
 		audioElement.setTrack(track);
 		track_saved();
+		// toggleCurrentlyPlayingStyle();
 
 		if(play) {
 			playSong();

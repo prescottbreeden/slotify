@@ -511,7 +511,8 @@ html {
 
 .volume {
   width: 20rem;
-  position: absolute; }
+  position: absolute;
+  right: 0; }
   .volume__bar {
     display: flex;
     align-items: center;
@@ -543,6 +544,8 @@ html {
     fill: #a0a0a0;
     cursor: pointer;
     margin-right: 1rem; }
+    .top-bar__icon:hover {
+      fill: #f7f7f7; }
   .top-bar__nav-box {
     display: flex;
     align-items: center; }
@@ -616,6 +619,9 @@ html {
     height: 1.5rem;
     width: 1.5rem;
     fill: #555; }
+
+.currently-playing {
+  color: #1db954 !important; }
 
 .tracks {
   margin-top: 2rem; }
