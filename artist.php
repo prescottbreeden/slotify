@@ -27,9 +27,19 @@ $artist = new Artist($con, $artistId);
 
 ?>
 <section class="artist">
-	<div class="artist__center-section">
-		<div class="artist__info">
-			<h1 class="artist__info--name"><?php echo $artist->getName(); ?></h1>
+	<div class='album__header'>
+		<div class='album__header--artwork'>
+			<div class="profile__image">
+				<img src="public/images/profile-pics/head_emerald.png" alt="profile image">
+			</div>
+		</div>
+		<div class='album__header--details'>
+			<div class='album__header--details-miniheader'>
+				Artist
+			</div>
+			<div class="profile__fullname">
+				<?php echo $artist->getName(); ?>
+			</div>
 			<div class="artist__header-btn">
 				<div 
 					onclick="playAlbum()" 
@@ -40,6 +50,7 @@ $artist = new Artist($con, $artistId);
 			</div>
 		</div>
 	</div>
+
 	<div class='tracks'>
 		<h2 class="u-secondary-heading">Popular</h2>
 		<div class='tracks__list'>

@@ -24,7 +24,7 @@
 		&--btn {
 			@include btn;
 			@include green-play;
-			width: 10rem;
+			width: inherit;
 			padding: 1.5rem;
 			font-size: 1.3rem;
 		}

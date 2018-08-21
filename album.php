@@ -84,8 +84,6 @@ if(mysqli_num_rows($query) > 0) {
 					class='album__btn--save'>
 					<p><?php echo ($album_saved ? 'Saved' : 'Save'); ?> </p>
 				</div>
-				<div class='album__btn--more'>
-				</div>
 			</div>
 		</div>
 	</div>

@@ -80,8 +80,6 @@ $owner = new User($con, $playlist->getOwnerName());
 					class='playlist__btn--delete'>
 					<p id="pl_delete">delete playlist</p>
 				</div>
-				<div class='playlist__btn--more'>
-				</div>
 			</div>
 		</div>
 	</div>

@@ -975,7 +975,7 @@ html {
     backface-visibility: none;
     background-color: #1ed760;
     border: none;
-    width: 10rem;
+    width: inherit;
     padding: 1.5rem;
     font-size: 1.3rem; }
     .artist__header-btn--btn:hover {
