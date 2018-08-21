@@ -1,3 +1,31 @@
+.album-menu {
+
+	&__item {
+		display: none;
+		position: absolute;
+		top: 4rem;
+		left: 0;
+		width: 20rem;
+		box-sizing: border-box;
+		padding: 1.5rem 2rem;
+		background-color: $color-black-light;
+		border: 1px solid rgba($color-black, .15);
+		border-radius: 4px;
+		box-shadow: 0rem 0rem 1rem #000;
+		font-size: 1.2rem;
+		color: $color-grey;
+		z-index: 1000;
+
+
+		&:hover {
+			color: $color-white;
+			cursor: pointer;
+			background-color: rgba($color-grey, .4);
+		}
+
+	}
+}
+
 .album {
 	min-height: 100%;
 	@include gradient;
@@ -101,7 +129,6 @@
 			@include btn;
 			width: 12%;
 			margin-right: 1.5rem;
-			
 		}
 
 		&--more {
@@ -117,7 +144,7 @@
 				&:hover {
 					background-color: $color-white;
 					cursor: pointer;
-					transform: rotate(90deg);
+					// transform: rotate(90deg);
 
 					&:after {
 						color: $color-black;

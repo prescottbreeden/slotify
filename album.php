@@ -84,6 +84,16 @@ if(mysqli_num_rows($query) > 0) {
 					class='album__btn--save'>
 					<p><?php echo ($album_saved ? 'Saved' : 'Save'); ?> </p>
 				</div>
+				<div 
+					onclick="showAlbumMenu()"
+					class="album__btn--more">
+					<div 
+						onclick="removeAlbumFromSaved(<?php echo $albumId; ?>)"
+						id="album_menu"
+						class="album-menu__item">
+						Remove from your music
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

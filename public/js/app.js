@@ -92,9 +92,9 @@ function msgBoxHide(box) {
 }
 
 function shake() {
-	$('.msg-box').addClass('shake');
+	$('.warning').addClass('shake');
 	setTimeout(function() {
-		$('.msg-box').removeClass('shake');
+		$('.warning').removeClass('shake');
 	}, 1000);
 }
 
@@ -169,8 +169,12 @@ function hideOptionsMenu() {
 	let playlistMenu = $('.playlists-menu');
 	let shareMenu = $('.share-menu');
 	let userMenu = $('.usermenu');
+	let albumMenu = $('.album-menu__item');
 	if(userMenu.css('display') != "none") {
 		userMenu.css("display", "none");
+	}
+	if(albumMenu.css('display') != "none") {
+		albumMenu.css("display", "none");
 	}
 	if(dropDownMenu.css('display') != "none") {
 		dropDownMenu.css("display", "none");
@@ -227,6 +231,18 @@ function showShareMenu(ele) {
 
 function showUserMenu() {
 	$('.usermenu').show();
+	// this is 100% a hack
+	setTimeout(function() {
+		menu_open = true;
+	}, 100);
+}
+
+function showAlbumMenu() {
+	$('#album_menu').css({"display": "inline-block"});
+	// this is 100% a hack
+	setTimeout(function() {
+		menu_open = true;
+	}, 100);
 }
 
 function goToArtist() {
@@ -242,22 +258,20 @@ function goToAlbum() {
 // ====================================== //
 
 function addAlbumToSaved(albumId) {
-	console.log('saving album ' + albumId);
 	$.post("includes/handlers/ajax/addAlbumToSaved.php", { albumId: albumId, username: userLoggedIn })
 		.done(function(response) {
 			notification(response)
 		});
 }
 
-// function addSongToSaved(songId=temp_songId) {
-// 	console.log('saving song ' + songId);
-// 	$.post("includes/handlers/ajax/saveSong.php", { song: songId, username: userLoggedIn })
-// 		.done(function(error) {
-// 	});
-// }
+function removeAlbumFromSaved(albumId) {
+	$.post("includes/handlers/ajax/deleteAlbumFromSaved.php", { albumId: albumId, username: userLoggedIn })
+		.done(function(response) {
+			notification(response)
+		});
+}
 
 function saveCurrentlyPlaying() {
-	console.log(audioElement.currentlyPlaying.song_id);
 	let current_song_id = audioElement.currentlyPlaying.song_id;
 
 	$.post("includes/handlers/ajax/addSongToSaved.php", { song: current_song_id, username: userLoggedIn })
@@ -268,7 +282,6 @@ function saveCurrentlyPlaying() {
 }
 
 function deleteCurrentlyPlaying() {
-	console.log(audioElement.currentlyPlaying.song_id);
 	let current_song_id = audioElement.currentlyPlaying.song_id;
 
 	$.post("includes/handlers/ajax/deleteSongFromSaved.php", { song: current_song_id, username: userLoggedIn })
@@ -278,10 +291,6 @@ function deleteCurrentlyPlaying() {
 	track_saved();
 }
 
-function removeAlbumFromSaved(albumId) {
-	console.log('removing song ' + temp_albumId);
-}
-
 function removeSongFromSaved(songId=temp_songId) {
 	console.log('removing song ' + temp_songId);
 	track_saved();
@@ -289,7 +298,6 @@ function removeSongFromSaved(songId=temp_songId) {
 
 function track_saved() {
 	let current_song_id = audioElement.currentlyPlaying.song_id;
-	console.log(current_song_id);
 	$.post("includes/handlers/ajax/checkSongSaved.php", { song: current_song_id, username: userLoggedIn })
 		.done(function(response) {
 			console.log(response);
@@ -301,7 +309,6 @@ function track_saved() {
 				$('.not-saved').show();
 			}
 		});
-
 }
 
 // ====================================== //
