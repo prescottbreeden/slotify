@@ -97,9 +97,6 @@ $albumQuery = mysqli_query($con, "
 								<div class='album-select__container--item-title'>	
 									" . $row['name'] . "
 								</div>
-								<div class='album-select__container--item-artist'>	
-									" . $row['username'] . "
-								</div>
 							</div>
 						</span>
 					</div>";
