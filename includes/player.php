@@ -123,11 +123,12 @@ function setTrack(trackId, playlist, play) {
 		shuffle_list(shufflePlaylist);
 	}
 
-	pauseSong();
+	// pauseSong();
 
 	// get song
 	$.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
 		var track = JSON.parse(data);
+		
 		$('#now_playing_song').text(track.title_name);
 		$('#now_playing_song').attr('onclick', "openPage('album.php?id=" + track.album_id + "')");
 
@@ -147,7 +148,12 @@ function setTrack(trackId, playlist, play) {
 
 		audioElement.setTrack(track);
 		track_saved();
-		// toggleCurrentlyPlayingStyle();
+
+		if(shuffle === true) {
+			currentIndex = shufflePlaylist.indexOf(trackId);
+		} else {
+			currentIndex = currentPlaylist.indexOf(trackId);
+		}
 
 		if(play) {
 			playSong();

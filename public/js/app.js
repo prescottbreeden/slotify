@@ -300,7 +300,6 @@ function track_saved() {
 	let current_song_id = audioElement.currentlyPlaying.song_id;
 	$.post("includes/handlers/ajax/checkSongSaved.php", { song: current_song_id, username: userLoggedIn })
 		.done(function(response) {
-			console.log(response);
 			if(response > 0) {
 				$('.saved').show();
 				$('.not-saved').hide();
@@ -347,11 +346,19 @@ function deleteCancel() {
 }
 
 function addSongToPlaylist(playlistId, songId) {
-	$.post("includes/handlers/ajax/addToPlaylist.php", { playlist_id: playlistId, song_id: songId })
-		.done(function(response) {
-			hideOptionsMenu();
-			notification(response);
-		});
+	$.post("includes/handlers/ajax/checkDuplicateSong.php", { playlistId: playlistId, songId: songId})
+		.done(function(numRows) {
+			console.log(numRows);
+			if(numRows == 0) {
+			$.post("includes/handlers/ajax/addToPlaylist.php", { playlist_id: playlistId, song_id: songId })
+				.done(function(response) {
+					hideOptionsMenu();
+					notification(response);
+				});
+			} else {
+				notification("This song already exists in this playlist");
+			}
+	});
 }
 
 function removeFromPlaylist(playlistId) {
@@ -398,7 +405,7 @@ function Audio() {
 	});
 
 	// ------ AUDIO FUNCTIONS ------ //
-	this.setTrack = function(track) {
+	this.setTrack = (track) => {
 		this.currentlyPlaying = track;
 		this.audio.src = track.song_path;
 	}
@@ -411,7 +418,7 @@ function Audio() {
 		this.audio.pause();
 	}
 
-	this.setTime = function(seconds) {
+	this.setTime = (seconds) => {
 		this.audio.currentTime = seconds;
 	}
 
@@ -446,7 +453,6 @@ function updateVolumeProgressBar(audio) {
 	// initial attempt at having a change in volume automatically remove mute
 	if(audioElement.audio.muted) {
 		// audioElement.audio.muted = !audioElement.audio.muted;
-		console.log('click');
 	}
 }
 
