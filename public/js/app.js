@@ -456,13 +456,16 @@ function updateVolumeProgressBar(audio) {
 	}
 }
 
-//function toggleCurrentlyPlayingStyle() {
-//	let currSong = audioElement.currentlyPlaying.song_id;
-//	let balls = $('.tracks__list--more[value=' + currSong + ']');
-//	console.log(balls);
-//	$('.tracks__list--more[value=' + currSong + ']').parent().addClass('currently-playing');
-//	//$('.tracks__list--more[value=' + currSong + ']').hide();
-//}
+function toggleCurrentlyPlayingStyle(ele) {
+	$('.tracks__list--item').removeClass('currently-playing');
+	let currSong = ele.currentlyPlaying.song_id;
+	console.log('currSong: ' + currSong);
+	let balls = $(`.track_listing[value=${currSong}]`);
+	console.log(balls);
+	balls.parent().addClass('currently-playing');
+	// $('.tracks__list--more[value=' + currSong + ']').parent().addClass('currently-playing');
+	//$('.tracks__list--more[value=' + currSong + ']').hide();
+}
 
 
 // ====================================== //

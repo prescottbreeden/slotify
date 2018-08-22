@@ -1,9 +1,14 @@
-.currently-playing {
+.currently-playing > * {
 	color: $color-green !important;
+}
+
+.currently-playing .tracks__list--number-sound {
+	display: inline-block;
 }
 
 .tracks {
 	margin-top: 2rem;
+	color: $color-grey;
 
 	&__list {
 		display: block;
@@ -65,11 +70,24 @@
 				fill: $color-white;
 			}
 
+			&-sound {
+				display: none;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				height: 2.5rem;
+				width: 2.5rem;
+				fill: $color-green;
+			}
+
 			&:hover span {
 				
 			}
 
-			&:hover svg {
+			&:hover &-play {
 				fill: #fff;
 				transform: scale(1.1);
 			}
@@ -81,6 +99,7 @@
 			min-width: 30%;
 			cursor: default;
 			flex-grow: 1;
+			color: $color-white;
 
 			&-header {
 				flex-grow: 1;
@@ -94,6 +113,7 @@
 
 		&--artist {
 			width: 30%;
+			color: $color-white;
 
 			&:hover {
 				cursor: pointer;
@@ -160,7 +180,6 @@
 		&--duration {
 			text-align: right;
 			letter-spacing: 1px;
-			color: $color-grey;
 			width: 5rem;
 
 			&-header {

@@ -124,6 +124,7 @@ if(mysqli_num_rows($query) > 0) {
 
 				echo "
 					<div class='tracks__list--item'>
+						<input type='hidden' class='track_listing' value='" . $song->getId() . "'>
 						<div class='tracks__list--number'>
 							<span>	
 								$i
@@ -134,6 +135,10 @@ if(mysqli_num_rows($query) > 0) {
 								class='tracks__list--number-play'>
 								<title>Play</title>
 								<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
+							</svg>
+							<svg 
+								class='tracks__list--number-sound'>
+								<use href='public/images/icomoon/sprite.svg#icon-volume-medium'></use>
 							</svg>
 						</div>
 						<div class='tracks__list--name'>" . $song->getTitle() . "</div>

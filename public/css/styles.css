@@ -645,11 +645,15 @@ html {
     width: 1.5rem;
     fill: #555; }
 
-.currently-playing {
+.currently-playing > * {
   color: #1db954 !important; }
 
+.currently-playing .tracks__list--number-sound {
+  display: inline-block; }
+
 .tracks {
-  margin-top: 2rem; }
+  margin-top: 2rem;
+  color: #a0a0a0; }
   .tracks__list {
     display: block;
     width: 100%; }
@@ -691,13 +695,25 @@ html {
         height: 2.5rem;
         width: 2.5rem;
         fill: #f7f7f7; }
-      .tracks__list--number:hover svg {
+      .tracks__list--number-sound {
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 2.5rem;
+        width: 2.5rem;
+        fill: #1db954; }
+      .tracks__list--number:hover .tracks__list--number-play {
         fill: #fff;
         transform: scale(1.1); }
     .tracks__list--name {
       min-width: 30%;
       cursor: default;
-      flex-grow: 1; }
+      flex-grow: 1;
+      color: #f7f7f7; }
       .tracks__list--name-header {
         flex-grow: 1;
         color: #a0a0a0;
@@ -706,7 +722,8 @@ html {
         letter-spacing: 1px;
         min-width: 30%; }
     .tracks__list--artist {
-      width: 30%; }
+      width: 30%;
+      color: #f7f7f7; }
       .tracks__list--artist:hover {
         cursor: pointer;
         text-decoration: underline; }
@@ -750,7 +767,6 @@ html {
     .tracks__list--duration {
       text-align: right;
       letter-spacing: 1px;
-      color: #a0a0a0;
       width: 5rem; }
       .tracks__list--duration-header {
         text-transform: uppercase;
