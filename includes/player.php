@@ -1,25 +1,33 @@
-<?php 
-$songQuery = mysqli_query($con, "SELECT song_id FROM songs ORDER BY RAND() LIMIT 10");
+<?php
+$songQuery = mysqli_query($con, "
+	SELECT *
+		FROM songs
+			WHERE album_id='$lp_album'
+");
 $resultArray = array();
-
 while($row = mysqli_fetch_array($songQuery)) {
 	array_push($resultArray, $row['song_id']);
 }
-
 $jsonArray = json_encode($resultArray);
 
-?>
+/* $songQuery = mysqli_query($con, "SELECT song_id FROM songs ORDER BY RAND() LIMIT 10"); */
+/* $resultArray = array(); */
+/* while($row = mysqli_fetch_array($songQuery)) { */
+/* 	array_push($resultArray, $row['song_id']); */
+/* } */
+/* $jsonArray = json_encode($resultArray); */
 
+?>
 <script>
 // ============================================= //
 //			JAVASCRIPT FOR PLAYER BAR			 //
 // ============================================= //
 
 $(document).ready(function() {
-	newPlaylist = <?php echo $jsonArray; ?>;
 	audioElement = new Audio();
 	var playing = false;
-	currentIndex = 0;
+	currentIndex = <?php echo $lp_album_order - 1; ?>;
+	newPlaylist = <?php echo $jsonArray; ?>;
 	setTrack(newPlaylist[currentIndex], newPlaylist, false);
 	updateVolumeProgressBar(audioElement.audio);
 

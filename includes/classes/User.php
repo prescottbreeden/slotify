@@ -9,6 +9,8 @@ class User {
 	private $laste_name;
 	private $email;
 	private $profile_pic;
+	private $lp_album;
+	private $lp_album_order;
 	private $password;
 	private $created_at;
 	private $updated_at;
@@ -25,6 +27,8 @@ class User {
 		$this->last_name = $user['last_name'];
 		$this->email = $user['email'];
 		$this->profile_pic = $user['profile_pic'];
+		$this->lp_album = $user['lp_album'];
+		$this->lp_album_order = $user['lp_album_order'];
 		$this->created_at = $user['created_date'];
 		$this->updated_at = $user['updated_date'];
 	}
@@ -55,6 +59,14 @@ class User {
 
 	public function getProfilePic() {
 		return $this->profile_pic;
+	}
+
+	public function getLastPlayedAlbum() {
+		return $this->lp_album;
+	}
+
+	public function getLastPlayedAlbumOrder() {
+		return $this->lp_album_order;
 	}
 }
 

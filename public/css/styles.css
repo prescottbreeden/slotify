@@ -703,12 +703,15 @@ html {
         left: 0;
         right: 0;
         margin: auto;
-        height: 2.5rem;
-        width: 2.5rem;
-        fill: #1db954; }
+        height: 1.8rem;
+        width: 1.8rem;
+        background-color: #222;
+        border: 1px solid #222;
+        border-radius: 50%;
+        padding: 4px;
+        fill: #f7f7f7; }
       .tracks__list--number:hover .tracks__list--number-play {
-        fill: #fff;
-        transform: scale(1.1); }
+        fill: #fff; }
     .tracks__list--name {
       min-width: 30%;
       cursor: default;

@@ -31,12 +31,44 @@ Single-colored icons can be modified like so:
   width: 0.5714285714285714em;
 }
 
+.icon-twitter-square {
+  width: 0.8571428571428571em;
+}
+
+.icon-facebook-square {
+  width: 0.8571428571428571em;
+}
+
+.icon-linkedin-square {
+  width: 0.8571428571428571em;
+}
+
+.icon-twitter {
+  width: 0.9285714285714285em;
+}
+
+.icon-facebook {
+  width: 0.5881428571428571em;
+}
+
 .icon-chain {
   width: 0.9285714285714285em;
 }
 
 .icon-gamepad {
   width: 1.0714285714285714em;
+}
+
+.icon-terminal {
+  width: 0.934142857142857em;
+}
+
+.icon-tumblr {
+  width: 0.6093571428571428em;
+}
+
+.icon-tumblr-square {
+  width: 0.8571428571428571em;
 }
 
 .icon-sliders {
@@ -53,6 +85,18 @@ Single-colored icons can be modified like so:
 
 .icon-toggle-on {
   width: 1.1428571428571428em;
+}
+
+.icon-facebook-official {
+  width: 0.8571428571428571em;
+}
+
+.icon-pinterest-p {
+  width: 0.7142857142857142em;
+}
+
+.icon-google-plus-circle {
+  width: 0.8571428571428571em;
 }
 
 .icon-volume-high {

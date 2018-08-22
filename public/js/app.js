@@ -310,6 +310,17 @@ function track_saved() {
 		});
 }
 
+function updateLastPlayed() {
+	let lp_album = audioElement.currentlyPlaying.album_id; 
+	let lp_album_order = audioElement.currentlyPlaying.album_order;
+	$.post("includes/handlers/ajax/updateLastPlayed.php", 
+		{ lp_album: lp_album, lp_album_order: lp_album_order, username: userLoggedIn })
+		.done(function(response) {
+			console.log(response);
+		});
+}
+
+
 // ====================================== //
 //				Playlists				  //
 // ====================================== //
@@ -463,6 +474,7 @@ function toggleCurrentlyPlayingStyle(ele) {
 	let balls = $(`.track_listing[value=${currSong}]`);
 	console.log(balls);
 	balls.parent().addClass('currently-playing');
+	updateLastPlayed();
 	// $('.tracks__list--more[value=' + currSong + ']').parent().addClass('currently-playing');
 	//$('.tracks__list--more[value=' + currSong + ']').hide();
 }

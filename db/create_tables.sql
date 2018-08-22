@@ -14,6 +14,8 @@ CREATE TABLE IF NOT EXISTS users (
 	last_name		VARCHAR(25)		NOT NULL,
 	email			VARCHAR(200)	NOT NULL,
 	password		VARCHAR(32)		NOT NULL,
+	lp_album		INTEGER			NOT NULL	DEFAULT 1,
+	lp_album_order	INTEGER			NOT NULL	DEFAULT 1,
 	created_date	DATETIME		NOT NULL	DEFAULT NOW(),
 	updated_date	DATETIME		NOT NULL	DEFAULT NOW() ON UPDATE NOW(),
 	profile_pic		VARCHAR(500)
@@ -101,7 +103,6 @@ CREATE TABLE IF NOT EXISTS saved_albums (
 		REFERENCES albums(album_id)
 );
 
-
 CREATE TABLE IF NOT EXISTS saved_songs (
 	user_id			INTEGER			NOT NULL,
 	song_id			INTEGER			NOT NULL,
@@ -112,6 +113,7 @@ CREATE TABLE IF NOT EXISTS saved_songs (
 	FOREIGN KEY (song_id)
 		REFERENCES songs(song_id)
 );
+
 --
 -- Dumping data for table `artists`
 --

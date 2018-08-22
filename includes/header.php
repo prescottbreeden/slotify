@@ -9,6 +9,10 @@ include('includes/classes/User.php');
 
 if(isset($_SESSION['userLoggedIn'])) {
 	$userLoggedIn = $_SESSION['userLoggedIn'];
+	$user = new User($con, $userLoggedIn);
+	$lp_album = $user->getLastPlayedAlbum();
+	$lp_album_order = $user->getLastPlayedAlbumOrder();
+	
 	echo "<script>userLoggedIn = '$userLoggedIn';</script>";
 }
 else {
@@ -22,9 +26,10 @@ else {
 	$term = '';
 }
 
-function getID() {
-	return $_GET['id'];
-}
+
+/* function getID() { */
+/* 	return $_GET['id']; */
+/* } */
 
 ?>
 
