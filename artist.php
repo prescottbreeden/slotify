@@ -70,29 +70,39 @@ $artist = new Artist($con, $artistId);
 				if($i > 5) {
 					break;
 				}
-				$artistSong = new Song($con, $song);
-				$playcount = $artistSong->getPlayCount();
+				$song = new Song($con, $song);
+				$songArtist = $song->getArtist();
+				$playcount = $song->getPlayCount();
 				$formattedPlayCount = number_format($playcount);
 
 				echo "
 					<div class='tracks__list--item'>
+						<input type='hidden' class='track_listing' value='" . $song->getId() . "'>
 						<div class='tracks__list--number'>
-						<span>	
-							$i
-						</span>
-
-						<svg 
-							aria-label='[title]'
-							onclick='setTrack(\"" . $artistSong->getId() . "\", tempPlaylist, true)'
-							class='tracks__list--number-play'>
-							<title>Play</title>
-							<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
-						</svg>
+							<span>	
+								$i
+							</span>
+							<svg 
+								aria-label='[title]'
+								onclick='setTrack(\"" . $song->getId() . "\", tempPlaylist, true)'
+								class='tracks__list--number-play'>
+								<title>Play</title>
+								<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
+							</svg>
+							<svg 
+								class='tracks__list--number-sound'>
+								<use href='public/images/icomoon/sprite.svg#icon-volume-2'</use>
+							</svg>
 						</div>
-						<div class='tracks__list--name'>" . $artistSong->getTitle() . "</div>
-						<div class='tracks__list--artist'>" . $artistSong->getAlbumName() . "</div>
-	 					<div class='tracks__list--more'>
-							<input type='hidden' class='songId' value='" . $artistSong->getId() . "'>
+						<div class='tracks__list--name'>" . $song->getTitle() . "</div>
+						<div 
+							onclick='openPage(\"artist.php?id=" . $song->getArtistId() . "\")'
+							class='tracks__list--artist'>" . $songArtist->getName() . "
+						</div>
+						<div class='tracks__list--more'>
+							<input type='hidden' class='songId' value='" . $song->getId() . "'>
+							<input type='hidden' class='albumId' value='" . $song->getAlbumId() . "'>
+							<input type='hidden' class='artistId' value='" . $song->getArtistId() . "'>
 							<svg 
 								class='options__button'
 								onclick='showOptionsMenu(this)' 

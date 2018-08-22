@@ -145,18 +145,22 @@ $albumQuery = mysqli_query($con, "
 
 				echo "
 					<div class='tracks__list--item'>
+						<input type='hidden' class='track_listing' value='" . $song->getId() . "'>
 						<div class='tracks__list--number'>
-						<span>	
-							$i
-						</span>
-
-						<svg 
-							aria-label='[title]'
-							onclick='setTrack(\"" . $song->getId() . "\", tempPlaylist, true)'
-							class='tracks__list--number-play'>
-							<title>Play</title>
-							<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
-						</svg>
+							<span>	
+								$i
+							</span>
+							<svg 
+								aria-label='[title]'
+								onclick='setTrack(\"" . $song->getId() . "\", tempPlaylist, true)'
+								class='tracks__list--number-play'>
+								<title>Play</title>
+								<use href='public/images/icomoon/sprite.svg#icon-play2'></use>
+							</svg>
+							<svg 
+								class='tracks__list--number-sound'>
+								<use href='public/images/icomoon/sprite.svg#icon-volume-2'</use>
+							</svg>
 						</div>
 						<div class='tracks__list--name'>" . $song->getTitle() . "</div>
 						<div 
