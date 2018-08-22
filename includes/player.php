@@ -208,12 +208,14 @@ function playSong() {
 	audioElement.play();
 	$(".play").hide();
 	$(".pause").show();
+	togglePlayState();
 }
 
 function pauseSong() {
 	audioElement.pause();
 	$(".play").show();
 	$(".pause").hide();
+	togglePlayState();
 }
 
 function nextSong() {

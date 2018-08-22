@@ -3,6 +3,7 @@ let currentPlaylist = [];
 let shufflePlaylist = [];
 let tempPlaylist = [];
 let audioElement;
+let isPlaying = false;
 let repeat = false;
 let shuffle = false;
 let temp_songId;
@@ -479,6 +480,19 @@ function toggleCurrentlyPlayingStyle(ele) {
 	//$('.tracks__list--more[value=' + currSong + ']').hide();
 }
 
+function togglePlayState() {
+	isPlaying = !isPlaying;
+	let currentTrack = $('.currently-playing');
+	if(isPlaying) {
+		currentTrack.find('.tracks__list--number-sound').show();
+	}
+	else {
+		currentTrack.find('.tracks__list--number-sound').hide();
+	}
+
+}
+
+
 
 // ====================================== //
 //				EASTER EGGS				  //
@@ -547,6 +561,31 @@ $(document).ready(function() {
 	$(document).on('click', '.msg-box', function() {
 		if(!warning_msg) {
 			msgBoxHide($(this));
+		}
+	});
+
+	$(document).on('mouseover', '.currently-playing', function() {
+		let currentTrack = $('.currently-playing');
+		currentTrack.find('.tracks__list--number-sound').hide();
+		if(isPlaying) {
+			currentTrack.find('.tracks__list--number-pause').show();
+			currentTrack.find('.tracks__list--number-play').hide();
+		}
+		else {
+			currentTrack.find('.tracks__list--number-pause').hide();
+			currentTrack.find('.tracks__list--number-play').show();
+		}
+	});
+
+	$(document).on('mouseleave', '.currently-playing', function() {
+		let currentTrack = $('.currently-playing');
+		currentTrack.find('.tracks__list--number-pause').hide();
+		currentTrack.find('.tracks__list--number-play').hide();
+		if(isPlaying) {
+			currentTrack.find('.tracks__list--number-sound').show();
+		}
+		else {
+			currentTrack.find('.tracks__list--number-sound').hide();
 		}
 	});
 

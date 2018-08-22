@@ -648,9 +648,6 @@ html {
 .currently-playing > * {
   color: #1db954 !important; }
 
-.currently-playing .tracks__list--number-sound {
-  display: inline-block; }
-
 .tracks {
   margin-top: 2rem;
   color: #a0a0a0; }
@@ -675,7 +672,7 @@ html {
       .tracks__list--item:hover span {
         visibility: hidden; }
     .tracks__list--number {
-      color: #a0a0a0;
+      color: #a0a0a0 !important;
       width: 2rem;
       position: relative;
       text-align: center; }
@@ -686,6 +683,17 @@ html {
         text-align: center; }
       .tracks__list--number-play {
         visibility: hidden;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: 2.5rem;
+        width: 2.5rem;
+        fill: #f7f7f7; }
+      .tracks__list--number-pause {
+        display: none;
         position: absolute;
         top: 0;
         bottom: 0;

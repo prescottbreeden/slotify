@@ -140,6 +140,11 @@ if(mysqli_num_rows($query) > 0) {
 								class='tracks__list--number-sound'>
 								<use href='public/images/icomoon/sprite.svg#icon-volume-2'</use>
 							</svg>
+							<svg 
+								onclick='pauseSong()'
+								class='tracks__list--number-pause'>
+								<use href='public/images/icomoon/sprite.svg#icon-pause2'</use>
+							</svg>
 						</div>
 						<div class='tracks__list--name'>" . $song->getTitle() . "</div>
 						<div 
