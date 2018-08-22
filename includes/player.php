@@ -40,12 +40,12 @@ $(document).ready(function() {
 		if(e.which === 32 && e.target == document.body) {
 			playing = !playing;
 			if(playing) {
-				audioElement.audio.pause();
+				pauseSong();
 				$(".play").show();
 				$(".pause").hide();
 			}
 			else {
-				audioElement.audio.play();
+				playSong();
 				$(".play").hide();
 				$(".pause").show();
 			}
@@ -208,14 +208,16 @@ function playSong() {
 	audioElement.play();
 	$(".play").hide();
 	$(".pause").show();
-	togglePlayState();
+	isPlaying = true;
+	drawTracks();
 }
 
 function pauseSong() {
 	audioElement.pause();
 	$(".play").show();
 	$(".pause").hide();
-	togglePlayState();
+	isPlaying = false;
+	drawTracks();
 }
 
 function nextSong() {

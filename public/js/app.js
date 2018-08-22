@@ -317,7 +317,6 @@ function updateLastPlayed() {
 	$.post("includes/handlers/ajax/updateLastPlayed.php", 
 		{ lp_album: lp_album, lp_album_order: lp_album_order, username: userLoggedIn })
 		.done(function(response) {
-			console.log(response);
 		});
 }
 
@@ -360,7 +359,6 @@ function deleteCancel() {
 function addSongToPlaylist(playlistId, songId) {
 	$.post("includes/handlers/ajax/checkDuplicateSong.php", { playlistId: playlistId, songId: songId})
 		.done(function(numRows) {
-			console.log(numRows);
 			if(numRows == 0) {
 			$.post("includes/handlers/ajax/addToPlaylist.php", { playlist_id: playlistId, song_id: songId })
 				.done(function(response) {
@@ -470,18 +468,15 @@ function updateVolumeProgressBar(audio) {
 
 function toggleCurrentlyPlayingStyle(ele) {
 	$('.tracks__list--item').removeClass('currently-playing');
-	let currSong = ele.currentlyPlaying.song_id;
-	console.log('currSong: ' + currSong);
-	let balls = $(`.track_listing[value=${currSong}]`);
-	console.log(balls);
-	balls.parent().addClass('currently-playing');
+	$('.tracks__list--number-sound').hide();
+	let val = ele.currentlyPlaying.song_id;
+	let currSong = $(`.track_listing[value=${val}]`);
+	currSong.parent().addClass('currently-playing');
+	drawTracks();
 	updateLastPlayed();
-	// $('.tracks__list--more[value=' + currSong + ']').parent().addClass('currently-playing');
-	//$('.tracks__list--more[value=' + currSong + ']').hide();
 }
 
-function togglePlayState() {
-	isPlaying = !isPlaying;
+function drawTracks() {
 	let currentTrack = $('.currently-playing');
 	if(isPlaying) {
 		currentTrack.find('.tracks__list--number-sound').show();
@@ -489,9 +484,7 @@ function togglePlayState() {
 	else {
 		currentTrack.find('.tracks__list--number-sound').hide();
 	}
-
 }
-
 
 
 // ====================================== //
