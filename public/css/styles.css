@@ -346,9 +346,29 @@ html {
     fill: #f7f7f7; }
 
 .saved {
-  fill: #1db954 !important;
-  height: 1.5rem !important;
-  width: 1.5rem !important; }
+  position: absolute;
+  top: 0;
+  right: -3rem;
+  display: none;
+  fill: #1db954 !important; }
+  .saved:hover {
+    cursor: pointer; }
+
+.not-saved {
+  position: absolute;
+  top: 0;
+  right: -3rem;
+  display: none; }
+  .not-saved:hover {
+    cursor: pointer; }
+
+.delete {
+  position: absolute;
+  top: 0;
+  right: -3rem;
+  display: none; }
+  .delete:hover {
+    cursor: pointer; }
 
 .button-active {
   fill: #1db954 !important; }
@@ -399,7 +419,8 @@ html {
         display: flex;
         align-items: center;
         margin-bottom: .5rem;
-        height: 2rem; }
+        height: 2rem;
+        position: relative; }
         .player__album__info--track-name {
           font-size: 1.2rem; }
           .player__album__info--track-name:hover {

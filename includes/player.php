@@ -321,11 +321,17 @@ function shuffle_list(a) {
 									<use href="public/images/icomoon/sprite.svg#icon-plus"></use>
 								</svg>
 								<svg 
-									onclick="deleteCurrentlyPlaying()"
 									aria-label="[title]"
 									class="player__album__info--track-icon saved">
 									<title>Remove from Your Music</title>
-									<use href="public/images/icomoon/sprite.svg#icon-checkmark"></use>
+									<use href="public/images/icomoon/sprite.svg#icon-check"></use>
+								</svg>
+								<svg 
+									onclick="deleteCurrentlyPlaying()"
+									aria-label="[title]"
+									class="player__album__info--track-icon delete">
+									<title>Remove from Your Music</title>
+									<use href="public/images/icomoon/sprite.svg#icon-x"></use>
 								</svg>
 							</span>
 							<span 

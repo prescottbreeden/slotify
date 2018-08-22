@@ -1,7 +1,33 @@
 .saved {
+	position: absolute;
+	top: 0;
+	right: -3rem;
+	display: none;
 	fill: $color-green !important;
-	height: 1.5rem !important;
-	width: 1.5rem !important;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+.not-saved {
+	position: absolute;
+	top: 0;
+	right: -3rem;
+	display: none;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+.delete {
+	position: absolute;
+	top: 0;
+	right: -3rem;
+	display: none;
+
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 .button-active {
@@ -73,6 +99,7 @@
 				align-items: center;
 				margin-bottom: .5rem;
 				height: 2rem;
+				position: relative;
 
 				&-name {
 					font-size: 1.2rem;

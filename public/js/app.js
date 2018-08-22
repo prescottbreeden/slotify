@@ -301,6 +301,7 @@ function track_saved() {
 	let current_song_id = audioElement.currentlyPlaying.song_id;
 	$.post("includes/handlers/ajax/checkSongSaved.php", { song: current_song_id, username: userLoggedIn })
 		.done(function(response) {
+			$('.delete').hide();
 			if(response > 0) {
 				$('.saved').show();
 				$('.not-saved').hide();
@@ -555,6 +556,23 @@ $(document).ready(function() {
 		if(!warning_msg) {
 			msgBoxHide($(this));
 		}
+	});
+
+	$(document).on('mouseover', '.saved', function() {
+		$('.delete').show();
+		$('.saved').css({ 'opacity': 0 });
+	});
+	$(document).on('mouseleave', '.saved', function() {
+		$('.delete').hide();
+		$('.saved').css({ 'opacity': 1 });
+	});
+	$(document).on('mouseover', '.delete', function() {
+		$('.delete').show();
+		$('.saved').css({ 'opacity': 0 });
+	});
+	$(document).on('mouseleave', '.delete', function() {
+		$('.delete').hide();
+		$('.saved').css({ 'opacity': 1 });
 	});
 
 	$(document).on('mouseover', '.currently-playing', function() {
