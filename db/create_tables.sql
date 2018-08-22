@@ -124,7 +124,8 @@ CREATE TABLE IF NOT EXISTS saved_songs (
 			('Koji Kondo'),
 			('Takashi Tateishi'),
 			('Hirokazu Tanaka'),
-			('Konami Kukeiha Club')
+			('Konami Kukeiha Club'),
+			('Nobuo Uematsu')
 			;
 
 --
@@ -141,12 +142,14 @@ CREATE TABLE IF NOT EXISTS saved_songs (
  INSERT INTO albums 
 			(year_released, game_platform, title_name, artist_id, genre_id, artwork_path) 
 		VALUES
+			(1985, 'NES', 'Super Mario Bros.', 1, 1, 'public/images/artwork/supermariobros.jpg'),
 			(1986, 'NES', 'The Legend of Zelda', 1, 1, 'public/images/artwork/zelda.jpg'),
-			(1988, 'NES', 'Mega Man 2', 2, 1, 'public/images/artwork/megaman2.jpg'),
 			(1987, 'NES', 'Punch Out', 1, 1, 'public/images/artwork/punchout.jpg'),
+			(1988, 'NES', 'Mega Man 2', 2, 1, 'public/images/artwork/megaman2.jpg'),
 			(1986, 'NES', 'Metroid', 3, 1, 'public/images/artwork/metroid.jpg'),
 			(1987, 'NES', 'Contra', 4, 1, 'public/images/artwork/contra.jpg'),
-			(1985, 'NES', 'Super Mario Bros.', 1, 1, 'public/images/artwork/supermariobros.jpg')
+
+			(1991, 'SNES', 'Final Fantasy 4', 5, 1, 'public/images/artwork/finalfantasy4.jpg')
 			
 			;
 
@@ -238,6 +241,51 @@ CREATE TABLE IF NOT EXISTS saved_songs (
 			('Hurry Overworld Theme', 1, 6, 1, '210', 'public/music/nes_supermariobros/supermariobros_13_hurry_overworld.mp3', 13, 0),
 			('Hurry Underworld Theme', 1, 6, 1, '114', 'public/music/nes_supermariobros/supermariobros_14_hurry_underworld.mp3', 14, 0),
 			('Hurry Castle Theme', 1, 6, 1, '112', 'public/music/nes_supermariobros/supermariobros_15_hurry_castle.mp3', 15, 0),
-			('Ending Fanfare', 1, 6, 1, '117', 'public/music/nes_supermariobros/supermariobros_16_ending_fanfare.mp3', 16, 0)
+			('Ending Fanfare', 1, 6, 1, '117', 'public/music/nes_supermariobros/supermariobros_16_ending_fanfare.mp3', 16, 0),
 			
+			('Prelude', 5, 7, 1, '112', 'public/music/snes_finalfantasy4/ff4_1_prelude.mp3', 1, 0),
+			('Red Wings', 5, 7, 1, '206', 'public/music/snes_finalfantasy4/ff4_2_red_wings.mp3', 2, 0),
+			('Kingdom of Baron', 5, 7, 1, '109', 'public/music/snes_finalfantasy4/ff4_3_kingdom_baron.mp3', 3, 0),
+			('Love Theme', 5, 7, 1, '149', 'public/music/snes_finalfantasy4/ff4_4_love_theme.mp3', 4, 0),
+			('Prologue', 5, 7, 1, '111', 'public/music/snes_finalfantasy4/ff4_5_prologue.mp3', 5, 0),
+			('Welcome to Our Town', 5, 7, 1, '049', 'public/music/snes_finalfantasy4/ff4_6_welcome_town.mp3', 6, 0),
+			('Main Theme', 5, 7, 1, '133', 'public/music/snes_finalfantasy4/ff4_7_main_theme.mp3', 7, 0),
+			('Fight 1', 5, 7, 1, '100', 'public/music/snes_finalfantasy4/ff4_8_fight1.mp3', 8, 0),
+			('Fanfare', 5, 7, 1, '026', 'public/music/snes_finalfantasy4/ff4_9_fanfare.mp3', 9, 0),
+			('Hello, Big Chocobo', 5, 7, 1, '26', 'public/music/snes_finalfantasy4/ff4_10_hello_big_chocobo.mp3', 10, 0),
+			('Chocobo, Chocobo', 5, 7, 1, '29', 'public/music/snes_finalfantasy4/ff4_11_chocobo_chocobo.mp3', 11, 0),
+			('Into the Darkness', 5, 7, 1, '121', 'public/music/snes_finalfantasy4/ff4_12_into_darkness.mp3', 12, 0),
+			('Fight 2', 5, 7, 1, '114', 'public/music/snes_finalfantasy4/ff4_13_fight2.mp3', 13, 0),
+			('Ring of Bombs', 5, 7, 1, '52', 'public/music/snes_finalfantasy4/ff4_14_ring_of_bomb.mp3', 14, 0),
+			('Rydia', 5, 7, 1, '101', 'public/music/snes_finalfantasy4/ff4_15_rydia.mp3', 15, 0),
+			('Castle Damcyan', 5, 7, 1, '104', 'public/music/snes_finalfantasy4/ff4_16_castle_damcyan.mp3', 16, 0),
+			('Cry in Sorrow', 5, 7, 1, '100', 'public/music/snes_finalfantasy4/ff4_17_cry_in_sorrow.mp3', 17, 0),
+			('Melody of the Lute', 5, 7, 1, '55', 'public/music/snes_finalfantasy4/ff4_18_melody_of_lute.mp3', 18, 0),
+			('Mt Ordeals', 5, 7, 1, '118', 'public/music/snes_finalfantasy4/ff4_19_mt_ordeals.mp3', 19, 0),
+			('Fabul', 5, 7, 1, '135', 'public/music/snes_finalfantasy4/ff4_20_fabul.mp3', 20, 0),
+			('Run', 5, 7, 1, '25', 'public/music/snes_finalfantasy4/ff4_21_run.mp3', 21, 0),
+			('Suspicion', 5, 7, 1, '38', 'public/music/snes_finalfantasy4/ff4_22_suspicion.mp3', 22, 0),
+			('Golbez', 5, 7, 1, '100', 'public/music/snes_finalfantasy4/ff4_23_golbez.mp3', 23, 0),
+			('Hey, Cid', 5, 7, 1, '56', 'public/music/snes_finalfantasy4/ff4_24_hey_cid.mp3', 24, 0),
+			('Mystic Mysidia', 5, 7, 1, '120', 'public/music/snes_finalfantasy4/ff4_25_mystic_mysidia.mp3', 25, 0),
+			('Long Way to Go', 5, 7, 1, '46', 'public/music/snes_finalfantasy4/ff4_26_long_way_to_go.mp3', 26, 0),
+			('Palom & Porom', 5, 7, 1, '36', 'public/music/snes_finalfantasy4/ff4_27_palom_porom.mp3', 27, 0),
+			('Battle of the Four Fiends', 5, 7, 1, '140', 'public/music/snes_finalfantasy4/ff4_28_four_fiends.mp3', 28, 0),
+			('The Airship', 5, 7, 1, '55', 'public/music/snes_finalfantasy4/ff4_29_airship.mp3', 29, 0),
+			('Trojan Beauty', 5, 7, 1, '123', 'public/music/snes_finalfantasy4/ff4_30_trojan_beauty.mp3', 30, 0),
+			('Samba de Chocobo', 5, 7, 1, '45', 'public/music/snes_finalfantasy4/ff4_31_samba_de_chocobo.mp3', 31, 0),
+			('Tower of Babel', 5, 7, 1, '132', 'public/music/snes_finalfantasy4/ff4_32_tower_of_babel.mp3', 32, 0),
+			('Somewhere in the World', 5, 7, 1, '33', 'public/music/snes_finalfantasy4/ff4_33_somewhere_in_the_world.mp3', 33, 0),
+			('Land of the Dwarves', 5, 7, 1, '53', 'public/music/snes_finalfantasy4/ff4_34_land_of_dwarves.mp3', 34, 0),
+			('Giotto, the Great King', 5, 7, 1, '57', 'public/music/snes_finalfantasy4/ff4_35_giotto.mp3', 35, 0),
+			('Dancing Calcobrena', 5, 7, 1, '32', 'public/music/snes_finalfantasy4/ff4_36_dancing_calcobrena.mp3', 36, 0),
+			('Tower of Zot', 5, 7, 1, '105', 'public/music/snes_finalfantasy4/ff4_37_tower_of_zot.mp3', 37, 0),
+			('Illusionary World', 5, 7, 1, '115', 'public/music/snes_finalfantasy4/ff4_38_illusionary_world.mp3', 38, 0),
+			('The Big Whale', 5, 7, 1, '108', 'public/music/snes_finalfantasy4/ff4_39_big_whale.mp3', 39, 0),
+			('Another Moon', 5, 7, 1, '106', 'public/music/snes_finalfantasy4/ff4_40_another_moon.mp3', 40, 0),
+			('The Lunarians', 5, 7, 1, '117', 'public/music/snes_finalfantasy4/ff4_41_lunarians.mp3', 41, 0),
+			('Within the Giant', 5, 7, 1, '127', 'public/music/snes_finalfantasy4/ff4_42_within_the_giant.mp3', 42, 0),
+			('Final Battle', 5, 7, 1, '155', 'public/music/snes_finalfantasy4/ff4_43_final_battle.mp3', 43, 0),
+			('Epilogue', 5, 7, 1, '930', 'public/music/snes_finalfantasy4/ff4_44_epilogue.mp3', 44, 0)
+
 			;
