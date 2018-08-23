@@ -101,8 +101,8 @@ $artist = new Artist($con, $artistId);
 						</div>
 						<div class='tracks__list--name'>" . $song->getTitle() . "</div>
 						<div 
-							onclick='openPage(\"artist.php?id=" . $song->getArtistId() . "\")'
-							class='tracks__list--artist'>" . $songArtist->getName() . "
+							onclick='openPage(\"album.php?id=" . $song->getAlbumId() . "\")'
+							class='tracks__list--artist'>" . $song->getAlbumName() . "
 						</div>
 						<div class='tracks__list--more'>
 							<input type='hidden' class='songId' value='" . $song->getId() . "'>
@@ -205,24 +205,12 @@ while($row = mysqli_fetch_array($albumQuery)) {
 		</svg>
 		Copy Song Link
 	</div>
-	<div class="share-menu__item">
-		<div class="share-menu__item--empty"></div>
-		Copy Embed Code
-	</div>
-	<div class="share-menu__item">
-		<div class="share-menu__item--empty"></div>
-		Copy Slotify URI
-	</div>
 </div>
 <div class="options-menu">
-	<div class="menu-item">
-		Add to Queue
-	</div>
 	<div class="options-menu__divider"></div>
-	<div class="menu-item">
-		Go to Artist
-	</div>
-	<div class="menu-item">
+	<div 
+		onclick="goToAlbum()"
+		class="menu-item">
 		Go to Album
 	</div>
 	<div class="options-menu__divider"></div>

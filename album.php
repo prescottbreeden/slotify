@@ -238,20 +238,9 @@ if(mysqli_num_rows($query) > 0) {
 </div>
 <div class="options-menu">
 	<div 
-		onclick="addToQueue()"
-		class="menu-item">
-		Add to Queue
-	</div>
-	<div class="options-menu__divider"></div>
-	<div 
 		onclick="goToArtist()"	
 		class="menu-item">
 		Go to Artist
-	</div>
-	<div 
-		onclick="goToAlbum()"	
-		class="menu-item">
-		Go to Album
 	</div>
 	<div class="options-menu__divider"></div>
 	<div 
