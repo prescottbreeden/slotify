@@ -32,17 +32,9 @@ $artistsQuery = mysqli_query($con, "
 ");
 
 $albumQuery = mysqli_query($con, "
-	 SELECT album.album_id,
-			album.title_name, 
-			album.artwork_path,
-			artist.name,
-			g.name AS genre
-	   FROM albums as album 
-			JOIN artists as artist
-				ON album.artist_id = artist.artist_id		
-			JOIN genres as g
-				ON album.genre_id = g.genre_id
-			WHERE album.title_name LIKE '%$term%'"
+	 SELECT *
+	   FROM albums 
+			WHERE title_name LIKE '%$term%'"
 );
 
 ?>
@@ -83,7 +75,7 @@ $albumQuery = mysqli_query($con, "
 					array_push($song_array, $row['song_id']);
 
 					$song = new Song($con, $row['song_id']);
-					$songArtist = $song->getArtist();
+					$songArtist = $song->getArtistObject();
 					$playcount = $song->getPlayCount();
 					$formattedPlayCount = number_format($playcount);
 
@@ -195,9 +187,6 @@ $albumQuery = mysqli_query($con, "
 								<div class='album-select__container--item-details'>
 									<div class='album-select__container--item-title'>	
 										" . $row['title_name'] . "
-									</div>
-									<div class='album-select__container--item-artist'>	
-										" . $row['name'] . "
 									</div>
 								</div>
 							</span>

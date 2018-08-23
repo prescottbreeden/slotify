@@ -19,9 +19,8 @@ else {
 $album = new Album($con, $albumId);
 $user = new User($con, $userLoggedIn);
 $userId = $user->getId();
-$artist = $album->getArtist();
+$artist_array = $album->getArtistObjects();
 $artwork_path = $album->getArtworkPath();
-$artist_name = $artist->getName();
 $album_name =  $album->getTitle();
 $total_songs = $album->getNumberOfSongs();
 $total_length = $album->getTotalLength();
@@ -62,11 +61,17 @@ if(mysqli_num_rows($query) > 0) {
 			</div>
 			<div class='album__header--details-artist'>
 				<span class="album__header--details-artist-by">By</span>
-				<span 
-					onclick="openPage('artist.php?id=<?php echo $artist->getId(); ?>')"
-					class="album__header--details-artist-name">
-					<?php echo $artist_name; ?> 
-				</span>
+				<?php
+				foreach($artist_array as $artist) {
+					echo "
+						<span 
+							onclick='openPage(\"artist.php?id=" . $artist->getId() . "\")'
+							class='album__header--details-artist-name'>
+							" . $artist->getName() . "
+						</span>
+					";
+				}
+				?>
 			</div>
 			<div class='album__header--misc'>
 				<?php echo $year_released; ?> &bull;
@@ -120,7 +125,8 @@ if(mysqli_num_rows($query) > 0) {
 			$i = 1;
 			foreach($song_array as $song) {
 				$song = new Song($con, $song);
-				$songArtist = $song->getArtist();
+				$songArtist = $song->getArtistObject();
+				//artist object
 
 				echo "
 					<div class='tracks__list--item'>

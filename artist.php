@@ -71,7 +71,7 @@ $artist = new Artist($con, $artistId);
 					break;
 				}
 				$song = new Song($con, $song);
-				$songArtist = $song->getArtist();
+				$songArtist = $song->getArtistObject();
 				$playcount = $song->getPlayCount();
 				$formattedPlayCount = number_format($playcount);
 
@@ -143,11 +143,13 @@ $artist = new Artist($con, $artistId);
 	<div class="album-select__container">
 <?php
 $albumQuery = mysqli_query($con, "
-  SELECT album.album_id,
-		 album.title_name, 
-		 album.artwork_path
-	FROM albums as album 
-		 WHERE album.artist_id = '$artistId'");
+  SELECT al.album_id,
+		 al.title_name, 
+		 al.artwork_path
+	FROM albums as al 
+		JOIN album_artists AS aa
+			ON aa.album_id = al.album_id  
+		 WHERE aa.artist_id = '$artistId'");
 
 while($row = mysqli_fetch_array($albumQuery)) {
 

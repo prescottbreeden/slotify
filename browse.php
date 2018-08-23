@@ -23,18 +23,7 @@ else {
 	<div class="album-select__container">
 
 <?php
-$albumQuery = mysqli_query($con, "
-  SELECT album.album_id,
-		 album.title_name, 
-		 album.artwork_path,
-		 artist.name,
-		 g.name AS genre
-	FROM albums as album 
-		 JOIN artists as artist
-			ON album.artist_id = artist.artist_id		
-		 JOIN genres as g
-			ON album.genre_id = g.genre_id
-			ORDER BY RAND()");
+$albumQuery = mysqli_query($con, "SELECT * FROM albums");
 
 while($row = mysqli_fetch_array($albumQuery)) {
 
@@ -47,9 +36,6 @@ while($row = mysqli_fetch_array($albumQuery)) {
 					<div class='album-select__container--item-details'>
 						<div class='album-select__container--item-title'>	
 							" . $row['title_name'] . "
-						</div>
-						<div class='album-select__container--item-artist'>	
-							" . $row['name'] . "
 						</div>
 					</div>
 				</span>

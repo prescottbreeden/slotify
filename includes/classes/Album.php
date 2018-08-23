@@ -5,7 +5,6 @@ class Album {
 	private $con;
 	private $id;
 	private $title;
-	private $artist_id;
 	private $genre_id;
 	private $artwork_path;
 	private $year_released;
@@ -18,7 +17,6 @@ class Album {
 		$album = mysqli_fetch_array($query);
 
 		$this->title = $album['title_name'];
-		$this->artist_id = $album['artist_id'];
 		$this->genre_id = $album['genre_id'];
 		$this->artwork_path = $album['artwork_path'];
 		$this->year_released = $album['year_released'];
@@ -32,8 +30,19 @@ class Album {
 		return $this->year_released;
 	}
 
-	public function getArtist() {
-		return new Artist($this->con, $this->artist_id);
+	public function getArtistObjects() {
+		$query = mysqli_query($this->con, "
+			 SELECT art.artist_id 
+			   FROM album_artists AS aa 
+					JOIN artists AS art
+						ON aa.artist_id = art.artist_id 
+					WHERE aa.album_id='$this->id'
+		");
+		$result = array();
+		while($row = mysqli_fetch_array($query)) {
+			array_push($result, new Artist($this->con, $row['artist_id']));
+		}
+		return $result;
 	}
 	
 	public function getGenre() {

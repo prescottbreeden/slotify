@@ -7,9 +7,8 @@ class Song {
 	private $mysqliData;
 
 	private $title;
-	private $artist_id;
 	private $album_id;
-	private $genre_id;
+	private $artist_id;
 	private $duration;
 	private $playcount;
 	private $path;
@@ -23,7 +22,6 @@ class Song {
 					title_name,
 					artist_id,
 					album_id,
-					genre_id,
 					CASE
 						WHEN duration > 59 THEN TRIM(LEADING 0 FROM TIME_FORMAT(duration, '%i:%s')) 
 						ELSE TIME_FORMAT(duration, '0:%s')
@@ -36,9 +34,8 @@ class Song {
 
 		$this->mysqliData = mysqli_fetch_array($query);
 		$this->title = $this->mysqliData['title_name'];
-		$this->artist_id = $this->mysqliData['artist_id'];
 		$this->album_id = $this->mysqliData['album_id'];
-		$this->genre_id = $this->mysqliData['genre_id'];
+		$this->artist_id = $this->mysqliData['artist_id'];
 		$this->duration = $this->mysqliData['duration'];
 		$this->playcount = $this->mysqliData['play_count'];
 		$this->path = $this->mysqliData['song_path'];
@@ -52,9 +49,11 @@ class Song {
 		return $this->title;
 	}
 
-	public function getArtist() {
-		return new Artist($this->con, $this->artist_id);
+	public function getArtistObject() {
+		$result = new Artist($this->con, $this->artist_id);
+		return $result;
 	}
+
 	public function getArtistId() {
 		return $this->artist_id;
 	}

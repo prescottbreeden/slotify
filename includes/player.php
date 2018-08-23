@@ -10,13 +10,6 @@ while($row = mysqli_fetch_array($songQuery)) {
 }
 $jsonArray = json_encode($resultArray);
 
-/* $songQuery = mysqli_query($con, "SELECT song_id FROM songs ORDER BY RAND() LIMIT 10"); */
-/* $resultArray = array(); */
-/* while($row = mysqli_fetch_array($songQuery)) { */
-/* 	array_push($resultArray, $row['song_id']); */
-/* } */
-/* $jsonArray = json_encode($resultArray); */
-
 ?>
 <script>
 // ============================================= //
@@ -28,6 +21,7 @@ $(document).ready(function() {
 	var playing = false;
 	currentIndex = <?php echo $lp_album_order - 1; ?>;
 	newPlaylist = <?php echo $jsonArray; ?>;
+	console.log(newPlaylist);
 	setTrack(newPlaylist[currentIndex], newPlaylist, false);
 	updateVolumeProgressBar(audioElement.audio);
 
@@ -124,6 +118,8 @@ $(document).ready(function() {
 
 function setTrack(trackId, playlist, play) {
 
+	console.log(trackId);
+
 	if(playlist != currentPlaylist) {
 		currentPlaylist = playlist;
 
@@ -140,18 +136,18 @@ function setTrack(trackId, playlist, play) {
 		$('#now_playing_song').text(track.title_name);
 		$('#now_playing_song').attr('onclick', "openPage('album.php?id=" + track.album_id + "')");
 
-		// get artist
-		$.post("includes/handlers/ajax/getArtistJson.php", {artistId: track.artist_id}, function(data) {
-			var artist = JSON.parse(data);
-			$('#now_playing_artist').text(artist.name);
-			$('#now_playing_artist').attr('onclick', "openPage('artist.php?id=" + track.artist_id + "')");
-		});	
-		
 		// get album
 		$.post("includes/handlers/ajax/getAlbumJson.php", {albumId: track.album_id}, function(data) {
 			var album = JSON.parse(data);
 			$('#now_playing_artwork').attr('src', album.artwork_path);
 			$('#now_playing_artwork').attr('onclick', "openPage('album.php?id=" + track.album_id + "')");
+		});	
+
+		// get artist
+		$.post("includes/handlers/ajax/getArtistJson.php", {albumId: track.album_id}, function(data) {
+			var artist = JSON.parse(data);
+			$('#now_playing_artist').text(artist.name);
+			$('#now_playing_artist').attr('onclick', "openPage('artist.php?id=" + track.artist_id + "')");
 		});	
 
 		audioElement.setTrack(track);
