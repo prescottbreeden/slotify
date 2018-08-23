@@ -229,7 +229,7 @@ INSERT INTO songs
 			('Samus Entry',					3, 4, '7',		'metroid/02_samus_entry.mp3',			2),
 			('Brinstar (Rock Stage)',		3, 4, '146',	'metroid/03_brinstar.mp3',				3),
 			('Mini Boss Room I - Kraid',	3, 4, '140',	'metroid/04_mini_boss_room1.mp3',		4),
-			('Norfair (Flame Stage)',		3, 4, '120',	'metroid/05_norfair_flame_stage.mp3',	5),
+			('Norfair (Flame Stage)',		3, 4, '120',	'metroid/05_norfair.mp3',				5),
 			('Mini Boss Room II - Ridley',	3, 4, '101',	'metroid/06_mini_boss_room2.mp3',		6),
 			('Silence',						3, 4, '29',		'metroid/07_silence.mp3',				7),
 			('Item Acquisition Jingle',		3, 4, '6',		'metroid/08_item_jingle.mp3',			8),
@@ -240,7 +240,7 @@ INSERT INTO songs
 
 			('Title',						4, 5, '7',		'contra/01_title.mp3',					1),
 			('Introduction',				4, 5, '105',	'contra/02_introduction.mp3',			2),
-			('Area 1 / Area 7',				4, 5, '151',	'contra/03_jungle_hanger.mp3',			3),
+			('Areas 1 & 7',					4, 5, '151',	'contra/03_jungle_hanger.mp3',			3),
 			('Area Clear',					4, 5, '6',		'contra/04_area_clear.mp3',				4),
 			('Areas 2 & 4: Bases 1 & 2',	4, 5, '139',	'contra/05_areas_2_4_bases_1_2.mp3',	5),
 			('Boss',						4, 5, '120',	'contra/06_boss.mp3',					6),
