@@ -288,7 +288,7 @@ function saveSong() {
 			notification(response);
 		});
 	track_saved();
-
+	hideOptionsMenu();
 }
 
 function deleteCurrentlyPlaying() {

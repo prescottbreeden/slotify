@@ -261,6 +261,15 @@ html {
     .msg-box__icon:hover {
       color: #f7f7f7; }
 
+.facebook-icon {
+  fill: #08a0e9 !important; }
+
+.twitter-icon {
+  fill: #08a0e9 !important; }
+
+.linkedin-icon {
+  fill: #08a0e9 !important; }
+
 .playlists-menu {
   display: none;
   box-sizing: border-box;

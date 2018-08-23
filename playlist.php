@@ -190,23 +190,76 @@ $owner = new User($con, $playlist->getOwnerName());
 	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn); ?>
 </div>
 <div class="share-menu">
-	<div class="share-menu__item">
+	<div 
+		onclick="returnGooglePlusLink()"
+		class="share-menu__item">
 		<svg 
+			class="linkedin-icon"
 			aria-label="[title]"
 			<title>Share this song</title>
-			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+			<use href="public/images/icomoon/sprite.svg#icon-google-plus-circle"></use>
+		</svg>
+		Google+
+	</div>
+	<div 
+		onclick="returnPinterestLink()"
+		class="share-menu__item">
+		<svg 
+			class="linkedin-icon"
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-pinterest-p"></use>
+		</svg>
+		Tumblr
+	</div>
+	<div 
+		onclick="returnTumblrLink()"
+		class="share-menu__item">
+		<svg 
+			class="linkedin-icon"
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-tumblr-square"></use>
+		</svg>
+		Tumblr
+	</div>
+	<div 
+		onclick="returnFacebookLink()"
+		class="share-menu__item">
+		<svg 
+			class="facebook-icon"
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-facebook-square"></use>
 		</svg>
 		Facebook
 	</div>
-	<div class="share-menu__item">
+	<div 
+		onclick="returnTwitterLink()"
+		class="share-menu__item">
 		<svg 
+			class="twitter-icon"
 			aria-label="[title]"
 			<title>Share this song</title>
-			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+			<use href="public/images/icomoon/sprite.svg#icon-twitter-square"></use>
 		</svg>
 		Twitter
 	</div>
-	<div class="share-menu__item">
+	<div 
+		onclick="returnLinkedInLink()"
+		class="share-menu__item">
+		<svg 
+			class="linkedin-icon"
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-linkedin-square"></use>
+		</svg>
+		LinkedIn
+	</div>
+	<div class="options-menu__divider"></div>
+	<div 
+		onclick="returnWebsiteLink()"
+		class="share-menu__item">
 		<svg 
 			aria-label="[title]"
 			<title>Share this song</title>
@@ -214,24 +267,16 @@ $owner = new User($con, $playlist->getOwnerName());
 		</svg>
 		Copy Song Link
 	</div>
-	<div class="share-menu__item">
-		<div class="share-menu__item--empty"></div>
-		Copy Embed Code
-	</div>
-	<div class="share-menu__item">
-		<div class="share-menu__item--empty"></div>
-		Copy Slotify URI
-	</div>
 </div>
 <div class="options-menu">
-	<div class="menu-item">
-		Add to Queue
-	</div>
-	<div class="options-menu__divider"></div>
-	<div class="menu-item">
+	<div 
+		onClick="goToArtist()"
+		class="menu-item">
 		Go to Artist
 	</div>
-	<div class="menu-item">
+	<div 
+		onClick="goToAlbum()"
+		class="menu-item">
 		Go to Album
 	</div>
 	<div class="options-menu__divider"></div>

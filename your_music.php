@@ -246,12 +246,46 @@ $albumQuery = mysqli_query($con, "
 </div>
 <div class="share-menu">
 	<div 
+		onclick="returnGooglePlusLink()"
+		class="share-menu__item">
+		<svg 
+			class="linkedin-icon"
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-google-plus-circle"></use>
+		</svg>
+		Google+
+	</div>
+	<div 
+		onclick="returnPinterestLink()"
+		class="share-menu__item">
+		<svg 
+			class="linkedin-icon"
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-pinterest-p"></use>
+		</svg>
+		Tumblr
+	</div>
+	<div 
+		onclick="returnTumblrLink()"
+		class="share-menu__item">
+		<svg 
+			class="linkedin-icon"
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-tumblr-square"></use>
+		</svg>
+		Tumblr
+	</div>
+	<div 
 		onclick="returnFacebookLink()"
 		class="share-menu__item">
 		<svg 
+			class="facebook-icon"
 			aria-label="[title]"
 			<title>Share this song</title>
-			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+			<use href="public/images/icomoon/sprite.svg#icon-facebook-square"></use>
 		</svg>
 		Facebook
 	</div>
@@ -259,11 +293,23 @@ $albumQuery = mysqli_query($con, "
 		onclick="returnTwitterLink()"
 		class="share-menu__item">
 		<svg 
+			class="twitter-icon"
 			aria-label="[title]"
 			<title>Share this song</title>
-			<use href="public/images/icomoon/sprite.svg#icon-chain"></use>
+			<use href="public/images/icomoon/sprite.svg#icon-twitter-square"></use>
 		</svg>
 		Twitter
+	</div>
+	<div 
+		onclick="returnLinkedInLink()"
+		class="share-menu__item">
+		<svg 
+			class="linkedin-icon"
+			aria-label="[title]"
+			<title>Share this song</title>
+			<use href="public/images/icomoon/sprite.svg#icon-linkedin-square"></use>
+		</svg>
+		LinkedIn
 	</div>
 	<div class="options-menu__divider"></div>
 	<div 
@@ -278,12 +324,6 @@ $albumQuery = mysqli_query($con, "
 	</div>
 </div>
 <div class="options-menu">
-	<div 
-		onclick="addToQueue()"
-		class="menu-item">
-		Add to Queue
-	</div>
-	<div class="options-menu__divider"></div>
 	<div 
 		onclick="goToArtist()"	
 		class="menu-item">
