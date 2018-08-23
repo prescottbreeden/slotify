@@ -5,7 +5,7 @@ class Album {
 	private $con;
 	private $id;
 	private $title;
-	private $genre_id;
+	private $system_id;
 	private $artwork_path;
 	private $year_released;
 
@@ -17,7 +17,7 @@ class Album {
 		$album = mysqli_fetch_array($query);
 
 		$this->title = $album['title_name'];
-		$this->genre_id = $album['genre_id'];
+		$this->system_id = $album['system_id'];
 		$this->artwork_path = $album['artwork_path'];
 		$this->year_released = $album['year_released'];
 	}
@@ -45,8 +45,8 @@ class Album {
 		return $result;
 	}
 	
-	public function getGenre() {
-		return $this->genre_id;
+	public function getSystemId() {
+		return $this->system_id;
 	}
 
 	public function getArtworkPath() {

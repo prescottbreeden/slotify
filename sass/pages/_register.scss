@@ -9,6 +9,43 @@
 
 }
 
+.megaman {
+	background-image: linear-gradient(to bottom,
+									rgba($color-black, .7),
+									rgba($color-black, .7)),
+									url('../images/megaman1.jpg');
+}
+.zelda {
+	background-image: linear-gradient(to bottom,
+									rgba($color-black, .7),
+									rgba($color-black, .7)),
+									url('../images/master_sword.jpg');
+}
+.tetris {
+	background-image: linear-gradient(to bottom,
+									rgba($color-black, .7),
+									rgba($color-black, .7)),
+									url('../images/tetris.png');
+}
+.mario {
+	background-image: linear-gradient(to bottom,
+									rgba($color-black, .7),
+									rgba($color-black, .7)),
+									url('../images/mario.jpg');
+}
+.contra {
+	background-image: linear-gradient(to bottom,
+									rgba($color-black, .7),
+									rgba($color-black, .7)),
+									url('../images/contra.jpg');
+}
+.streetfighter {
+	background-image: linear-gradient(to bottom,
+									rgba($color-black, .7),
+									rgba($color-black, .7)),
+									url('../images/streetfighter.jpg');
+}
+
 .register {
 	cursor: default;
 	position: fixed;
@@ -17,10 +54,6 @@
 	left: 0;
 	bottom: 0;
 	z-index: 1001;
-	background-image: linear-gradient(to bottom,
-									rgba($color-black, .7),
-									rgba($color-black, .7)),
-									url('../images/megaman1.jpg');
 	background-position: center;
 	background-size: cover;
 

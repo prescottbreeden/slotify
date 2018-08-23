@@ -418,7 +418,7 @@ function Audio() {
 	// ------ AUDIO FUNCTIONS ------ //
 	this.setTrack = (track) => {
 		this.currentlyPlaying = track;
-		this.audio.src = track.song_path;
+		this.audio.src = 'public/music/' + track.song_path;
 	}
 
 	this.play = function() {
@@ -491,21 +491,53 @@ function drawTracks() {
 // ====================================== //
 //				EASTER EGGS				  //
 // ====================================== //
-let eggs = {
-	"zelda": ["Beware of hand in walls", "Always go for the Eye", "It's not a candle, it's a flamethrower"],
-	"streetfighter": "Hadoooouken!",
-	"megaman": "Always jump through doorways",
-	"contra": "&uarr; &uarr; &darr; &darr; &larr; &rarr; &larr; &rarr; B A [start]",
-	"mario": "Headbutting bricks since 1985",
-	"tetris": "Oh no, not another square..."
-}
+let currBg = 0;
+let eggs = [ 
 
+	{
+		background: "megaman",
+		tagline: "Always jump through doors"
+	},
+	{
+		background: "zelda",
+		tagline: "It's not a candle, it's a flamethrower"
+	},
+	{
+		background: "contra",
+		tagline: "\u2191 \u2191 \u2193 \u2193 \u2190 \u2192 \u2190 \u2192 [B] [A] [start]"
+	},
+	{
+		background: "mario",
+		tagline: "Heabutting bricks since 1985"
+	},
+	{
+		background: "streetfighter",
+		tagline: "Hadooooooouken!"
+	},
+	{
+		background: "tetris",
+		tagline: "Oh no, not another square..."
+	}
+];
+
+function changeBackground() {
+	for(let i = 0; i < eggs.length; i++) {
+		$('.register').removeClass(eggs[i].background);
+	}
+	$('.register').addClass(eggs[currBg].background);
+	$('.easter-egg--text').text(eggs[currBg].tagline);
+	currBg++;
+	if(currBg > eggs.length-1) {
+		currBg = 0;
+	}
+}
 // ====================================== //
 //			EVENT LISTENERS				  //
 // ====================================== //
 
 $(document).ready(function() {
 	console.log('power overwhelming...');
+	changeBackground();
 
 	// register.php behavior
 	$('#hideLogin').click(function() {

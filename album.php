@@ -43,7 +43,7 @@ if(mysqli_num_rows($query) > 0) {
 <section class='album'>
 	<div class='album__header'>
 		<div class='album__header--artwork'>
-			<img src="<?php echo $artwork_path; ?>" alt='album art'>
+			<img src="public/images/artwork/<?php echo $artwork_path; ?>" alt='album art'>
 			<div class="album__header--artwork-hover">
 				<svg 
 					onclick="playAlbum()";

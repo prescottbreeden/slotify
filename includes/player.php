@@ -139,7 +139,7 @@ function setTrack(trackId, playlist, play) {
 		// get album
 		$.post("includes/handlers/ajax/getAlbumJson.php", {albumId: track.album_id}, function(data) {
 			var album = JSON.parse(data);
-			$('#now_playing_artwork').attr('src', album.artwork_path);
+			$('#now_playing_artwork').attr('src', `public/images/artwork/${album.artwork_path}`);
 			$('#now_playing_artwork').attr('onclick', "openPage('album.php?id=" + track.album_id + "')");
 		});	
 

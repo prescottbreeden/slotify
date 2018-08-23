@@ -141,7 +141,7 @@ $albumQuery = mysqli_query($con, "
 				}
 				array_push($song_array, $row['song_id']);
 				$song = new Song($con, $row['song_id']);
-				$songArtist = $song->getArtist();
+				$songArtist = $song->getArtistObject();
 
 				echo "
 					<div class='tracks__list--item'>
@@ -220,7 +220,7 @@ $albumQuery = mysqli_query($con, "
 							role='link'
 							tabindex='0'
 							onclick='openPage(\"album.php?id=" . $row['album_id'] . "\")'>
-							<img src='" . $row['artwork_path'] . "'>	
+							<img src='public/images/artwork/" . $row['artwork_path'] . "'>	
 							<div class='album-select__container--item-details'>
 								<div class='album-select__container--item-title'>	
 									" . $row['title_name'] . "
