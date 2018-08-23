@@ -235,8 +235,10 @@ $owner = new User($con, $playlist->getOwnerName());
 		Go to Album
 	</div>
 	<div class="options-menu__divider"></div>
-	<div class="menu-item">
-		Save to Your Music
+	<div 
+		onClick="saveSong()"
+		class="menu-item">
+		Save Song
 	</div>
 	<div 
 		id="open_playlists_menu" 

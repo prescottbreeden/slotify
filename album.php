@@ -255,9 +255,9 @@ if(mysqli_num_rows($query) > 0) {
 	</div>
 	<div class="options-menu__divider"></div>
 	<div 
-		onClick="saveToLibrary()"
+		onClick="saveSong()"
 		class="menu-item">
-		Save to Your Music
+		Save Song
 	</div>
 	<div 
 		id="open_playlists_menu" 

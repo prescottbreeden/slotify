@@ -282,6 +282,15 @@ function saveCurrentlyPlaying() {
 	track_saved();
 }
 
+function saveSong() {
+	$.post("includes/handlers/ajax/addSongToSaved.php", { song: temp_songId, username: userLoggedIn })
+		.done(function(response) {
+			notification(response);
+		});
+	track_saved();
+
+}
+
 function deleteCurrentlyPlaying() {
 	let current_song_id = audioElement.currentlyPlaying.song_id;
 
