@@ -22,10 +22,7 @@ class Song {
 					title_name,
 					artist_id,
 					album_id,
-					CASE
-						WHEN duration > 59 THEN TRIM(LEADING 0 FROM TIME_FORMAT(duration, '%i:%s')) 
-						ELSE TIME_FORMAT(duration, '0:%s')
-					END AS duration,
+					SEC_TO_TIME(duration) AS duration,
 					song_path,
 					album_order,
 					play_count	

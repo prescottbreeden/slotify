@@ -41,7 +41,7 @@ if(mysqli_num_rows($query) > 0) {
 
 function formatTime($str) {
 	$formatted;
-	$duration = explode(" ", $str);
+	$duration = explode(":", $str);
 	$hours = $duration[0];
 	$minutes = $duration[1];
 	$hours = number_format($hours);
@@ -50,6 +50,21 @@ function formatTime($str) {
 		$formatted = $hours . 'hr ' . $minutes . 'min';
 	} else {
 		$formatted = $minutes . 'min';
+	}
+	return $formatted;
+}
+
+function formatDuration($str) {
+	$formatted;
+	$duration = explode(":", $str);
+	$hours = number_format($duration[0]);
+	$minutes = number_format($duration[1]);
+	$seconds = $duration[2];
+	if($hours > 0) {
+		$formatted = "$hours : $minutes : $seconds";
+	}
+	else {
+		$formatted = "$minutes:$seconds";
 	}
 	return $formatted;
 }
@@ -141,6 +156,8 @@ function formatTime($str) {
 			foreach($song_array as $song) {
 				$song = new Song($con, $song);
 				$songArtist = $song->getArtistObject();
+				$duration = $song->getDuration();
+				$duration = formatDuration($duration);
 				//artist object
 
 				echo "
@@ -184,7 +201,7 @@ function formatTime($str) {
 								<use href='public/images/icomoon/sprite.svg#icon-more-horizontal'></use>
 							</svg>
 						</div>
-						<div class='tracks__list--duration'>" . $song->getDuration() . "</div>
+						<div class='tracks__list--duration'>" . $duration . "</div>
 					</div>
 
 					";
