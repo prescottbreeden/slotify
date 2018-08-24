@@ -39,6 +39,21 @@ if(mysqli_num_rows($query) > 0) {
 	$album_saved = false;
 }
 
+function formatTime($str) {
+	$formatted;
+	$duration = explode(" ", $str);
+	$hours = $duration[0];
+	$minutes = $duration[1];
+	$hours = number_format($hours);
+	$minutes = number_format($minutes);
+	if($hours > 0) {
+		$formatted = $hours . 'hr ' . $minutes . 'min';
+	} else {
+		$formatted = $minutes . 'min';
+	}
+	return $formatted;
+}
+
 ?>
 <section class='album'>
 	<div class='album__header'>
@@ -76,7 +91,7 @@ if(mysqli_num_rows($query) > 0) {
 			<div class='album__header--misc'>
 				<?php echo $year_released; ?> &bull;
 				<?php echo $total_songs; ?> songs, 
-				<?php echo $total_length; ?> min 
+				<?php echo formatTime($total_length) ?>
 			</div>
 			<div class='album__btn'>
 				<div 
