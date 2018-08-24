@@ -345,6 +345,22 @@ INSERT INTO songs
 			('Chun Li\'s Ending 2',			6, 8, '45',		'sf2/29_chun_li_ending2.mp3',			29),
 			('Zangief\'s Ending',			6, 8, '35',		'sf2/30_zangief_ending.mp3',			30),
 			('Dhalsim\'s Ending',			6, 8, '33',		'sf2/31_dhalsim_ending.mp3',			31),
-			('Credits',						6, 8, '353',	'sf2/32_credits.mp3',					32)
+			('Credits',						6, 8, '353',	'sf2/32_credits.mp3',					32),
 
+			('Prelude',						5, 9, '253',	'ff7/01_prelude.mp3',					1),
+			('Opening ~ Bombing Mission',	5, 9, '357',	'ff7/02_opening_mission.mp3',			2),
+			('Mako Reactor',				5, 9, '320',	'ff7/03_mako_reactor.mp3',				3),
+			('Heart of Anxiety',			5, 9, '402',	'ff7/04_heart_anxiety.mp3',				4),
+			('Tifa\'s Theme',				5, 9, '506',	'ff7/05_tifa_theme.mp3',				5),
+			('Barret\'s Theme',				5, 9, '327',	'ff7/06_barret_theme.mp3',				6),
+			('Hurry!',						5, 9, '229',	'ff7/07_hurry.mp3',						7),
+			('Lurking in the Darkness',		5, 9, '230',	'ff7/08_lurking.mp3',					8),
+			('Shinra Company',				5, 9, '402',	'ff7/09_shinra_co.mp3',					9),
+			('Those who Fight',				5, 9, '248',	'ff7/10_fight.mp3',						10),
+			('Fanfare',						5, 9, '55',		'ff7/11_fanfare.mp3',					11),
+			('Flowers Blooming in the Church',5, 9, '500',	'ff7/12_flowers_church.mp3',			12),
+			('Turk\'s Theme',				5, 9, '219',	'ff7/13_turk_theme.mp3',				13),
+			('Under the Rotting Pizza',		5, 9, '324',	'ff7/14_rotting_pizza.mp3',				14),
+			('The Oppressed',				5, 9, '237',	'ff7/15_oppressed.mp3',					15),
+			('Honeybee Inn',				5, 9, '352',	'ff7/16_honeybee_inn.mp3',				16)
 			;
