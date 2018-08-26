@@ -100,15 +100,6 @@ else {
 							<span 
 								role="link"
 								tabindex="0"
-								onclick="openPage('radio.php')"
-								class="nav-bar__item--link">
-								Radio	
-							</span>
-						</div>
-						<div class="nav-bar__item">
-							<span 
-								role="link"
-								tabindex="0"
 								onclick="openPage('your_music.php')"
 								class="nav-bar__item--link">
 								Your Music	
