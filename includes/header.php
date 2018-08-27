@@ -115,14 +115,14 @@ else {
 							onclick="goBack()"
 							class="top-bar__nav-btn--btn">
 							<svg class="top-bar__icon">
-								<use href="public/images/icomoon/sprite.svg#icon-chevron-left"></use>
+								<use xlink:href="public/images/icomoon/sprite.svg#icon-chevron-left"></use>
 							</svg>	
 						</div>
 						<div 
 							onclick="goForward()"
 							class="top-bar__nav-btn--btn">
 							<svg class="top-bar__icon">
-								<use href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
+								<use xlink:href="public/images/icomoon/sprite.svg#icon-chevron-right"></use>
 							</svg>	
 						</div>
 					</div>
@@ -134,7 +134,7 @@ else {
 							value="<?php echo $term; ?>">
 						<button class="search__button">
 							<svg class="search__icon">
-								<use href="public/images/icomoon/sprite.svg#icon-search"></use>
+								<use xlink:href="public/images/icomoon/sprite.svg#icon-search"></use>
 							</svg>	
 						</button>
 					</div>
@@ -153,7 +153,7 @@ else {
 					<svg 
 						onclick="showUserMenu()"
 						id="user-menu" class="top-bar__menu">
-						<use href="public/images/icomoon/sprite.svg#icon-chevron-down"></use>
+						<use xlink:href="public/images/icomoon/sprite.svg#icon-chevron-down"></use>
 					</svg>
 					<div 
 						onclick="openPage('profile.php')"

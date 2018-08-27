@@ -314,20 +314,20 @@ function shuffle_list(a) {
 									aria-label="[title]"
 									class="player__album__info--track-icon not-saved">
 									<title>Add to Your Music</title>
-									<use href="public/images/icomoon/sprite.svg#icon-plus"></use>
+									<use xlink:href="public/images/icomoon/sprite.svg#icon-plus"></use>
 								</svg>
 								<svg 
 									aria-label="[title]"
 									class="player__album__info--track-icon saved">
 									<title>Remove from Your Music</title>
-									<use href="public/images/icomoon/sprite.svg#icon-check"></use>
+									<use xlink:href="public/images/icomoon/sprite.svg#icon-check"></use>
 								</svg>
 								<svg 
 									onclick="deleteCurrentlyPlaying()"
 									aria-label="[title]"
 									class="player__album__info--track-icon delete">
 									<title>Remove from Your Music</title>
-									<use href="public/images/icomoon/sprite.svg#icon-x"></use>
+									<use xlink:href="public/images/icomoon/sprite.svg#icon-x"></use>
 								</svg>
 							</span>
 							<span 
@@ -345,42 +345,42 @@ function shuffle_list(a) {
 							onclick="setShuffle()"
 							class="controls__shuffle">
 							<title>Shuffle</title>
-							<use href="public/images/icomoon/sprite.svg#icon-random"></use>
+							<use xlink:href="public/images/icomoon/sprite.svg#icon-random"></use>
 						</svg>
 						<svg 
 							aria-label="[title]"
 							onclick="prevSong()"
 							class="controls__back">
 							<title>Previous</title>
-							<use href="public/images/icomoon/sprite.svg#icon-step-backward"></use>
+							<use xlink:href="public/images/icomoon/sprite.svg#icon-step-backward"></use>
 						</svg>
 						<svg 
 							aria-label="[title]"
 							onclick="playSong()"
 							class="controls__play play">
 							<title>Play</title>
-							<use href="public/images/icomoon/sprite.svg#icon-play2"></use>
+							<use xlink:href="public/images/icomoon/sprite.svg#icon-play2"></use>
 						</svg>
 						<svg 
 							aria-label="[title]"
 							onclick="pauseSong()"
 							class="controls__pause pause">
 							<title>Pause</title>
-							<use href="public/images/icomoon/sprite.svg#icon-pause2"></use>
+							<use xlink:href="public/images/icomoon/sprite.svg#icon-pause2"></use>
 						</svg>
 						<svg 
 							aria-label="[title]"
 							onclick="nextSong()"
 							class="controls__fwd">
 							<title>Next</title>
-							<use href="public/images/icomoon/sprite.svg#icon-step-forward"></use>
+							<use xlink:href="public/images/icomoon/sprite.svg#icon-step-forward"></use>
 						</svg>
 						<svg 
 							aria-label="[title]"
 							onclick="setRepeat()"
 							class="controls__repeat">
 							<title>Loop</title>
-							<use href="public/images/icomoon/sprite.svg#icon-repeat"></use>
+							<use xlink:href="public/images/icomoon/sprite.svg#icon-repeat"></use>
 						</svg>
 					</div>
 					<div class="player__play-bar--progress-bar">
@@ -405,7 +405,7 @@ function shuffle_list(a) {
 								<title>Toggle Mute</title>
 								<use 
 									id="volume_icon"
-									href="public/images/icomoon/sprite.svg#icon-volume-medium"></use>
+									xlink:href="public/images/icomoon/sprite.svg#icon-volume-medium"></use>
 							</svg>
 							<div class="progress-bar">
 								<div class="progress-bar__bg">
