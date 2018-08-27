@@ -222,5 +222,10 @@ else {
 			</div>
 		</div>
 	</section>
+<section id="no_mobile" class="no-mobile">
+	<div class="no-mobile__message">
+		<h2>Sorry, Slotify doesn't support mobile devices.</h2>
+	</div>
+</section>
 </body>
 </html>

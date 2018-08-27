@@ -1,3 +1,23 @@
+.no-mobile {
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(#333, .8);
+	z-index: 2000;
+	display: none;
+
+	&__message {
+		padding: 3rem 5rem;
+		margin: 0 auto;
+		background-color: #333;
+		text-align: center;
+		font-size: 2rem;
+	}
+}
 .easter-egg {
 	cursor: pointer;
 	transition: all .5s;
