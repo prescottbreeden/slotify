@@ -6,10 +6,10 @@
 	"scripts": {
 		"watch:sass": "node-sass sass/main.scss public/css/styles.css -w",
 		"compile:sass": "node-sass sass/main.scss public/css/styles.comp.css",
-		"prefix:css": "postcss --use autoprefixer -b 'last 10 versions' public/css/styles.comp.css -o public/css/style.prefix.css",
+		"prefix:css": "postcss --use autoprefixer -b 'last 10 versions' public/css/styles.comp.css -o public/css/styles.prefix.css",
 		"compress:css": "node-sass public/css/styles.prefix.css public/css/styles.css --output-style compressed",
 		"build:css": "npm-run-all compile:sass prefix:css compress:css",
-		"compress:js": "node-minify --compressor 'gcc' --input 'public/js/app.js --output 'public/js/app.min.js'"
+		"compress:js": "node-minify --compressor 'gcc' --input 'public/js/app.js' --output 'public/js/app.min.js'"
 	},
 	"repository": {
 		"type": "git",
@@ -29,5 +29,8 @@
 		"node-sass": "^4.9.2",
 		"npm-run-all": "^4.1.3",
 		"postcss-cli": "^6.0.0"
+	},
+	"dependencies": {
+		"autoprefixer": "^9.1.5"
 	}
 }

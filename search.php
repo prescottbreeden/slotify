@@ -227,7 +227,7 @@ $albumQuery = mysqli_query($con, "
 			<title>Share this song</title>
 			<use href="public/images/icomoon/sprite.svg#icon-pinterest-p"></use>
 		</svg>
-		Tumblr
+		Pinterest
 	</div>
 	<div 
 		onclick="returnTumblrLink()"

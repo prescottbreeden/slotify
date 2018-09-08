@@ -201,7 +201,7 @@ while($row = mysqli_fetch_array($albumQuery)) {
 			<title>Share this song</title>
 			<use href="public/images/icomoon/sprite.svg#icon-pinterest-p"></use>
 		</svg>
-		Tumblr
+		Pinterest
 	</div>
 	<div 
 		onclick="returnTumblrLink()"
