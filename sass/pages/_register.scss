@@ -87,7 +87,7 @@
 		//line-height: 1em;
 		width: 90%;
 		margin: 0 auto;
-		margin-top: 10rem;
+		margin-top: 15rem;
 		max-width: 120rem;
 		position: absolute;
 		top: 25%;
@@ -95,6 +95,8 @@
 		transform: translate(-50%, -50%);
 		display: flex;
 		justify-content: space-around;
+    align-content: center;
+    align-items: center;
 	}
 
 	&__login {
@@ -132,6 +134,27 @@
 				cursor: pointer;
 				background-color: $color-green;
 			}
+
+      &-guest {
+        background-color: rgba($color-black, .5);
+        border: 1px solid $color-black;
+        // border-radius: 200px;
+        color: $color-white;
+        display: block;
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        // margin: 20px auto;
+        height: 4rem;
+        width: 100%;
+        text-transform: uppercase;
+        transition: all .3s;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $color-green;
+        }
+
+      }
 		}
 
 		&--has-account-text {
@@ -186,7 +209,8 @@
 
 	&__promo-text {
 		padding: 4.5rem;
-		display: table-cell;
+		// display: table-cell;
+    // vertical-align: center;
 
 		&--heading {
 			color: $color-green;

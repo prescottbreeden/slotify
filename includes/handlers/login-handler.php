@@ -14,4 +14,12 @@ if(isset($_POST['loginButton'])) {
 	}
 }
 
+if(isset($_POST['guest-loginButton'])) {
+	/* echo "login button was pressed"; */
+	$username = "Guest";
+	$password = "123456789";
+  $_SESSION['userLoggedIn'] = $username;
+  header("Location: index.php");
+}
+
 ?>

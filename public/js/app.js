@@ -505,7 +505,7 @@ let eggs = [
 
 	{
 		background: "megaman",
-		tagline: "Always jump through doors"
+		tagline: "Always jump through doors into boss rooms"
 	},
 	{
 		background: "zelda",
