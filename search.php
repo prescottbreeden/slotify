@@ -61,7 +61,7 @@ $albumQuery = mysqli_query($con, "
 							<div class='tracks__list--artist-header'>artist</div>
 							<div class='tracks__list--artist-header'>album</div>
 							<div class='tracks__list--more'></div>
-							<div class='tracks__list--duration'></div>
+							<div class='tracks__list--duration-header'>count</div>
 
 						</div>
 					";
