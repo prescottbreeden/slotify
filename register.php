@@ -53,6 +53,14 @@ else {
 
 ?>
 	<section class="register" id="background">
+    <form action="register.php" method="POST">
+        <button 
+          id="guest_login"
+          class="register__login--btn-guest"
+          name=guest-loginButton>
+            Login As Guest 
+        </button>
+    </form>
 		<div class="register__container" id="register_container">
 			<div class="register__login" id="input_container">
 
@@ -186,7 +194,6 @@ else {
 						name=registerButton>
 							Sign Up
 					</button>
-
 					<div class="register__login--has-account-text">
 						<span id="hideRegister">Already have an account? Log in here.</span>
 					</div>
@@ -200,7 +207,7 @@ else {
 						<svg class="register__promo-text--icon">
 							<use xlink:href="public/images/icomoon/sprite.svg#icon-checkmark"></use>
 						</svg>
-						Remember the classics you fell in love with
+				    Get your nerd on
 					</li>
 					<li class="register__promo-text--item">
 						<svg class="register__promo-text--icon">
@@ -215,7 +222,7 @@ else {
 						<span 
 							onclick="changeBackground()"
 							class="easter-egg--text">
-							Always jump through doorways
+              Easter egg text here
 						</span>
 					</li>
 				</ul>
